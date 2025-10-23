@@ -8,7 +8,8 @@
       "Bash(git branch:*)",
       "Bash(git remote add:*)",
       "Bash(git push:*)",
-      "Bash(git fsck:*)"
+      "Bash(git fsck:*)",
+      "SlashCommand(/BMad:agents:ux-expert)"
     ],
     "deny": [],
     "ask": []
