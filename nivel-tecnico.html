@@ -14,37 +14,281 @@
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center space-x-2">
                     <span class="text-2xl font-bold text-blue-600">FEP</span>
+                    <span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
                 </a>
-                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar</a>
+                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar ao Início</a>
             </div>
         </div>
     </nav>
+
     <main class="container mx-auto px-4 py-12">
+        <div class="breadcrumb mb-8">
+            <a href="index.html">Início</a>
+            <span class="breadcrumb-separator">/</span>
+            <span>Nível Técnico</span>
+        </div>
+
         <div class="max-w-5xl mx-auto">
             <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-8 text-white mb-12">
                 <div class="text-6xl mb-4">⚡</div>
                 <h1 class="text-4xl font-bold mb-4">Nível Técnico</h1>
-                <p class="text-xl mb-4">35-45 horas</p>
-                <p class="text-lg">Aplicações práticas para profissionais. Domine técnicas avançadas e RAG.</p>
+                <p class="text-xl text-blue-100 mb-4">35-45 horas de conteúdo</p>
+                <p class="text-lg">Aplicações práticas para profissionais. Domine técnicas avançadas, RAG e contexto.</p>
             </div>
+
             <div class="grid gap-8 mb-12">
-                <div class="module-card bg-white rounded-lg shadow-md p-6 border-2 border-blue-200">
-                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Módulo 3</span>
-                    <h3 class="text-2xl font-bold mt-4 mb-3">Curso Técnico Completo</h3>
-                    <p class="text-gray-600 mb-4">35-45 horas de conteúdo prático e profissional</p>
-                    <div class="flex gap-3 mt-4">
-                        <a href="docs/md/⚡ Curso Técnico_ Aplicações Práticas de Engenharia de Prompt.md" class="flex-1 px-4 py-2 border-2 border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 text-center font-semibold">📖 Markdown</a>
-                        <a href="docs/pdf/⚡_Curso_Técnico_Aplicações_Práticas_de_Engenharia_de_Prompt.pdf" class="flex-1 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-center font-semibold">📄 PDF</a>
+                <!-- Módulo 3 -->
+                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-blue-200" data-module-id="modulo-3">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 3</span>
+                        <span class="text-gray-500 text-sm">8-10 horas</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Técnicas Intermediárias</h3>
+                    <p class="text-gray-600 mb-4">Decomposição de tarefas, chaining e técnicas de formatação avançada.</p>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
+                            <button class="expand-topics text-blue-500 text-sm hover:text-blue-700" data-target="topics-3">
+                                Ver todos os tópicos (6) ▼
+                            </button>
+                        </div>
+                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-3">
+                            <li class="topic-item" data-topic="decomposicao">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">📋</span> Decomposição de Tarefas
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Quebrar problemas complexos em subtarefas menores e mais gerenciáveis.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora a precisão e permite que o LLM processe cada parte com foco total.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Em vez de "Crie um relatório completo", use: "1. Liste os dados, 2. Analise tendências, 3. Crie conclusões".</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="chaining">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">🔗</span> Prompt Chaining
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Conectar múltiplos prompts em sequência, usando a saída de um como entrada do próximo.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Permite fluxos de trabalho complexos e processamento em etapas.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Prompt 1: Extrair dados → Prompt 2: Analisar → Prompt 3: Gerar relatório.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="negative">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">🚫</span> Instruções Negativas
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Especificar explicitamente o que NÃO fazer.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Evita comportamentos indesejados e direciona melhor a resposta.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "NÃO use jargão técnico" ou "NÃO invente dados".</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="parameters">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">🎚️</span> Ajuste de Parâmetros
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Controlar temperatura, top-p e outros parâmetros do modelo.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Fine-tune entre criatividade e precisão conforme necessário.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Temperature 0.2 para respostas factuais, 0.9 para criatividade.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="prefilling">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">✍️</span> Output Prefilling
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Começar a resposta do modelo com texto pré-definido.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Controla formato e direciona o tom da resposta.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Assistant: "Aqui está uma análise detalhada..." (continua).</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="formatting">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">📝</span> Formatação Avançada
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Estruturar prompts com delimitadores, seções e hierarquia clara.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora compreensão e separação de instruções vs. dados.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Usar XML tags, Markdown, ou delimitadores como ### ou ---.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="docs/md/⚡ Curso Técnico_ Aplicações Práticas de Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-50">
+                            📖 Ver Markdown
+                        </a>
+                        <a href="docs/pdf/⚡_Curso_Técnico_Aplicações_Práticas_de_Engenharia_de_Prompt.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
+                            📄 Baixar PDF
+                        </a>
                     </div>
                 </div>
-                <div class="bg-purple-50 rounded-lg p-8 text-center border-2 border-purple-200">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Próximo: Masterclass</h3>
-                    <p class="text-gray-700 mb-6">Domine agentes autônomos e sistemas complexos</p>
-                    <a href="nivel-masterclass.html" class="inline-block bg-purple-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-600">Ir para Masterclass 👑</a>
+
+                <!-- Módulo 4 -->
+                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-blue-200" data-module-id="modulo-4">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 4</span>
+                        <span class="text-gray-500 text-sm">10-12 horas</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Técnicas Avançadas</h3>
+                    <p class="text-gray-600 mb-4">Structured outputs, long context, multimodal e otimizações específicas.</p>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
+                            <button class="expand-topics text-blue-500 text-sm hover:text-blue-700" data-target="topics-4">
+                                Ver todos os tópicos (5) ▼
+                            </button>
+                        </div>
+                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-4">
+                            <li class="topic-item" data-topic="structured">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">🗂️</span> Structured Outputs (JSON/XML)
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Forçar o modelo a retornar dados em formatos estruturados como JSON ou XML.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Facilita parsing e integração com sistemas.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Retorne no formato: {'nome': 'João', 'idade': 30}".</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="longcontext">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">📚</span> Long Context Management
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Técnicas para trabalhar com janelas de contexto grandes (100k+ tokens).</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Processar documentos longos sem perder informação.</p>
+                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> Chunking, summarization, indexing estratégico.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="multimodal">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">🖼️</span> Multimodal Prompting
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Prompts que combinam texto com imagens, áudio ou vídeo.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Análise de imagens, OCR, descrições visuais.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Analise esta imagem e descreva os elementos principais".</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="optimization">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">⚙️</span> Model-Specific Optimization
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Adaptar prompts para características específicas de cada modelo (Claude, GPT, Gemini).</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Maximizar performance de cada modelo.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Claude prefere XML, GPT funciona bem com JSON.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="testing">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">🧪</span> Prompt Testing & A/B
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Testar sistematicamente variações de prompts e comparar resultados.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Encontrar a melhor versão baseada em dados.</p>
+                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> A/B testing, métricas de qualidade, validação automatizada.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="docs/md/⚡ Curso Técnico_ Aplicações Práticas de Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-50">
+                            📖 Ver Markdown
+                        </a>
+                        <a href="docs/pdf/⚡_Curso_Técnico_Aplicações_Práticas_de_Engenharia_de_Prompt.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
+                            📄 Baixar PDF
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Módulo 5 -->
+                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-blue-200" data-module-id="modulo-5">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 5</span>
+                        <span class="text-gray-500 text-sm">8-10 horas</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Engenharia de Contexto e RAG</h3>
+                    <p class="text-gray-600 mb-4">Context optimization, RAG, vector databases e memory hierarchies.</p>
+
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-700 mb-3">Tópicos:</h4>
+                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-5">
+                            <li class="topic-item" data-topic="context-arch">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">🏗️</span> Arquitetura de Contexto
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Estruturar e organizar informações dentro da janela de contexto.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Maximizar uso eficiente do contexto disponível.</p>
+                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> Priorização, chunking semântico, context stuffing.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="rag">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">🔍</span> RAG (Retrieval-Augmented Generation)
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Combinar LLMs com busca em bases de conhecimento externas.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Respostas baseadas em dados específicos e atualizados.</p>
+                                    <p class="text-sm mt-2"><strong>Componentes:</strong> Embedding, Vector DB, Retrieval, Generation.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="vectordb">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">💾</span> Vector Databases
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Bancos de dados otimizados para busca por similaridade semântica.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Recuperação eficiente de informações relevantes.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplos:</strong> Pinecone, Weaviate, ChromaDB, Qdrant.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="embeddings">
+                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
+                                    <span class="mr-2">🧬</span> Embeddings e Similarity
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Representações vetoriais de texto para busca semântica.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Encontrar documentos similares baseado em significado.</p>
+                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> Cosine similarity, dense retrieval, reranking.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="docs/md/⚡ Curso Técnico_ Aplicações Práticas de Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-50">
+                            📖 Ver Markdown
+                        </a>
+                        <a href="docs/pdf/⚡_Curso_Técnico_Aplicações_Práticas_de_Engenharia_de_Prompt.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
+                            📄 Baixar PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-purple-50 rounded-lg p-8 text-center border-2 border-purple-200">
+                <h3 class="text-2xl font-bold mb-4 text-gray-900">Pronto para o próximo desafio?</h3>
+                <p class="text-gray-700 mb-6">Continue sua jornada com o Nível Masterclass e domine agentes autônomos e sistemas complexos.</p>
+                <a href="nivel-masterclass.html" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-lg">
+                    Ir para Nível Masterclass 👑
+                </a>
             </div>
         </div>
     </main>
+
+    <footer class="bg-gray-900 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 FEP - Engenharia de Prompt</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
