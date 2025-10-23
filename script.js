@@ -251,3 +251,56 @@ document.querySelectorAll('.level-card a').forEach(link => {
 });
 
 console.log('🎓 FEP - Engenharia de Prompt | Site carregado com sucesso!');
+
+// ===== TOPIC EXPANSION & EXPLANATION TOGGLES =====
+
+// Toggle topic explanations
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.topic-button')) {
+        const button = e.target.closest('.topic-button');
+        const topicItem = button.closest('.topic-item');
+        const explanation = topicItem.querySelector('.topic-explanation');
+        
+        if (explanation) {
+            explanation.classList.toggle('hidden');
+            
+            // Close other open explanations in the same module
+            const moduleCard = topicItem.closest('.module-card');
+            if (moduleCard) {
+                moduleCard.querySelectorAll('.topic-explanation').forEach(exp => {
+                    if (exp !== explanation) {
+                        exp.classList.add('hidden');
+                    }
+                });
+            }
+        }
+    }
+});
+
+// Expand/Collapse extra topics
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.expand-topics')) {
+        const button = e.target.closest('.expand-topics');
+        const targetId = button.dataset.target;
+        const topicsList = document.getElementById(targetId);
+        
+        if (topicsList) {
+            const extraTopics = topicsList.querySelectorAll('.extra-topic');
+            const isExpanded = !extraTopics[0]?.classList.contains('hidden');
+            
+            extraTopics.forEach(topic => {
+                topic.classList.toggle('hidden');
+            });
+            
+            // Update button text
+            const topicCount = topicsList.querySelectorAll('.topic-item').length;
+            if (isExpanded) {
+                button.innerHTML = `Ver todos os tópicos (${topicCount}) ▼`;
+            } else {
+                button.innerHTML = `Ocultar tópicos ▲`;
+            }
+        }
+    }
+});
+
+console.log('🎯 FEP - Topic expansion loaded!');
