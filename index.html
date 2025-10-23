@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FEP - Curso completo e gratuito de Engenharia de Prompt. Do zero ao especialista em 97-120 horas de conteúdo estruturado.">
+    <title>FEP - Engenharia de Prompt | Do Zero ao Especialista</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-['Inter'] bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold text-blue-600">FEP</span>
+                    <span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Início</a>
+
+                    <!-- Dropdown -->
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center">
+                            Cursos
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 py-2 w-48">
+                            <a href="nivel-iniciante.html" class="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600">🌟 Iniciante</a>
+                            <a href="nivel-tecnico.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">⚡ Técnico</a>
+                            <a href="nivel-masterclass.html" class="block px-4 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600">👑 Masterclass</a>
+                        </div>
+                    </div>
+
+                    <a href="exercicios.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Exercícios</a>
+                    <a href="https://github.com/inematds/FEP" target="_blank" class="text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center">
+                        <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-2">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Início</a>
+                <a href="nivel-iniciante.html" class="block py-2 text-gray-700 hover:text-emerald-600">🌟 Iniciante</a>
+                <a href="nivel-tecnico.html" class="block py-2 text-gray-700 hover:text-blue-600">⚡ Técnico</a>
+                <a href="nivel-masterclass.html" class="block py-2 text-gray-700 hover:text-purple-600">👑 Masterclass</a>
+                <a href="exercicios.html" class="block py-2 text-gray-700 hover:text-blue-600">Exercícios</a>
+                <a href="https://github.com/inematds/FEP" target="_blank" class="block py-2 text-gray-700 hover:text-blue-600">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+                Domine a Engenharia de Prompt:<br>Do Zero ao Especialista
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100">
+                97-120 horas de conteúdo estruturado em 3 níveis progressivos
+            </p>
+            <a href="#niveis" class="inline-block bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-blue-50 transition-all transform hover:scale-105">
+                Começar Agora →
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="animate-on-scroll">
+                    <div class="text-4xl mb-2">📚</div>
+                    <div class="text-2xl font-bold text-gray-900">8 Módulos</div>
+                    <div class="text-gray-600">Completos</div>
+                </div>
+                <div class="animate-on-scroll">
+                    <div class="text-4xl mb-2">🎯</div>
+                    <div class="text-2xl font-bold text-gray-900">Exercícios</div>
+                    <div class="text-gray-600">Práticos</div>
+                </div>
+                <div class="animate-on-scroll">
+                    <div class="text-4xl mb-2">🎓</div>
+                    <div class="text-2xl font-bold text-gray-900">Certificados</div>
+                    <div class="text-gray-600">de Conclusão</div>
+                </div>
+                <div class="animate-on-scroll">
+                    <div class="text-4xl mb-2">🆓</div>
+                    <div class="text-2xl font-bold text-gray-900">100% Gratuito</div>
+                    <div class="text-gray-600">e Open Source</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Level Cards Section -->
+    <section id="niveis" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">Escolha Seu Nível</h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">Encontre o ponto de partida perfeito para sua jornada</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Iniciante Card -->
+                <div class="level-card bg-gradient-to-br from-emerald-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-emerald-200 hover:border-emerald-400 animate-on-scroll transform hover:-translate-y-2">
+                    <div class="text-6xl mb-4">🌟</div>
+                    <h3 class="text-3xl font-bold mb-3 text-gray-900">Nível Iniciante</h3>
+                    <div class="inline-block bg-emerald-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                        12-15 horas
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Seus primeiros passos na Engenharia de Prompt. Aprenda os fundamentos de LLMs e técnicas básicas sem necessidade de conhecimento prévio.
+                    </p>
+                    <div class="mb-6">
+                        <p class="text-sm font-semibold text-gray-600 mb-2">2 módulos incluídos:</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>✓ Fundamentos de LLMs</li>
+                            <li>✓ Anatomia de Prompts</li>
+                            <li>✓ Zero-Shot e Few-Shot</li>
+                            <li>✓ Chain of Thought</li>
+                        </ul>
+                    </div>
+                    <a href="nivel-iniciante.html" class="block w-full text-center bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                        Começar Nível Iniciante →
+                    </a>
+                </div>
+
+                <!-- Técnico Card -->
+                <div class="level-card bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-blue-200 hover:border-blue-400 animate-on-scroll transform hover:-translate-y-2">
+                    <div class="text-6xl mb-4">⚡</div>
+                    <h3 class="text-3xl font-bold mb-3 text-gray-900">Nível Técnico</h3>
+                    <div class="inline-block bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                        35-45 horas
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Aplicações práticas para profissionais. Domine técnicas avançadas, RAG, contexto e prepare-se para implementações reais.
+                    </p>
+                    <div class="mb-6">
+                        <p class="text-sm font-semibold text-gray-600 mb-2">3 módulos incluídos:</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>✓ Técnicas Avançadas</li>
+                            <li>✓ Engenharia de Contexto</li>
+                            <li>✓ RAG e Embeddings</li>
+                            <li>✓ Multimodal Prompting</li>
+                        </ul>
+                    </div>
+                    <a href="nivel-tecnico.html" class="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                        Começar Nível Técnico →
+                    </a>
+                </div>
+
+                <!-- Masterclass Card -->
+                <div class="level-card bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-purple-200 hover:border-purple-400 animate-on-scroll transform hover:-translate-y-2">
+                    <div class="text-6xl mb-4">👑</div>
+                    <h3 class="text-3xl font-bold mb-3 text-gray-900">Nível Masterclass</h3>
+                    <div class="inline-block bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                        50-60 horas
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Torne-se um expert em Agentes de IA. Sistemas complexos, agentes autônomos, extended thinking e o futuro da IA.
+                    </p>
+                    <div class="mb-6">
+                        <p class="text-sm font-semibold text-gray-600 mb-2">3 módulos incluídos:</p>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>✓ Agentes Autônomos</li>
+                            <li>✓ MCP e Claude Skills</li>
+                            <li>✓ Sistemas Multi-Agente</li>
+                            <li>✓ IA Ética e Segurança</li>
+                        </ul>
+                    </div>
+                    <a href="nivel-masterclass.html" class="block w-full text-center bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                        Começar Nível Masterclass →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6 text-gray-900">Sobre o Curso FEP</h2>
+                <p class="text-lg text-gray-700 mb-8">
+                    O <strong>FEP - Fundamentos e Engenharia de Prompt</strong> é um curso completo e gratuito que te leva do básico ao avançado em Engenharia de Prompt.
+                    Com 8 módulos estruturados em 3 níveis progressivos, você aprenderá tudo sobre LLMs, técnicas de prompting, RAG, agentes autônomos e muito mais.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <div class="text-3xl mb-3">🎯</div>
+                        <h3 class="font-bold text-gray-900 mb-2">Progressão Clara</h3>
+                        <p class="text-gray-600 text-sm">Do zero absoluto até sistemas avançados de agentes</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <div class="text-3xl mb-3">💼</div>
+                        <h3 class="font-bold text-gray-900 mb-2">Aplicação Prática</h3>
+                        <p class="text-gray-600 text-sm">Exercícios reais e projetos para o mercado de trabalho</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <div class="text-3xl mb-3">🚀</div>
+                        <h3 class="font-bold text-gray-900 mb-2">Conteúdo Atualizado</h3>
+                        <p class="text-gray-600 text-sm">Técnicas mais recentes e frameworks modernos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">FEP</h3>
+                    <p class="text-gray-400">Engenharia de Prompt do Zero ao Especialista</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="nivel-iniciante.html" class="hover:text-white">🌟 Iniciante</a></li>
+                        <li><a href="nivel-tecnico.html" class="hover:text-white">⚡ Técnico</a></li>
+                        <li><a href="nivel-masterclass.html" class="hover:text-white">👑 Masterclass</a></li>
+                        <li><a href="exercicios.html" class="hover:text-white">Exercícios</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Comunidade</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://github.com/inematds/FEP" target="_blank" class="hover:text-white">GitHub</a></li>
+                        <li><a href="mailto:inematds@gmail.com" class="hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 FEP - Engenharia de Prompt. Open Source - MIT License</p>
+                <p class="mt-2 text-sm">Desenvolvido por Manus | Feito com ❤️ para a comunidade de IA em Português</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
