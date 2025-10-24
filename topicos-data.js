@@ -11,6 +11,9 @@ const topicosData = {
         icon: '🤖',
         introducao: `Large Language Models (LLMs) são modelos de inteligência artificial treinados em enormes quantidades de texto para entender e gerar linguagem natural. Compreender o que são e como funcionam é fundamental para usar prompts de forma eficaz.`,
 
+        // Conteúdo completo em arquivo externo (abordagem híbrida)
+        conteudoArquivo: 'conteudo/modulo1-llm-basics.md',
+
         conteudoCompleto: `
 ## O que é um LLM?
 
@@ -119,6 +122,9 @@ O LLM NÃO faz:
         modulo: 1,
         icon: '🔤',
         introducao: `Tokens são as unidades básicas que LLMs processam - não são palavras, mas pedaços de texto. Entender tokens é essencial para saber os limites do que você pode fazer com um LLM.`,
+
+        // Conteúdo completo em arquivo externo (abordagem híbrida)
+        conteudoArquivo: 'conteudo/modulo1-tokens.md',
 
         conteudoCompleto: `
 ## O que são Tokens?
@@ -241,6 +247,9 @@ Soluções:
         modulo: 1,
         icon: '📝',
         introducao: `Um prompt bem estruturado tem componentes específicos que trabalham juntos. Entender a anatomia de um prompt é o primeiro passo para criar instruções eficazes.`,
+
+        // Conteúdo completo em arquivo externo (abordagem híbrida)
+        conteudoArquivo: 'conteudo/modulo1-anatomia.md',
 
         conteudoCompleto: `
 ## Componentes de um Prompt Eficaz
@@ -379,6 +388,9 @@ NÃO inclua:
         modulo: 1,
         icon: '🎯',
         introducao: `A clareza é o princípio mais importante de prompt engineering. Quanto mais específico e claro você for, melhores serão os resultados. Ambiguidade leva a respostas genéricas e imprecisas.`,
+
+        // Conteúdo completo em arquivo externo (abordagem híbrida)
+        conteudoArquivo: 'conteudo/modulo1-clareza.md',
 
         conteudoCompleto: `
 ## Por que Clareza Importa?
@@ -529,6 +541,9 @@ Formato da resposta:
         icon: '🎯',
         introducao: `Zero-shot é quando você pede ao modelo para fazer algo sem dar exemplos. É a forma mais simples de prompting - apenas instruções diretas. Funciona bem para tarefas comuns que o modelo já conhece.`,
 
+        // Conteúdo completo em arquivo externo (abordagem híbrida)
+        conteudoArquivo: 'conteudo/modulo2-zero-shot.md',
+
         conteudoCompleto: `
 ## O que é Zero-Shot?
 
@@ -667,6 +682,9 @@ Ou ser muito mais específico:
         modulo: 2,
         icon: '📚',
         introducao: `Few-shot é fornecer alguns exemplos do que você quer antes de fazer a tarefa real. É uma das técnicas mais poderosas e simples - "mostre ao modelo" em vez de só explicar.`,
+
+        // Conteúdo completo em arquivo externo (abordagem híbrida)
+        conteudoArquivo: 'conteudo/modulo2-few-shot.md',
 
         conteudoCompleto: `
 ## O que é Few-Shot?
@@ -836,6 +854,9 @@ Agora classifique:
         modulo: 2,
         icon: '💭',
         introducao: `Chain-of-Thought (Cadeia de Pensamento) faz o modelo "mostrar o raciocínio" antes de dar a resposta final. É especialmente poderoso para problemas que exigem múltiplas etapas de raciocínio.`,
+
+        // Conteúdo completo em arquivo externo (abordagem híbrida)
+        conteudoArquivo: 'conteudo/modulo2-cot.md',
 
         conteudoCompleto: `
 ## O que é Chain-of-Thought (CoT)?
@@ -1019,6 +1040,9 @@ Recomendação: Lançar versão beta AGORA para early adopters + roadmap públic
         modulo: 2,
         icon: '🎭',
         introducao: `Role Prompting é atribuir uma 'persona' ou papel ao modelo. Ao dizer 'Você é um [especialista X]', você ativa conhecimentos e estilos específicos, moldando a resposta para o contexto desejado.`,
+
+        // Conteúdo completo em arquivo externo (abordagem híbrida)
+        conteudoArquivo: 'conteudo/modulo2-role.md',
 
         conteudoCompleto: `
 ## O que é Role Prompting?
