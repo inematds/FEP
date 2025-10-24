@@ -215,9 +215,10 @@ class PromptsApp {
         // Category filters
         document.querySelectorAll('.category-filter').forEach(btn => {
             btn.addEventListener('click', (e) => {
+                const button = e.currentTarget; // Always gets the button, not child elements
                 document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                this.currentFilter = e.target.dataset.category;
+                button.classList.add('active');
+                this.currentFilter = button.dataset.category;
                 this.renderPrompts();
             });
         });
