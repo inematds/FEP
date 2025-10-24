@@ -1712,5 +1712,347 @@ Assistant: {
             '📖 Guia XML prompting Claude',
             '🎓 Estude structured prompting'
         ]
+    },
+
+    // ==============================================
+    // NÍVEL TÉCNICO - MÓDULO 4: Técnicas Avançadas
+    // ==============================================
+
+    'structured': {
+        titulo: 'Structured Outputs (JSON/XML)',
+        nivel: 'Técnico',
+        modulo: 4,
+        icon: '🏗️',
+        introducao: `Structured Outputs permitem forçar LLMs a retornar respostas em formatos estruturados e validados como JSON ou XML, essencial para integração com sistemas.`,
+        conteudoArquivo: 'conteudo/modulo4-structured.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'longcontext': {
+        titulo: 'Long Context Management',
+        nivel: 'Técnico',
+        modulo: 4,
+        icon: '📚',
+        introducao: `Técnicas para trabalhar com contextos longos (200k+ tokens), incluindo estratégias de chunking, summarization e contexto relevante.`,
+        conteudoArquivo: 'conteudo/modulo4-longcontext.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'multimodal': {
+        titulo: 'Multimodal Prompting',
+        nivel: 'Técnico',
+        modulo: 4,
+        icon: '🖼️',
+        introducao: `Trabalhar com múltiplas modalidades (texto + imagem + áudio) para criar experiências mais ricas e completas.`,
+        conteudoArquivo: 'conteudo/modulo4-multimodal.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'optimization': {
+        titulo: 'Model-Specific Optimization',
+        nivel: 'Técnico',
+        modulo: 4,
+        icon: '⚡',
+        introducao: `Otimizações específicas para diferentes modelos (Claude, GPT-4, Gemini) aproveitando pontos fortes de cada um.`,
+        conteudoArquivo: 'conteudo/modulo4-optimization.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'testing': {
+        titulo: 'Prompt Testing & A/B',
+        nivel: 'Técnico',
+        modulo: 4,
+        icon: '🧪',
+        introducao: `Metodologias para testar prompts sistematicamente, incluindo A/B testing, evaluation metrics e continuous improvement.`,
+        conteudoArquivo: 'conteudo/modulo4-testing.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    // ==============================================
+    // NÍVEL TÉCNICO - MÓDULO 5: Engenharia de Contexto e RAG
+    // ==============================================
+
+    'context-arch': {
+        titulo: 'Arquitetura de Contexto',
+        nivel: 'Técnico',
+        modulo: 5,
+        icon: '🏛️',
+        introducao: `Design de arquiteturas de contexto eficientes que maximizam informação relevante dentro das limitações de tokens.`,
+        conteudoArquivo: 'conteudo/modulo5-context-arch.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'rag': {
+        titulo: 'RAG (Retrieval-Augmented Generation)',
+        nivel: 'Técnico',
+        modulo: 5,
+        icon: '🔍',
+        introducao: `RAG combina busca semântica com geração de LLM para respostas baseadas em conhecimento específico e atualizado.`,
+        conteudoArquivo: 'conteudo/modulo5-rag.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'vectordb': {
+        titulo: 'Vector Databases',
+        nivel: 'Técnico',
+        modulo: 5,
+        icon: '🗄️',
+        introducao: `Bancos de dados vetoriais (Pinecone, Weaviate, Chroma) para armazenar e buscar embeddings eficientemente.`,
+        conteudoArquivo: 'conteudo/modulo5-vectordb.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'embeddings': {
+        titulo: 'Embeddings e Similarity',
+        nivel: 'Técnico',
+        modulo: 5,
+        icon: '📊',
+        introducao: `Embeddings representam texto como vetores numéricos, permitindo busca semântica e medição de similaridade.`,
+        conteudoArquivo: 'conteudo/modulo5-embeddings.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    // ==============================================
+    // NÍVEL MASTERCLASS - MÓDULO 6: Agentes Fundamentos
+    // ==============================================
+
+    'react': {
+        titulo: 'Loops Agênticos (ReAct, ReWOO)',
+        nivel: 'Masterclass',
+        modulo: 6,
+        icon: '🔄',
+        introducao: `Padrões de loops agênticos que permitem LLMs raciocinar, agir e observar iterativamente para resolver problemas complexos.`,
+        conteudoArquivo: 'conteudo/modulo6-react.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'tools': {
+        titulo: 'Tool Design e Function Calling',
+        nivel: 'Masterclass',
+        modulo: 6,
+        icon: '🛠️',
+        introducao: `Design de tools/functions que LLMs podem chamar para interagir com APIs, bancos de dados e sistemas externos.`,
+        conteudoArquivo: 'conteudo/modulo6-tools.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'mcp': {
+        titulo: 'Model Context Protocol (MCP)',
+        nivel: 'Masterclass',
+        modulo: 6,
+        icon: '🔌',
+        introducao: `MCP é o protocolo aberto da Anthropic para conectar LLMs a fontes de dados e ferramentas de forma padronizada.`,
+        conteudoArquivo: 'conteudo/modulo6-mcp.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'memory': {
+        titulo: 'Memory Systems',
+        nivel: 'Masterclass',
+        modulo: 6,
+        icon: '🧠',
+        introducao: `Sistemas de memória permitem agentes manter contexto entre sessões e aprender com interações passadas.`,
+        conteudoArquivo: 'conteudo/modulo6-memory.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'planning': {
+        titulo: 'Planning & Reasoning',
+        nivel: 'Masterclass',
+        modulo: 6,
+        icon: '🎯',
+        introducao: `Técnicas para agentes planejarem ações multi-step e raciocinar através de problemas complexos.`,
+        conteudoArquivo: 'conteudo/modulo6-planning.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'error': {
+        titulo: 'Error Handling & Recovery',
+        nivel: 'Masterclass',
+        modulo: 6,
+        icon: '🔧',
+        introducao: `Estratégias para agentes detectarem, tratarem erros e se recuperarem graciosamente de falhas.`,
+        conteudoArquivo: 'conteudo/modulo6-error.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    // ==============================================
+    // NÍVEL MASTERCLASS - MÓDULO 7: Agentes Avançados
+    // ==============================================
+
+    'skills': {
+        titulo: 'Claude Skills',
+        nivel: 'Masterclass',
+        modulo: 7,
+        icon: '⚙️',
+        introducao: `Skills são capacidades especializadas que podem ser compostas para criar agentes complexos e modulares.`,
+        conteudoArquivo: 'conteudo/modulo7-skills.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'extended': {
+        titulo: 'Extended Thinking',
+        nivel: 'Masterclass',
+        modulo: 7,
+        icon: '🤔',
+        introducao: `Extended Thinking permite ao Claude raciocinar mais profundamente sobre problemas complexos antes de responder.`,
+        conteudoArquivo: 'conteudo/modulo7-extended.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'multiagent': {
+        titulo: 'Sistemas Multi-Agente',
+        nivel: 'Masterclass',
+        modulo: 7,
+        icon: '👥',
+        introducao: `Arquiteturas onde múltiplos agentes especializados trabalham colaborativamente para resolver problemas complexos.`,
+        conteudoArquivo: 'conteudo/modulo7-multiagent.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'voice': {
+        titulo: 'Voice AI & Multimodal Agents',
+        nivel: 'Masterclass',
+        modulo: 7,
+        icon: '🎙️',
+        introducao: `Integração de voz (STT/TTS) com agentes multimodais que processam texto, imagem e áudio simultaneamente.`,
+        conteudoArquivo: 'conteudo/modulo7-voice.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    // ==============================================
+    // NÍVEL MASTERCLASS - MÓDULO 8: Masterclasses Especializadas
+    // ==============================================
+
+    'production': {
+        titulo: 'Production Systems',
+        nivel: 'Masterclass',
+        modulo: 8,
+        icon: '🚀',
+        introducao: `Arquiteturas robustas para levar aplicações LLM para produção com alta disponibilidade, escalabilidade e confiabilidade.`,
+        conteudoArquivo: 'conteudo/modulo8-production.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'security': {
+        titulo: 'Segurança e Prompt Injection',
+        nivel: 'Masterclass',
+        modulo: 8,
+        icon: '🔒',
+        introducao: `Práticas de segurança para proteger sistemas LLM contra prompt injection, data poisoning e outros ataques.`,
+        conteudoArquivo: 'conteudo/modulo8-security.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'observability': {
+        titulo: 'Observabilidade e Monitoring',
+        nivel: 'Masterclass',
+        modulo: 8,
+        icon: '📊',
+        introducao: `Logs, métricas e tracing para entender comportamento, otimizar custos e garantir qualidade de sistemas LLM.`,
+        conteudoArquivo: 'conteudo/modulo8-observability.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'ethics': {
+        titulo: 'IA Ética e Alignment',
+        nivel: 'Masterclass',
+        modulo: 8,
+        icon: '⚖️',
+        introducao: `Princípios e práticas para construir sistemas de IA responsáveis, justos, transparentes e alinhados com valores humanos.`,
+        conteudoArquivo: 'conteudo/modulo8-ethics.md',
+        exemplos: [],
+        casosDeUso: [],
+        dicasPraticas: [],
+        errosComuns: [],
+        recursosAdicionais: []
     }
 };

@@ -7,6 +7,102 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para o conteúdo markdown dentro do modal */
+        #modalConteudoCompleto h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        #modalConteudoCompleto h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.25rem;
+        }
+        #modalConteudoCompleto h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #374151;
+        }
+        #modalConteudoCompleto h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+        }
+        #modalConteudoCompleto p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #4b5563;
+        }
+        #modalConteudoCompleto ul, #modalConteudoCompleto ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        #modalConteudoCompleto li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        #modalConteudoCompleto pre {
+            background-color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        #modalConteudoCompleto code {
+            background-color: #f3f4f6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        #modalConteudoCompleto pre code {
+            background: none;
+            padding: 0;
+        }
+        #modalConteudoCompleto strong {
+            font-weight: 600;
+            color: #1f2937;
+        }
+        #modalConteudoCompleto blockquote {
+            border-left: 4px solid #10b981;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #6b7280;
+        }
+        #modalConteudoCompleto table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        #modalConteudoCompleto th, #modalConteudoCompleto td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        #modalConteudoCompleto th {
+            background-color: #f9fafb;
+            font-weight: 600;
+        }
+        #modalConteudoCompleto hr {
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: 2rem 0;
+        }
+    </style>
 </head>
 <body class="font-['Inter'] bg-gray-50">
     <nav class="sticky top-0 z-50 bg-white shadow-sm">
@@ -246,6 +342,61 @@
         </div>
     </main>
 
+    <!-- Modal de Detalhamento de Tópico -->
+    <div id="topicoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+            <!-- Header do Modal -->
+            <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-6 text-white flex justify-between items-start">
+                <div>
+                    <div class="text-5xl mb-2" id="modalIcon"></div>
+                    <h2 class="text-3xl font-bold" id="modalTitulo"></h2>
+                    <p class="text-green-100 mt-1"><span id="modalNivel"></span> • Módulo <span id="modalModulo"></span></p>
+                </div>
+                <button id="closeModal" class="text-white hover:text-green-100 transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Conteúdo do Modal -->
+            <div class="overflow-y-auto p-8" style="max-height: calc(90vh - 140px);">
+                <!-- Introdução -->
+                <div class="mb-8">
+                    <div class="text-lg leading-relaxed text-gray-700 bg-green-50 p-6 rounded-lg border-l-4 border-green-500" id="modalIntroducao"></div>
+                </div>
+
+                <!-- Conteúdo Completo -->
+                <div class="prose prose-lg max-w-none mb-8" id="modalConteudoCompleto"></div>
+
+                <!-- Exemplos -->
+                <div id="modalExemplos" class="mb-8"></div>
+
+                <!-- Casos de Uso -->
+                <div id="modalCasosUso" class="mb-8"></div>
+
+                <!-- Dicas Práticas -->
+                <div id="modalDicas" class="mb-8"></div>
+
+                <!-- Erros Comuns -->
+                <div id="modalErros" class="mb-8"></div>
+
+                <!-- Recursos Adicionais -->
+                <div id="modalRecursos"></div>
+            </div>
+
+            <!-- Footer do Modal -->
+            <div class="border-t border-gray-200 p-6 bg-gray-50 flex justify-between items-center">
+                <div class="text-sm text-gray-600">
+                    💡 Dica: Pratique com exemplos reais para dominar esta técnica
+                </div>
+                <button id="closeModalBtn" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-gray-900 text-white py-8 mt-16">
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2025 FEP - Engenharia de Prompt</p>
@@ -253,5 +404,8 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="topicos-data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="topicos-modal.js"></script>
 </body>
 </html>

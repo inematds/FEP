@@ -7,6 +7,102 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para o conteúdo markdown dentro do modal */
+        #modalConteudoCompleto h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        #modalConteudoCompleto h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.25rem;
+        }
+        #modalConteudoCompleto h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #374151;
+        }
+        #modalConteudoCompleto h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+        }
+        #modalConteudoCompleto p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #4b5563;
+        }
+        #modalConteudoCompleto ul, #modalConteudoCompleto ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        #modalConteudoCompleto li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        #modalConteudoCompleto pre {
+            background-color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        #modalConteudoCompleto code {
+            background-color: #f3f4f6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        #modalConteudoCompleto pre code {
+            background: none;
+            padding: 0;
+        }
+        #modalConteudoCompleto strong {
+            font-weight: 600;
+            color: #1f2937;
+        }
+        #modalConteudoCompleto blockquote {
+            border-left: 4px solid #8b5cf6;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #6b7280;
+        }
+        #modalConteudoCompleto table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        #modalConteudoCompleto th, #modalConteudoCompleto td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        #modalConteudoCompleto th {
+            background-color: #f9fafb;
+            font-weight: 600;
+        }
+        #modalConteudoCompleto hr {
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: 2rem 0;
+        }
+    </style>
 </head>
 <body class="font-['Inter'] bg-gray-50">
     <nav class="sticky top-0 z-50 bg-white shadow-sm">
@@ -62,6 +158,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Padrões de raciocínio onde agentes pensam, agem e observam em loops iterativos.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Permite que agentes resolvam problemas complexos passo a passo com auto-correção.</p>
                                     <p class="text-sm mt-2"><strong>Técnicas:</strong> ReAct (Reasoning + Acting), ReWOO (Reasoning Without Observation), Reflexion (auto-reflexão).</p>
+                                    <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="react">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=react" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="tools">
@@ -72,6 +178,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Criar ferramentas que agentes podem chamar para realizar ações específicas além de geração de texto.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Expande capacidades do agente para interagir com o mundo real.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Ferramentas para busca web, cálculos matemáticos, acesso a APIs, execução de código.</p>
+                                    <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="tools">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=tools" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="mcp">
@@ -82,6 +198,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Protocolo padronizado da Anthropic para conectar LLMs a fontes de dados e ferramentas externas.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Integração simples, segura e padronizada de contexto externo.</p>
                                     <p class="text-sm mt-2"><strong>Recursos:</strong> Acesso a arquivos, bancos de dados, APIs REST, ferramentas customizadas.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="mcp">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=mcp" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="memory">
@@ -92,6 +218,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Sistemas de memória de curto e longo prazo para agentes manterem estado.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Agentes que lembram interações anteriores e aprendem com o tempo.</p>
                                     <p class="text-sm mt-2"><strong>Tipos:</strong> Working memory (contexto atual), episodic memory (conversas passadas), semantic memory (conhecimento).</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="memory">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=memory" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="planning">
@@ -102,6 +238,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Técnicas avançadas para agentes planejarem sequências complexas de ações.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Resolver problemas multi-step de forma eficiente e estruturada.</p>
                                     <p class="text-sm mt-2"><strong>Métodos:</strong> Tree of Thoughts, Chain of Thought, Skeleton of Thought, Graph of Thoughts.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="planning">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=planning" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="error">
@@ -112,6 +258,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Estratégias para agentes lidarem com falhas, erros e se recuperarem graciosamente.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Robustez essencial em ambientes reais e imprevisíveis.</p>
                                     <p class="text-sm mt-2"><strong>Técnicas:</strong> Retry logic, fallback strategies, graceful degradation, circuit breakers.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="error">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=error" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -152,6 +308,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Sistema de capacidades customizadas para Claude executar tarefas específicas de forma consistente.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Criar agentes especializados com comportamentos bem definidos e reproduzíveis.</p>
                                     <p class="text-sm mt-2"><strong>Uso:</strong> Definir skills, encadear execução, combinar múltiplas capacidades, criar workflows.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="skills">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=skills" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="extended">
@@ -162,6 +328,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Modo de raciocínio expandido onde o modelo "pensa em voz alta" por mais tempo antes de responder.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Resolver problemas extremamente complexos que requerem análise profunda e cuidadosa.</p>
                                     <p class="text-sm mt-2"><strong>Quando usar:</strong> Matemática avançada, code debugging complexo, análise estratégica, reasoning chains longos.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="extended">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=extended" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="multiagent">
@@ -172,6 +348,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Múltiplos agentes especializados trabalhando juntos coordenadamente em um objetivo comum.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Dividir tarefas complexas entre especialistas, cada um focado em sua expertise.</p>
                                     <p class="text-sm mt-2"><strong>Padrões:</strong> Hierárquico (manager/workers), colaborativo (peer-to-peer), competitivo (debate), democrático (votação).</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="multiagent">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=multiagent" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="voice">
@@ -182,6 +368,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Agentes que processam e geram voz, imagens, vídeo, além de texto simultaneamente.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Interfaces naturais e análise multimodal completa para aplicações reais.</p>
                                     <p class="text-sm mt-2"><strong>Aplicações:</strong> Assistentes de voz conversacionais, análise de imagens médicas, geração de conteúdo rico.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="voice">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=voice" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -222,6 +418,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Deploy de sistemas de IA em produção com reliability, scalability e maintainability.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Transição de protótipo para sistema real de missão crítica usado por milhares.</p>
                                     <p class="text-sm mt-2"><strong>Tópicos:</strong> CI/CD pipelines, prompt versioning, A/B testing, monitoring, rate limiting, caching strategies.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="production">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=production" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="security">
@@ -232,6 +438,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Proteger sistemas contra ataques de prompt injection, jailbreaking e uso malicioso.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Prevenir vazamento de informações sensíveis e comportamentos perigosos.</p>
                                     <p class="text-sm mt-2"><strong>Defesas:</strong> Input sanitization, output filtering, context isolation, constitutional AI, red teaming.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="security">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=security" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="observability">
@@ -242,6 +458,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Monitorar comportamento, qualidade e performance de sistemas de IA em produção.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Detectar problemas proativamente, otimizar custos, garantir qualidade consistente.</p>
                                     <p class="text-sm mt-2"><strong>Métricas:</strong> Latência, taxa de sucesso, custo por query, qualidade de resposta, user satisfaction.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="observability">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=observability" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="ethics">
@@ -252,6 +478,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Garantir que sistemas de IA sigam valores humanos, sejam justos e benéficos para todos.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Evitar danos, construir confiança e criar IA verdadeiramente útil e segura.</p>
                                     <p class="text-sm mt-2"><strong>Tópicos:</strong> Bias detection e mitigation, fairness, transparency, explainability, Constitutional AI, RLHF.</p>
+                                <div class="flex gap-2 mt-3">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="ethics">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=ethics" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -287,6 +523,61 @@
         </div>
     </main>
 
+    <!-- Modal de Detalhamento de Tópico -->
+    <div id="topicoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+            <!-- Header do Modal -->
+            <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-6 text-white flex justify-between items-start">
+                <div>
+                    <div class="text-5xl mb-2" id="modalIcon"></div>
+                    <h2 class="text-3xl font-bold" id="modalTitulo"></h2>
+                    <p class="text-purple-100 mt-1"><span id="modalNivel"></span> • Módulo <span id="modalModulo"></span></p>
+                </div>
+                <button id="closeModal" class="text-white hover:text-purple-100 transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Conteúdo do Modal -->
+            <div class="overflow-y-auto p-8" style="max-height: calc(90vh - 140px);">
+                <!-- Introdução -->
+                <div class="mb-8">
+                    <div class="text-lg leading-relaxed text-gray-700 bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500" id="modalIntroducao"></div>
+                </div>
+
+                <!-- Conteúdo Completo -->
+                <div class="prose prose-lg max-w-none mb-8" id="modalConteudoCompleto"></div>
+
+                <!-- Exemplos -->
+                <div id="modalExemplos" class="mb-8"></div>
+
+                <!-- Casos de Uso -->
+                <div id="modalCasosUso" class="mb-8"></div>
+
+                <!-- Dicas Práticas -->
+                <div id="modalDicas" class="mb-8"></div>
+
+                <!-- Erros Comuns -->
+                <div id="modalErros" class="mb-8"></div>
+
+                <!-- Recursos Adicionais -->
+                <div id="modalRecursos"></div>
+            </div>
+
+            <!-- Footer do Modal -->
+            <div class="border-t border-gray-200 p-6 bg-gray-50 flex justify-between items-center">
+                <div class="text-sm text-gray-600">
+                    💡 Dica: Pratique com exemplos reais para dominar esta técnica
+                </div>
+                <button id="closeModalBtn" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-gray-900 text-white py-8 mt-16">
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2025 FEP - Engenharia de Prompt</p>
@@ -295,5 +586,8 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="topicos-data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="topicos-modal.js"></script>
 </body>
 </html>
