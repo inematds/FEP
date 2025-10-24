@@ -350,3 +350,33 @@ a {
   background-color: #3B82F6;
   color: white;
 }
+
+/* Category Filter Buttons */
+.category-filter {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: 2px solid #E5E7EB;
+  background-color: white;
+  color: #6B7280;
+  cursor: pointer;
+}
+
+.category-filter:hover {
+  border-color: #6366F1;
+  color: #6366F1;
+  background-color: #EEF2FF;
+}
+
+.category-filter.active {
+  border-color: #6366F1;
+  background-color: #6366F1;
+  color: white;
+}
+
+.category-filter.active:hover {
+  background-color: #4F46E5;
+  border-color: #4F46E5;
+}

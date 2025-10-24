@@ -14,38 +14,286 @@
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center space-x-2">
                     <span class="text-2xl font-bold text-blue-600">FEP</span>
+                    <span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
                 </a>
-                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar</a>
+                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar ao Início</a>
             </div>
         </div>
     </nav>
+
     <main class="container mx-auto px-4 py-12">
+        <div class="breadcrumb mb-8">
+            <a href="index.html">Início</a>
+            <span class="breadcrumb-separator">/</span>
+            <span>Nível Masterclass</span>
+        </div>
+
         <div class="max-w-5xl mx-auto">
             <div class="bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-8 text-white mb-12">
                 <div class="text-6xl mb-4">👑</div>
                 <h1 class="text-4xl font-bold mb-4">Nível Masterclass</h1>
-                <p class="text-xl mb-4">50-60 horas</p>
-                <p class="text-lg">Expert em Agentes de IA e Sistemas Complexos</p>
+                <p class="text-xl text-purple-100 mb-4">50-60 horas de conteúdo</p>
+                <p class="text-lg">Expert em Agentes de IA, Extended Thinking e Sistemas Complexos</p>
             </div>
+
             <div class="grid gap-8 mb-12">
-                <div class="module-card bg-white rounded-lg shadow-md p-6 border-2 border-purple-200">
-                    <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">Masterclass</span>
-                    <h3 class="text-2xl font-bold mt-4 mb-3">Engenharia de Agentes e Contexto Avançado</h3>
-                    <p class="text-gray-600 mb-4">50-60 horas de conteúdo expert</p>
-                    <div class="flex gap-3 mt-4">
-                        <a href="docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" class="flex-1 px-4 py-2 border-2 border-purple-500 text-purple-600 rounded-lg hover:bg-purple-50 text-center font-semibold">📖 Markdown</a>
-                        <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" class="flex-1 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 text-center font-semibold">📄 PDF</a>
+                <!-- Módulo 6 -->
+                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-purple-200" data-module-id="modulo-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 6</span>
+                        <span class="text-gray-500 text-sm">10-12 horas</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Agentes - Fundamentos</h3>
+                    <p class="text-gray-600 mb-4">Loops agênticos, tool design, function calling e Model Context Protocol.</p>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
+                            <button class="expand-topics text-purple-500 text-sm hover:text-purple-700" data-target="topics-6">
+                                Ver todos os tópicos (6) ▼
+                            </button>
+                        </div>
+                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-6">
+                            <li class="topic-item" data-topic="react">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">🔄</span> Loops Agênticos (ReAct, ReWOO)
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Padrões de raciocínio onde agentes pensam, agem e observam em loops iterativos.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Permite que agentes resolvam problemas complexos passo a passo com auto-correção.</p>
+                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> ReAct (Reasoning + Acting), ReWOO (Reasoning Without Observation), Reflexion (auto-reflexão).</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="tools">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">🛠️</span> Tool Design e Function Calling
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Criar ferramentas que agentes podem chamar para realizar ações específicas além de geração de texto.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Expande capacidades do agente para interagir com o mundo real.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Ferramentas para busca web, cálculos matemáticos, acesso a APIs, execução de código.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="mcp">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">🔌</span> Model Context Protocol (MCP)
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Protocolo padronizado da Anthropic para conectar LLMs a fontes de dados e ferramentas externas.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Integração simples, segura e padronizada de contexto externo.</p>
+                                    <p class="text-sm mt-2"><strong>Recursos:</strong> Acesso a arquivos, bancos de dados, APIs REST, ferramentas customizadas.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="memory">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">🧠</span> Memory Systems
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Sistemas de memória de curto e longo prazo para agentes manterem estado.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Agentes que lembram interações anteriores e aprendem com o tempo.</p>
+                                    <p class="text-sm mt-2"><strong>Tipos:</strong> Working memory (contexto atual), episodic memory (conversas passadas), semantic memory (conhecimento).</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="planning">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">📋</span> Planning & Reasoning
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Técnicas avançadas para agentes planejarem sequências complexas de ações.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Resolver problemas multi-step de forma eficiente e estruturada.</p>
+                                    <p class="text-sm mt-2"><strong>Métodos:</strong> Tree of Thoughts, Chain of Thought, Skeleton of Thought, Graph of Thoughts.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="error">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">⚠️</span> Error Handling & Recovery
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Estratégias para agentes lidarem com falhas, erros e se recuperarem graciosamente.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Robustez essencial em ambientes reais e imprevisíveis.</p>
+                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> Retry logic, fallback strategies, graceful degradation, circuit breakers.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-purple-500 text-purple-600 font-semibold rounded-lg hover:bg-purple-50">
+                            📖 Ver Markdown
+                        </a>
+                        <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-600">
+                            📄 Baixar PDF
+                        </a>
                     </div>
                 </div>
-                <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-8 text-center border-2 border-green-200">
-                    <div class="text-5xl mb-4">🎉</div>
-                    <h3 class="text-3xl font-bold mb-4 text-gray-900">Parabéns!</h3>
-                    <p class="text-lg text-gray-700 mb-6">Você concluiu todos os níveis do curso FEP!<br>Agora você domina Engenharia de Prompt do básico ao avançado.</p>
-                    <a href="exercicios.html" class="inline-block bg-green-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-600">Praticar com Exercícios 🎯</a>
+
+                <!-- Módulo 7 -->
+                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-purple-200" data-module-id="modulo-7">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 7</span>
+                        <span class="text-gray-500 text-sm">10-12 horas</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Agentes Avançados</h3>
+                    <p class="text-gray-600 mb-4">Claude Skills, Extended Thinking, sistemas multi-agente e voice AI.</p>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
+                            <button class="expand-topics text-purple-500 text-sm hover:text-purple-700" data-target="topics-7">
+                                Ver todos os tópicos (4) ▼
+                            </button>
+                        </div>
+                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-7">
+                            <li class="topic-item" data-topic="skills">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">🎯</span> Claude Skills
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Sistema de capacidades customizadas para Claude executar tarefas específicas de forma consistente.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Criar agentes especializados com comportamentos bem definidos e reproduzíveis.</p>
+                                    <p class="text-sm mt-2"><strong>Uso:</strong> Definir skills, encadear execução, combinar múltiplas capacidades, criar workflows.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="extended">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">🧩</span> Extended Thinking
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Modo de raciocínio expandido onde o modelo "pensa em voz alta" por mais tempo antes de responder.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Resolver problemas extremamente complexos que requerem análise profunda e cuidadosa.</p>
+                                    <p class="text-sm mt-2"><strong>Quando usar:</strong> Matemática avançada, code debugging complexo, análise estratégica, reasoning chains longos.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="multiagent">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">👥</span> Sistemas Multi-Agente
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Múltiplos agentes especializados trabalhando juntos coordenadamente em um objetivo comum.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Dividir tarefas complexas entre especialistas, cada um focado em sua expertise.</p>
+                                    <p class="text-sm mt-2"><strong>Padrões:</strong> Hierárquico (manager/workers), colaborativo (peer-to-peer), competitivo (debate), democrático (votação).</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="voice">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">🎤</span> Voice AI & Multimodal Agents
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Agentes que processam e geram voz, imagens, vídeo, além de texto simultaneamente.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Interfaces naturais e análise multimodal completa para aplicações reais.</p>
+                                    <p class="text-sm mt-2"><strong>Aplicações:</strong> Assistentes de voz conversacionais, análise de imagens médicas, geração de conteúdo rico.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-purple-500 text-purple-600 font-semibold rounded-lg hover:bg-purple-50">
+                            📖 Ver Markdown
+                        </a>
+                        <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-600">
+                            📄 Baixar PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Módulo 8 -->
+                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-purple-200" data-module-id="modulo-8">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 8</span>
+                        <span class="text-gray-500 text-sm">12-15 horas</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Masterclasses Especializadas</h3>
+                    <p class="text-gray-600 mb-4">Produção, segurança, observabilidade, ética e o futuro da IA.</p>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
+                            <button class="expand-topics text-purple-500 text-sm hover:text-purple-700" data-target="topics-8">
+                                Ver todos os tópicos (4) ▼
+                            </button>
+                        </div>
+                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-8">
+                            <li class="topic-item" data-topic="production">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">🚀</span> Production Systems
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Deploy de sistemas de IA em produção com reliability, scalability e maintainability.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Transição de protótipo para sistema real de missão crítica usado por milhares.</p>
+                                    <p class="text-sm mt-2"><strong>Tópicos:</strong> CI/CD pipelines, prompt versioning, A/B testing, monitoring, rate limiting, caching strategies.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="security">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">🔒</span> Segurança e Prompt Injection
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Proteger sistemas contra ataques de prompt injection, jailbreaking e uso malicioso.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Prevenir vazamento de informações sensíveis e comportamentos perigosos.</p>
+                                    <p class="text-sm mt-2"><strong>Defesas:</strong> Input sanitization, output filtering, context isolation, constitutional AI, red teaming.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="observability">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">📊</span> Observabilidade e Monitoring
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Monitorar comportamento, qualidade e performance de sistemas de IA em produção.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Detectar problemas proativamente, otimizar custos, garantir qualidade consistente.</p>
+                                    <p class="text-sm mt-2"><strong>Métricas:</strong> Latência, taxa de sucesso, custo por query, qualidade de resposta, user satisfaction.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="ethics">
+                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
+                                    <span class="mr-2">⚖️</span> IA Ética e Alignment
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Garantir que sistemas de IA sigam valores humanos, sejam justos e benéficos para todos.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Evitar danos, construir confiança e criar IA verdadeiramente útil e segura.</p>
+                                    <p class="text-sm mt-2"><strong>Tópicos:</strong> Bias detection e mitigation, fairness, transparency, explainability, Constitutional AI, RLHF.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-purple-500 text-purple-600 font-semibold rounded-lg hover:bg-purple-50">
+                            📖 Ver Markdown
+                        </a>
+                        <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-600">
+                            📄 Baixar PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-8 text-center border-2 border-green-200">
+                <div class="text-5xl mb-4">🎉</div>
+                <h3 class="text-3xl font-bold mb-4 text-gray-900">Parabéns!</h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    Você concluiu todos os níveis do curso FEP!<br>
+                    Agora você domina Engenharia de Prompt do básico ao avançado.
+                </p>
+                <div class="flex gap-4 justify-center flex-wrap">
+                    <a href="exercicios.html" class="inline-block bg-green-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-600 transition-colors">
+                        Praticar com Exercícios 🎯
+                    </a>
+                    <a href="index.html" class="inline-block bg-purple-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-600 transition-colors">
+                        Voltar ao Início 🏠
+                    </a>
                 </div>
             </div>
         </div>
     </main>
+
+    <footer class="bg-gray-900 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 FEP - Engenharia de Prompt</p>
+            <p class="mt-2 text-sm text-gray-400">Feito com ❤️ para a comunidade de IA em Português</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

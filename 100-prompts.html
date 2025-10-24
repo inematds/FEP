@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Prompts Essenciais | FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .prompt-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .prompt-card:hover {
+            transform: translateY(-4px);
+        }
+        .prompt-card.expanded {
+            transform: none;
+        }
+        .copy-notification {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .favorite-star {
+            transition: all 0.2s ease;
+        }
+        .favorite-star.favorited {
+            fill: #fbbf24;
+            stroke: #f59e0b;
+        }
+        .category-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="font-['Inter'] bg-gray-50">
+    <nav class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold text-blue-600">FEP</span>
+                    <span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
+                </a>
+                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar ao Início</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-12">
+        <div class="breadcrumb mb-8">
+            <a href="index.html">Início</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="recursos.html">Recursos</a>
+            <span class="breadcrumb-separator">/</span>
+            <span>100 Prompts Essenciais</span>
+        </div>
+
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl p-8 text-white mb-12">
+                <div class="text-6xl mb-4">📚</div>
+                <h1 class="text-4xl font-bold mb-4">100 Prompts Essenciais</h1>
+                <p class="text-xl text-indigo-100 mb-4">Biblioteca Interativa Completa</p>
+                <p class="text-lg">159 tópicos analisados • 1.576.042 caracteres processados • Classificados em 8 categorias</p>
+                <blockquote class="mt-6 italic text-indigo-100 border-l-4 border-indigo-300 pl-4">
+                    "Um prompt bem construído é a diferença entre resultados mediocres e resultados extraordinários."
+                </blockquote>
+            </div>
+
+            <!-- Controls -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <!-- Search -->
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="🔍 Buscar prompts por palavra-chave..."
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:outline-none"
+                        >
+                    </div>
+
+                    <!-- View Toggle -->
+                    <div class="flex gap-2">
+                        <button id="showAll" class="flex-1 px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                            Todos (100)
+                        </button>
+                        <button id="showFavorites" class="flex-1 px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors">
+                            ⭐ Favoritos (<span id="favCount">0</span>)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2">
+                    <button class="category-filter active" data-category="all">
+                        Todas Categorias
+                    </button>
+                    <button class="category-filter" data-category="fundamentais">
+                        🎯 Fundamentais (1-15)
+                    </button>
+                    <button class="category-filter" data-category="conteudo">
+                        ✍️ Conteúdo (16-30)
+                    </button>
+                    <button class="category-filter" data-category="marketing">
+                        📈 Marketing (31-45)
+                    </button>
+                    <button class="category-filter" data-category="analise">
+                        🔍 Análise (46-55)
+                    </button>
+                    <button class="category-filter" data-category="comunicacao">
+                        💬 Comunicação (56-65)
+                    </button>
+                    <button class="category-filter" data-category="educacao">
+                        🎓 Educação (66-75)
+                    </button>
+                    <button class="category-filter" data-category="criatividade">
+                        💡 Criatividade (76-85)
+                    </button>
+                    <button class="category-filter" data-category="avancadas">
+                        🚀 Avançadas (86-100)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Download Links -->
+            <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">📥 Baixar Guia Completo</h3>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="docs/100prompts/📚 Os 100 Prompts Mais Importantes_ Guia Completo Classificado.md"
+                       class="inline-flex items-center px-6 py-3 border-2 border-indigo-500 text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50">
+                        📖 Ver Markdown Completo
+                    </a>
+                    <a href="docs/100prompts/📚_Os_100_Prompts_Mais_Importantes_Guia_Completo_Classificado.pdf"
+                       class="inline-flex items-center px-6 py-3 bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-600">
+                        📄 Baixar PDF (826 KB)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Prompts Grid -->
+            <div id="promptsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Prompts will be injected here by JavaScript -->
+            </div>
+
+            <!-- No results message -->
+            <div id="noResults" class="hidden text-center py-12">
+                <div class="text-6xl mb-4">🔍</div>
+                <h3 class="text-2xl font-bold text-gray-700 mb-2">Nenhum prompt encontrado</h3>
+                <p class="text-gray-600">Tente ajustar sua busca ou filtros</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Copy Notification -->
+    <div id="copyNotification" class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden">
+        ✓ Prompt copiado!
+    </div>
+
+    <footer class="bg-gray-900 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 FEP - Engenharia de Prompt</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="prompts-data.js"></script>
+    <script src="prompts-app.js"></script>
+</body>
+</html>

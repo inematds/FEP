@@ -44,15 +44,58 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Fundamentos de Engenharia de Prompt</h3>
                     <p class="text-gray-600 mb-4">Entenda LLMs, tokens, contexto e a anatomia de prompts eficazes.</p>
+
                     <div class="mb-6">
-                        <h4 class="font-semibold text-gray-700 mb-2">Tópicos:</h4>
-                        <ul class="text-sm text-gray-600 space-y-1">
-                            <li>• LLM Basics e Funcionamento</li>
-                            <li>• Tokens e Janela de Contexto</li>
-                            <li>• Anatomia de Prompts</li>
-                            <li>• Clareza e Especificidade</li>
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
+                            <button class="expand-topics text-emerald-500 text-sm hover:text-emerald-700" data-target="topics-1">
+                                Ver todos os tópicos (4) ▼
+                            </button>
+                        </div>
+                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-1">
+                            <li class="topic-item" data-topic="llm-basics">
+                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
+                                    <span class="mr-2">🤖</span> LLM Basics e Funcionamento
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Large Language Models (LLMs) são modelos de IA que processam e geram texto humano através de padrões aprendidos de enormes quantidades de dados.</p>
+                                    <p class="text-sm mt-2"><strong>Por que aprender:</strong> Entender como funcionam te ajuda a criar prompts muito mais eficazes.</p>
+                                    <p class="text-sm mt-2"><strong>Conceitos chave:</strong> Predição de próxima palavra, padrões estatísticos, treinamento com dados massivos.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="tokens">
+                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
+                                    <span class="mr-2">🔤</span> Tokens e Janela de Contexto
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Tokens são pedaços de texto (palavras ou partes de palavras) que o modelo processa. A janela de contexto é o limite de tokens que o modelo consegue "lembrar" de uma vez.</p>
+                                    <p class="text-sm mt-2"><strong>Por que importa:</strong> Saber isso te ajuda a escrever prompts que cabem no limite e usar o espaço de forma eficiente.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Olá mundo" = ~2-3 tokens. Modelos típicos têm janelas de 4k a 200k+ tokens.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="anatomia">
+                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
+                                    <span class="mr-2">📐</span> Anatomia de Prompts
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                                    <p class="text-sm"><strong>O que é:</strong> A estrutura ideal de um prompt: contexto, instruções, dados de entrada e formato desejado.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Prompts bem estruturados geram respostas muito melhores e mais consistentes.</p>
+                                    <p class="text-sm mt-2"><strong>Partes principais:</strong> 1) Contexto/papel, 2) Tarefa clara, 3) Dados/exemplos, 4) Formato de saída.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="clareza">
+                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
+                                    <span class="mr-2">✨</span> Clareza e Especificidade
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Ser específico e direto no que você quer, evitando ambiguidade.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Quanto mais claro você for, melhor será a resposta do modelo.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Em vez de "escreva sobre carros", use "escreva 3 parágrafos sobre a história dos carros elétricos desde 1900".</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
+
                     <div class="flex gap-3">
                         <a href="docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-emerald-500 text-emerald-600 font-semibold rounded-lg hover:bg-emerald-50">
                             📖 Ver Markdown
@@ -70,15 +113,58 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Técnicas Fundamentais</h3>
                     <p class="text-gray-600 mb-4">Domine Zero-Shot, Few-Shot, Chain of Thought e prompts de persona.</p>
+
                     <div class="mb-6">
-                        <h4 class="font-semibold text-gray-700 mb-2">Tópicos:</h4>
-                        <ul class="text-sm text-gray-600 space-y-1">
-                            <li>• Zero-Shot Prompting</li>
-                            <li>• Few-Shot Prompting</li>
-                            <li>• Chain of Thought (CoT)</li>
-                            <li>• Role Prompting e Personas</li>
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
+                            <button class="expand-topics text-emerald-500 text-sm hover:text-emerald-700" data-target="topics-2">
+                                Ver todos os tópicos (4) ▼
+                            </button>
+                        </div>
+                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-2">
+                            <li class="topic-item" data-topic="zero-shot">
+                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
+                                    <span class="mr-2">🎯</span> Zero-Shot Prompting
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Pedir ao modelo para realizar uma tarefa sem dar exemplos, apenas com instruções diretas.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Simples, rápido e funciona bem para tarefas comuns que o modelo já conhece.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Traduza para inglês: Olá, como você está?" (sem exemplos de tradução).</p>
+                                </div>
+                            </li>
+                            <li class="topic-item" data-topic="few-shot">
+                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
+                                    <span class="mr-2">📚</span> Few-Shot Prompting
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Fornecer alguns exemplos (2-5) de como você quer que a tarefa seja feita antes de pedir a resposta final.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Ensina o modelo através de exemplos, melhorando muito a qualidade para tarefas específicas.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Mostrar 3 exemplos de como classificar sentimento (positivo/negativo) antes de pedir para classificar uma nova frase.</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="cot">
+                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
+                                    <span class="mr-2">🧠</span> Chain of Thought (CoT)
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Pedir ao modelo para "pensar em voz alta" mostrando o raciocínio passo a passo antes de dar a resposta final.</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora drasticamente respostas em problemas que requerem lógica, matemática ou raciocínio complexo.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Pense passo a passo para resolver: Maria tem 3 maçãs, compra o dobro. Quantas tem?" → Modelo mostra: "3 maçãs × 2 = 6 compradas. 3 + 6 = 9 no total".</p>
+                                </div>
+                            </li>
+                            <li class="topic-item hidden extra-topic" data-topic="role">
+                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
+                                    <span class="mr-2">🎭</span> Role Prompting e Personas
+                                </button>
+                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                                    <p class="text-sm"><strong>O que é:</strong> Dar ao modelo um papel ou personalidade para assumir (ex: "Você é um professor de física").</p>
+                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Ajusta o tom, estilo e profundidade das respostas para o contexto desejado.</p>
+                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Você é um chef profissional. Explique como fazer um risoto perfeito" → Resposta com tom e detalhes de especialista culinário.</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
+
                     <div class="flex gap-3">
                         <a href="docs/md/✨ Jornada Iniciante_ Seus Primeiros Passos na Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-emerald-500 text-emerald-600 font-semibold rounded-lg hover:bg-emerald-50">
                             📖 Ver Markdown
