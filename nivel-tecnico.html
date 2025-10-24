@@ -62,6 +62,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Quebrar problemas complexos em subtarefas menores e mais gerenciáveis.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora a precisão e permite que o LLM processe cada parte com foco total.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Em vez de "Crie um relatório completo", use: "1. Liste os dados, 2. Analise tendências, 3. Crie conclusões".</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="decomposicao">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="chaining">
@@ -72,6 +76,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Conectar múltiplos prompts em sequência, usando a saída de um como entrada do próximo.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Permite fluxos de trabalho complexos e processamento em etapas.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Prompt 1: Extrair dados → Prompt 2: Analisar → Prompt 3: Gerar relatório.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="chaining">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="negative">
@@ -82,6 +90,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Especificar explicitamente o que NÃO fazer.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Evita comportamentos indesejados e direciona melhor a resposta.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> "NÃO use jargão técnico" ou "NÃO invente dados".</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="negative">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="parameters">
@@ -92,6 +104,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Controlar temperatura, top-p e outros parâmetros do modelo.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Fine-tune entre criatividade e precisão conforme necessário.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Temperature 0.2 para respostas factuais, 0.9 para criatividade.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="parameters">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="prefilling">
@@ -102,6 +118,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Começar a resposta do modelo com texto pré-definido.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Controla formato e direciona o tom da resposta.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Assistant: "Aqui está uma análise detalhada..." (continua).</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="prefilling">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="formatting">
@@ -112,6 +132,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Estruturar prompts com delimitadores, seções e hierarquia clara.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora compreensão e separação de instruções vs. dados.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Usar XML tags, Markdown, ou delimitadores como ### ou ---.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="formatting">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                         </ul>
@@ -152,6 +176,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Forçar o modelo a retornar dados em formatos estruturados como JSON ou XML.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Facilita parsing e integração com sistemas.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> "Retorne no formato: {'nome': 'João', 'idade': 30}".</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="structured">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="longcontext">
@@ -162,6 +190,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Técnicas para trabalhar com janelas de contexto grandes (100k+ tokens).</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Processar documentos longos sem perder informação.</p>
                                     <p class="text-sm mt-2"><strong>Técnicas:</strong> Chunking, summarization, indexing estratégico.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="longcontext">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="multimodal">
@@ -172,6 +204,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Prompts que combinam texto com imagens, áudio ou vídeo.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Análise de imagens, OCR, descrições visuais.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> "Analise esta imagem e descreva os elementos principais".</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="multimodal">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="optimization">
@@ -182,6 +218,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Adaptar prompts para características específicas de cada modelo (Claude, GPT, Gemini).</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Maximizar performance de cada modelo.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Claude prefere XML, GPT funciona bem com JSON.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="optimization">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="testing">
@@ -192,6 +232,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Testar sistematicamente variações de prompts e comparar resultados.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Encontrar a melhor versão baseada em dados.</p>
                                     <p class="text-sm mt-2"><strong>Técnicas:</strong> A/B testing, métricas de qualidade, validação automatizada.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="testing">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                         </ul>
@@ -227,6 +271,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Estruturar e organizar informações dentro da janela de contexto.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Maximizar uso eficiente do contexto disponível.</p>
                                     <p class="text-sm mt-2"><strong>Técnicas:</strong> Priorização, chunking semântico, context stuffing.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="context-arch">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="rag">
@@ -237,6 +285,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Combinar LLMs com busca em bases de conhecimento externas.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Respostas baseadas em dados específicos e atualizados.</p>
                                     <p class="text-sm mt-2"><strong>Componentes:</strong> Embedding, Vector DB, Retrieval, Generation.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="rag">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="vectordb">
@@ -247,6 +299,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Bancos de dados otimizados para busca por similaridade semântica.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Recuperação eficiente de informações relevantes.</p>
                                     <p class="text-sm mt-2"><strong>Exemplos:</strong> Pinecone, Weaviate, ChromaDB, Qdrant.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="vectordb">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="embeddings">
@@ -257,6 +313,10 @@
                                     <p class="text-sm"><strong>O que é:</strong> Representações vetoriais de texto para busca semântica.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Encontrar documentos similares baseado em significado.</p>
                                     <p class="text-sm mt-2"><strong>Técnicas:</strong> Cosine similarity, dense retrieval, reranking.</p>
+                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="embeddings">
+                                        <span>📖</span>
+                                        <span>Ver Explicação Completa</span>
+                                    </button>
                                 </div>
                             </li>
                         </ul>
@@ -289,6 +349,63 @@
         </div>
     </footer>
 
+    <!-- Modal de Detalhamento de Tópico -->
+    <div id="topicoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+            <!-- Header do Modal -->
+            <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white flex justify-between items-start">
+                <div>
+                    <div class="text-5xl mb-2" id="modalIcon"></div>
+                    <h2 class="text-3xl font-bold" id="modalTitulo"></h2>
+                    <p class="text-blue-100 mt-1"><span id="modalNivel"></span> • Módulo <span id="modalModulo"></span></p>
+                </div>
+                <button id="closeModal" class="text-white hover:text-blue-100 transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Conteúdo do Modal -->
+            <div class="overflow-y-auto p-8" style="max-height: calc(90vh - 140px);">
+                <!-- Introdução -->
+                <div class="mb-8">
+                    <div class="text-lg leading-relaxed text-gray-700 bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500" id="modalIntroducao"></div>
+                </div>
+
+                <!-- Conteúdo Completo -->
+                <div class="prose prose-lg max-w-none mb-8" id="modalConteudoCompleto"></div>
+
+                <!-- Exemplos -->
+                <div id="modalExemplos" class="mb-8"></div>
+
+                <!-- Casos de Uso -->
+                <div id="modalCasosUso" class="mb-8"></div>
+
+                <!-- Dicas Práticas -->
+                <div id="modalDicas" class="mb-8"></div>
+
+                <!-- Erros Comuns -->
+                <div id="modalErros" class="mb-8"></div>
+
+                <!-- Recursos Adicionais -->
+                <div id="modalRecursos"></div>
+            </div>
+
+            <!-- Footer do Modal -->
+            <div class="border-t border-gray-200 p-6 bg-gray-50 flex justify-between items-center">
+                <div class="text-sm text-gray-600">
+                    💡 Dica: Pratique com exemplos reais para dominar esta técnica
+                </div>
+                <button id="closeModalBtn" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="topicos-data.js"></script>
+    <script src="topicos-modal.js"></script>
 </body>
 </html>
