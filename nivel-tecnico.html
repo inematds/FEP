@@ -156,10 +156,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Quebrar problemas complexos em subtarefas menores e mais gerenciáveis.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora a precisão e permite que o LLM processe cada parte com foco total.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Em vez de "Crie um relatório completo", use: "1. Liste os dados, 2. Analise tendências, 3. Crie conclusões".</p>
-                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="decomposicao">
-                                        <span>📖</span>
-                                        <span>Ver Explicação Completa</span>
-                                    </button>
+                                    <div class="mt-3 grid grid-cols-2 gap-2">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="decomposicao">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=decomposicao" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item" data-topic="chaining">
@@ -170,10 +176,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Conectar múltiplos prompts em sequência, usando a saída de um como entrada do próximo.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Permite fluxos de trabalho complexos e processamento em etapas.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Prompt 1: Extrair dados → Prompt 2: Analisar → Prompt 3: Gerar relatório.</p>
-                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="chaining">
-                                        <span>📖</span>
-                                        <span>Ver Explicação Completa</span>
-                                    </button>
+                                    <div class="mt-3 grid grid-cols-2 gap-2">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="chaining">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=chaining" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="negative">
@@ -184,10 +196,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Especificar explicitamente o que NÃO fazer.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Evita comportamentos indesejados e direciona melhor a resposta.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> "NÃO use jargão técnico" ou "NÃO invente dados".</p>
-                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="negative">
-                                        <span>📖</span>
-                                        <span>Ver Explicação Completa</span>
-                                    </button>
+                                    <div class="mt-3 grid grid-cols-2 gap-2">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="negative">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=negative" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="parameters">
@@ -198,10 +216,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Controlar temperatura, top-p e outros parâmetros do modelo.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Fine-tune entre criatividade e precisão conforme necessário.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Temperature 0.2 para respostas factuais, 0.9 para criatividade.</p>
-                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="parameters">
-                                        <span>📖</span>
-                                        <span>Ver Explicação Completa</span>
-                                    </button>
+                                    <div class="mt-3 grid grid-cols-2 gap-2">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="parameters">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=parameters" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="prefilling">
@@ -212,10 +236,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Começar a resposta do modelo com texto pré-definido.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Controla formato e direciona o tom da resposta.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Assistant: "Aqui está uma análise detalhada..." (continua).</p>
-                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="prefilling">
-                                        <span>📖</span>
-                                        <span>Ver Explicação Completa</span>
-                                    </button>
+                                    <div class="mt-3 grid grid-cols-2 gap-2">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="prefilling">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=prefilling" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="topic-item hidden extra-topic" data-topic="formatting">
@@ -226,10 +256,16 @@
                                     <p class="text-sm"><strong>O que é:</strong> Estruturar prompts com delimitadores, seções e hierarquia clara.</p>
                                     <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora compreensão e separação de instruções vs. dados.</p>
                                     <p class="text-sm mt-2"><strong>Exemplo:</strong> Usar XML tags, Markdown, ou delimitadores como ### ou ---.</p>
-                                    <button class="ver-detalhes-btn mt-3 w-full px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="formatting">
-                                        <span>📖</span>
-                                        <span>Ver Explicação Completa</span>
-                                    </button>
+                                    <div class="mt-3 grid grid-cols-2 gap-2">
+                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="formatting">
+                                            <span>📖</span>
+                                            <span>Ver Modal</span>
+                                        </button>
+                                        <a href="topico-detalhes.html?id=formatting" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                                            <span>🔗</span>
+                                            <span>Abrir Página</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
