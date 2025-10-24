@@ -7,7 +7,7 @@
     const closeModalFooterBtn = document.getElementById('closeModalBtn');
 
     // Função para abrir o modal e popular com dados do tópico
-    function abrirModal(topicoKey) {
+    async function abrirModal(topicoKey) {
         const topico = topicosData[topicoKey];
 
         if (!topico) {
@@ -24,9 +24,34 @@
         // Preencher introdução
         document.getElementById('modalIntroducao').textContent = topico.introducao;
 
-        // Preencher conteúdo completo (Markdown formatado)
+        // Preencher conteúdo completo
         const conteudoCompleto = document.getElementById('modalConteudoCompleto');
-        conteudoCompleto.innerHTML = formatarMarkdown(topico.conteudoCompleto);
+
+        // Verificar se usa arquivo externo ou conteúdo inline
+        if (topico.conteudoArquivo) {
+            // Carregar arquivo markdown externo
+            conteudoCompleto.innerHTML = '<div class="text-center py-8"><div class="animate-spin inline-block w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full"></div><p class="mt-4 text-gray-600">Carregando conteúdo...</p></div>';
+
+            try {
+                const response = await fetch(topico.conteudoArquivo);
+                if (!response.ok) throw new Error('Arquivo não encontrado');
+
+                const markdownText = await response.text();
+
+                // Usar marked.js para converter Markdown para HTML
+                conteudoCompleto.innerHTML = marked.parse(markdownText);
+            } catch (error) {
+                console.error('Erro ao carregar conteúdo:', error);
+                conteudoCompleto.innerHTML = `
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                        <p class="text-red-800"><strong>Erro:</strong> Não foi possível carregar o conteúdo. ${error.message}</p>
+                    </div>
+                `;
+            }
+        } else {
+            // Usar conteúdo inline (antigo formato)
+            conteudoCompleto.innerHTML = formatarMarkdown(topico.conteudoCompleto);
+        }
 
         // Preencher exemplos
         renderizarExemplos(topico.exemplos);
