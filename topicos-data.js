@@ -951,7 +951,7 @@ Raciocínio:
    - Risco de lançar cedo: bugs, experiência ruim
    - Risco de esperar: perder momento de mercado
 
-Recomendação: Lançar versão beta AGORA para early adopters + roadmap público de melhorias nos próximos 3 meses.",
+Recomendação: Lançar versão beta AGORA para early adopters + roadmap público de melhorias nos próximos 3 meses.`,
                 resultado: 'Decisão fundamentada com raciocínio multi-dimensional transparente.'
             }
         ],
