@@ -1,0 +1,546 @@
+================================================================================
+ANÁLISE DE TÓPICOS PARA NÍVEL INICIANTE
+================================================================================
+
+Total de tópicos analisados: 159
+Tópicos relevantes para iniciantes: 149
+
+================================================================================
+TOP 50 TÓPICOS MAIS RELEVANTES PARA INICIANTES
+================================================================================
+
+1. Sem título
+   ID: 2191
+   Score Total: 37 (Iniciante: 12, Técnica: 14, Prático: 11)
+   Tópicos: Zero-Shot, Few-Shot, Role Prompting, Persona, Exemplos em Prompts, Contextualização, Tokens, Formatação de Saída, Explicações, Brainstorming, Revisão de Texto
+   Tamanho: 46681 caracteres
+
+2. Sem título
+   ID: 2151
+   Score Total: 36 (Iniciante: 10, Técnica: 14, Prático: 12)
+   Tópicos: Role Prompting, Persona, Chain of Thought, Exemplos em Prompts, Contextualização, Temperatura, Tokens, Formatação de Saída, Instruções Negativas, Refinamento Iterativo, Resumos, Tradução, Explicações, Brainstorming, Revisão de Texto, Comparações
+   Tamanho: 34822 caracteres
+
+3. Sem título
+   ID: 806
+   Score Total: 36 (Iniciante: 13, Técnica: 12, Prático: 11)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Refinamento Iterativo, Resumos, Explicações, Revisão de Texto
+   Tamanho: 50126 caracteres
+
+4. Sem título
+   ID: 4486
+   Score Total: 34 (Iniciante: 8, Técnica: 16, Prático: 10)
+   Tópicos: Zero-Shot, Few-Shot, One-Shot, Role Prompting, Persona, Exemplos em Prompts, Contextualização, Tokens, Formatação de Saída, Refinamento Iterativo, Escrita de Emails, Resumos, Brainstorming, Revisão de Texto, Comparações
+   Tamanho: 30533 caracteres
+
+5. Sem título
+   ID: 619
+   Score Total: 32 (Iniciante: 10, Técnica: 12, Prático: 10)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Refinamento Iterativo, Resumos, Explicações, Brainstorming
+   Tamanho: 30365 caracteres
+
+6. Sem título
+   ID: 1758
+   Score Total: 31 (Iniciante: 10, Técnica: 11, Prático: 10)
+   Tópicos: Persona, Chain of Thought, Exemplos em Prompts, Contextualização, Tokens, Formatação de Saída, Refinamento Iterativo, Resumos, Tradução, Explicações, Brainstorming
+   Tamanho: 27823 caracteres
+
+7. Sem título
+   ID: 3064
+   Score Total: 31 (Iniciante: 9, Técnica: 14, Prático: 8)
+   Tópicos: Zero-Shot, Few-Shot, Persona, Exemplos em Prompts, Contextualização, Tokens, Formatação de Saída, Refinamento Iterativo, Resumos, Tradução, Explicações, Revisão de Texto, Comparações
+   Tamanho: 33271 caracteres
+
+8. Sem título
+   ID: 2018
+   Score Total: 30 (Iniciante: 9, Técnica: 12, Prático: 9)
+   Tópicos: Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Refinamento Iterativo, Resumos, Explicações, Brainstorming
+   Tamanho: 52518 caracteres
+
+9. Sem título
+   ID: 4134
+   Score Total: 29 (Iniciante: 8, Técnica: 12, Prático: 9)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Escrita de Emails, Resumos, Explicações
+   Tamanho: 38677 caracteres
+
+10. Sem título
+   ID: 589
+   Score Total: 28 (Iniciante: 6, Técnica: 11, Prático: 11)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Escrita de Emails, Resumos, Explicações, Brainstorming, Revisão de Texto
+   Tamanho: 29413 caracteres
+
+11. Sem título
+   ID: 678
+   Score Total: 28 (Iniciante: 10, Técnica: 12, Prático: 6)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Refinamento Iterativo, Explicações
+   Tamanho: 27891 caracteres
+
+12. Sem título
+   ID: 4559
+   Score Total: 26 (Iniciante: 9, Técnica: 10, Prático: 7)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Resumos, Explicações, Comparações
+   Tamanho: 27109 caracteres
+
+13. Sem título
+   ID: 3937
+   Score Total: 25 (Iniciante: 7, Técnica: 11, Prático: 7)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Resumos, Explicações
+   Tamanho: 16950 caracteres
+
+14. Sem título
+   ID: 1873
+   Score Total: 24 (Iniciante: 9, Técnica: 9, Prático: 6)
+   Tópicos: Persona, Contextualização, Tokens, Resumos, Explicações, Brainstorming
+   Tamanho: 17259 caracteres
+
+15. Sem título
+   ID: 2501
+   Score Total: 24 (Iniciante: 7, Técnica: 10, Prático: 7)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Tokens, Formatação de Saída, Explicações, Brainstorming, Revisão de Texto
+   Tamanho: 21541 caracteres
+
+16. Sem título
+   ID: 3774
+   Score Total: 24 (Iniciante: 6, Técnica: 9, Prático: 9)
+   Tópicos: Persona, Exemplos em Prompts, Resumos, Tradução, Explicações, Brainstorming
+   Tamanho: 12759 caracteres
+
+17. Sem título
+   ID: 4617
+   Score Total: 24 (Iniciante: 7, Técnica: 10, Prático: 7)
+   Tópicos: Exemplos em Prompts, Contextualização, Formatação de Saída, Resumos, Brainstorming
+   Tamanho: 22847 caracteres
+
+18. Sem título
+   ID: 4819
+   Score Total: 24 (Iniciante: 7, Técnica: 9, Prático: 8)
+   Tópicos: Persona, Exemplos em Prompts, Contextualização, Temperatura, Tokens, Formatação de Saída, Escrita de Emails, Resumos, Explicações
+   Tamanho: 10842 caracteres
+
+19. Sem título
+   ID: 659
+   Score Total: 24 (Iniciante: 8, Técnica: 7, Prático: 9)
+   Tópicos: Exemplos em Prompts, Contextualização, Resumos, Tradução, Explicações, Brainstorming, Comparações
+   Tamanho: 21296 caracteres
+
+20. Sem título
+   ID: 790
+   Score Total: 24 (Iniciante: 8, Técnica: 10, Prático: 6)
+   Tópicos: Persona, Exemplos em Prompts, Contextualização, Brainstorming
+   Tamanho: 16095 caracteres
+
+21. Sem título
+   ID: 3549
+   Score Total: 23 (Iniciante: 9, Técnica: 7, Prático: 7)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Brainstorming, Revisão de Texto, Comparações
+   Tamanho: 11282 caracteres
+
+22. Sem título
+   ID: 4177
+   Score Total: 23 (Iniciante: 9, Técnica: 8, Prático: 6)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Resumos, Explicações, Revisão de Texto
+   Tamanho: 11037 caracteres
+
+23. Sem título
+   ID: 2261
+   Score Total: 22 (Iniciante: 7, Técnica: 9, Prático: 6)
+   Tópicos: Exemplos em Prompts, Contextualização, Escrita de Emails, Resumos, Explicações
+   Tamanho: 3534 caracteres
+
+24. Sem título
+   ID: 2352
+   Score Total: 21 (Iniciante: 7, Técnica: 8, Prático: 6)
+   Tópicos: Persona, Exemplos em Prompts, Refinamento Iterativo, Brainstorming
+   Tamanho: 14382 caracteres
+
+25. Sem título
+   ID: 2670
+   Score Total: 21 (Iniciante: 4, Técnica: 12, Prático: 5)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Refinamento Iterativo
+   Tamanho: 27470 caracteres
+
+26. Sem título
+   ID: 2995
+   Score Total: 21 (Iniciante: 4, Técnica: 11, Prático: 6)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Resumos, Revisão de Texto, Comparações
+   Tamanho: 13162 caracteres
+
+27. Sem título
+   ID: 4349
+   Score Total: 21 (Iniciante: 5, Técnica: 9, Prático: 7)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Tradução, Explicações, Brainstorming
+   Tamanho: 12928 caracteres
+
+28. Sem título
+   ID: 4739
+   Score Total: 21 (Iniciante: 8, Técnica: 8, Prático: 5)
+   Tópicos: Role Prompting, Persona, Contextualização, Tokens, Explicações
+   Tamanho: 7055 caracteres
+
+29. Sem título
+   ID: 3493
+   Score Total: 20 (Iniciante: 4, Técnica: 10, Prático: 6)
+   Tópicos: Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Explicações
+   Tamanho: 12822 caracteres
+
+30. Sem título
+   ID: 3595
+   Score Total: 20 (Iniciante: 2, Técnica: 11, Prático: 7)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Resumos, Explicações, Revisão de Texto
+   Tamanho: 11977 caracteres
+
+31. Sem título
+   ID: 3962
+   Score Total: 20 (Iniciante: 3, Técnica: 11, Prático: 6)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Resumos
+   Tamanho: 14725 caracteres
+
+32. Sem título
+   ID: 4277
+   Score Total: 20 (Iniciante: 5, Técnica: 9, Prático: 6)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Explicações, Brainstorming
+   Tamanho: 12493 caracteres
+
+33. Sem título
+   ID: 1853
+   Score Total: 19 (Iniciante: 5, Técnica: 10, Prático: 4)
+   Tópicos: Persona, Contextualização, Tradução
+   Tamanho: 15821 caracteres
+
+34. Sem título
+   ID: 2078
+   Score Total: 19 (Iniciante: 5, Técnica: 10, Prático: 4)
+   Tópicos: Persona, Exemplos em Prompts, Contextualização, Explicações
+   Tamanho: 7608 caracteres
+
+35. Sem título
+   ID: 2229
+   Score Total: 19 (Iniciante: 9, Técnica: 5, Prático: 5)
+   Tópicos: Exemplos em Prompts, Resumos, Explicações
+   Tamanho: 4916 caracteres
+
+36. Sem título
+   ID: 2383
+   Score Total: 19 (Iniciante: 4, Técnica: 7, Prático: 8)
+   Tópicos: Persona, Exemplos em Prompts, Resumos, Explicações, Brainstorming
+   Tamanho: 8855 caracteres
+
+37. Sem título
+   ID: 3333
+   Score Total: 19 (Iniciante: 3, Técnica: 8, Prático: 8)
+   Tópicos: Exemplos em Prompts, Formatação de Saída, Resumos, Explicações, Comparações
+   Tamanho: 7258 caracteres
+
+38. Sem título
+   ID: 3617
+   Score Total: 19 (Iniciante: 3, Técnica: 10, Prático: 6)
+   Tópicos: Role Prompting, Chain of Thought, Exemplos em Prompts, Contextualização, Tokens, Formatação de Saída, Resumos, Revisão de Texto
+   Tamanho: 6152 caracteres
+
+39. Sem título
+   ID: 3866
+   Score Total: 19 (Iniciante: 5, Técnica: 10, Prático: 4)
+   Tópicos: Role Prompting, Chain of Thought, Exemplos em Prompts, Contextualização, Tokens, Resumos, Tradução
+   Tamanho: 8449 caracteres
+
+40. Sem título
+   ID: 4756
+   Score Total: 19 (Iniciante: 4, Técnica: 9, Prático: 6)
+   Tópicos: Exemplos em Prompts, Contextualização, Refinamento Iterativo, Resumos, Explicações, Brainstorming, Comparações
+   Tamanho: 7888 caracteres
+
+41. Sem título
+   ID: 1959
+   Score Total: 18 (Iniciante: 3, Técnica: 9, Prático: 6)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Escrita de Emails, Explicações, Brainstorming
+   Tamanho: 12993 caracteres
+
+42. Sem título
+   ID: 2403
+   Score Total: 18 (Iniciante: 5, Técnica: 7, Prático: 6)
+   Tópicos: Exemplos em Prompts, Brainstorming
+   Tamanho: 13456 caracteres
+
+43. Sem título
+   ID: 3363
+   Score Total: 18 (Iniciante: 5, Técnica: 8, Prático: 5)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Resumos, Revisão de Texto
+   Tamanho: 9991 caracteres
+
+44. Sem título
+   ID: 3628
+   Score Total: 18 (Iniciante: 5, Técnica: 9, Prático: 4)
+   Tópicos: One-Shot, Chain of Thought, Exemplos em Prompts, Contextualização, Tokens, Resumos
+   Tamanho: 5356 caracteres
+
+45. Sem título
+   ID: 3856
+   Score Total: 18 (Iniciante: 3, Técnica: 10, Prático: 5)
+   Tópicos: One-Shot, Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Refinamento Iterativo, Resumos, Tradução
+   Tamanho: 7998 caracteres
+
+46. Sem título
+   ID: 3980
+   Score Total: 18 (Iniciante: 2, Técnica: 11, Prático: 5)
+   Tópicos: Few-Shot, Role Prompting, Persona, Chain of Thought, Contextualização, Formatação de Saída, Explicações
+   Tamanho: 10231 caracteres
+
+47. Sem título
+   ID: 1973
+   Score Total: 17 (Iniciante: 3, Técnica: 9, Prático: 5)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Contextualização, Escrita de Emails
+   Tamanho: 10330 caracteres
+
+48. Sem título
+   ID: 2140
+   Score Total: 17 (Iniciante: 2, Técnica: 9, Prático: 6)
+   Tópicos: Persona, Exemplos em Prompts, Formatação de Saída, Resumos, Explicações
+   Tamanho: 13030 caracteres
+
+49. Sem título
+   ID: 3478
+   Score Total: 17 (Iniciante: 6, Técnica: 7, Prático: 4)
+   Tópicos: Role Prompting, Persona, Exemplos em Prompts, Tradução, Revisão de Texto
+   Tamanho: 6676 caracteres
+
+50. Sem título
+   ID: 3662
+   Score Total: 17 (Iniciante: 2, Técnica: 11, Prático: 4)
+   Tópicos: One-Shot, Role Prompting, Persona, Exemplos em Prompts, Contextualização, Formatação de Saída, Tradução
+   Tamanho: 9776 caracteres
+
+
+================================================================================
+TÓPICOS AGRUPADOS POR TÉCNICA/CONCEITO
+================================================================================
+
+
+Exemplos em Prompts (95 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 36)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 32)
+  - Sem título (Score: 31)
+  - Sem título (Score: 31)
+  - Sem título (Score: 30)
+  - Sem título (Score: 29)
+  - Sem título (Score: 28)
+
+Persona (90 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 36)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 32)
+  - Sem título (Score: 31)
+  - Sem título (Score: 31)
+  - Sem título (Score: 30)
+  - Sem título (Score: 29)
+  - Sem título (Score: 28)
+
+Contextualização (69 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 36)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 32)
+  - Sem título (Score: 31)
+  - Sem título (Score: 31)
+  - Sem título (Score: 30)
+  - Sem título (Score: 29)
+  - Sem título (Score: 28)
+
+Resumos (55 tópicos):
+----------------------------------------
+  - Sem título (Score: 36)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 32)
+  - Sem título (Score: 31)
+  - Sem título (Score: 31)
+  - Sem título (Score: 30)
+  - Sem título (Score: 29)
+  - Sem título (Score: 28)
+  - Sem título (Score: 26)
+
+Role Prompting (47 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 36)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 32)
+  - Sem título (Score: 29)
+  - Sem título (Score: 28)
+  - Sem título (Score: 28)
+  - Sem título (Score: 26)
+  - Sem título (Score: 25)
+
+Explicações (44 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 36)
+  - Sem título (Score: 36)
+  - Sem título (Score: 32)
+  - Sem título (Score: 31)
+  - Sem título (Score: 31)
+  - Sem título (Score: 30)
+  - Sem título (Score: 29)
+  - Sem título (Score: 28)
+  - Sem título (Score: 28)
+
+Formatação de Saída (42 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 36)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 32)
+  - Sem título (Score: 31)
+  - Sem título (Score: 31)
+  - Sem título (Score: 30)
+  - Sem título (Score: 29)
+  - Sem título (Score: 28)
+
+Brainstorming (33 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 32)
+  - Sem título (Score: 31)
+  - Sem título (Score: 30)
+  - Sem título (Score: 28)
+  - Sem título (Score: 24)
+  - Sem título (Score: 24)
+  - Sem título (Score: 24)
+
+Revisão de Texto (18 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 36)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 31)
+  - Sem título (Score: 28)
+  - Sem título (Score: 24)
+  - Sem título (Score: 23)
+  - Sem título (Score: 23)
+  - Sem título (Score: 21)
+
+Escrita de Emails (18 tópicos):
+----------------------------------------
+  - Sem título (Score: 34)
+  - Sem título (Score: 29)
+  - Sem título (Score: 28)
+  - Sem título (Score: 24)
+  - Sem título (Score: 22)
+  - Sem título (Score: 18)
+  - Sem título (Score: 17)
+  - Sem título (Score: 16)
+  - Sem título (Score: 15)
+  - Sem título (Score: 15)
+
+Tokens (17 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 31)
+  - Sem título (Score: 31)
+  - Sem título (Score: 24)
+  - Sem título (Score: 24)
+  - Sem título (Score: 24)
+  - Sem título (Score: 21)
+  - Sem título (Score: 19)
+
+Tradução (16 tópicos):
+----------------------------------------
+  - Sem título (Score: 36)
+  - Sem título (Score: 31)
+  - Sem título (Score: 31)
+  - Sem título (Score: 24)
+  - Sem título (Score: 24)
+  - Sem título (Score: 21)
+  - Sem título (Score: 19)
+  - Sem título (Score: 19)
+  - Sem título (Score: 18)
+  - Sem título (Score: 17)
+
+Comparações (16 tópicos):
+----------------------------------------
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 31)
+  - Sem título (Score: 26)
+  - Sem título (Score: 24)
+  - Sem título (Score: 23)
+  - Sem título (Score: 21)
+  - Sem título (Score: 19)
+  - Sem título (Score: 19)
+  - Sem título (Score: 15)
+
+Refinamento Iterativo (12 tópicos):
+----------------------------------------
+  - Sem título (Score: 36)
+  - Sem título (Score: 36)
+  - Sem título (Score: 34)
+  - Sem título (Score: 32)
+  - Sem título (Score: 31)
+  - Sem título (Score: 31)
+  - Sem título (Score: 30)
+  - Sem título (Score: 28)
+  - Sem título (Score: 21)
+  - Sem título (Score: 21)
+
+Chain of Thought (8 tópicos):
+----------------------------------------
+  - Sem título (Score: 36)
+  - Sem título (Score: 31)
+  - Sem título (Score: 19)
+  - Sem título (Score: 19)
+  - Sem título (Score: 18)
+  - Sem título (Score: 18)
+  - Sem título (Score: 12)
+  - Sem título (Score: 10)
+
+Temperatura (8 tópicos):
+----------------------------------------
+  - Sem título (Score: 36)
+  - Sem título (Score: 24)
+  - Sem título (Score: 15)
+  - Sem título (Score: 15)
+  - Sem título (Score: 13)
+  - Sem título (Score: 12)
+  - Sem título (Score: 9)
+  - Sem título (Score: 4)
+
+Few-Shot (5 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 34)
+  - Sem título (Score: 31)
+  - Sem título (Score: 18)
+  - Sem título (Score: 10)
+
+Zero-Shot (4 tópicos):
+----------------------------------------
+  - Sem título (Score: 37)
+  - Sem título (Score: 34)
+  - Sem título (Score: 31)
+  - Sem título (Score: 10)
+
+One-Shot (4 tópicos):
+----------------------------------------
+  - Sem título (Score: 34)
+  - Sem título (Score: 18)
+  - Sem título (Score: 18)
+  - Sem título (Score: 17)
+
+Instruções Negativas (1 tópicos):
+----------------------------------------
+  - Sem título (Score: 36)

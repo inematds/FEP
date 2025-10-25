@@ -9,7 +9,21 @@
       "Bash(git remote add:*)",
       "Bash(git push:*)",
       "Bash(git fsck:*)",
-      "SlashCommand(/BMad:agents:ux-expert)"
+      "SlashCommand(/BMad:agents:ux-expert)",
+      "Bash(node -c:*)",
+      "Bash(mkdir:*)",
+      "Bash(python:*)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(awk:*)",
+      "Bash(grep:*)",
+      "Bash(node:*)",
+      "Bash(git checkout:*)",
+      "Bash(git fetch:*)",
+      "Bash(xxd:*)",
+      "Read(//c/**)",
+      "Bash(python3:*)",
+      "Bash(del add-buttons-masterclass.py)"
     ],
     "deny": [],
     "ask": []

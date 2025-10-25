@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Test topicosData</title>
+</head>
+<body>
+    <h1>Testing topicosData Load</h1>
+    <div id="result"></div>
+
+    <script src="topicos-data.js"></script>
+    <script>
+        const resultDiv = document.getElementById('result');
+
+        try {
+            // Check if topicosData is defined
+            if (typeof topicosData === 'undefined') {
+                resultDiv.innerHTML = '<p style="color: red;">❌ ERROR: topicosData is not defined!</p>';
+            } else {
+                const topicCount = Object.keys(topicosData).length;
+                resultDiv.innerHTML = `
+                    <p style="color: green;">✅ SUCCESS: topicosData loaded!</p>
+                    <p>Number of topics: ${topicCount}</p>
+                    <h2>Module 3 Topics:</h2>
+                    <ul>
+                        ${Object.entries(topicosData)
+                            .filter(([key, topic]) => topic.modulo === 3)
+                            .map(([key, topic]) => `
+                                <li>
+                                    <strong>${topic.icon} ${topic.titulo}</strong>
+                                    ${topic.conteudoArquivo ?
+                                        `<br/>📄 Uses external file: ${topic.conteudoArquivo}` :
+                                        '<br/>📝 Uses inline content'
+                                    }
+                                </li>
+                            `).join('')}
+                    </ul>
+                `;
+            }
+        } catch (error) {
+            resultDiv.innerHTML = `<p style="color: red;">❌ ERROR: ${error.message}</p>`;
+        }
+    </script>
+</body>
+</html>
