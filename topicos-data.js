@@ -1244,6 +1244,187 @@ Analise o aumento de 20% no preço do produto."
         ]
     },
 
+    'empoderamento': {
+        titulo: 'Prompt de Empoderamento (EXPERT)',
+        nivel: 'Iniciante',
+        modulo: 2,
+        icon: '⚡',
+        introducao: `Framework EXPERT que empodera a IA a pensar de forma autônoma e profunda sobre problemas complexos. Transforma respostas superficiais em análises ricas, multidimensionais e verdadeiramente úteis.`,
+        conteudoArquivo: 'conteudo/modulo2-empoderamento.md',
+        exemplos: [],
+        casosDeUso: [
+            {
+                area: 'Consultoria',
+                aplicacao: 'Análises estratégicas',
+                detalhes: 'Soluções profundas em vez de respostas superficiais'
+            },
+            {
+                area: 'Educação',
+                aplicacao: 'Ensino complexo',
+                detalhes: 'Explicações multidimensionais adaptadas ao aprendiz'
+            }
+        ],
+        dicasPraticas: [
+            '✓ Use EXPERT para problemas que exigem raciocínio profundo',
+            '✓ Combine com role prompting para potencializar expertise',
+            '✓ Framework ativa autonomia da IA',
+            '✓ Ideal para consultorias, análises e planejamento'
+        ],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'meta-prompting': {
+        titulo: 'Engenheiro de Prompt Interativo',
+        nivel: 'Iniciante',
+        modulo: 2,
+        icon: '🔧',
+        introducao: `Meta-prompting que transforma a IA em um engenheiro especializado em criar e refinar prompts. Automatiza a criação de prompts otimizados através de processo iterativo de perguntas e refinamento.`,
+        conteudoArquivo: 'conteudo/modulo2-engenheiro-interativo.md',
+        exemplos: [],
+        casosDeUso: [
+            {
+                area: 'Automação',
+                aplicacao: 'Criação de prompts',
+                detalhes: 'IA faz perguntas e cria prompt perfeito'
+            },
+            {
+                area: 'Aprendizado',
+                aplicacao: 'Ensinar prompting',
+                detalhes: 'Meta-prompt que ensina melhores práticas'
+            }
+        ],
+        dicasPraticas: [
+            '✓ Deixe a IA fazer perguntas antes de gerar',
+            '✓ Processo iterativo é mais eficiente',
+            '✓ Use para tarefas complexas ou recorrentes',
+            '✓ Salve prompts gerados para reutilização'
+        ],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'prompts-iterativos': {
+        titulo: 'Prompts Conversacionais (Iterativo)',
+        nivel: 'Iniciante',
+        modulo: 2,
+        icon: '🔄',
+        introducao: `Técnica de refinar respostas através de múltiplas interações em vez de buscar perfeição no primeiro prompt. Mais natural e eficiente do que tentar criar o prompt perfeito imediatamente.`,
+        conteudoArquivo: 'conteudo/modulo2-prompts-interativos.md',
+        exemplos: [],
+        casosDeUso: [
+            {
+                area: 'Escrita',
+                aplicacao: 'Refinamento de textos',
+                detalhes: 'Start simples + follow-ups ("mais técnico", "adicione exemplos")'
+            },
+            {
+                area: 'Brainstorming',
+                aplicacao: 'Ideação progressiva',
+                detalhes: 'Explorar ideias e expandir as melhores'
+            }
+        ],
+        dicasPraticas: [
+            '✓ Comece simples, refine depois',
+            '✓ Use comandos curtos: "expandir", "simplificar", "exemplos"',
+            '✓ Mais rápido que criar mega-prompt inicial',
+            '✓ Natural e conversacional'
+        ],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'skeleton-of-thought': {
+        titulo: 'Skeleton of Thought',
+        nivel: 'Iniciante',
+        modulo: 2,
+        icon: '🦴',
+        introducao: `Técnica que pede primeiro um esqueleto (outline) da resposta antes do conteúdo completo. Acelera respostas longas e permite validar estrutura antes de gerar tudo.`,
+        conteudoArquivo: 'conteudo/modulo2-skeleton-of-thought.md',
+        exemplos: [],
+        casosDeUso: [
+            {
+                area: 'Conteúdo Longo',
+                aplicacao: 'Artigos e reports',
+                detalhes: 'Validar estrutura antes de gerar conteúdo completo'
+            },
+            {
+                area: 'Otimização',
+                aplicacao: 'Redução de latência',
+                detalhes: 'Respostas mais rápidas em 2 etapas'
+            }
+        ],
+        dicasPraticas: [
+            '✓ Use para respostas longas e estruturadas',
+            '✓ Valide outline antes de expandir',
+            '✓ Pode paralelizar expansão dos pontos',
+            '✓ Reduz latência perceptível'
+        ],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    '24-dimensoes-persona': {
+        titulo: '24 Dimensões de Persona',
+        nivel: 'Iniciante',
+        modulo: 2,
+        icon: '👤',
+        introducao: `Framework de 24 atributos para criar personas profundas e multifacetadas para a IA assumir. Cria simulações muito mais ricas e autênticas do que role prompting simples.`,
+        conteudoArquivo: 'conteudo/modulo2-24-dimensoes-persona.md',
+        exemplos: [],
+        casosDeUso: [
+            {
+                area: 'Criatividade',
+                aplicacao: 'Personagens complexos',
+                detalhes: 'Narrativas, roteiros, jogos com personas profundas'
+            },
+            {
+                area: 'Simulação',
+                aplicacao: 'Especialistas realistas',
+                detalhes: 'Consultores com background, valores, estilo únicos'
+            }
+        ],
+        dicasPraticas: [
+            '✓ Não precisa usar todas 24 dimensões',
+            '✓ Escolha dimensões relevantes ao contexto',
+            '✓ Quanto mais detalhes, mais autêntica a persona',
+            '✓ Combine com role prompting'
+        ],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
+    'humanizacao': {
+        titulo: 'Humanização de Texto',
+        nivel: 'Iniciante',
+        modulo: 2,
+        icon: '✍️',
+        introducao: `Técnicas para fazer texto gerado por IA parecer escrito por humanos, com naturalidade e imperfeições estratégicas. Aumenta autenticidade, engajamento e reduz detecção por ferramentas anti-IA.`,
+        conteudoArquivo: 'conteudo/modulo2-humanizacao.md',
+        exemplos: [],
+        casosDeUso: [
+            {
+                area: 'Conteúdo',
+                aplicacao: 'Blogs e redes sociais',
+                detalhes: 'Textos autênticos que engajam'
+            },
+            {
+                area: 'Comunicação',
+                aplicacao: 'Emails e mensagens',
+                detalhes: 'Tom natural e conversacional'
+            }
+        ],
+        dicasPraticas: [
+            '✓ Use contrações e linguagem coloquial',
+            '✓ Varie estrutura de frases (curtas + longas)',
+            '✓ Adicione opiniões e emoções',
+            '✓ Imperfeições sutis aumentam autenticidade',
+            '✓ Não exagere - mantenha profissionalismo'
+        ],
+        errosComuns: [],
+        recursosAdicionais: []
+    },
+
     'refinamento': {
         titulo: 'Refinamento Iterativo',
         nivel: 'Técnico',
