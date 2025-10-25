@@ -1193,6 +1193,113 @@ Analise o aumento de 20% no preço do produto."
         ]
     },
 
+    'contextualizacao': {
+        titulo: 'Contextualização Efetiva',
+        nivel: 'Iniciante',
+        modulo: 2,
+        icon: '🎯',
+        introducao: `Contextualização é fornecer informações de background que orientam a resposta do modelo na direção certa. Contexto transforma prompts genéricos em específicos e úteis.`,
+        conteudoArquivo: 'conteudo/modulo2-contextualizacao.md',
+        exemplos: [],
+        casosDeUso: [
+            {
+                area: 'Comunicação',
+                aplicacao: 'Emails e mensagens',
+                detalhes: 'Contexto de público, situação e objetivo melhora tom e relevância'
+            },
+            {
+                area: 'Ensino',
+                aplicacao: 'Explicações didáticas',
+                detalhes: 'Contexto de nível de conhecimento adapta profundidade'
+            },
+            {
+                area: 'Técnico',
+                aplicacao: 'Debugging e código',
+                detalhes: 'Contexto de stack, erro específico, tentativas acelera solução'
+            }
+        ],
+        dicasPraticas: [
+            '✓ Use template: Público + Situação + Objetivo + Restrições',
+            '✓ Contexto de público muda linguagem e profundidade',
+            '✓ Contexto de objetivo muda foco (teoria vs. prático)',
+            '✓ Remova informações irrelevantes (não exagere)',
+            '✓ Contexto é crítico em tarefas ambíguas ou decisões'
+        ],
+        errosComuns: [
+            {
+                erro: 'Contexto insuficiente',
+                exemplo: '"Preciso de ajuda com Python"',
+                solucao: 'Adicione: nível, objetivo, problema específico'
+            },
+            {
+                erro: 'Contexto excessivo e irrelevante',
+                exemplo: 'Incluir detalhes pessoais não relacionados à tarefa',
+                solucao: 'Foque no contexto que afeta a resposta'
+            }
+        ],
+        recursosAdicionais: [
+            '📖 Pratique adicionar contexto a prompts vagos',
+            '🎓 Crie template pessoal de contexto para suas tarefas',
+            '🧪 Compare resultados com/sem contexto'
+        ]
+    },
+
+    'refinamento': {
+        titulo: 'Refinamento Iterativo',
+        nivel: 'Técnico',
+        modulo: 3,
+        icon: '🔄',
+        introducao: `Refinamento iterativo é a habilidade de melhorar prompts através de ciclos de tentativa, avaliação e ajuste. Raramente acertamos de primeira - e tudo bem! O processo iterativo é a chave.`,
+        conteudoArquivo: 'conteudo/modulo3-refinamento.md',
+        exemplos: [],
+        casosDeUso: [
+            {
+                area: 'Conteúdo',
+                aplicacao: 'Escrita e copy',
+                detalhes: 'Refinar tom, tamanho, elementos específicos progressivamente'
+            },
+            {
+                area: 'Código',
+                aplicacao: 'Code generation',
+                detalhes: 'Iterar em requisitos, edge cases, otimizações'
+            },
+            {
+                area: 'Análise',
+                aplicacao: 'Reports e dashboards',
+                detalhes: 'Ajustar profundidade, formato, insights específicos'
+            }
+        ],
+        dicasPraticas: [
+            '✓ 2-3 refinamentos são suficientes para 90%+ das tarefas',
+            '✓ Feedback específico > feedback vago ("muito formal" vs "não gostei")',
+            '✓ Mantenha o que funciona, mude apenas o problema',
+            '✓ Saiba quando parar: "bom o suficiente" > perfeição',
+            '✓ Documente prompts bem-sucedidos para reutilizar'
+        ],
+        errosComuns: [
+            {
+                erro: 'Desistir após V1 não funcionar',
+                exemplo: 'Achar que "não sou bom em prompts"',
+                solucao: 'Refinamento é normal e esperado, não falha'
+            },
+            {
+                erro: 'Reescrever do zero ao invés de refinar',
+                exemplo: 'Jogar fora V1 e criar prompt totalmente diferente',
+                solucao: 'Ajuste incrementalmente: V1 → V2 → V3'
+            },
+            {
+                erro: 'Refinar infinitamente (perfecionismo)',
+                exemplo: 'V5, V6, V7 buscando melhoria de 1%',
+                solucao: 'Lei dos retornos decrescentes: pare em 90-95%'
+            }
+        ],
+        recursosAdicionais: [
+            '📖 Crie biblioteca de "antes e depois" de prompts refinados',
+            '🎓 Identifique seus padrões de refinamento pessoais',
+            '🧪 Pratique ciclo: V1 → Avaliar → V2 → Avaliar → V3'
+        ]
+    },
+
     // ==============================================
     // NÍVEL TÉCNICO - MÓDULO 3
     // ==============================================
