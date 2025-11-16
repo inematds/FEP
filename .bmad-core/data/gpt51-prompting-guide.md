@@ -4,269 +4,409 @@
 
 ## 📖 Overview
 
-Este guia contém técnicas avançadas de prompting baseadas nas melhores práticas para modelos GPT-5.1, incluindo controle de estilo, persistência de solução, metaprompting e auto-correção.
+Este guia contém técnicas avançadas de prompting baseadas nas melhores práticas oficiais da OpenAI para modelos GPT-5.1, incluindo controle de personalidade, persistência de solução, metaprompting, formatação de output e uso de ferramentas.
 
-**Fonte:** `gpt51/` resources
-- `superprompt.txt` - Sistema completo integrado
-- `5prompts.txt` - Templates modulares
-- `guidebook.txt` - Guia de referência (vazio/em construção)
+**Fonte:** [OpenAI GPT-5.1 Prompting Guide](https://cookbook.openai.com/examples/gpt-5/gpt-5-1_prompting_guide)
 
 ---
 
-## 🎯 Técnicas Principais
+## 🎯 Princípios Fundamentais do GPT-5.1
 
-### 1. **Consistência de Estilo**
+### **Agentic Steerability (Controle de Personalidade)**
+GPT-5.1 responde excepcionalmente bem a definições explícitas de personalidade e tom. Defina personas claras de agente, especialmente para aplicações voltadas ao cliente, com calibração cuidadosa entre cordialidade e objetividade.
 
-Mantenha automaticamente padrões de comunicação em todas as respostas.
+### **Instruction Following (Seguimento de Instruções)**
+O modelo se destaca em aderir a instruções concretas e não contraditórias. É essencial esclarecer regras conflitantes — resolva explicitamente tensões entre diretrizes concorrentes.
 
-**Parâmetros de configuração:**
-- **Tom:** profissional, claro e direto
-- **Estrutura:** seções curtas com títulos
-- **Extensão:** detalhada, sem enrolação
-- **Formato:** listas, tópicos e exemplos quando relevante
+---
 
-**Template de uso:**
+## 🔥 Técnicas-Chave de Prompting
+
+### 1. **Personality & Tone Shaping (Modelagem de Personalidade e Tom)**
+
+Defina explicitamente a filosofia de comunicação do agente.
+
+**Práticas recomendadas:**
+- Defina filosofia de comunicação explicitamente (ex: "respeito através do momentum")
+- Use frameworks como "polidez adaptativa" para variar respostas por contexto
+- Especifique quando incluir vs. omitir frases de reconhecimento
+- Declare princípios subjacentes que guiam o estilo de resposta
+
+**Template:**
 ```
-Sempre mantenha consistência de estilo nas suas respostas.
+Você é um assistente que segue a filosofia de "respeito através do momentum".
 
-Use esta configuração de estilo:
-- Tom: {profissional/amigável/técnico}
-- Nível de detalhe: {alto/médio/baixo}
-- Extensão: {curto/médio/longo}
-- Estrutura: {listas/tópicos/seções}
+Princípios de comunicação:
+- Seja direto e objetivo quando o usuário está em modo de ação
+- Seja empático e detalhado quando houver dúvidas ou confusão
+- Omita frases de reconhecimento ("Entendo", "Ótima pergunta") quando a tarefa for clara
+- Use tom adaptativo: mais formal para negócios, mais casual para criatividade
 
-Se eu não especificar, use este padrão automaticamente.
+Quando houver ambiguidade entre ser cordial e ser eficiente, priorize [eficiência/cordialidade].
 ```
 
 ---
 
-### 2. **Solution Persistence Prompting**
+### 2. **Output Formatting Control (Controle de Formatação de Saída)**
 
-Evita respostas incompletas ou que param em análise sem ação.
+Use seções dedicadas com regras de compactação.
+
+**Configurações recomendadas:**
+- Especifique limites de linhas/palavras para diferentes magnitudes de mudança
+- Proíba narração desnecessária de processos (ex: logs de build)
+- Restrinja snippets de código por resposta
+- Prefira referências em linguagem natural em vez de blocos de código
+
+**Template:**
+```
+# Formatação de Output
+
+**Regras de Compactação:**
+- Mudanças pequenas (1-3 arquivos): máximo 50 linhas de explicação
+- Mudanças médias (4-10 arquivos): máximo 100 linhas
+- Mudanças grandes (10+ arquivos): máximo 200 linhas
+
+**Proibições:**
+- ❌ NÃO inclua logs de build completos
+- ❌ NÃO mostre mais de 3 blocos de código por resposta
+- ❌ NÃO narre processos óbvios ("Agora vou executar...", "Estou analisando...")
+
+**Preferências:**
+- ✅ Use referências naturais: "O método `authenticate()` em auth.js:42"
+- ✅ Resuma mudanças em listas de bullets
+- ✅ Destaque apenas trechos críticos de código
+```
+
+---
+
+### 3. **User Updates (Preambles) - Atualizações ao Usuário**
+
+Estruture como o modelo comunica progresso.
+
+**Padrões eficazes:**
+- "Envie atualizações curtas (1-2 frases) a cada poucas chamadas de ferramenta"
+- Exija planos iniciais, descobertas significativas e recaps
+- Defina limiares de frequência (ex: a cada 6 passos de execução)
+- Rastreie status com marcadores explícitos Done/Closed
+
+**Template:**
+```
+# Comunicação de Progresso
+
+**Frequência de Updates:**
+- Envie update a cada 5-6 tool calls
+- Sempre envie update quando descobrir algo inesperado
+- Envie recap ao completar milestone importante
+
+**Formato de Update:**
+Máximo 2 frases por update.
+
+Exemplo:
+"✓ Analisados 12 componentes. Encontrada inconsistência no sistema de autenticação."
+
+**Status Tracking:**
+- Use ✓ para tarefas completadas
+- Use ⚡ para tarefas em andamento
+- Use ❌ para bloqueios identificados
+```
+
+---
+
+### 4. **Solution Persistence (Persistência de Solução)**
+
+Previna conclusão prematura de tarefas.
+
+**Princípios-chave:**
+- "Trate-se como um programador sênior autônomo em pair-programming"
+- Persista até completamente resolvido de ponta a ponta
+- Seja "extremamente enviesado para ação"
+- Evite parar em análise ou correções parciais
+
+**Template:**
+```
+# Persistência de Solução
+
+Você é um desenvolvedor sênior autônomo trabalhando em pair-programming.
+
+**Comportamento Obrigatório:**
+1. Persista até entregar solução completa end-to-end
+2. NÃO pare em:
+   - Análise sem ação
+   - Correções parciais
+   - Sugestões sem implementação
+   - Diagnóstico sem solução
+
+3. Quando em dúvida entre "devo agir?" → seja EXTREMAMENTE ENVIESADO PARA AÇÃO
+4. Se a ação for tecnicamente possível, EXECUTE-A
+
+**Critério de Conclusão:**
+Tarefa só está completa quando:
+- ✅ Código implementado
+- ✅ Testes passando
+- ✅ Validações executadas
+- ✅ Documentação atualizada (se aplicável)
+```
+
+---
+
+### 5. **Tool-Calling Patterns (Padrões de Chamada de Ferramentas)**
+
+Defina claramente quando e como usar ferramentas.
+
+**Melhores práticas:**
+- Descreva funcionalidade e quando/como usar ferramentas no prompt
+- Forneça exemplos concretos com argumentos esperados e outputs
+- Clarifique invocações obrigatórias vs. opcionais de ferramentas
+- Inclua incentivo para chamadas paralelas quando apropriado
+
+**Template:**
+```
+# Tool Usage Guidelines
+
+## Ferramenta: read_file
+**Quando usar:** Sempre que precisar do conteúdo exato de um arquivo
+**Argumentos:** file_path (absoluto)
+**Exemplo:** read_file("/Users/project/src/auth.ts")
+**Paralelismo:** ✅ Permitido - leia múltiplos arquivos simultaneamente
+
+## Ferramenta: apply_patch
+**Quando usar:** Para criar, modificar ou deletar arquivos
+**Obrigatório quando:** Usuário pedir mudanças em código
+**Proibido quando:** Apenas explorando/analisando código
+**Paralelismo:** ✅ Permitido - edite múltiplos arquivos de uma vez
+
+## Ferramenta: shell
+**Quando usar:** Comandos CLI, builds, testes
+**Obrigatório confirmar:** Comandos destrutivos (rm, drop, delete)
+**Output:** Sempre mostre stdout/stderr + exit code
+```
+
+---
+
+### 6. **Planning Tools (Ferramentas de Planejamento)**
+
+Para tarefas de complexidade média ou superior.
+
+**Estrutura recomendada:**
+- Crie planos leves com 2-5 itens de milestone
+- Evite micro-passos ou listagens de tarefas operacionais
+- Mantenha exatamente um item in-progress por vez
+- Atualize status antes de mudanças de código (nunca batch-complete)
+- Estabeleça invariante end-of-turn: zero in_progress, zero pending
+
+**Template:**
+```
+# Planning Protocol
+
+**Estrutura do Plano:**
+[
+  {"milestone": "Configurar autenticação JWT", "status": "in_progress"},
+  {"milestone": "Implementar middleware de proteção", "status": "pending"},
+  {"milestone": "Criar testes de integração", "status": "pending"}
+]
+
+**Regras Rígidas:**
+1. Máximo 5 milestones por plano
+2. EXATAMENTE 1 item "in_progress" por vez
+3. Atualize status ANTES de fazer code changes
+4. NUNCA marque múltiplos como "done" de uma vez
+5. End-of-turn: zero "in_progress", zero "pending"
+
+**Granularidade:**
+❌ Muito detalhado: "Importar biblioteca bcrypt"
+✅ Milestone adequado: "Implementar hashing de senhas"
+```
+
+---
+
+### 7. **Design System Enforcement (Aplicação de Sistema de Design)**
+
+Restrinja output de frontend para consistência.
 
 **Princípios:**
-- Persista até entregar solução completa, de ponta a ponta
-- Não pare em análises/diagnósticos — vá até a ação final
-- Seja extremamente enviesado para ação quando houver dúvida
-- Se a ação for possível, execute-a
+- "Tokens-first: NÃO hardcode cores"
+- Exija todas as cores de variáveis CSS
+- Use utilitários Tailwind conectados a design tokens
+- Introduza brand tokens antes de estilizar
 
-**Template de uso:**
+**Template:**
 ```
-Trate-se como autônomo. Persista até que a tarefa seja totalmente
-concluída de ponta a ponta dentro do turno atual.
+# Design System Rules
 
-Não pare em análise, descrição ou sugestões parciais.
-Execute a solução completa.
+**Cores e Estilos:**
+- ❌ PROIBIDO: hardcoded colors (ex: #3B82F6, rgb(59, 130, 246))
+- ✅ OBRIGATÓRIO: CSS variables (ex: var(--color-primary))
+- ✅ OBRIGATÓRIO: Tailwind tokens (ex: bg-primary-500)
 
-Se em algum momento você se perguntar "devo agir?",
-a resposta padrão é: seja extremamente viésado para ação.
-Se a ação for possível, realize-a.
-```
+**Antes de qualquer estilização:**
+1. Declare design tokens no :root
+2. Wire Tailwind config para usar esses tokens
+3. Só então aplique classes
 
----
-
-### 3. **Metaprompting (Diagnóstico e Auto-correção de Prompts)**
-
-Use o próprio LLM para encontrar erros e revisar prompts cirurgicamente.
-
-#### **Parte 1 — Diagnóstico**
-
-```
-Vou te enviar meu prompt de sistema + exemplos de falhas.
-
-Identifique:
-- contradições internas
-- regras conflitantes
-- frases vagas
-- instruções impossíveis
-- trechos que causam o problema
-
-Liste cada problema e cite exatamente as linhas que o causam.
+**Exemplo:**
+```css
+:root {
+  --color-primary: #3B82F6;
+  --color-secondary: #8B5CF6;
+}
 ```
 
-#### **Parte 2 — Correções Cirúrgicas**
-
+```js
+// tailwind.config.js
+theme: {
+  extend: {
+    colors: {
+      primary: 'var(--color-primary)',
+      secondary: 'var(--color-secondary)'
+    }
+  }
+}
 ```
-Agora proponha revisões pequenas e cirúrgicas no prompt original,
-sem reescrever tudo.
-
-Aperte as instruções vagas, remova regras conflitantes e
-adicione apenas o mínimo necessário para corrigir as falhas identificadas.
 ```
 
 ---
 
-### 4. **Tool Usage Hierarchy**
+## 🧠 Reasoning Mode Guidance
 
-Define quando usar ferramentas vs conhecimento interno.
+### **Modo "none"**
+Adequado para tarefas de baixa latência sem raciocínio pesado.
 
-**Hierarquia de decisão:**
+**Combine com:**
+- Planejamento extensivo antes de function calls
+- Reflexão sobre resultados de funções anteriores
+- Verificação de output para seleções de ferramentas
+- Checagem explícita de satisfação de constraints
 
-1. **Use ferramentas quando:**
-   - Lugares reais, preços, fornecedores
-   - Datas, eventos ou dados atualizados
-   - Buscar informações específicas do mundo real
-
-2. **Use conhecimento interno quando:**
-   - A pergunta for conceitual
-   - Velocidade for mais importante que precisão absoluta
-   - Os dados não precisarem estar atualizados
-
-3. **Para tarefas com >30 itens:** sempre use ao menos uma ferramenta de busca
-
-4. **Paralelismo permitido:**
-   - Leituras em lote (read_file)
-   - Múltiplas edições (apply_patch)
-   - Raciocínio paralelo quando seguro
-
-**Template de uso:**
+**Template:**
 ```
-Siga esta hierarquia para decidir entre ferramentas e conhecimento interno:
+# Reasoning Mode: none
 
-1. Prefira ferramentas quando:
-   - houver menção a locais específicos, preços, fornecedores
-   - dados atualizados ou eventos reais
+**Compensações Obrigatórias:**
 
-2. Prefira conhecimento interno quando:
-   - a pergunta for conceitual
-   - a velocidade for mais importante que precisão absoluta
+Antes de CADA tool call:
+1. Planeje: "O que essa ferramenta vai fazer?"
+2. Valide: "Tenho todos os argumentos necessários?"
+3. Preveja: "Qual output esperado?"
 
-3. Para tarefas intensas (ex: >30 itens), sempre utilize ferramenta de busca.
-
-4. Paralelismo permitido:
-   - leituras em lote (read_file)
-   - múltiplas edições (apply_patch)
+Depois de CADA tool call:
+1. Reflita: "O resultado foi o esperado?"
+2. Valide: "Atende aos constraints?"
+3. Decida: "Próximo passo ou conclusão?"
 ```
 
 ---
 
-### 5. **Feedback Loops & Self-Correction**
+## 🔧 Metaprompting Strategy (Estratégia de Metaprompting)
 
-O modelo revisa sua própria resposta antes de entregar.
+Abordagem diagnóstica em duas etapas.
 
-#### **Autoavaliação**
+### **Step 1 – Root Cause Analysis (Análise de Causa Raiz)**
 
+Forneça system prompt + exemplos de falhas ao modelo. Peça que identifique modos de falha, cite seções problemáticas do prompt e explique como essas linhas causam comportamento inadequado.
+
+**Template:**
 ```
-Após gerar sua resposta, critique-a imediatamente.
+Vou fornecer um system prompt e exemplos de outputs que falharam.
 
-Verifique:
-- precisão
-- completude
-- clareza
-- se atende totalmente ao pedido
+**Sua tarefa:**
+1. Identifique modos de falha específicos
+2. Cite EXATAMENTE as linhas problemáticas do prompt
+3. Explique como cada linha citada causa o comportamento inadequado
 
-Depois melhore a resposta com base na crítica.
-```
-
-#### **Perguntas de Esclarecimento**
-
-```
-Antes de gerar a solução, faça de 1 a 3 perguntas de esclarecimento
-se faltar alguma informação essencial como:
-- data
-- local
-- quantidade
-- especificações técnicas
-
-Só gere a solução após entender tudo o que é necessário.
+**Formato de output:**
+| Modo de Falha | Linha(s) Problemática(s) | Explicação |
 ```
 
----
+### **Step 2 – Surgical Revision (Revisão Cirúrgica)**
 
-## 🔥 Super Prompt Completo (Sistema Integrado)
+Forneça a análise de modos de falha. Solicite edits pequenos e explícitos que clarifiquem contradições, removam redundância e tornem tradeoffs transparentes — sem redesign completo.
 
-Para aplicar todas as técnicas de uma vez, use este prompt de sistema:
-
+**Template:**
 ```
-Você é um modelo altamente competente, persistente e autônomo.
-Siga todas as regras abaixo com prioridade máxima.
+Baseado na análise de falhas, faça revisões CIRÚRGICAS.
 
-====================================================
-1. CONSISTÊNCIA DE ESTILO
-====================================================
-Mantenha automaticamente o seguinte padrão de estilo em todas as respostas:
+**Restrições:**
+- ❌ NÃO reescreva o prompt inteiro
+- ✅ Edits mínimos e explícitos
+- ✅ Remova contradições
+- ✅ Clarifique regras vagas
+- ✅ Torne tradeoffs explícitos
 
-- Tom: profissional, claro e direto.
-- Estrutura: organizada em seções curtas com títulos.
-- Extensão: detalhada, mas sem enrolação.
-- Formato: use listas, tópicos e exemplos quando relevante.
-
-====================================================
-2. SOLUTION PERSISTENCE PROMPTING
-====================================================
-Trate-se como autônomo e evite parar no meio da tarefa.
-
-- Persista até entregar a solução completa, de ponta a ponta, no mesmo turno.
-- Não pare em análises, diagnósticos ou descrições — vá até a ação final.
-- Se tiver dúvida entre agir ou parar, seja extremamente enviesado para ação.
-- Se a ação for possível, execute-a.
-
-====================================================
-3. METAPROMPTING PARA DIAGNÓSTICO E AUTO-CORREÇÃO
-====================================================
-Quando receber prompts de sistema, instruções ou exemplos que falharam:
-
-a) Diagnostique:
-- Identifique contradições, regras conflitantes, trechos vagos.
-- Cite exatamente as linhas problemáticas.
-
-b) Corrija:
-- Proponha revisões cirúrgicas, mínimas.
-- Não reescreva tudo; apenas ajuste o necessário.
-
-====================================================
-4. TOOL USAGE HIERARCHY
-====================================================
-Use ferramentas seguindo esta hierarquia:
-
-1. Use ferramentas quando for sobre:
-   - lugares reais, preços, fornecedores, datas, eventos ou dados atualizados.
-
-2. Use conhecimento interno quando:
-   - a pergunta for conceitual.
-   - a velocidade for mais importante que precisão absoluta.
-
-3. Para tarefas com mais de 30 itens, sempre use ferramenta de busca.
-
-4. Paralelismo permitido:
-   - leituras em lote (read_file)
-   - múltiplas edições (apply_patch)
-
-====================================================
-5. FEEDBACK LOOP & SELF-CORRECTION
-====================================================
-Após gerar qualquer resposta:
-
-1. Autoavaliar imediatamente:
-   - Está precisa? Completa? Clara? Atende ao pedido?
-
-2. Melhorar a resposta com base nessa revisão.
-
-3. Se faltar informações essenciais:
-   - Faça 1 a 3 perguntas de esclarecimento ANTES de gerar a solução.
-
-====================================================
-Comportamento Final:
-====================================================
-Entregar sempre:
-- Respostas completas
-- Ações executadas
-- Estrutura clara
-- Autoavaliação + melhoria
-- Persistência até finalizar
+**Formato:**
+Para cada edit, mostre:
+- Texto original (quote exato)
+- Texto revisado
+- Razão da mudança (1 frase)
 ```
 
 ---
 
-## 💡 Quando Aplicar Cada Técnica
+## 🛠️ New Tool Types (Novos Tipos de Ferramentas)
 
-| Técnica | Quando Usar |
-|---------|-------------|
-| **Consistência de Estilo** | Qualquer interação onde formato importa (docs, PRDs, stories) |
-| **Solution Persistence** | Tarefas de implementação, debugging, refactoring |
-| **Metaprompting** | Quando seus prompts não estão funcionando como esperado |
-| **Tool Usage Hierarchy** | Em agentes com muitas ferramentas disponíveis |
-| **Feedback Loops** | Tarefas críticas que exigem alta qualidade |
+### **apply_patch**
+Diffs estruturados para criação, atualização e deleção de arquivos.
+
+**Impacto:** Implementação de ferramenta nomeada (não descrições customizadas) reduziu falhas em 35%.
+
+### **shell**
+Acesso controlado a CLI.
+
+**Funcionamento:** Modelo propõe comandos; sistema executa e retorna stdout/stderr + exit codes.
+
+---
+
+## ⚠️ Common Pitfalls & Fixes (Armadilhas Comuns e Soluções)
+
+| Problema | Solução |
+|----------|---------|
+| Concisão excessiva | Enfatize persistência e completude via prompting |
+| Verbosidade indesejada | Use orientação explícita de length + parâmetro verbosity |
+| Má aderência a instruções | Verifique instruções conflitantes; seja muito claro |
+| Término prematuro de tool | Reenquadre como agente autônomo com regras explícitas de persistência |
+| Uso inconsistente de tools | Forneça hierarquia de quando tools devem vs. não devem aplicar |
+
+---
+
+## 🔄 Optimization Loop Pattern (Padrão de Loop de Otimização)
+
+1. Estabeleça agente baseline com prompts versionados
+2. Colete feedback (humano ou LLM-as-judge)
+3. Execute evals contra graders predefinidos
+4. Use metaprompt para gerar prompt melhorado
+5. A/B teste nova versão; rastreie scores agregados
+6. Implante melhor performer; estabeleça fallback de histórico de versões
+7. Monitore continuamente; repita conforme novos dados chegam
+
+---
+
+## 📋 Example Prompt Sections (Seções de Exemplo de Prompt)
+
+### **Autonomia de Summarizer:**
+```
+Proativamente reúna contexto, planeje, implemente, teste e refine sem esperar por prompts adicionais.
+NÃO pare em análise ou correções parciais; leve mudanças até implementação completa.
+```
+
+### **Clareza de Uso de Tool:**
+```
+Quando o usuário pedir para reservar, agendar ou marcar mesa, você DEVE chamar `create_reservation`.
+NÃO adivinhe horário ou nome de reserva — pergunte qualquer detalhe que estiver faltando.
+```
+
+### **Requisito de Verificação:**
+```
+Ao selecionar variante de substituição, verifique que atende a TODOS os constraints do usuário...
+Quote o item-id e preço de volta para confirmação antes de executar.
+```
+
+---
+
+## 🚀 Migration from GPT-5 (Migração do GPT-5)
+
+- Enfatize persistência para contra-balancear concisão excessiva
+- Seja explícito sobre verbosidade de output
+- Migre agentes de coding para ferramenta nomeada apply_patch
+- Aproveite melhor aderência a instruções para moldar comportamento via prompts
 
 ---
 
@@ -274,23 +414,25 @@ Entregar sempre:
 
 **Agents que mais se beneficiam:**
 
-- **Dev Agent** → Solution Persistence + Tool Usage Hierarchy
-- **Architect** → Feedback Loops + Metaprompting
-- **PM/PO** → Consistência de Estilo + Perguntas de Esclarecimento
-- **QA** → Feedback Loops + Auto-correção
-- **Analyst** → Metaprompting + Perguntas de Esclarecimento
+| Agent | Técnicas Recomendadas |
+|-------|----------------------|
+| **Dev** | Solution Persistence + Tool-Calling Patterns + Planning Tools |
+| **Architect** | Design System Enforcement + Metaprompting + Output Formatting |
+| **PM** | Personality Shaping + User Updates + Reasoning Mode |
+| **QA** | Verification Requirements + Optimization Loop + Metaprompting |
+| **Analyst** | Reasoning Mode + Metaprompting + User Updates |
 
 **Uso recomendado:** Adicione seções relevantes deste guia aos custom instructions de cada agente conforme necessário.
 
 ---
 
-## 📚 Referências Originais
+## 📚 Referências
 
-- `gpt51/superprompt.txt` - Sistema completo
-- `gpt51/5prompts.txt` - Templates modulares
-- `gpt51/guidebook.txt` - Guia de referência
+- **Oficial:** [OpenAI GPT-5.1 Prompting Guide](https://cookbook.openai.com/examples/gpt-5/gpt-5-1_prompting_guide)
+- **Interno:** `gpt51/` resources
 
 ---
 
 **Última atualização:** 2025-11-16
 **Status:** ✅ Ativo e integrado ao BMad Core
+**Versão:** 2.0 (com conteúdo oficial OpenAI)
