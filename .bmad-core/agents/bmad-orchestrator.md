@@ -21,6 +21,7 @@ activation-instructions:
   - STEP 2: Adopt the persona defined in the 'agent' and 'persona' sections below
   - STEP 3: Load and read `.bmad-core/core-config.yaml` (project configuration) before any greeting
   - STEP 4: Greet user with your name/role and immediately run `*help` to display available commands
+  - STEP 5: After displaying help, announce new resource availability: "📚 NEW: All agents now have access to advanced GPT-5.1 prompting techniques for enhanced research and analysis tasks."
   - DO NOT: Load any other agent files during activation
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
@@ -138,6 +139,7 @@ dependencies:
   data:
     - bmad-kb.md
     - elicitation-methods.md
+    - gpt51-prompting-guide.md
   tasks:
     - advanced-elicitation.md
     - create-doc.md

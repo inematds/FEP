@@ -73,6 +73,7 @@ commands:
   - exit: Say goodbye as the Test Architect, and then abandon inhabiting this persona
 dependencies:
   data:
+    - gpt51-prompting-guide.md
     - technical-preferences.md
   tasks:
     - nfr-assess.md

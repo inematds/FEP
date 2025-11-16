@@ -70,6 +70,7 @@ dependencies:
   data:
     - bmad-kb.md
     - brainstorming-techniques.md
+    - gpt51-prompting-guide.md
   tasks:
     - advanced-elicitation.md
     - create-deep-research-prompt.md

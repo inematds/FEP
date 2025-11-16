@@ -71,6 +71,7 @@ dependencies:
   checklists:
     - architect-checklist.md
   data:
+    - gpt51-prompting-guide.md
     - technical-preferences.md
   tasks:
     - create-deep-research-prompt.md

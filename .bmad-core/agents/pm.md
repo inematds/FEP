@@ -69,6 +69,7 @@ dependencies:
     - change-checklist.md
     - pm-checklist.md
   data:
+    - gpt51-prompting-guide.md
     - technical-preferences.md
   tasks:
     - brownfield-create-epic.md

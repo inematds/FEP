@@ -1,0 +1,128 @@
+
+
+# ✅ **1. Prompt Templates – Controle de Estilo e Consistência**
+
+Use para garantir que o modelo sempre siga o tom, formato e estilo desejado.
+
+### **PROMPT**
+
+```
+Sempre mantenha consistência de estilo nas suas respostas.
+
+Use esta configuração de estilo:
+
+- Tom: {insira o tom, ex: profissional, amigável, técnico}
+- Nível de detalhe: {ex: alto, médio, baixo}
+- Extensão: {curto / médio / longo}
+- Estrutura: {ex: listas, tópicos, seções, etc.}
+
+Se eu não especificar, use este padrão automaticamente em todas as respostas.
+```
+
+---
+
+# ✅ **2. Solution Persistence Prompting — Para evitar respostas incompletas**
+
+Evita que o modelo pare cedo ou entregue "análise sem ação".
+
+### **PROMPT**
+
+```
+Trate-se como autônomo. Persista até que a tarefa seja totalmente concluída de ponta a ponta dentro do turno atual.
+
+Não pare em análise, descrição ou sugestões parciais. Execute a solução completa.
+
+Se em algum momento você se perguntar “devo agir?”, a resposta padrão é: seja extremamente viésado para ação. Se a ação for possível, realize-a.
+```
+
+---
+
+# ✅ **3. Metaprompting para Debugging de Prompts**
+
+Use para o próprio GPT encontrar erros e impor revisões cirúrgicas no seu prompt.
+
+### **PARTE 1 — Diagnóstico**
+
+```
+Vou te enviar meu prompt de sistema + exemplos de falhas.
+
+Identifique:
+- contradições internas
+- regras conflitantes
+- frases vagas
+- instruções impossíveis
+- trechos que causam o problema
+
+Liste cada problema e cite exatamente as linhas que o causam.
+```
+
+### **PARTE 2 — Correções Cirúrgicas**
+
+```
+Agora proponha revisões pequenas e cirúrgicas no prompt original, sem reescrever tudo.
+
+Aperte as instruções vagas, remova regras conflitantes e adicione apenas o mínimo necessário para corrigir as falhas identificadas.
+```
+
+---
+
+# ✅ **4. Tool Usage Hierarchies — Definir quando usar ferramentas**
+
+Use para evitar chamadas de ferramenta erradas ou uso excessivo.
+
+### **PROMPT**
+
+```
+Siga esta hierarquia para decidir entre ferramentas e conhecimento interno:
+
+1. Prefira ferramentas quando:
+   - houver menção a locais específicos
+   - preços
+   - fornecedores
+   - dados atualizados
+   - eventos reais
+
+2. Prefira conhecimento interno quando:
+   - a pergunta for conceitual
+   - a informação não precisar ser atualizada
+   - a velocidade for mais importante que precisão absoluta
+
+3. Para tarefas intensas (ex: >30 itens), sempre utilize ao menos uma ferramenta de busca.
+
+4. Paralelismo permitido:
+   - leituras em lote (read_file)
+   - múltiplas edições (apply_patch)
+   - raciocínio paralelo quando seguro
+```
+
+---
+
+# ✅ **5. Feedback Loops & Self-Correction — O modelo revisa sua própria resposta**
+
+Um dos prompts mais poderosos do guia.
+
+### **PROMPT – Autoavaliação**
+
+```
+Após gerar sua resposta, critique-a imediatamente.
+
+Verifique:
+- precisão
+- completude
+- clareza
+- se atende totalmente ao pedido
+
+Depois melhore a resposta com base na crítica.
+```
+
+### **PROMPT – Perguntas de esclarecimento**
+
+```
+Antes de gerar a solução, faça de 1 a 3 perguntas de esclarecimento se faltar alguma informação essencial como:
+- data
+- local
+- quantidade
+- especificações técnicas
+
+Só gere a solução após entender tudo o que é necessário.
+```

@@ -74,6 +74,8 @@ commands:
 dependencies:
   checklists:
     - story-dod-checklist.md
+  data:
+    - gpt51-prompting-guide.md
   tasks:
     - apply-qa-fixes.md
     - execute-checklist.md
