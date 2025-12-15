@@ -1,593 +1,482 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nível Masterclass | FEP</title>
+    <title>Nível Masterclass - Arquitetura de Prompt | FEP</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Estilos para o conteúdo markdown dentro do modal */
-        #modalConteudoCompleto h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 0.5rem;
-        }
-        #modalConteudoCompleto h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 0.25rem;
-        }
-        #modalConteudoCompleto h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: #374151;
-        }
-        #modalConteudoCompleto h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            color: #4b5563;
-        }
-        #modalConteudoCompleto p {
-            margin-bottom: 1rem;
-            line-height: 1.7;
-            color: #4b5563;
-        }
-        #modalConteudoCompleto ul, #modalConteudoCompleto ol {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-        }
-        #modalConteudoCompleto li {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-        #modalConteudoCompleto pre {
-            background-color: #f3f4f6;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        #modalConteudoCompleto code {
-            background-color: #f3f4f6;
-            padding: 0.2rem 0.4rem;
-            border-radius: 0.25rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-        }
-        #modalConteudoCompleto pre code {
-            background: none;
-            padding: 0;
-        }
-        #modalConteudoCompleto strong {
-            font-weight: 600;
-            color: #1f2937;
-        }
-        #modalConteudoCompleto blockquote {
-            border-left: 4px solid #8b5cf6;
-            padding-left: 1rem;
-            margin: 1rem 0;
-            font-style: italic;
-            color: #6b7280;
-        }
-        #modalConteudoCompleto table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-        #modalConteudoCompleto th, #modalConteudoCompleto td {
-            border: 1px solid #e5e7eb;
-            padding: 0.75rem;
-            text-align: left;
-        }
-        #modalConteudoCompleto th {
-            background-color: #f9fafb;
-            font-weight: 600;
-        }
-        #modalConteudoCompleto hr {
-            border: none;
-            border-top: 2px solid #e5e7eb;
-            margin: 2rem 0;
-        }
+        html.dark body { background-color: #0a0a0a; }
+        .gold-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%); }
+        .gold-text { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     </style>
 </head>
-<body class="font-['Inter'] bg-gray-50">
-    <nav class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <span class="text-2xl font-bold text-blue-600">FEP</span>
-                    <span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
-                </a>
-                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar ao Início</a>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-xl font-bold gold-text">FEP</span>
+                <span class="text-neutral-400 dark:text-neutral-500">|</span>
+                <span class="text-sm text-neutral-600 dark:text-neutral-400">Masterclass</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="nivel-iniciante.html" class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400">Iniciante</a>
+                    <a href="nivel-tecnico.html" class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400">Técnico</a>
+                    <a href="nivel-avancado.html" class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400">Avançado</a>
+                    <a href="nivel-masterclass.html" class="text-sm font-medium text-amber-600 dark:text-amber-400">Masterclass</a>
+                </nav>
+                <button onclick="toggleTheme()" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
+                    <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                </button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <main class="container mx-auto px-4 py-12">
-        <div class="breadcrumb mb-8">
-            <a href="index.html">Início</a>
-            <span class="breadcrumb-separator">/</span>
-            <span>Nível Masterclass</span>
-        </div>
-
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-8 text-white mb-12">
-                <div class="text-6xl mb-4">👑</div>
-                <h1 class="text-4xl font-bold mb-4">Nível Masterclass</h1>
-                <p class="text-xl text-purple-100 mb-4">50-60 horas de conteúdo</p>
-                <p class="text-lg">Expert em Agentes de IA, Extended Thinking e Sistemas Complexos</p>
-            </div>
-
-            <div class="grid gap-8 mb-12">
-                <!-- Módulo 6 -->
-                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-purple-200" data-module-id="modulo-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 6</span>
-                        <span class="text-gray-500 text-sm">10-12 horas</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Agentes - Fundamentos</h3>
-                    <p class="text-gray-600 mb-4">Loops agênticos, tool design, function calling e Model Context Protocol.</p>
-
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
-                            <button class="expand-topics text-purple-500 text-sm hover:text-purple-700" data-target="topics-6">
-                                Ver todos os tópicos (6) ▼
-                            </button>
-                        </div>
-                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-6">
-                            <li class="topic-item" data-topic="react">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">🔄</span> Loops Agênticos (ReAct, ReWOO)
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Padrões de raciocínio onde agentes pensam, agem e observam em loops iterativos.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Permite que agentes resolvam problemas complexos passo a passo com auto-correção.</p>
-                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> ReAct (Reasoning + Acting), ReWOO (Reasoning Without Observation), Reflexion (auto-reflexão).</p>
-                                    <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="react">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=react" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="tools">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">🛠️</span> Tool Design e Function Calling
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Criar ferramentas que agentes podem chamar para realizar ações específicas além de geração de texto.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Expande capacidades do agente para interagir com o mundo real.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Ferramentas para busca web, cálculos matemáticos, acesso a APIs, execução de código.</p>
-                                    <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="tools">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=tools" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="mcp">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">🔌</span> Model Context Protocol (MCP)
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Protocolo padronizado da Anthropic para conectar LLMs a fontes de dados e ferramentas externas.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Integração simples, segura e padronizada de contexto externo.</p>
-                                    <p class="text-sm mt-2"><strong>Recursos:</strong> Acesso a arquivos, bancos de dados, APIs REST, ferramentas customizadas.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="mcp">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=mcp" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="memory">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">🧠</span> Memory Systems
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Sistemas de memória de curto e longo prazo para agentes manterem estado.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Agentes que lembram interações anteriores e aprendem com o tempo.</p>
-                                    <p class="text-sm mt-2"><strong>Tipos:</strong> Working memory (contexto atual), episodic memory (conversas passadas), semantic memory (conhecimento).</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="memory">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=memory" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="planning">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">📋</span> Planning & Reasoning
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Técnicas avançadas para agentes planejarem sequências complexas de ações.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Resolver problemas multi-step de forma eficiente e estruturada.</p>
-                                    <p class="text-sm mt-2"><strong>Métodos:</strong> Tree of Thoughts, Chain of Thought, Skeleton of Thought, Graph of Thoughts.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="planning">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=planning" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="error">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">⚠️</span> Error Handling & Recovery
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Estratégias para agentes lidarem com falhas, erros e se recuperarem graciosamente.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Robustez essencial em ambientes reais e imprevisíveis.</p>
-                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> Retry logic, fallback strategies, graceful degradation, circuit breakers.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="error">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=error" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <a href="docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-purple-500 text-purple-600 font-semibold rounded-lg hover:bg-purple-50">
-                            📖 Ver Markdown
-                        </a>
-                        <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-600">
-                            📄 Baixar PDF
-                        </a>
-                    </div>
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-900/40 via-orange-900/30 to-neutral-900 dark:from-amber-900/30 dark:via-orange-900/20 dark:to-neutral-950"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23fbbf24\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="px-4 py-1.5 text-sm font-bold gold-gradient text-white rounded-full shadow-lg shadow-amber-500/25">TRILHA 4</span>
+                    <span class="px-3 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30">ARQUITETO</span>
                 </div>
-
-                <!-- Módulo 7 -->
-                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-purple-200" data-module-id="modulo-7">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 7</span>
-                        <span class="text-gray-500 text-sm">10-12 horas</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Agentes Avançados</h3>
-                    <p class="text-gray-600 mb-4">Claude Skills, Extended Thinking, sistemas multi-agente e voice AI.</p>
-
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
-                            <button class="expand-topics text-purple-500 text-sm hover:text-purple-700" data-target="topics-7">
-                                Ver todos os tópicos (4) ▼
-                            </button>
-                        </div>
-                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-7">
-                            <li class="topic-item" data-topic="skills">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">🎯</span> Claude Skills
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Sistema de capacidades customizadas para Claude executar tarefas específicas de forma consistente.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Criar agentes especializados com comportamentos bem definidos e reproduzíveis.</p>
-                                    <p class="text-sm mt-2"><strong>Uso:</strong> Definir skills, encadear execução, combinar múltiplas capacidades, criar workflows.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="skills">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=skills" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="extended">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">🧩</span> Extended Thinking
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Modo de raciocínio expandido onde o modelo "pensa em voz alta" por mais tempo antes de responder.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Resolver problemas extremamente complexos que requerem análise profunda e cuidadosa.</p>
-                                    <p class="text-sm mt-2"><strong>Quando usar:</strong> Matemática avançada, code debugging complexo, análise estratégica, reasoning chains longos.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="extended">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=extended" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="multiagent">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">👥</span> Sistemas Multi-Agente
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Múltiplos agentes especializados trabalhando juntos coordenadamente em um objetivo comum.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Dividir tarefas complexas entre especialistas, cada um focado em sua expertise.</p>
-                                    <p class="text-sm mt-2"><strong>Padrões:</strong> Hierárquico (manager/workers), colaborativo (peer-to-peer), competitivo (debate), democrático (votação).</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="multiagent">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=multiagent" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="voice">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">🎤</span> Voice AI & Multimodal Agents
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Agentes que processam e geram voz, imagens, vídeo, além de texto simultaneamente.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Interfaces naturais e análise multimodal completa para aplicações reais.</p>
-                                    <p class="text-sm mt-2"><strong>Aplicações:</strong> Assistentes de voz conversacionais, análise de imagens médicas, geração de conteúdo rico.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="voice">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=voice" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <a href="docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-purple-500 text-purple-600 font-semibold rounded-lg hover:bg-purple-50">
-                            📖 Ver Markdown
-                        </a>
-                        <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-600">
-                            📄 Baixar PDF
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Módulo 8 -->
-                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-purple-200" data-module-id="modulo-8">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 8</span>
-                        <span class="text-gray-500 text-sm">12-15 horas</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Masterclasses Especializadas</h3>
-                    <p class="text-gray-600 mb-4">Produção, segurança, observabilidade, ética e o futuro da IA.</p>
-
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
-                            <button class="expand-topics text-purple-500 text-sm hover:text-purple-700" data-target="topics-8">
-                                Ver todos os tópicos (4) ▼
-                            </button>
-                        </div>
-                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-8">
-                            <li class="topic-item" data-topic="production">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">🚀</span> Production Systems
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Deploy de sistemas de IA em produção com reliability, scalability e maintainability.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Transição de protótipo para sistema real de missão crítica usado por milhares.</p>
-                                    <p class="text-sm mt-2"><strong>Tópicos:</strong> CI/CD pipelines, prompt versioning, A/B testing, monitoring, rate limiting, caching strategies.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="production">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=production" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="security">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">🔒</span> Segurança e Prompt Injection
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Proteger sistemas contra ataques de prompt injection, jailbreaking e uso malicioso.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Prevenir vazamento de informações sensíveis e comportamentos perigosos.</p>
-                                    <p class="text-sm mt-2"><strong>Defesas:</strong> Input sanitization, output filtering, context isolation, constitutional AI, red teaming.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="security">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=security" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="observability">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">📊</span> Observabilidade e Monitoring
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Monitorar comportamento, qualidade e performance de sistemas de IA em produção.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Detectar problemas proativamente, otimizar custos, garantir qualidade consistente.</p>
-                                    <p class="text-sm mt-2"><strong>Métricas:</strong> Latência, taxa de sucesso, custo por query, qualidade de resposta, user satisfaction.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="observability">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=observability" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="ethics">
-                                <button class="topic-button w-full text-left hover:text-purple-600 transition-colors">
-                                    <span class="mr-2">⚖️</span> IA Ética e Alignment
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Garantir que sistemas de IA sigam valores humanos, sejam justos e benéficos para todos.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Evitar danos, construir confiança e criar IA verdadeiramente útil e segura.</p>
-                                    <p class="text-sm mt-2"><strong>Tópicos:</strong> Bias detection e mitigation, fairness, transparency, explainability, Constitutional AI, RLHF.</p>
-                                <div class="flex gap-2 mt-3">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2" data-topico="ethics">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=ethics" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <a href="docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-purple-500 text-purple-600 font-semibold rounded-lg hover:bg-purple-50">
-                            📖 Ver Markdown
-                        </a>
-                        <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-600">
-                            📄 Baixar PDF
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-8 text-center border-2 border-green-200">
-                <div class="text-5xl mb-4">🎉</div>
-                <h3 class="text-3xl font-bold mb-4 text-gray-900">Parabéns!</h3>
-                <p class="text-lg text-gray-700 mb-6">
-                    Você concluiu todos os níveis do curso FEP!<br>
-                    Agora você domina Engenharia de Prompt do básico ao avançado.
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                    Masterclass<br>
+                    <span class="gold-text">Arquitetura de Prompt</span>
+                </h1>
+                <p class="text-xl text-neutral-300 mb-8 leading-relaxed max-w-2xl">
+                    Você não vai mais <em>escrever prompts</em> — vai <strong>projetar sistemas</strong>.
+                    Nível arquiteto, decisão técnica e liderança em engenharia de prompt.
                 </p>
-                <div class="flex gap-4 justify-center flex-wrap">
-                    <a href="exercicios.html" class="inline-block bg-green-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-600 transition-colors">
-                        Praticar com Exercícios 🎯
-                    </a>
-                    <a href="index.html" class="inline-block bg-purple-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-600 transition-colors">
-                        Voltar ao Início 🏠
-                    </a>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur rounded-lg">
+                        <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        <span class="text-white font-medium">6 Módulos</span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur rounded-lg">
+                        <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        <span class="text-white font-medium">36 Tópicos</span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur rounded-lg">
+                        <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        <span class="text-white font-medium">Nível Arquiteto</span>
+                    </div>
+                </div>
+                <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 max-w-xl">
+                    <p class="text-amber-200 text-sm">
+                        <strong class="text-amber-100">Pré-requisito:</strong> Conclusão do Nível Avançado (Trilha 3) ou experiência equivalente em engenharia de contexto e skills.
+                    </p>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Modal de Detalhamento de Tópico -->
-    <div id="topicoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
-            <!-- Header do Modal -->
-            <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-6 text-white flex justify-between items-start">
-                <div>
-                    <div class="text-5xl mb-2" id="modalIcon"></div>
-                    <h2 class="text-3xl font-bold" id="modalTitulo"></h2>
-                    <p class="text-purple-100 mt-1"><span id="modalNivel"></span> • Módulo <span id="modalModulo"></span></p>
-                </div>
-                <button id="closeModal" class="text-white hover:text-purple-100 transition-colors">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
+    <!-- Diferença Fundamental -->
+    <section class="py-16 border-b border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-4">A Diferença Fundamental</h2>
+                <p class="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+                    Masterclass não ensina técnica — ensina <strong>design, decisão e responsabilidade</strong>.
+                </p>
             </div>
-
-            <!-- Conteúdo do Modal -->
-            <div class="overflow-y-auto p-8" style="max-height: calc(90vh - 140px);">
-                <!-- Introdução -->
-                <div class="mb-8">
-                    <div class="text-lg leading-relaxed text-gray-700 bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500" id="modalIntroducao"></div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-neutral-100 dark:bg-neutral-800 rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
+                            <span class="text-purple-600 dark:text-purple-400 font-bold">3</span>
+                        </div>
+                        <h3 class="font-bold text-neutral-900 dark:text-white">Nível Avançado</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-neutral-600 dark:text-neutral-300">
+                        <li class="flex items-start gap-2"><span class="text-purple-500">•</span>Usa contexto</li>
+                        <li class="flex items-start gap-2"><span class="text-purple-500">•</span>Cria skills</li>
+                        <li class="flex items-start gap-2"><span class="text-purple-500">•</span>Orquestra prompts</li>
+                        <li class="flex items-start gap-2"><span class="text-purple-500">•</span>Implementa agentes</li>
+                        <li class="flex items-start gap-2"><span class="text-purple-500">•</span>Testa prompts</li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
+                        <span class="text-sm font-medium text-purple-600 dark:text-purple-400">Técnico Avançado</span>
+                    </div>
                 </div>
-
-                <!-- Conteúdo Completo -->
-                <div class="prose prose-lg max-w-none mb-8" id="modalConteudoCompleto"></div>
-
-                <!-- Exemplos -->
-                <div id="modalExemplos" class="mb-8"></div>
-
-                <!-- Casos de Uso -->
-                <div id="modalCasosUso" class="mb-8"></div>
-
-                <!-- Dicas Práticas -->
-                <div id="modalDicas" class="mb-8"></div>
-
-                <!-- Erros Comuns -->
-                <div id="modalErros" class="mb-8"></div>
-
-                <!-- Recursos Adicionais -->
-                <div id="modalRecursos"></div>
-            </div>
-
-            <!-- Footer do Modal -->
-            <div class="border-t border-gray-200 p-6 bg-gray-50 flex justify-between items-center">
-                <div class="text-sm text-gray-600">
-                    💡 Dica: Pratique com exemplos reais para dominar esta técnica
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-6 border-2 border-amber-300 dark:border-amber-700">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full gold-gradient flex items-center justify-center">
+                            <span class="text-white font-bold">4</span>
+                        </div>
+                        <h3 class="font-bold text-neutral-900 dark:text-white">Masterclass</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-neutral-700 dark:text-neutral-200">
+                        <li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Define</strong> estratégias de contexto</li>
+                        <li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Governa</strong> ecossistemas de skills</li>
+                        <li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Desenha</strong> arquiteturas</li>
+                        <li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Decide</strong> arquiteturas de agentes</li>
+                        <li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Avalia</strong> risco sistêmico</li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t border-amber-200 dark:border-amber-800">
+                        <span class="text-sm font-bold text-amber-600 dark:text-amber-400">Arquiteto / Líder Técnico</span>
+                    </div>
                 </div>
-                <button id="closeModalBtn" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-semibold">
-                    Fechar
-                </button>
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer class="bg-gray-900 text-white py-8 mt-16">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 FEP - Engenharia de Prompt</p>
-            <p class="mt-2 text-sm text-gray-400">Feito com ❤️ para a comunidade de IA em Português</p>
+    <!-- Módulos -->
+    <section class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-4">Jornada do Arquiteto</h2>
+                <p class="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+                    6 módulos que transformam você em referência técnica em engenharia de prompt.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Módulo 1 -->
+                <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/20">
+                                <span class="text-2xl">🧠</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="px-2 py-0.5 text-xs font-bold bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 rounded">MÓDULO 1</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Arquitetura de Sistemas Baseados em Prompt</h3>
+                                <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    Não é "como fazer prompt" — é <strong>como desenhar sistemas de prompt</strong>.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-2">
+                                    <a href="conteudo/masterclass/modulo1-completo.html#prompt-unidade" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">1</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Prompt como unidade arquitetural</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo1-completo.html#mono-multi" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">2</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Arquiteturas mono vs multi-prompt</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo1-completo.html#camadas" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">3</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Camadas arquiteturais de sistemas LLM</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo1-completo.html#contratos" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">4</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Contratos de comportamento</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo1-completo.html#padroes" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">5</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Padrões arquiteturais recorrentes</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo1-completo.html#analise-real" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">6</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Análise de arquiteturas reais</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 2 -->
+                <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/20">
+                                <span class="text-2xl">🧩</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="px-2 py-0.5 text-xs font-bold bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 rounded">MÓDULO 2</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Design de Contexto em Escala</h3>
+                                <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    Diferente da Trilha 3: aqui é <strong>decisão estratégica</strong>, não uso operacional.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-2">
+                                    <a href="conteudo/masterclass/modulo2-completo.html#estrategias-escala" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">1</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Estratégias em larga escala</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo2-completo.html#decisao-long-rag" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">2</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Decidir: long context, RAG ou híbrido</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo2-completo.html#custos" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">3</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Custos cognitivos e técnicos</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo2-completo.html#governanca" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">4</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Governança de contexto</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo2-completo.html#persistencia" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">5</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Políticas de persistência e descarte</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo2-completo.html#falhas-sistemicas" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">6</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Falhas sistêmicas por contexto</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 3 -->
+                <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-rose-500/20">
+                                <span class="text-2xl">🛠️</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="px-2 py-0.5 text-xs font-bold bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300 rounded">MÓDULO 3</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Design e Governança de Skills</h3>
+                                <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    Na Trilha 3 você <em>cria</em> skills. Aqui você <strong>define ecossistemas de skills</strong>.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-2">
+                                    <a href="conteudo/masterclass/modulo3-completo.html#taxonomia" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">1</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Taxonomia de skills</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo3-completo.html#ativos" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">2</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Skills como ativos organizacionais</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo3-completo.html#acoplamento" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">3</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Reuso, acoplamento e dependências</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo3-completo.html#versionamento" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">4</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Versionamento e compatibilidade</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo3-completo.html#ownership" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">5</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Governança e ownership</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo3-completo.html#evolucao" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">6</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Evolução ao longo do tempo</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 4 -->
+                <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/20">
+                                <span class="text-2xl">🤖</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="px-2 py-0.5 text-xs font-bold bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded">MÓDULO 4</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Arquiteturas de Agentes Baseadas em Prompt</h3>
+                                <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    Não é "construir agente" — é <strong>desenhar arquiteturas com responsabilidade técnica</strong>.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-2">
+                                    <a href="conteudo/masterclass/modulo4-completo.html#tipos-arquitetura" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">1</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Tipos de arquiteturas de agentes</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo4-completo.html#unico-multi" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">2</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Agente único vs multiagente</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo4-completo.html#coordenacao" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">3</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Coordenação, supervisão, delegação</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo4-completo.html#autonomia" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">4</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Limites de autonomia</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo4-completo.html#falhas-emergentes" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">5</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Falhas emergentes em multiagente</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo4-completo.html#estudos-caso" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">6</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Estudos de caso reais</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 5 -->
+                <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-red-500/20">
+                                <span class="text-2xl">🧪</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="px-2 py-0.5 text-xs font-bold bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded">MÓDULO 5</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Avaliação Sistêmica e Risco</h3>
+                                <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    Na Trilha 3 você testa prompts. Aqui você <strong>avalia sistemas inteiros como superfície de risco</strong>.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-2">
+                                    <a href="conteudo/masterclass/modulo5-completo.html#avaliacao-sistemica" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">1</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Avaliação sistêmica de comportamento</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo5-completo.html#risco-operacional" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">2</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Risco operacional e cognitivo</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo5-completo.html#prompt-injection" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">3</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Prompt injection arquitetural</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo5-completo.html#auditoria" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">4</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Auditoria de decisões</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo5-completo.html#observabilidade" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">5</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Observabilidade estratégica</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo5-completo.html#incidentes" class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">6</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Incidentes e resposta a falhas</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo 6 -->
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl shadow-lg border-2 border-amber-300 dark:border-amber-700 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/30">
+                                <span class="text-2xl">🚀</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="px-2 py-0.5 text-xs font-bold gold-gradient text-white rounded">MÓDULO 6</span>
+                                    <span class="px-2 py-0.5 text-xs font-bold bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 rounded">EXCLUSIVO</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Autoria, Padrões e Liderança Técnica</h3>
+                                <p class="text-neutral-700 dark:text-neutral-300 text-sm mb-4">
+                                    O aluno <strong>vira referência</strong>, não executor. Esse módulo só existe no Masterclass.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-2">
+                                    <a href="conteudo/masterclass/modulo6-completo.html#padroes-engenharia" class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">1</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Definição de padrões de engenharia</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo6-completo.html#guidelines" class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">2</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Guidelines e frameworks internos</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo6-completo.html#documentacao" class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">3</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Documentação para escala</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo6-completo.html#decisao-tecnica" class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">4</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Decisão técnica e trade-offs</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo6-completo.html#comunicacao" class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">5</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Comunicação com stakeholders</span>
+                                    </a>
+                                    <a href="conteudo/masterclass/modulo6-completo.html#projeto-final" class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group">
+                                        <span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">6</span>
+                                        <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Projeto final: arquitetura completa</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-16 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-neutral-900 dark:from-amber-900/30 dark:via-orange-900/20 dark:to-neutral-950">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 rounded-full mb-6">
+                <span class="text-2xl">🏆</span>
+                <span class="text-amber-300 font-medium">Nível Máximo da Jornada</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Torne-se Referência em<br>
+                <span class="gold-text">Engenharia de Prompt</span>
+            </h2>
+            <p class="text-neutral-300 mb-8 max-w-2xl mx-auto">
+                Após completar a Masterclass, você será capaz de projetar sistemas de prompt,
+                definir padrões organizacionais e liderar iniciativas de IA.
+            </p>
+            <a href="conteudo/masterclass/modulo1-completo.html" class="inline-flex items-center gap-2 px-8 py-4 gold-gradient text-white font-bold rounded-xl shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-shadow">
+                Começar o Módulo 1
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold gold-text">FEP</span>
+                    <span class="text-neutral-400">|</span>
+                    <span class="text-neutral-600 dark:text-neutral-400">Fundamentos de Engenharia de Prompt</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="nivel-iniciante.html" class="text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm">Iniciante</a>
+                    <a href="nivel-tecnico.html" class="text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm">Técnico</a>
+                    <a href="nivel-avancado.html" class="text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm">Avançado</a>
+                    <a href="nivel-masterclass.html" class="text-amber-600 dark:text-amber-400 font-medium text-sm">Masterclass</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="topicos-data.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="topicos-modal.js"></script>
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </body>
 </html>

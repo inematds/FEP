@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Avaliação Sistêmica e Risco | Masterclass | FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', system-ui, sans-serif; }
+        html { scroll-behavior: smooth; }
+        .gold-glow { box-shadow: 0 0 40px rgba(251, 191, 36, 0.15); }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../../index.html" class="text-xl font-bold text-gradient-gold">FEP</a>
+                <nav class="flex items-center space-x-6">
+                    <a href="../../nivel-masterclass.html" class="text-gray-300 hover:text-amber-400 transition-colors text-sm">← Voltar ao Curso</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-orange-500/5"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center">
+                <span class="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-400 text-sm font-medium mb-6">
+                    Módulo 5 • Masterclass
+                </span>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-gradient-gold">Avaliação Sistêmica e Risco</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    De testador de prompts para <strong class="text-amber-400">avaliador de sistemas críticos</strong>.
+                    Aprenda a identificar riscos operacionais e cognitivos em escala organizacional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Box -->
+    <section class="py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/30 rounded-2xl p-8 gold-glow">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">🧪</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-amber-400 mb-3">A Diferença do Nível Masterclass</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Na <strong>Trilha 3</strong>, você aprendeu a <em>testar prompts individuais</em>. Aqui, você aprende
+                            a <strong class="text-amber-400">avaliar sistemas inteiros</strong> — comportamentos emergentes,
+                            riscos operacionais, superfícies de ataque em nível arquitetural e resposta a incidentes.
+                            O prompt deixa de ser apenas texto e se torna <strong>superfície de risco</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+            <!-- Tópico 1 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">1</div>
+                    <h2 class="text-2xl font-bold text-white">Avaliação Sistêmica de Comportamento</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        <strong class="text-amber-400">Avaliação sistêmica</strong> examina não apenas se prompts individuais
+                        funcionam, mas se o sistema como um todo exibe comportamentos desejados de forma consistente
+                        e previsível.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Dimensões de Avaliação Sistêmica</h4>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-green-500 pl-4">
+                                <p class="font-medium text-green-400">Consistência</p>
+                                <p class="text-sm text-gray-400">O sistema produz outputs similares para inputs similares? Variância é aceitável?</p>
+                            </div>
+                            <div class="border-l-2 border-blue-500 pl-4">
+                                <p class="font-medium text-blue-400">Coerência</p>
+                                <p class="text-sm text-gray-400">Outputs de diferentes partes do sistema são compatíveis entre si?</p>
+                            </div>
+                            <div class="border-l-2 border-purple-500 pl-4">
+                                <p class="font-medium text-purple-400">Degradação Graciosa</p>
+                                <p class="text-sm text-gray-400">Como o sistema se comporta em edge cases e condições de estresse?</p>
+                            </div>
+                            <div class="border-l-2 border-amber-500 pl-4">
+                                <p class="font-medium text-amber-400">Alinhamento</p>
+                                <p class="text-sm text-gray-400">O comportamento observado corresponde à intenção de design?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+                        <h4 class="text-amber-400 font-semibold mb-2">Métodos de Avaliação em Escala</h4>
+                        <ul class="text-gray-300 space-y-1 text-sm">
+                            <li>• <strong>Eval sets automatizados</strong>: suites de testes que rodam continuamente</li>
+                            <li>• <strong>Red teaming</strong>: tentativas deliberadas de quebrar o sistema</li>
+                            <li>• <strong>Shadow testing</strong>: comparar sistema novo vs baseline em produção</li>
+                            <li>• <strong>A/B testing comportamental</strong>: medir impacto de mudanças em prompts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 2 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">2</div>
+                    <h2 class="text-2xl font-bold text-white">Risco Operacional e Cognitivo</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        Sistemas baseados em prompt introduzem categorias de risco que sistemas tradicionais não têm.
+                        Distinguimos entre <strong class="text-amber-400">risco operacional</strong> (falhas técnicas) e
+                        <strong class="text-amber-400">risco cognitivo</strong> (falhas de julgamento do modelo).
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Matriz de Riscos</h4>
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="text-left py-2 text-white">Tipo</th>
+                                    <th class="text-left py-2 text-white">Exemplos</th>
+                                    <th class="text-left py-2 text-white">Mitigação</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-400">
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2 text-red-400">Operacional</td>
+                                    <td class="py-2">Rate limits, latência, custos</td>
+                                    <td class="py-2">Throttling, caching, budgets</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2 text-orange-400">Cognitivo</td>
+                                    <td class="py-2">Alucinação, viés, inconsistência</td>
+                                    <td class="py-2">Grounding, validação, guardrails</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2 text-yellow-400">Reputacional</td>
+                                    <td class="py-2">Outputs ofensivos, erros públicos</td>
+                                    <td class="py-2">Content filtering, human review</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 text-purple-400">Compliance</td>
+                                    <td class="py-2">Vazamento de dados, discriminação</td>
+                                    <td class="py-2">Data masking, bias testing</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
+                            <h4 class="text-red-400 font-semibold mb-2">Riscos de Alta Severidade</h4>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>• Decisões automatizadas irreversíveis</li>
+                                <li>• Acesso a dados sensíveis</li>
+                                <li>• Ações financeiras ou legais</li>
+                                <li>• Comunicação externa automatizada</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
+                            <h4 class="text-green-400 font-semibold mb-2">Riscos de Baixa Severidade</h4>
+                            <ul class="text-gray-300 space-y-1 text-sm">
+                                <li>• Sugestões internas revisáveis</li>
+                                <li>• Análise de dados agregados</li>
+                                <li>• Rascunhos com aprovação humana</li>
+                                <li>• Ferramentas de produtividade pessoal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 3 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">3</div>
+                    <h2 class="text-2xl font-bold text-white">Prompt Injection em Nível Arquitetural</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        <strong class="text-amber-400">Prompt injection</strong> não é apenas um ataque pontual — é uma
+                        classe de vulnerabilidade que afeta toda a arquitetura. O arquiteto precisa pensar em
+                        superfícies de ataque em nível sistêmico.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Vetores de Ataque Arquiteturais</h4>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-red-500 pl-4">
+                                <p class="font-medium text-red-400">Direct Injection</p>
+                                <p class="text-sm text-gray-400">Input malicioso diretamente no prompt do usuário.</p>
+                            </div>
+                            <div class="border-l-2 border-orange-500 pl-4">
+                                <p class="font-medium text-orange-400">Indirect Injection</p>
+                                <p class="text-sm text-gray-400">Payload escondido em dados que o sistema processa (documentos, emails, web).</p>
+                            </div>
+                            <div class="border-l-2 border-yellow-500 pl-4">
+                                <p class="font-medium text-yellow-400">Cross-Agent Injection</p>
+                                <p class="text-sm text-gray-400">Um agente é comprometido e injeta payloads em outros agentes via outputs.</p>
+                            </div>
+                            <div class="border-l-2 border-purple-500 pl-4">
+                                <p class="font-medium text-purple-400">Persistence Attack</p>
+                                <p class="text-sm text-gray-400">Payload armazenado em memória/histórico que afeta sessões futuras.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+                        <h4 class="text-amber-400 font-semibold mb-2">Defesas Arquiteturais</h4>
+                        <ul class="text-gray-300 space-y-1 text-sm">
+                            <li>• <strong>Privilege separation</strong>: diferentes níveis de acesso para diferentes prompts</li>
+                            <li>• <strong>Input sanitization</strong>: filtrar/escapar conteúdo antes de incluir no prompt</li>
+                            <li>• <strong>Output validation</strong>: verificar outputs antes de executar ações</li>
+                            <li>• <strong>Context isolation</strong>: separar contextos de diferentes usuários/fontes</li>
+                            <li>• <strong>Canary tokens</strong>: detectar quando instruções de sistema vazam</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 mt-6">
+                        <h4 class="text-red-400 font-semibold mb-2">⚠️ Realidade Incômoda</h4>
+                        <p class="text-gray-300 text-sm">
+                            <strong>Não existe defesa perfeita contra prompt injection.</strong> Todas as mitigações
+                            reduzem risco mas não eliminam. O arquiteto deve assumir que injection pode acontecer
+                            e projetar sistemas que limitam o dano possível (blast radius).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 4 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">4</div>
+                    <h2 class="text-2xl font-bold text-white">Auditoria de Decisões</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        Quando um sistema baseado em LLM toma ou influencia decisões, é necessário poder
+                        <strong class="text-amber-400">auditar a cadeia de raciocínio</strong>. Isso é essencial para
+                        compliance, debugging e confiança.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Requisitos de Auditabilidade</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <p class="font-medium text-white">Para cada decisão, registrar:</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Input que disparou a decisão</li>
+                                    <li>• Prompt/contexto usado</li>
+                                    <li>• Output raw do modelo</li>
+                                    <li>• Transformações aplicadas</li>
+                                    <li>• Ação resultante</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-white">Metadados essenciais:</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Timestamp preciso</li>
+                                    <li>• Versão do modelo</li>
+                                    <li>• Versão do prompt/skill</li>
+                                    <li>• ID de correlação</li>
+                                    <li>• Usuário/sistema que iniciou</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>
+                        A auditoria não é apenas sobre <em>o que</em> aconteceu, mas <em>por que</em>. Chain-of-thought
+                        prompts facilitam explicabilidade, mas também aumentam custo e latência.
+                    </p>
+
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+                        <h4 class="text-amber-400 font-semibold mb-2">Níveis de Audit Logging</h4>
+                        <table class="w-full text-sm mt-2">
+                            <tbody class="text-gray-400">
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2 text-green-400 font-medium">Mínimo</td>
+                                    <td class="py-2">Input, output, timestamp — suficiente para debugging básico</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2 text-yellow-400 font-medium">Padrão</td>
+                                    <td class="py-2">+ prompt completo, versões, metadados — para compliance</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 text-red-400 font-medium">Completo</td>
+                                    <td class="py-2">+ chain-of-thought, alternativas consideradas — para investigações</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 5 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">5</div>
+                    <h2 class="text-2xl font-bold text-white">Observabilidade Estratégica</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        <strong class="text-amber-400">Observabilidade</strong> em sistemas LLM vai além de métricas tradicionais.
+                        É preciso monitorar comportamento semântico, não apenas performance técnica.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Pilares de Observabilidade LLM</h4>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-blue-500 pl-4">
+                                <p class="font-medium text-blue-400">Métricas Tradicionais</p>
+                                <p class="text-sm text-gray-400">Latência, throughput, error rate, custo por request</p>
+                            </div>
+                            <div class="border-l-2 border-green-500 pl-4">
+                                <p class="font-medium text-green-400">Métricas de Qualidade</p>
+                                <p class="text-sm text-gray-400">Relevância, completude, precisão, tone match</p>
+                            </div>
+                            <div class="border-l-2 border-purple-500 pl-4">
+                                <p class="font-medium text-purple-400">Métricas de Comportamento</p>
+                                <p class="text-sm text-gray-400">Refusals, hallucination rate, safety triggers</p>
+                            </div>
+                            <div class="border-l-2 border-amber-500 pl-4">
+                                <p class="font-medium text-amber-400">Métricas de Negócio</p>
+                                <p class="text-sm text-gray-400">Task completion rate, user satisfaction, escalation rate</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Alertas Estratégicos</h4>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div class="space-y-2">
+                                <p class="font-medium text-white">Alertar imediatamente:</p>
+                                <ul class="text-gray-400 space-y-1">
+                                    <li>• Safety violations</li>
+                                    <li>• Cost spikes anormais</li>
+                                    <li>• Error rate > threshold</li>
+                                    <li>• Potential data leakage</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-white">Monitorar tendências:</p>
+                                <ul class="text-gray-400 space-y-1">
+                                    <li>• Drift de qualidade ao longo do tempo</li>
+                                    <li>• Mudanças em padrões de uso</li>
+                                    <li>• Degradação de performance</li>
+                                    <li>• Evolução de distribuição de inputs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+                        <h4 class="text-amber-400 font-semibold mb-2">Dashboard Executivo</h4>
+                        <p class="text-gray-300 text-sm">
+                            O arquiteto deve projetar <strong>dashboards em múltiplos níveis</strong>: operacional
+                            (para SREs), produto (para PMs), e executivo (para liderança). Cada nível precisa
+                            de métricas e granularidade diferentes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 6 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">6</div>
+                    <h2 class="text-2xl font-bold text-white">Incidentes e Resposta a Falhas</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        Sistemas LLM vão falhar. A questão não é se, mas quando e como você responde.
+                        <strong class="text-amber-400">Incident response</strong> para sistemas de prompt tem características
+                        únicas que diferem de sistemas tradicionais.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Categorias de Incidentes LLM</h4>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-red-500 pl-4">
+                                <p class="font-medium text-red-400">P1 - Crítico</p>
+                                <p class="text-sm text-gray-400">Safety violation, data breach, sistema offline</p>
+                            </div>
+                            <div class="border-l-2 border-orange-500 pl-4">
+                                <p class="font-medium text-orange-400">P2 - Alto</p>
+                                <p class="text-sm text-gray-400">Degradação severa de qualidade, custo fora de controle</p>
+                            </div>
+                            <div class="border-l-2 border-yellow-500 pl-4">
+                                <p class="font-medium text-yellow-400">P3 - Médio</p>
+                                <p class="text-sm text-gray-400">Aumento de erros, reclamações de usuários, drift de comportamento</p>
+                            </div>
+                            <div class="border-l-2 border-blue-500 pl-4">
+                                <p class="font-medium text-blue-400">P4 - Baixo</p>
+                                <p class="text-sm text-gray-400">Edge cases não tratados, melhorias de qualidade</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Runbook de Resposta</h4>
+                        <ol class="text-gray-300 space-y-2 text-sm list-decimal list-inside">
+                            <li><strong>Detectar</strong>: Alertas disparam ou report manual é recebido</li>
+                            <li><strong>Triagem</strong>: Classificar severidade e escopo do impacto</li>
+                            <li><strong>Conter</strong>: Desabilitar feature, rollback prompt, ativar fallback</li>
+                            <li><strong>Investigar</strong>: Analisar logs, reproduzir problema, identificar root cause</li>
+                            <li><strong>Remediar</strong>: Aplicar fix, testar em staging, deploy gradual</li>
+                            <li><strong>Comunicar</strong>: Notificar stakeholders com status e timeline</li>
+                            <li><strong>Postmortem</strong>: Documentar, identificar melhorias, implementar</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6">
+                        <h4 class="text-red-400 font-semibold mb-2">⚠️ Erro Comum</h4>
+                        <p class="text-gray-300 text-sm">
+                            Não trate incidentes LLM como bugs de software. A causa raiz pode ser <strong>mudança
+                            no modelo do provider</strong>, <strong>shift na distribuição de inputs</strong> ou
+                            <strong>interação entre prompts</strong>. O debugging requer raciocínio diferente.
+                        </p>
+                    </div>
+
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6 mt-6">
+                        <h4 class="text-amber-400 font-semibold mb-2">Preparação Proativa</h4>
+                        <ul class="text-gray-300 space-y-1 text-sm">
+                            <li>• <strong>Fallbacks prontos</strong>: versões simplificadas de prompts que sempre funcionam</li>
+                            <li>• <strong>Feature flags</strong>: desabilitar features específicas sem deploy</li>
+                            <li>• <strong>Rollback automatizado</strong>: voltar para versão anterior com um comando</li>
+                            <li>• <strong>Comunicação templates</strong>: mensagens pré-aprovadas para diferentes cenários</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Key Takeaways -->
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-gray-900 to-gray-900/50 border border-amber-500/30 rounded-2xl p-8 gold-glow">
+                <h3 class="text-2xl font-bold text-amber-400 mb-6">Pontos-Chave do Módulo</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Avaliação sistêmica examina consistência, coerência e alinhamento</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Risco cognitivo é tão importante quanto risco operacional</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Prompt injection é vulnerabilidade arquitetural, não bug pontual</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Auditabilidade é essencial para compliance e debugging</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Observabilidade LLM inclui métricas semânticas, não só técnicas</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Incident response para LLM requer raciocínio diferente</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="py-12 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <a href="modulo4-completo.html" class="flex items-center gap-2 text-gray-400 hover:text-amber-400 transition-colors">
+                    <span>←</span>
+                    <span>Módulo 4: Arquiteturas de Agentes</span>
+                </a>
+                <a href="modulo6-completo.html" class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity">
+                    <span>Módulo 6: Autoria e Liderança</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>Fundamentos de Engenharia de Prompt © 2025 | Nível Masterclass</p>
+        </div>
+    </footer>
+
+</body>
+</html>

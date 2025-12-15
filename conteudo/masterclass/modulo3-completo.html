@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Design e Governança de Skills | Masterclass | FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', system-ui, sans-serif; }
+        html { scroll-behavior: smooth; }
+        .gold-glow { box-shadow: 0 0 40px rgba(251, 191, 36, 0.15); }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="../../index.html" class="text-xl font-bold text-gradient-gold">FEP</a>
+                <nav class="flex items-center space-x-6">
+                    <a href="../../nivel-masterclass.html" class="text-gray-300 hover:text-amber-400 transition-colors text-sm">← Voltar ao Curso</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-orange-500/5"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center">
+                <span class="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-400 text-sm font-medium mb-6">
+                    Módulo 3 • Masterclass
+                </span>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-gradient-gold">Design e Governança de Skills</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    De criador de skills para <strong class="text-amber-400">arquiteto de ecossistemas</strong>.
+                    Aprenda a gerenciar skills como ativos organizacionais estratégicos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Box -->
+    <section class="py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/30 rounded-2xl p-8 gold-glow">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">🛠️</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-amber-400 mb-3">A Diferença do Nível Masterclass</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Na <strong>Trilha 3</strong>, você aprendeu a <em>criar skills individuais</em>. Aqui, você aprende
+                            a <strong class="text-amber-400">definir ecossistemas completos de skills</strong> — taxonomias,
+                            políticas de reuso, governança, versionamento e evolução. Isso é <strong>engenharia organizacional</strong>,
+                            não técnica isolada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+            <!-- Tópico 1 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">1</div>
+                    <h2 class="text-2xl font-bold text-white">Taxonomia de Skills</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        Uma <strong class="text-amber-400">taxonomia de skills</strong> é um sistema de classificação que organiza
+                        todas as capacidades de prompt da organização em categorias lógicas e hierárquicas.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Dimensões de Classificação</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <p class="font-medium text-white">Por Domínio:</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Skills de análise</li>
+                                    <li>• Skills de geração</li>
+                                    <li>• Skills de transformação</li>
+                                    <li>• Skills de validação</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-white">Por Escopo:</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Skills universais (cross-domain)</li>
+                                    <li>• Skills departamentais</li>
+                                    <li>• Skills específicas de projeto</li>
+                                    <li>• Skills experimentais</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>
+                        A taxonomia serve como <strong>mapa de capacidades</strong>: permite identificar redundâncias,
+                        gaps de cobertura e oportunidades de consolidação. Uma taxonomia bem desenhada reduz
+                        duplicação e facilita descoberta de skills existentes.
+                    </p>
+
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+                        <h4 class="text-amber-400 font-semibold mb-2">Princípio de Design</h4>
+                        <p class="text-gray-300">
+                            A taxonomia deve ser <strong>mutualmente exclusiva e coletivamente exaustiva</strong> (MECE).
+                            Cada skill deve ter um único lugar correto na taxonomia, e a taxonomia deve acomodar
+                            qualquer skill concebível.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 2 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">2</div>
+                    <h2 class="text-2xl font-bold text-white">Skills como Ativos Organizacionais</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        Skills não são apenas código ou texto — são <strong class="text-amber-400">ativos estratégicos</strong>
+                        que representam conhecimento institucional codificado, investimento de engenharia e capacidade competitiva.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Perspectiva de Portfólio</h4>
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="text-left py-2 text-white">Categoria</th>
+                                    <th class="text-left py-2 text-white">Investimento</th>
+                                    <th class="text-left py-2 text-white">Estratégia</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-400">
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2">Skills Core</td>
+                                    <td class="py-2">Alto</td>
+                                    <td class="py-2">Manter e otimizar</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2">Skills de Suporte</td>
+                                    <td class="py-2">Médio</td>
+                                    <td class="py-2">Padronizar</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2">Skills Experimentais</td>
+                                    <td class="py-2">Baixo</td>
+                                    <td class="py-2">Iterar ou descartar</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2">Skills Legacy</td>
+                                    <td class="py-2">Mínimo</td>
+                                    <td class="py-2">Migrar ou sunset</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        Como arquiteto, você precisa tratar skills com a mesma seriedade que trataria APIs ou
+                        microsserviços. Isso significa: documentação, testes, métricas de uso, SLAs de qualidade
+                        e processos de lifecycle management.
+                    </p>
+
+                    <div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6">
+                        <h4 class="text-orange-400 font-semibold mb-2">Métricas de Valor de Skills</h4>
+                        <ul class="text-gray-300 space-y-1 text-sm">
+                            <li>• <strong>Frequência de uso</strong>: quantas vezes a skill é invocada</li>
+                            <li>• <strong>Cobertura</strong>: quantos casos de uso atende</li>
+                            <li>• <strong>Satisfação</strong>: qualidade percebida dos outputs</li>
+                            <li>• <strong>Custo de manutenção</strong>: esforço para manter atualizada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 3 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">3</div>
+                    <h2 class="text-2xl font-bold text-white">Reuso, Acoplamento e Dependências</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        O <strong class="text-amber-400">design de reuso</strong> de skills segue os mesmos princípios de
+                        arquitetura de software: alta coesão, baixo acoplamento e gerenciamento explícito de dependências.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Padrões de Composição</h4>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-green-500 pl-4">
+                                <p class="font-medium text-green-400">Composição Horizontal</p>
+                                <p class="text-sm text-gray-400">Skills no mesmo nível que podem ser combinadas: Skill A + Skill B → Output combinado</p>
+                            </div>
+                            <div class="border-l-2 border-blue-500 pl-4">
+                                <p class="font-medium text-blue-400">Composição Vertical</p>
+                                <p class="text-sm text-gray-400">Skills em cadeia de dependência: Skill A → output → Skill B → output final</p>
+                            </div>
+                            <div class="border-l-2 border-purple-500 pl-4">
+                                <p class="font-medium text-purple-400">Composição com Wrapper</p>
+                                <p class="text-sm text-gray-400">Skill envelope que orquestra skills internas: Meta-skill(A, B, C) → Output integrado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>
+                        O <strong>acoplamento</strong> entre skills deve ser minimizado. Skills tightly-coupled criam
+                        cascatas de falha e dificultam evolução independente. Prefira contratos claros de
+                        entrada/saída a dependências implícitas.
+                    </p>
+
+                    <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6">
+                        <h4 class="text-red-400 font-semibold mb-2">⚠️ Antipadrões de Dependência</h4>
+                        <ul class="text-gray-300 space-y-1 text-sm">
+                            <li>• <strong>Dependência circular</strong>: A depende de B que depende de A</li>
+                            <li>• <strong>Dependência implícita</strong>: assume estado externo não documentado</li>
+                            <li>• <strong>Herança profunda</strong>: cadeias longas de skills derivadas</li>
+                            <li>• <strong>God-skill</strong>: uma skill que faz tudo e da qual tudo depende</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 4 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">4</div>
+                    <h2 class="text-2xl font-bold text-white">Versionamento e Compatibilidade</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        Skills em produção precisam de <strong class="text-amber-400">versionamento semântico</strong> e
+                        políticas claras de compatibilidade. Mudanças em skills podem quebrar sistemas downstream.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Semântica de Versão para Skills</h4>
+                        <div class="font-mono text-lg text-center mb-4 text-white">MAJOR.MINOR.PATCH</div>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex gap-4">
+                                <span class="text-red-400 font-medium w-20">MAJOR</span>
+                                <span class="text-gray-400">Breaking changes: mudança no contrato de entrada/saída</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-yellow-400 font-medium w-20">MINOR</span>
+                                <span class="text-gray-400">Novas capacidades backward-compatible</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-green-400 font-medium w-20">PATCH</span>
+                                <span class="text-gray-400">Bug fixes e melhorias de qualidade</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>
+                        A <strong>compatibilidade retroativa</strong> é crucial. Quando uma skill é atualizada,
+                        sistemas que dependem dela não devem quebrar. Isso requer disciplina em mudanças
+                        de contrato e períodos de deprecação.
+                    </p>
+
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+                        <h4 class="text-amber-400 font-semibold mb-2">Processo de Deprecação</h4>
+                        <ol class="text-gray-300 space-y-1 text-sm list-decimal list-inside">
+                            <li>Anunciar deprecação com timeline (ex: 3 meses)</li>
+                            <li>Manter versão antiga funcionando durante transição</li>
+                            <li>Prover guia de migração para nova versão</li>
+                            <li>Monitorar uso da versão antiga</li>
+                            <li>Remover versão antiga apenas quando uso zerar</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 5 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">5</div>
+                    <h2 class="text-2xl font-bold text-white">Governança e Ownership de Skills</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        <strong class="text-amber-400">Governança de skills</strong> define quem pode criar, modificar,
+                        aprovar e deprecar skills. Sem governança clara, o ecossistema se torna caótico e
+                        inconsistente.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Modelo de Ownership</h4>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-amber-500 pl-4">
+                                <p class="font-medium text-amber-400">Owner Técnico</p>
+                                <p class="text-sm text-gray-400">Responsável pela implementação, manutenção e qualidade técnica</p>
+                            </div>
+                            <div class="border-l-2 border-blue-500 pl-4">
+                                <p class="font-medium text-blue-400">Owner de Negócio</p>
+                                <p class="text-sm text-gray-400">Responsável por requisitos, priorização e alinhamento estratégico</p>
+                            </div>
+                            <div class="border-l-2 border-green-500 pl-4">
+                                <p class="font-medium text-green-400">Steward</p>
+                                <p class="text-sm text-gray-400">Responsável por padrões, consistência e qualidade do ecossistema</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>
+                        O modelo de governança deve definir <strong>processos de aprovação</strong> para novas
+                        skills e mudanças significativas. Skills core devem ter review obrigatório; skills
+                        experimentais podem ter processo mais leve.
+                    </p>
+
+                    <div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6">
+                        <h4 class="text-orange-400 font-semibold mb-2">Matriz RACI para Skills</h4>
+                        <table class="w-full text-sm mt-2">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="text-left py-2 text-white">Atividade</th>
+                                    <th class="text-center py-2 text-white">R</th>
+                                    <th class="text-center py-2 text-white">A</th>
+                                    <th class="text-center py-2 text-white">C</th>
+                                    <th class="text-center py-2 text-white">I</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-400">
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2">Criar skill</td>
+                                    <td class="text-center">Dev</td>
+                                    <td class="text-center">Owner</td>
+                                    <td class="text-center">Steward</td>
+                                    <td class="text-center">Users</td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-2">Aprovar para prod</td>
+                                    <td class="text-center">Steward</td>
+                                    <td class="text-center">Owner</td>
+                                    <td class="text-center">Security</td>
+                                    <td class="text-center">Dev</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2">Deprecar</td>
+                                    <td class="text-center">Owner</td>
+                                    <td class="text-center">Steward</td>
+                                    <td class="text-center">Users</td>
+                                    <td class="text-center">All</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópico 6 -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">6</div>
+                    <h2 class="text-2xl font-bold text-white">Evolução de Skills ao Longo do Tempo</h2>
+                </div>
+                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                        Skills têm <strong class="text-amber-400">ciclo de vida</strong>. Nascem como experimentos,
+                        amadurecem, atingem estabilidade, eventualmente se tornam legacy e são deprecadas.
+                        Gerenciar essa evolução é responsabilidade do arquiteto.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Ciclo de Vida de Skills</h4>
+                        <div class="flex flex-wrap justify-center gap-2 text-sm">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full">Experimental</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">Beta</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full">Estável</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full">Matura</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full">Legacy</span>
+                            <span class="text-gray-600">→</span>
+                            <span class="px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full">Deprecated</span>
+                        </div>
+                    </div>
+
+                    <p>
+                        A evolução não é apenas técnica — é também funcional. Skills devem evoluir para
+                        atender novos casos de uso, incorporar feedback de usuários e aproveitar
+                        capacidades de novos modelos.
+                    </p>
+
+                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+                        <h4 class="text-amber-400 font-semibold mb-4">Drivers de Evolução</h4>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div class="space-y-2">
+                                <p class="font-medium text-white">Internos:</p>
+                                <ul class="text-gray-400 space-y-1">
+                                    <li>• Feedback de qualidade</li>
+                                    <li>• Novos requisitos de negócio</li>
+                                    <li>• Mudanças de padrões internos</li>
+                                    <li>• Consolidação com outras skills</li>
+                                </ul>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="font-medium text-white">Externos:</p>
+                                <ul class="text-gray-400 space-y-1">
+                                    <li>• Novos modelos de LLM</li>
+                                    <li>• Mudanças de API de providers</li>
+                                    <li>• Novas técnicas descobertas</li>
+                                    <li>• Mudanças regulatórias</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+                        <h4 class="text-amber-400 font-semibold mb-2">Revisão Periódica</h4>
+                        <p class="text-gray-300">
+                            Estabeleça <strong>revisões trimestrais</strong> do portfólio de skills:
+                            métricas de uso, qualidade de outputs, custos de manutenção e alinhamento estratégico.
+                            Skills que não justificam seu custo devem ser candidatas a sunset.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Key Takeaways -->
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-gray-900 to-gray-900/50 border border-amber-500/30 rounded-2xl p-8 gold-glow">
+                <h3 class="text-2xl font-bold text-amber-400 mb-6">Pontos-Chave do Módulo</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Taxonomia MECE organiza skills em categorias claras e sem sobreposição</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Skills são ativos organizacionais que requerem gestão de portfólio</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Composição deve ter baixo acoplamento e contratos explícitos</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Versionamento semântico e deprecação gradual protegem sistemas downstream</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Governança define ownership claro com processos de aprovação</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                            <span class="text-amber-400 text-sm">✓</span>
+                        </div>
+                        <p class="text-gray-300">Ciclo de vida de skills requer revisão periódica e sunset proativo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="py-12 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <a href="modulo2-completo.html" class="flex items-center gap-2 text-gray-400 hover:text-amber-400 transition-colors">
+                    <span>←</span>
+                    <span>Módulo 2: Design de Contexto</span>
+                </a>
+                <a href="modulo4-completo.html" class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity">
+                    <span>Módulo 4: Arquiteturas de Agentes</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>Fundamentos de Engenharia de Prompt © 2025 | Nível Masterclass</p>
+        </div>
+    </footer>
+
+</body>
+</html>

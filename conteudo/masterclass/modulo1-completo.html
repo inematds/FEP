@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Arquitetura de Sistemas Baseados em Prompt | Masterclass FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+    <style>
+        html.dark body { background-color: #0a0a0a; }
+        .gold-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%); }
+        .gold-text { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    </style>
+</head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="../../nivel-masterclass.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span class="text-sm font-medium">Voltar ao Masterclass</span>
+            </a>
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700">
+                <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-900/30 to-neutral-800 dark:from-amber-900/20 dark:to-neutral-900"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.05)\"%3E%3C/path%3E%3C/svg%3E')] opacity-40"></div>
+        <div class="relative max-w-4xl mx-auto px-4 py-16">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-semibold gold-gradient text-white rounded-full">MÓDULO 1</span>
+                <span class="px-3 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30">ARQUITETURA</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Arquitetura de Sistemas Baseados em Prompt
+            </h1>
+            <p class="text-lg text-neutral-300 max-w-2xl">
+                Não é "como fazer prompt" — é <strong>como desenhar sistemas de prompt</strong>.
+                Pense como arquiteto, não como executor.
+            </p>
+        </div>
+    </section>
+
+    <nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex gap-1 overflow-x-auto py-2">
+                <a href="#prompt-unidade" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Unidade</a>
+                <a href="#mono-multi" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Mono vs Multi</a>
+                <a href="#camadas" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Camadas</a>
+                <a href="#contratos" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Contratos</a>
+                <a href="#padroes" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Padrões</a>
+                <a href="#analise-real" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Casos Reais</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <!-- Seção 1 -->
+        <section id="prompt-unidade" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center">
+                            <span class="text-white font-bold">1</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompt como Unidade Arquitetural</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Pensando em blocos de construção</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-amber-900 dark:text-amber-300 mb-3">Mudança de Paradigma</h4>
+                        <p class="text-amber-800 dark:text-amber-200 text-sm">
+                            Um prompt não é texto — é uma <strong>unidade arquitetural</strong> com interface,
+                            contrato de comportamento, dependências e responsabilidades definidas.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
+                            <h5 class="font-semibold text-red-900 dark:text-red-300 mb-2">Visão Tradicional</h5>
+                            <ul class="text-sm text-red-800 dark:text-red-200 space-y-1">
+                                <li>• Prompt = texto que gera resposta</li>
+                                <li>• Sucesso = resposta "boa"</li>
+                                <li>• Iteração = ajustar palavras</li>
+                                <li>• Escala = copiar e colar</li>
+                            </ul>
+                        </div>
+                        <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
+                            <h5 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-2">Visão Arquitetural</h5>
+                            <ul class="text-sm text-emerald-800 dark:text-emerald-200 space-y-1">
+                                <li>• Prompt = componente com contrato</li>
+                                <li>• Sucesso = comportamento previsível</li>
+                                <li>• Iteração = refinar interface</li>
+                                <li>• Escala = composição e reuso</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Anatomia de um Prompt como Componente</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+┌─────────────────────────────────────────────────────┐
+│  PROMPT COMPONENT: "order_analyzer"                 │
+├─────────────────────────────────────────────────────┤
+│  INTERFACE                                          │
+│  ├─ Input: OrderData, CustomerHistory               │
+│  ├─ Output: AnalysisResult (structured)             │
+│  └─ Errors: InsufficientData, AmbiguousOrder        │
+├─────────────────────────────────────────────────────┤
+│  CONTRACT                                           │
+│  ├─ Preconditions: order.status == "pending"        │
+│  ├─ Postconditions: result.confidence > 0.8         │
+│  └─ Invariants: no side effects                     │
+├─────────────────────────────────────────────────────┤
+│  DEPENDENCIES                                       │
+│  ├─ Requires: product_catalog (context)             │
+│  ├─ Requires: pricing_rules (context)               │
+│  └─ Optional: customer_preferences                  │
+├─────────────────────────────────────────────────────┤
+│  IMPLEMENTATION                                     │
+│  └─ [prompt template with slots]                    │
+└─────────────────────────────────────────────────────┘
+</pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Benefícios da Visão Arquitetural</h4>
+                        <div class="grid md:grid-cols-3 gap-3">
+                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                <div class="text-2xl mb-2">🔄</div>
+                                <div class="text-sm font-medium">Reusabilidade</div>
+                            </div>
+                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                <div class="text-2xl mb-2">🧪</div>
+                                <div class="text-sm font-medium">Testabilidade</div>
+                            </div>
+                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                <div class="text-2xl mb-2">📈</div>
+                                <div class="text-sm font-medium">Escalabilidade</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2 -->
+        <section id="mono-multi" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-orange-50 to-transparent dark:from-orange-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Arquiteturas Mono-Prompt vs Multi-Prompt</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Decidindo a estrutura do sistema</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
+                            <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-3">Mono-Prompt</h4>
+                            <p class="text-sm text-blue-800 dark:text-blue-200 mb-4">
+                                Um único prompt que lida com toda a complexidade. Contexto completo em uma chamada.
+                            </p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+                                    <span>✓</span> Simplicidade de implementação
+                                </div>
+                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+                                    <span>✓</span> Latência baixa (1 chamada)
+                                </div>
+                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+                                    <span>✓</span> Contexto unificado
+                                </div>
+                                <div class="flex items-center gap-2 text-red-700 dark:text-red-400">
+                                    <span>✗</span> Limite de complexidade
+                                </div>
+                                <div class="flex items-center gap-2 text-red-700 dark:text-red-400">
+                                    <span>✗</span> Difícil de testar partes
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-5">
+                            <h4 class="font-semibold text-purple-900 dark:text-purple-300 mb-3">Multi-Prompt</h4>
+                            <p class="text-sm text-purple-800 dark:text-purple-200 mb-4">
+                                Múltiplos prompts especializados que se comunicam. Decomposição de responsabilidades.
+                            </p>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+                                    <span>✓</span> Modularidade
+                                </div>
+                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+                                    <span>✓</span> Testabilidade por componente
+                                </div>
+                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+                                    <span>✓</span> Escalabilidade de complexidade
+                                </div>
+                                <div class="flex items-center gap-2 text-red-700 dark:text-red-400">
+                                    <span>✗</span> Latência maior
+                                </div>
+                                <div class="flex items-center gap-2 text-red-700 dark:text-red-400">
+                                    <span>✗</span> Perda de contexto entre chamadas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Matriz de Decisão</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b border-neutral-300 dark:border-neutral-600">
+                                        <th class="text-left py-2 text-neutral-600 dark:text-neutral-300">Critério</th>
+                                        <th class="text-center py-2 text-neutral-600 dark:text-neutral-300">Mono</th>
+                                        <th class="text-center py-2 text-neutral-600 dark:text-neutral-300">Multi</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-neutral-700 dark:text-neutral-200">
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
+                                        <td class="py-2">Tarefa simples e bem definida</td>
+                                        <td class="text-center text-emerald-600">✓</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
+                                        <td class="py-2">Múltiplas etapas dependentes</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                        <td class="text-center text-emerald-600">✓</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
+                                        <td class="py-2">Latência crítica</td>
+                                        <td class="text-center text-emerald-600">✓</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
+                                        <td class="py-2">Reuso de componentes</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                        <td class="text-center text-emerald-600">✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2">Rastreabilidade de decisões</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                        <td class="text-center text-emerald-600">✓</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3 -->
+        <section id="camadas" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Camadas Arquiteturais de Sistemas LLM</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Separação de responsabilidades</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-4">Arquitetura em Camadas</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+┌─────────────────────────────────────────────────────┐
+│  PRESENTATION LAYER                                 │
+│  • Interface com usuário                            │
+│  • Formatação de entrada/saída                      │
+│  • Validação de input                               │
+├─────────────────────────────────────────────────────┤
+│  ORCHESTRATION LAYER                                │
+│  • Roteamento de requests                           │
+│  • Composição de prompts                            │
+│  • Gestão de fluxo                                  │
+├─────────────────────────────────────────────────────┤
+│  BUSINESS LOGIC LAYER                               │
+│  • Skills especializadas                            │
+│  • Regras de negócio                                │
+│  • Transformações de dados                          │
+├─────────────────────────────────────────────────────┤
+│  CONTEXT LAYER                                      │
+│  • Gestão de contexto                               │
+│  • RAG / Retrieval                                  │
+│  • Memory management                                │
+├─────────────────────────────────────────────────────┤
+│  MODEL LAYER                                        │
+│  • Abstração de LLM                                 │
+│  • Fallbacks                                        │
+│  • Rate limiting                                    │
+└─────────────────────────────────────────────────────┘
+</pre>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">Princípio: Separation of Concerns</h5>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                Cada camada tem responsabilidade única. Mudanças em uma camada não afetam outras.
+                                Permite evolução independente.
+                            </p>
+                        </div>
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">Princípio: Dependency Inversion</h5>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                Camadas superiores não dependem de implementações específicas.
+                                Abstrações permitem trocar LLMs ou fontes de dados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4 -->
+        <section id="contratos" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                            <span class="text-white font-bold">4</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Contratos de Comportamento entre Prompts</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Garantias e expectativas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <p class="text-neutral-600 dark:text-neutral-300">
+                        Contratos definem o que um prompt <strong>garante fazer</strong> e o que ele
+                        <strong>espera receber</strong>. Sem contratos, sistemas de prompt são frágeis.
+                    </p>
+
+                    <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">Elementos de um Contrato</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">Preconditions</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    O que deve ser verdade ANTES de chamar o prompt.
+                                </p>
+                                <code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
+                                    input.length &lt; 10000
+                                </code>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">Postconditions</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    O que será verdade DEPOIS da execução.
+                                </p>
+                                <code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
+                                    output.format == "json"
+                                </code>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">Invariants</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    O que NUNCA muda durante a execução.
+                                </p>
+                                <code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
+                                    no_external_calls
+                                </code>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">Error Conditions</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    Como falhas são sinalizadas.
+                                </p>
+                                <code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
+                                    throws: AmbiguousInput
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Contrato Documentado</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+/**
+ * @contract SentimentAnalyzer
+ *
+ * @precondition text.length > 0 && text.length < 5000
+ * @precondition language in ["pt", "en", "es"]
+ *
+ * @postcondition result.sentiment in ["positive", "negative", "neutral"]
+ * @postcondition result.confidence >= 0.0 && result.confidence <= 1.0
+ * @postcondition result.reasoning.length > 0
+ *
+ * @invariant deterministic for same input (temperature=0)
+ * @invariant no PII in output
+ *
+ * @throws EmptyInputError if text is empty
+ * @throws UnsupportedLanguageError if language not supported
+ * @throws LowConfidenceError if confidence < 0.5
+ */
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5 -->
+        <section id="padroes" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                            <span class="text-white font-bold">5</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Padrões Arquiteturais Recorrentes</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Soluções comprovadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
+                            <h5 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Chain of Responsibility</h5>
+                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2">
+                                Prompts em cadeia onde cada um pode resolver ou passar adiante.
+                            </p>
+                            <div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
+                                intent → router → specialist → fallback
+                            </div>
+                        </div>
+
+                        <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
+                            <h5 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Pipeline</h5>
+                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2">
+                                Transformações sequenciais onde output de um é input do próximo.
+                            </p>
+                            <div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
+                                extract → transform → validate → format
+                            </div>
+                        </div>
+
+                        <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
+                            <h5 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Supervisor</h5>
+                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2">
+                                Um prompt coordena e valida trabalho de outros prompts.
+                            </p>
+                            <div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
+                                supervisor → [workers] → aggregator
+                            </div>
+                        </div>
+
+                        <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
+                            <h5 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Reflection</h5>
+                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2">
+                                Prompt analisa e melhora seu próprio output iterativamente.
+                            </p>
+                            <div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
+                                generate → critique → refine → validate
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Quando Usar Cada Padrão</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
+                                <span class="font-medium text-violet-600 dark:text-violet-400 w-32">Chain</span>
+                                <span class="text-neutral-600 dark:text-neutral-300">Roteamento dinâmico, fallbacks, escalação</span>
+                            </div>
+                            <div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
+                                <span class="font-medium text-violet-600 dark:text-violet-400 w-32">Pipeline</span>
+                                <span class="text-neutral-600 dark:text-neutral-300">ETL de dados, processamento em etapas</span>
+                            </div>
+                            <div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
+                                <span class="font-medium text-violet-600 dark:text-violet-400 w-32">Supervisor</span>
+                                <span class="text-neutral-600 dark:text-neutral-300">Tarefas paralelas, agregação, validação cruzada</span>
+                            </div>
+                            <div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
+                                <span class="font-medium text-violet-600 dark:text-violet-400 w-32">Reflection</span>
+                                <span class="text-neutral-600 dark:text-neutral-300">Qualidade crítica, auto-correção, refinamento</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6 -->
+        <section id="analise-real" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-rose-50 to-transparent dark:from-rose-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center">
+                            <span class="text-white font-bold">6</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Análise de Arquiteturas Reais</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Estudos de caso de produção</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-rose-900 dark:text-rose-300 mb-3">Case: Assistente de Suporte Técnico</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+USER QUERY
+    │
+    ▼
+┌─────────────────┐
+│  INTENT ROUTER  │ ← Classifica intenção
+└────────┬────────┘
+         │
+    ┌────┴────┬────────────┐
+    ▼         ▼            ▼
+┌───────┐ ┌───────┐ ┌──────────┐
+│ FAQ   │ │TROUBLE│ │ ESCALATE │
+│ MATCH │ │ SHOOT │ │ TO HUMAN │
+└───┬───┘ └───┬───┘ └────┬─────┘
+    │         │          │
+    └────┬────┴──────────┘
+         ▼
+┌─────────────────┐
+│   FORMATTER     │ ← Formata resposta
+└────────┬────────┘
+         ▼
+┌─────────────────┐
+│  SAFETY CHECK   │ ← Valida antes de enviar
+└─────────────────┘
+</pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Case: Sistema de Code Review</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+PR DIFF
+    │
+    ▼
+┌─────────────────────────────────────┐
+│           SUPERVISOR                │
+│  "Coordinate review, aggregate"     │
+└────────────────┬────────────────────┘
+                 │
+    ┌────────────┼────────────┐
+    ▼            ▼            ▼
+┌────────┐  ┌────────┐  ┌────────┐
+│SECURITY│  │ STYLE  │  │ LOGIC  │
+│ CHECK  │  │ CHECK  │  │ CHECK  │
+└───┬────┘  └───┬────┘  └───┬────┘
+    │           │           │
+    └─────┬─────┴───────────┘
+          ▼
+┌─────────────────────────────────────┐
+│         AGGREGATOR                  │
+│  "Consolidate, prioritize issues"   │
+└────────────────┬────────────────────┘
+                 ▼
+┌─────────────────────────────────────┐
+│         FORMATTER                   │
+│  "Format as GitHub PR comment"      │
+└─────────────────────────────────────┘
+</pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exercício: Analise a Arquitetura</h4>
+                        <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-4">
+                            Para cada case study, identifique:
+                        </p>
+                        <ul class="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 dark:text-amber-400">1.</span>
+                                Qual padrão arquitetural foi usado?
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 dark:text-amber-400">2.</span>
+                                Quais são os contratos entre componentes?
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 dark:text-amber-400">3.</span>
+                                Onde estão os pontos de falha?
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 dark:text-amber-400">4.</span>
+                                Como você melhoraria a arquitetura?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegação -->
+        <div class="flex flex-col sm:flex-row gap-4 pt-8">
+            <a href="../../nivel-masterclass.html" class="flex-1 group flex items-center gap-3 p-4 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-300 dark:hover:border-amber-600 transition-colors">
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <div>
+                    <div class="text-sm text-neutral-500 dark:text-neutral-400">Voltar</div>
+                    <div class="font-medium text-neutral-900 dark:text-white">Masterclass Home</div>
+                </div>
+            </a>
+            <a href="modulo2-completo.html" class="flex-1 group flex items-center justify-end gap-3 p-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 rounded-xl text-white text-right transition-colors">
+                <div>
+                    <div class="text-sm text-amber-100">Próximo</div>
+                    <div class="font-medium">Módulo 2: Design de Contexto</div>
+                </div>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </main>
+
+    <footer class="border-t border-neutral-200 dark:border-neutral-800 mt-16">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold gold-text">FEP</span>
+                    <span class="text-neutral-400">|</span>
+                    <span class="text-neutral-600 dark:text-neutral-400">Masterclass</span>
+                </div>
+                <a href="../../nivel-masterclass.html" class="text-amber-600 dark:text-amber-400 hover:underline">
+                    Voltar para o Masterclass
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
+    </script>
+</body>
+</html>
