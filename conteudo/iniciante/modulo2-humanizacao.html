@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Humanização de Texto | FEP - Engenharia de Prompt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10B981', accent: '#3B82F6' } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .bg-neutral-700 { background-color: #f5f5f5 !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-iniciante.html" class="flex items-center space-x-2 text-neutral-400 hover:text-accent transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>Voltar para Iniciante</span>
+        </a>
+        <span class="text-accent font-semibold">Módulo 02</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold mb-4">
+        MÓDULO 2 - TÉCNICAS FUNDAMENTAIS
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">✍️ Humanização de Texto</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Técnicas para fazer o texto parecer escrito por humanos. Aumenta autenticidade e engajamento, evitando o "tom de IA".
+      </p>
+    </div>
+
+    <!-- O que evitar -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-red-900/30 to-neutral-800 rounded-2xl p-8 border border-red-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🤖</span>
+          <div>
+            <h2 class="text-2xl font-bold text-red-400">Sinais de "Tom de IA"</h2>
+            <p class="text-neutral-400">O que faz texto parecer artificial</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-red-500">
+            <p class="text-red-400 font-semibold">❌ Frases muito perfeitas</p>
+            <p class="text-sm text-neutral-300">Estrutura impecável demais é suspeita</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-red-500">
+            <p class="text-red-400 font-semibold">❌ Vocabulário formal excessivo</p>
+            <p class="text-sm text-neutral-300">"Indubitavelmente", "subsequentemente"</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-red-500">
+            <p class="text-red-400 font-semibold">❌ Listas sempre no mesmo formato</p>
+            <p class="text-sm text-neutral-300">Tudo começa com verbo no infinitivo</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-red-500">
+            <p class="text-red-400 font-semibold">❌ Sem opinião pessoal</p>
+            <p class="text-sm text-neutral-300">Texto muito neutro e impessoal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Técnicas de Humanização -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">💡</span>
+          <h2 class="text-2xl font-bold text-emerald-400">Técnicas de Humanização</h2>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-emerald-900/20 p-6 rounded-xl border border-emerald-500/30">
+            <h4 class="font-bold text-emerald-400 mb-3">1. Use Contrações</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-neutral-800/50 p-3 rounded-lg">
+                <p class="text-red-400 text-sm">❌ "Não é possível fazer isso"</p>
+              </div>
+              <div class="bg-neutral-800/50 p-3 rounded-lg">
+                <p class="text-emerald-400 text-sm">✅ "Não dá pra fazer isso"</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-900/20 p-6 rounded-xl border border-blue-500/30">
+            <h4 class="font-bold text-blue-400 mb-3">2. Adicione Opiniões Pessoais</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-neutral-800/50 p-3 rounded-lg">
+                <p class="text-red-400 text-sm">❌ "Python é uma linguagem de programação"</p>
+              </div>
+              <div class="bg-neutral-800/50 p-3 rounded-lg">
+                <p class="text-blue-400 text-sm">✅ "Na minha experiência, Python é a melhor escolha pra iniciantes"</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-purple-900/20 p-6 rounded-xl border border-purple-500/30">
+            <h4 class="font-bold text-purple-400 mb-3">3. Varie a Estrutura</h4>
+            <p class="text-neutral-300 text-sm">Misture frases curtas. Com outras mais longas que desenvolvem melhor a ideia. Perguntas retóricas também ajudam, sabe?</p>
+          </div>
+
+          <div class="bg-yellow-900/20 p-6 rounded-xl border border-yellow-500/30">
+            <h4 class="font-bold text-yellow-400 mb-3">4. Use Expressões Coloquiais</h4>
+            <p class="text-neutral-300 text-sm">"Olha só", "tipo assim", "basicamente", "na real" - quando apropriado ao contexto</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prompt para Humanizar -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📝</span>
+          <h2 class="text-2xl font-bold text-purple-400">Prompt para Humanizar</h2>
+        </div>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm">
+          <p class="text-purple-400">"Reescreva este texto de forma mais natural e humana:</p>
+          <p class="text-neutral-300 mt-2">- Use contrações (não → num, está → tá)</p>
+          <p class="text-neutral-300">- Adicione expressões coloquiais</p>
+          <p class="text-neutral-300">- Varie o tamanho das frases</p>
+          <p class="text-neutral-300">- Inclua uma opinião pessoal</p>
+          <p class="text-neutral-300">- Evite vocabulário muito formal</p>
+          <p class="text-neutral-300 mt-2">Texto: [seu texto aqui]"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">🎉 Módulo 2 Completo!</h2>
+        <p class="text-lg mb-6 text-blue-100">
+          Você dominou as técnicas fundamentais! Continue para o <strong>Módulo 3: Aplicações Práticas</strong>.
+        </p>
+        <a href="../../nivel-iniciante.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+          <span>Voltar ao Curso</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">FEP - Módulo 2: Humanização de Texto</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'light') document.documentElement.classList.remove('dark');
+  </script>
+
+</body>
+</html>

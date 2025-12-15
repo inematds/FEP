@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chain of Thought (CoT) | FEP - Engenharia de Prompt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10B981', accent: '#3B82F6' } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .bg-neutral-700 { background-color: #f5f5f5 !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-iniciante.html" class="flex items-center space-x-2 text-neutral-400 hover:text-accent transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>Voltar para Iniciante</span>
+        </a>
+        <span class="text-accent font-semibold">Módulo 02</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold mb-4">
+        MÓDULO 2 - TÉCNICAS FUNDAMENTAIS
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🧠 Chain of Thought (CoT)</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Pedir ao modelo "pensar em voz alta", mostrando cada etapa do raciocínio. Revolucionário para lógica e matemática.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-4 mb-12">
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-accent">+40%</div>
+        <div class="text-xs text-neutral-400">Precisão em Matemática</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-emerald-400">2022</div>
+        <div class="text-xs text-neutral-400">Descoberto Google</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-purple-400">#1</div>
+        <div class="text-xs text-neutral-400">Técnica para Raciocínio</div>
+      </div>
+    </div>
+
+    <!-- O que é -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🧠</span>
+          <div>
+            <h2 class="text-2xl font-bold text-purple-400">O que é Chain of Thought?</h2>
+            <p class="text-neutral-400">"Cadeia de pensamento" - raciocínio explícito</p>
+          </div>
+        </div>
+
+        <p class="text-neutral-300 text-lg mb-6">
+          Em vez de pedir apenas a resposta final, você pede ao modelo <strong class="text-purple-400">explicar seu raciocínio passo a passo</strong>.
+          Isso melhora dramaticamente resultados em problemas que exigem lógica.
+        </p>
+
+        <div class="bg-neutral-700/50 rounded-xl p-6">
+          <h4 class="font-bold text-purple-400 mb-4">🔮 A Frase Mágica</h4>
+          <div class="bg-neutral-900 p-4 rounded-lg font-mono text-lg text-center">
+            <span class="text-purple-400">"Pense passo a passo antes de responder."</span>
+          </div>
+          <p class="text-neutral-400 text-sm text-center mt-3">Adicione isso ao final de qualquer prompt para ativar CoT</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparação -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">⚖️</span>
+          <h2 class="text-2xl font-bold text-neutral-100">Sem CoT vs Com CoT</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-red-900/20 p-6 rounded-xl border border-red-500/30">
+            <h4 class="font-bold text-red-400 mb-4">❌ Sem CoT</h4>
+            <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-3">
+              <p class="text-neutral-400">"Se João tem 3 maçãs e ganha o dobro, depois dá metade para Maria. Quantas maçãs João tem?"</p>
+            </div>
+            <p class="text-red-400 text-sm">→ Modelo pode errar: "3 maçãs"</p>
+            <p class="text-neutral-400 text-xs mt-2">Pulou direto para resposta sem calcular</p>
+          </div>
+
+          <div class="bg-emerald-900/20 p-6 rounded-xl border border-emerald-500/30">
+            <h4 class="font-bold text-emerald-400 mb-4">✅ Com CoT</h4>
+            <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-3">
+              <p class="text-neutral-400">"[mesma pergunta] <strong class="text-purple-400">Pense passo a passo.</strong>"</p>
+            </div>
+            <div class="text-emerald-400 text-sm space-y-1">
+              <p>→ "1. João começa com 3 maçãs"</p>
+              <p>→ "2. Ganha o dobro: 3 × 2 = 6"</p>
+              <p>→ "3. Dá metade: 6 ÷ 2 = 3"</p>
+              <p>→ "<strong>João tem 3 maçãs</strong>"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quando usar -->
+    <section class="mb-12">
+      <div class="bg-blue-900/20 rounded-2xl p-8 border border-blue-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">✅</span>
+          <h2 class="text-2xl font-bold text-blue-400">Quando Usar CoT</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="font-semibold text-blue-400 mb-2">🧮 Problemas Matemáticos</p>
+            <p class="text-sm text-neutral-300">Cálculos, word problems, estatística</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="font-semibold text-blue-400 mb-2">🧩 Lógica e Puzzles</p>
+            <p class="text-sm text-neutral-300">Dedução, sequências, padrões</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="font-semibold text-blue-400 mb-2">⚖️ Decisões Complexas</p>
+            <p class="text-sm text-neutral-300">Análise de prós/contras, comparações</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="font-semibold text-blue-400 mb-2">🔍 Debugging</p>
+            <p class="text-sm text-neutral-300">Encontrar erros em código ou lógica</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dicas -->
+    <section class="mb-12">
+      <div class="bg-yellow-900/20 rounded-2xl p-8 border border-yellow-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">⭐</span>
+          <h2 class="text-2xl font-bold text-yellow-400">Variações de CoT</h2>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3 bg-neutral-800/50 p-4 rounded-lg">
+            <span class="text-purple-400">🔮</span>
+            <div>
+              <p class="font-semibold text-purple-400">Zero-Shot CoT</p>
+              <p class="text-neutral-300 text-sm">"Pense passo a passo" - sem exemplos</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-neutral-800/50 p-4 rounded-lg">
+            <span class="text-blue-400">📚</span>
+            <div>
+              <p class="font-semibold text-blue-400">Few-Shot CoT</p>
+              <p class="text-neutral-300 text-sm">Exemplos de raciocínio + sua pergunta</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-neutral-800/50 p-4 rounded-lg">
+            <span class="text-emerald-400">🌳</span>
+            <div>
+              <p class="font-semibold text-emerald-400">Tree of Thought</p>
+              <p class="text-neutral-300 text-sm">Explorar múltiplos caminhos de raciocínio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">🚀 Próximo: Role Prompting</h2>
+        <p class="text-lg mb-6 text-purple-100">
+          Aprenda a dar papéis ao modelo para ajustar tom e expertise!
+        </p>
+        <a href="modulo2-role.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-purple-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+          <span>Ir para Role Prompting</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">FEP - Módulo 2: Chain of Thought</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'light') document.documentElement.classList.remove('dark');
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2: Técnicas Fundamentais | FEP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10B981', accent: '#3B82F6' } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .bg-neutral-700 { background-color: #f5f5f5 !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-iniciante.html" class="flex items-center space-x-2 text-neutral-400 hover:text-accent transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>Voltar para Iniciante</span>
+        </a>
+        <span class="text-accent font-semibold">Módulo Completo</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold mb-4">
+        MÓDULO 2 COMPLETO
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🎯 Técnicas Fundamentais</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Domine as técnicas essenciais: Zero-Shot, Few-Shot, Chain of Thought, Role Prompting e Humanização.
+        O arsenal básico de todo engenheiro de prompt.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-4 gap-4 mb-12">
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-accent">5</div>
+        <div class="text-xs text-neutral-400">Técnicas</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-emerald-400">3-4h</div>
+        <div class="text-xs text-neutral-400">Duração</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-purple-400">Core</div>
+        <div class="text-xs text-neutral-400">Importância</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-yellow-400">∞</div>
+        <div class="text-xs text-neutral-400">Aplicações</div>
+      </div>
+    </div>
+
+    <!-- Índice -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-100 mb-6">📑 Conteúdo do Módulo</h2>
+        <div class="space-y-4">
+          <a href="#zero-shot" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
+            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">1</span>
+            <div>
+              <p class="font-semibold text-neutral-100">🎯 Zero-Shot Prompting</p>
+              <p class="text-sm text-neutral-400">Instruções diretas sem exemplos</p>
+            </div>
+          </a>
+          <a href="#few-shot" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
+            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">2</span>
+            <div>
+              <p class="font-semibold text-neutral-100">📚 Few-Shot Prompting</p>
+              <p class="text-sm text-neutral-400">Aprendizado com exemplos</p>
+            </div>
+          </a>
+          <a href="#cot" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
+            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">3</span>
+            <div>
+              <p class="font-semibold text-neutral-100">🧠 Chain of Thought (CoT)</p>
+              <p class="text-sm text-neutral-400">Raciocínio passo a passo</p>
+            </div>
+          </a>
+          <a href="#role" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
+            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">4</span>
+            <div>
+              <p class="font-semibold text-neutral-100">🎭 Role Prompting</p>
+              <p class="text-sm text-neutral-400">Definir personas e papéis</p>
+            </div>
+          </a>
+          <a href="#humanizacao" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
+            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">5</span>
+            <div>
+              <p class="font-semibold text-neutral-100">✍️ Humanização de Texto</p>
+              <p class="text-sm text-neutral-400">Evitar tom de IA</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 1: Zero-Shot -->
+    <section id="zero-shot" class="mb-16">
+      <div class="bg-gradient-to-br from-blue-900/30 to-neutral-800 rounded-2xl p-8 border border-blue-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🎯</span>
+          <div>
+            <h2 class="text-2xl font-bold text-blue-400">1. Zero-Shot Prompting</h2>
+            <p class="text-neutral-400">Instrução direta, sem exemplos</p>
+          </div>
+        </div>
+
+        <p class="text-neutral-300 text-lg mb-6">
+          <strong class="text-blue-400">Zero-Shot</strong> = pedir algo sem dar exemplos. Funciona para tarefas comuns que o modelo viu no treinamento.
+        </p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-blue-400">"Classifique o sentimento como Positivo, Negativo ou Neutro:</p>
+          <p class="text-neutral-300">'Adorei o produto!'"</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+            <p class="text-emerald-400 font-semibold">✅ Quando usar</p>
+            <p class="text-sm text-neutral-300">Tarefas simples, formato óbvio</p>
+          </div>
+          <div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/30">
+            <p class="text-yellow-400 font-semibold">⚠️ Limitação</p>
+            <p class="text-sm text-neutral-300">Pode não capturar estilo específico</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2: Few-Shot -->
+    <section id="few-shot" class="mb-16">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📚</span>
+          <div>
+            <h2 class="text-2xl font-bold text-purple-400">2. Few-Shot Prompting</h2>
+            <p class="text-neutral-400">2-5 exemplos para guiar o padrão</p>
+          </div>
+        </div>
+
+        <p class="text-neutral-300 text-lg mb-6">
+          Mostre <strong class="text-purple-400">exemplos de entrada → saída</strong> antes da sua tarefa. O modelo identifica o padrão e replica.
+        </p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-neutral-400">// Exemplos</p>
+          <p class="text-purple-400">Texto: "João Silva é diretor." → Nome: João Silva | Cargo: Diretor</p>
+          <p class="text-purple-400">Texto: "Maria Santos, CEO." → Nome: Maria Santos | Cargo: CEO</p>
+          <p class="text-neutral-400 mt-2">// Sua tarefa</p>
+          <p class="text-purple-400">Texto: "Pedro Lima, coordenador." → ?</p>
+        </div>
+
+        <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+          <p class="text-emerald-400 font-semibold">💡 Dica</p>
+          <p class="text-sm text-neutral-300">Use 3-5 exemplos representativos e mantenha formato consistente</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3: CoT -->
+    <section id="cot" class="mb-16">
+      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🧠</span>
+          <div>
+            <h2 class="text-2xl font-bold text-purple-400">3. Chain of Thought (CoT)</h2>
+            <p class="text-neutral-400">"Pense em voz alta"</p>
+          </div>
+        </div>
+
+        <p class="text-neutral-300 text-lg mb-6">
+          Pedir ao modelo <strong class="text-purple-400">explicar seu raciocínio passo a passo</strong>. Melhora dramaticamente resultados em lógica e matemática.
+        </p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-lg text-center mb-4">
+          <span class="text-purple-400">"Pense passo a passo antes de responder."</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+            <p class="text-red-400 font-semibold">❌ Sem CoT</p>
+            <p class="text-sm text-neutral-300">Modelo pode pular para resposta errada</p>
+          </div>
+          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+            <p class="text-emerald-400 font-semibold">✅ Com CoT</p>
+            <p class="text-sm text-neutral-300">Raciocínio explícito, +40% precisão</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4: Role -->
+    <section id="role" class="mb-16">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🎭</span>
+          <div>
+            <h2 class="text-2xl font-bold text-pink-400">4. Role Prompting</h2>
+            <p class="text-neutral-400">"Você é um especialista em..."</p>
+          </div>
+        </div>
+
+        <p class="text-neutral-300 text-lg mb-6">
+          Definir um papel ajusta <strong class="text-pink-400">vocabulário, tom, profundidade e perspectiva</strong> automaticamente.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+            <p class="font-bold text-blue-400 mb-1">👨‍💼 Consultor</p>
+            <p class="text-xs text-neutral-300">"Você é um consultor com 20 anos de experiência..."</p>
+          </div>
+          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+            <p class="font-bold text-emerald-400 mb-1">👨‍🏫 Professor</p>
+            <p class="text-xs text-neutral-300">"Você é um professor explicando para iniciantes..."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5: Humanização -->
+    <section id="humanizacao" class="mb-16">
+      <div class="bg-gradient-to-br from-emerald-900/30 to-neutral-800 rounded-2xl p-8 border border-emerald-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">✍️</span>
+          <div>
+            <h2 class="text-2xl font-bold text-emerald-400">5. Humanização de Texto</h2>
+            <p class="text-neutral-400">Evitar "tom de IA"</p>
+          </div>
+        </div>
+
+        <p class="text-neutral-300 text-lg mb-6">
+          Técnicas para texto parecer mais natural: <strong class="text-emerald-400">contrações, opiniões, variação estrutural, expressões coloquiais</strong>.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+            <p class="text-red-400 font-semibold">❌ Tom de IA</p>
+            <p class="text-sm text-neutral-300">"É indubitavelmente importante considerar..."</p>
+          </div>
+          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+            <p class="text-emerald-400 font-semibold">✅ Humanizado</p>
+            <p class="text-sm text-neutral-300">"Na minha experiência, vale muito a pena..."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-bold mb-6 text-center">📋 Resumo do Módulo 2</h2>
+
+        <div class="grid md:grid-cols-5 gap-4 mb-8">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+              <span class="text-xl">🎯</span>
+            </div>
+            <p class="text-sm font-bold">Zero-Shot</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+              <span class="text-xl">📚</span>
+            </div>
+            <p class="text-sm font-bold">Few-Shot</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+              <span class="text-xl">🧠</span>
+            </div>
+            <p class="text-sm font-bold">CoT</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+              <span class="text-xl">🎭</span>
+            </div>
+            <p class="text-sm font-bold">Role</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+              <span class="text-xl">✍️</span>
+            </div>
+            <p class="text-sm font-bold">Human</p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="../../nivel-iniciante.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+            <span>Continuar para Módulo 3</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">FEP - Módulo 2 Completo: Técnicas Fundamentais</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'light') document.documentElement.classList.remove('dark');
+  </script>
+
+</body>
+</html>

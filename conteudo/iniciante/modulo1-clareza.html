@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clareza e Especificidade | FEP - Engenharia de Prompt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#10B981', accent: '#6366F1' } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .bg-neutral-700 { background-color: #f5f5f5 !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-iniciante.html" class="flex items-center space-x-2 text-neutral-400 hover:text-primary transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>Voltar para Iniciante</span>
+        </a>
+        <span class="text-primary font-semibold">Módulo 01</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-semibold mb-4">
+        MÓDULO 1 - FUNDAMENTOS
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">✨ Clareza e Especificidade</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        A clareza é o princípio mais importante de prompt engineering.
+        Quanto mais específico você for, melhores serão os resultados.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-4 mb-12">
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-primary">#1</div>
+        <div class="text-xs text-neutral-400">Princípio Mais Importante</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-accent">10x</div>
+        <div class="text-xs text-neutral-400">Melhora na Qualidade</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-emerald-400">∀</div>
+        <div class="text-xs text-neutral-400">Aplica a Tudo</div>
+      </div>
+    </div>
+
+    <!-- Por que Clareza Importa -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/30 to-neutral-800 rounded-2xl p-8 border border-emerald-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🎯</span>
+          <div>
+            <h2 class="text-2xl font-bold text-emerald-400">Por que Clareza Importa?</h2>
+            <p class="text-neutral-400">LLMs interpretam literalmente o que você escreve</p>
+          </div>
+        </div>
+
+        <p class="text-neutral-300 text-lg mb-6">
+          LLMs <strong class="text-emerald-400">não "adivinham"</strong> o que você quer - eles seguem as palavras que você usa.
+          Ambiguidade leva a respostas genéricas e imprecisas.
+        </p>
+
+        <!-- 4 Princípios -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-emerald-500">
+            <p class="font-semibold text-emerald-400 mb-1">1. Seja Específico</p>
+            <p class="text-sm text-neutral-300">Detalhes > Generalidades</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-blue-500">
+            <p class="font-semibold text-blue-400 mb-1">2. Seja Direto</p>
+            <p class="text-sm text-neutral-300">Vá direto ao ponto</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+            <p class="font-semibold text-purple-400 mb-1">3. Seja Explícito</p>
+            <p class="text-sm text-neutral-300">Não assuma conhecimento prévio</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-yellow-500">
+            <p class="font-semibold text-yellow-400 mb-1">4. Seja Estruturado</p>
+            <p class="text-sm text-neutral-300">Use formatação para destacar</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Técnicas -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🛠️</span>
+          <div>
+            <h2 class="text-2xl font-bold text-neutral-100">Técnicas para Aumentar Clareza</h2>
+            <p class="text-neutral-400">Transforme prompts vagos em instruções precisas</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Técnica 1 -->
+          <div class="bg-neutral-700/30 p-6 rounded-xl">
+            <h4 class="font-bold text-blue-400 mb-4">1. Use Verbos de Ação Precisos</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+                <p class="text-red-400 text-sm mb-2">❌ Vago:</p>
+                <p class="text-neutral-300 font-mono text-sm">"Fale sobre SEO"</p>
+              </div>
+              <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+                <p class="text-emerald-400 text-sm mb-2">✅ Claro:</p>
+                <p class="text-neutral-300 font-mono text-sm">"Liste 5 técnicas de SEO on-page com exemplos práticos"</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Técnica 2 -->
+          <div class="bg-neutral-700/30 p-6 rounded-xl">
+            <h4 class="font-bold text-purple-400 mb-4">2. Defina Parâmetros</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+                <p class="text-red-400 text-sm mb-2">❌ Vago:</p>
+                <p class="text-neutral-300 font-mono text-sm">"Escreva um texto"</p>
+              </div>
+              <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+                <p class="text-emerald-400 text-sm mb-2">✅ Claro:</p>
+                <p class="text-neutral-300 font-mono text-sm">"Escreva um parágrafo de 100 palavras"</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Técnica 3 -->
+          <div class="bg-neutral-700/30 p-6 rounded-xl">
+            <h4 class="font-bold text-yellow-400 mb-4">3. Especifique o Público</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+                <p class="text-red-400 text-sm mb-2">❌ Vago:</p>
+                <p class="text-neutral-300 font-mono text-sm">"Explique blockchain"</p>
+              </div>
+              <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+                <p class="text-emerald-400 text-sm mb-2">✅ Claro:</p>
+                <p class="text-neutral-300 font-mono text-sm">"Explique blockchain para um gerente de banco sem conhecimento técnico"</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Técnica 4 -->
+          <div class="bg-neutral-700/30 p-6 rounded-xl">
+            <h4 class="font-bold text-emerald-400 mb-4">4. Dê Exemplos do que Você Quer</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+                <p class="text-red-400 text-sm mb-2">❌ Vago:</p>
+                <p class="text-neutral-300 font-mono text-sm">"Crie títulos criativos"</p>
+              </div>
+              <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+                <p class="text-emerald-400 text-sm mb-2">✅ Claro:</p>
+                <p class="text-neutral-300 font-mono text-sm">"Crie títulos no estilo: 'Como X Revolucionou Y em Z Dias'"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exemplo Completo -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📧</span>
+          <div>
+            <h2 class="text-2xl font-bold text-purple-400">Exemplo Completo: Email</h2>
+            <p class="text-neutral-400">Transformando vago em claro</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-red-900/20 p-6 rounded-xl border border-red-500/30">
+            <h4 class="font-bold text-red-400 mb-4">❌ VAGO</h4>
+            <div class="bg-neutral-800/50 p-4 rounded-lg font-mono text-sm text-neutral-300 mb-4">
+              "Me ajuda a escrever um email"
+            </div>
+            <p class="text-sm text-neutral-400 mb-2">O que está faltando?</p>
+            <ul class="text-xs text-neutral-400 space-y-1">
+              <li>• Para quem é o email?</li>
+              <li>• Sobre o que?</li>
+              <li>• Qual o tom?</li>
+              <li>• Qual o objetivo?</li>
+            </ul>
+          </div>
+
+          <div class="bg-emerald-900/20 p-6 rounded-xl border border-emerald-500/30">
+            <h4 class="font-bold text-emerald-400 mb-4">✅ CLARO</h4>
+            <div class="bg-neutral-800/50 p-4 rounded-lg font-mono text-xs text-neutral-300">
+              <p>"Escreva um email para meu gerente solicitando aprovação para participar de uma conferência.</p>
+              <p class="mt-2"><strong>Detalhes:</strong></p>
+              <p>- Conferência: Web Summit 2024</p>
+              <p>- Custo: R$15.000</p>
+              <p>- Tom: profissional mas persuasivo</p>
+              <p>- Tamanho: 3 parágrafos curtos</p>
+              <p class="mt-2"><strong>Inclua:</strong></p>
+              <p>1. Contexto da conferência</p>
+              <p>2. Benefícios para a empresa</p>
+              <p>3. Pedido de aprovação"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checklist -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">✅</span>
+          <div>
+            <h2 class="text-2xl font-bold text-emerald-400">Checklist de Clareza</h2>
+            <p class="text-neutral-400">Antes de enviar seu prompt, pergunte:</p>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 bg-neutral-700/30 p-4 rounded-lg">
+            <span class="w-6 h-6 bg-emerald-500/20 rounded flex items-center justify-center text-emerald-400">☐</span>
+            <span class="text-neutral-300">A tarefa está clara?</span>
+          </div>
+          <div class="flex items-center gap-3 bg-neutral-700/30 p-4 rounded-lg">
+            <span class="w-6 h-6 bg-emerald-500/20 rounded flex items-center justify-center text-emerald-400">☐</span>
+            <span class="text-neutral-300">O formato esperado está definido?</span>
+          </div>
+          <div class="flex items-center gap-3 bg-neutral-700/30 p-4 rounded-lg">
+            <span class="w-6 h-6 bg-emerald-500/20 rounded flex items-center justify-center text-emerald-400">☐</span>
+            <span class="text-neutral-300">O tom/estilo está especificado?</span>
+          </div>
+          <div class="flex items-center gap-3 bg-neutral-700/30 p-4 rounded-lg">
+            <span class="w-6 h-6 bg-emerald-500/20 rounded flex items-center justify-center text-emerald-400">☐</span>
+            <span class="text-neutral-300">O tamanho/escopo está delimitado?</span>
+          </div>
+          <div class="flex items-center gap-3 bg-neutral-700/30 p-4 rounded-lg">
+            <span class="w-6 h-6 bg-emerald-500/20 rounded flex items-center justify-center text-emerald-400">☐</span>
+            <span class="text-neutral-300">O público-alvo está identificado?</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-emerald-600 to-primary text-white rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">🎉 Módulo 1 Completo!</h2>
+        <p class="text-lg mb-6 text-emerald-100">
+          Você aprendeu os fundamentos! Agora vá para o <strong>Módulo 2: Técnicas Fundamentais</strong> e domine Zero-Shot, Few-Shot e Chain of Thought!
+        </p>
+        <a href="../../nivel-iniciante.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-emerald-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+          <span>Voltar ao Curso</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">FEP - Fundamentos de Engenharia de Prompt | Módulo 1: Clareza</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'light') {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1: Fundamentos de IA e LLMs | FEP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#10B981', accent: '#6366F1' } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .bg-neutral-700 { background-color: #f5f5f5 !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-iniciante.html" class="flex items-center space-x-2 text-neutral-400 hover:text-primary transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>Voltar para Iniciante</span>
+        </a>
+        <span class="text-primary font-semibold">Módulo Completo</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-semibold mb-4">
+        MÓDULO 1 COMPLETO
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🧠 Fundamentos de IA e LLMs</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Tudo que você precisa saber sobre como LLMs funcionam, tokens, anatomia de prompts e clareza.
+        A base essencial para dominar Engenharia de Prompt.
+      </p>
+    </div>
+
+    <!-- Stats Banner -->
+    <div class="grid grid-cols-4 gap-4 mb-12">
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-primary">4</div>
+        <div class="text-xs text-neutral-400">Tópicos</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-accent">2-3h</div>
+        <div class="text-xs text-neutral-400">Duração</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-yellow-400">Base</div>
+        <div class="text-xs text-neutral-400">Nível</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-emerald-400">100%</div>
+        <div class="text-xs text-neutral-400">Essencial</div>
+      </div>
+    </div>
+
+    <!-- Índice -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <h2 class="text-2xl font-bold text-neutral-100 mb-6">📑 Conteúdo do Módulo</h2>
+        <div class="space-y-4">
+          <a href="#llm-basics" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
+            <span class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 font-bold">1</span>
+            <div>
+              <p class="font-semibold text-neutral-100">🤖 LLM Basics e Funcionamento</p>
+              <p class="text-sm text-neutral-400">O que são LLMs e como funcionam</p>
+            </div>
+          </a>
+          <a href="#tokens" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
+            <span class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 font-bold">2</span>
+            <div>
+              <p class="font-semibold text-neutral-100">🔤 Tokens e Janela de Contexto</p>
+              <p class="text-sm text-neutral-400">Entendendo limites e contagem</p>
+            </div>
+          </a>
+          <a href="#anatomia" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
+            <span class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 font-bold">3</span>
+            <div>
+              <p class="font-semibold text-neutral-100">📐 Anatomia de Prompts</p>
+              <p class="text-sm text-neutral-400">Os 5 componentes essenciais</p>
+            </div>
+          </a>
+          <a href="#clareza" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
+            <span class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 font-bold">4</span>
+            <div>
+              <p class="font-semibold text-neutral-100">✨ Clareza e Especificidade</p>
+              <p class="text-sm text-neutral-400">O princípio mais importante</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 1: LLM Basics -->
+    <section id="llm-basics" class="mb-16">
+      <div class="bg-gradient-to-br from-emerald-900/30 to-neutral-800 rounded-2xl p-8 border border-emerald-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🤖</span>
+          <div>
+            <h2 class="text-2xl font-bold text-emerald-400">1. LLM Basics e Funcionamento</h2>
+            <p class="text-neutral-400">A tecnologia por trás da IA generativa</p>
+          </div>
+        </div>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-neutral-300 text-lg mb-6">
+            Um <strong class="text-emerald-400">Large Language Model (LLM)</strong> é um modelo de IA treinado em bilhões de palavras de texto.
+            Através desse treinamento massivo, ele aprende padrões de linguagem, conhecimento factual e capacidades de raciocínio.
+          </p>
+
+          <!-- Como Funciona -->
+          <div class="bg-neutral-700/50 rounded-xl p-6 mb-6">
+            <h3 class="text-xl font-bold text-emerald-400 mb-4">⚙️ O Processo de Geração</h3>
+            <div class="grid md:grid-cols-4 gap-4">
+              <div class="text-center p-4 bg-neutral-800/50 rounded-lg">
+                <div class="text-2xl mb-2">📚</div>
+                <p class="font-semibold text-emerald-400">1. Treino</p>
+                <p class="text-xs text-neutral-300">Bilhões de textos</p>
+              </div>
+              <div class="text-center p-4 bg-neutral-800/50 rounded-lg">
+                <div class="text-2xl mb-2">🔍</div>
+                <p class="font-semibold text-emerald-400">2. Padrões</p>
+                <p class="text-xs text-neutral-300">Identifica regras</p>
+              </div>
+              <div class="text-center p-4 bg-neutral-800/50 rounded-lg">
+                <div class="text-2xl mb-2">💬</div>
+                <p class="font-semibold text-emerald-400">3. Prompt</p>
+                <p class="text-xs text-neutral-300">Você pergunta</p>
+              </div>
+              <div class="text-center p-4 bg-neutral-800/50 rounded-lg">
+                <div class="text-2xl mb-2">✨</div>
+                <p class="font-semibold text-emerald-400">4. Geração</p>
+                <p class="text-xs text-neutral-300">Token por token</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Características -->
+          <div class="bg-blue-900/20 p-6 rounded-xl border border-blue-500/30 mb-6">
+            <h4 class="font-bold text-blue-400 mb-3">📊 Características Importantes</h4>
+            <ul class="space-y-2 text-neutral-300">
+              <li>• <strong>Não tem consciência</strong> - É uma ferramenta matemática sofisticada</li>
+              <li>• <strong>Baseado em probabilidade</strong> - Escolhe palavras mais prováveis</li>
+              <li>• <strong>Sem memória persistente</strong> - Cada conversa é isolada</li>
+              <li>• <strong>Data de corte</strong> - Não sabe eventos após o treinamento</li>
+            </ul>
+          </div>
+
+          <!-- Modelos -->
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-orange-900/20 p-4 rounded-lg border border-orange-500/30">
+              <h5 class="font-bold text-orange-400 mb-2">Claude</h5>
+              <p class="text-xs text-neutral-300">Forte em raciocínio, 200K tokens</p>
+            </div>
+            <div class="bg-green-900/20 p-4 rounded-lg border border-green-500/30">
+              <h5 class="font-bold text-green-400 mb-2">GPT-4</h5>
+              <p class="text-xs text-neutral-300">Versátil, criativo</p>
+            </div>
+            <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+              <h5 class="font-bold text-blue-400 mb-2">Gemini</h5>
+              <p class="text-xs text-neutral-300">Integrado Google, 1M tokens</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2: Tokens -->
+    <section id="tokens" class="mb-16">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🔤</span>
+          <div>
+            <h2 class="text-2xl font-bold text-accent">2. Tokens e Janela de Contexto</h2>
+            <p class="text-neutral-400">As unidades básicas de processamento</p>
+          </div>
+        </div>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-neutral-300 text-lg mb-6">
+            <strong class="text-accent">Tokens</strong> são como o LLM "lê" texto. Uma palavra pode ser 1 token ou vários tokens.
+            <strong>~4 caracteres = 1 token</strong> em português.
+          </p>
+
+          <!-- Exemplos de Tokenização -->
+          <div class="bg-neutral-700/50 rounded-xl p-6 mb-6">
+            <h3 class="text-xl font-bold text-accent mb-4">📝 Exemplos</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-neutral-800/50 p-4 rounded-lg">
+                <p class="font-mono text-accent">"Olá"</p>
+                <p class="text-sm text-neutral-300">= 1 token</p>
+              </div>
+              <div class="bg-neutral-800/50 p-4 rounded-lg">
+                <p class="font-mono text-accent">"Brasília"</p>
+                <p class="text-sm text-neutral-300">= 2 tokens (Bras + ília)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Context Window -->
+          <div class="bg-purple-900/20 p-6 rounded-xl border border-purple-500/30 mb-6">
+            <h4 class="font-bold text-purple-400 mb-3">📦 Context Window por Modelo</h4>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center p-3 bg-neutral-800/50 rounded-lg">
+                <span class="text-neutral-300">Claude 3.5 Sonnet</span>
+                <span class="text-purple-400 font-bold">200K tokens</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-neutral-800/50 rounded-lg">
+                <span class="text-neutral-300">GPT-4 Turbo</span>
+                <span class="text-purple-400 font-bold">128K tokens</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-neutral-800/50 rounded-lg">
+                <span class="text-neutral-300">Gemini 1.5 Pro</span>
+                <span class="text-purple-400 font-bold">1M tokens</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- O que conta -->
+          <div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/30">
+            <p class="text-yellow-400 font-semibold mb-2">⚠️ O que conta no context window:</p>
+            <p class="text-neutral-300 text-sm">Seu prompt + histórico da conversa + resposta do modelo + exemplos fornecidos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3: Anatomia -->
+    <section id="anatomia" class="mb-16">
+      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📐</span>
+          <div>
+            <h2 class="text-2xl font-bold text-purple-400">3. Anatomia de Prompts</h2>
+            <p class="text-neutral-400">Os 5 componentes essenciais</p>
+          </div>
+        </div>
+
+        <div class="space-y-4 mb-6">
+          <div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-emerald-500">
+            <span class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">1</span>
+            <div>
+              <p class="font-bold text-emerald-400">Contexto</p>
+              <p class="text-sm text-neutral-300">"Você é um professor de física..."</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-blue-500">
+            <span class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">2</span>
+            <div>
+              <p class="font-bold text-blue-400">Tarefa</p>
+              <p class="text-sm text-neutral-300">"Explique o conceito de gravidade"</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-purple-500">
+            <span class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">3</span>
+            <div>
+              <p class="font-bold text-purple-400">Especificações</p>
+              <p class="text-sm text-neutral-300">"Use analogias do dia a dia. Máximo 3 parágrafos"</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-yellow-500">
+            <span class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">4</span>
+            <div>
+              <p class="font-bold text-yellow-400">Exemplos (opcional)</p>
+              <p class="text-sm text-neutral-300">Mostre o formato que você quer</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-red-500">
+            <span class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">5</span>
+            <div>
+              <p class="font-bold text-red-400">Restrições</p>
+              <p class="text-sm text-neutral-300">"Não use equações matemáticas complexas"</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Template -->
+        <div class="bg-neutral-900 p-6 rounded-xl font-mono text-sm">
+          <p class="text-emerald-400">[CONTEXTO] Você é um [papel].</p>
+          <p class="text-blue-400 mt-2">[TAREFA] [Ação clara].</p>
+          <p class="text-purple-400 mt-2">[SPECS] Formato, tom, tamanho.</p>
+          <p class="text-red-400 mt-2">[RESTRIÇÕES] NÃO faça X, Y.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4: Clareza -->
+    <section id="clareza" class="mb-16">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">✨</span>
+          <div>
+            <h2 class="text-2xl font-bold text-yellow-400">4. Clareza e Especificidade</h2>
+            <p class="text-neutral-400">O princípio mais importante</p>
+          </div>
+        </div>
+
+        <p class="text-neutral-300 text-lg mb-6">
+          LLMs <strong class="text-yellow-400">interpretam literalmente</strong> o que você escreve.
+          Quanto mais específico, melhores os resultados.
+        </p>
+
+        <!-- 4 Princípios -->
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-neutral-700/30 p-4 rounded-lg border-l-4 border-emerald-500">
+            <p class="font-semibold text-emerald-400">1. Seja Específico</p>
+            <p class="text-sm text-neutral-300">Detalhes > Generalidades</p>
+          </div>
+          <div class="bg-neutral-700/30 p-4 rounded-lg border-l-4 border-blue-500">
+            <p class="font-semibold text-blue-400">2. Seja Direto</p>
+            <p class="text-sm text-neutral-300">Vá direto ao ponto</p>
+          </div>
+          <div class="bg-neutral-700/30 p-4 rounded-lg border-l-4 border-purple-500">
+            <p class="font-semibold text-purple-400">3. Seja Explícito</p>
+            <p class="text-sm text-neutral-300">Não assuma nada</p>
+          </div>
+          <div class="bg-neutral-700/30 p-4 rounded-lg border-l-4 border-yellow-500">
+            <p class="font-semibold text-yellow-400">4. Seja Estruturado</p>
+            <p class="text-sm text-neutral-300">Use formatação</p>
+          </div>
+        </div>
+
+        <!-- Exemplo -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+            <p class="text-red-400 font-semibold mb-2">❌ Vago</p>
+            <p class="text-neutral-300 font-mono text-sm">"Fale sobre SEO"</p>
+          </div>
+          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+            <p class="text-emerald-400 font-semibold mb-2">✅ Claro</p>
+            <p class="text-neutral-300 font-mono text-sm">"Liste 5 técnicas de SEO on-page com exemplos práticos"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo Final -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-emerald-600 to-primary text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-bold mb-6 text-center">📋 Resumo do Módulo 1</h2>
+
+        <div class="grid md:grid-cols-4 gap-4 mb-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-2xl">🤖</span>
+            </div>
+            <p class="font-bold">LLMs</p>
+            <p class="text-xs text-emerald-100">Padrões, não conhecimento</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-2xl">🔤</span>
+            </div>
+            <p class="font-bold">Tokens</p>
+            <p class="text-xs text-emerald-100">~4 chars = 1 token</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-2xl">📐</span>
+            </div>
+            <p class="font-bold">Anatomia</p>
+            <p class="text-xs text-emerald-100">5 componentes</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-2xl">✨</span>
+            </div>
+            <p class="font-bold">Clareza</p>
+            <p class="text-xs text-emerald-100">Específico > Vago</p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="../../nivel-iniciante.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-emerald-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+            <span>Continuar para Módulo 2</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">FEP - Fundamentos de Engenharia de Prompt | Módulo 1 Completo</p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'light') {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+</body>
+</html>

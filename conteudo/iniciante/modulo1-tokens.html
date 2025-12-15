@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tokens e Janela de Contexto | FEP - Engenharia de Prompt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#10B981',
+            accent: '#6366F1'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .bg-neutral-700 { background-color: #f5f5f5 !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .border-neutral-600 { border-color: #d4d4d4 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-200 { color: #262626 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-iniciante.html" class="flex items-center space-x-2 text-neutral-400 hover:text-primary transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>Voltar para Iniciante</span>
+        </a>
+        <span class="text-primary font-semibold">Módulo 01</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-semibold mb-4">
+        MÓDULO 1 - FUNDAMENTOS
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🔤 Tokens e Janela de Contexto</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Tokens são as unidades básicas que LLMs processam - não são palavras, mas pedaços de texto.
+        Entender tokens é essencial para saber os limites do que você pode fazer.
+      </p>
+    </div>
+
+    <!-- Stats Banner -->
+    <div class="grid grid-cols-3 gap-4 mb-12">
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-primary">~4</div>
+        <div class="text-xs text-neutral-400">Caracteres/Token</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-accent">200K</div>
+        <div class="text-xs text-neutral-400">Claude Context</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-emerald-400">1.3x</div>
+        <div class="text-xs text-neutral-400">Palavras → Tokens (PT)</div>
+      </div>
+    </div>
+
+    <!-- Conceito 1: O que são Tokens? -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/30 to-neutral-800 rounded-2xl p-8 border border-emerald-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🧩</span>
+          <div>
+            <h2 class="text-2xl font-bold text-emerald-400">O que são Tokens?</h2>
+            <p class="text-neutral-400">A unidade básica de processamento de LLMs</p>
+          </div>
+        </div>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-neutral-300 text-lg mb-6">
+            Tokens são como o LLM "lê" texto. Uma palavra pode ser <strong class="text-emerald-400">1 token ou vários tokens</strong>.
+            O modelo não processa caracteres individuais nem palavras completas - processa tokens.
+          </p>
+
+          <!-- Exemplos de Tokenização -->
+          <div class="bg-neutral-700/50 rounded-xl p-6 mb-6">
+            <h3 class="text-xl font-bold text-emerald-400 mb-4">📝 Exemplos de Tokenização</h3>
+
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-neutral-800/50 p-4 rounded-lg">
+                <p class="font-mono text-emerald-400 mb-2">"Olá"</p>
+                <p class="text-sm text-neutral-300">= <strong>1 token</strong></p>
+              </div>
+              <div class="bg-neutral-800/50 p-4 rounded-lg">
+                <p class="font-mono text-emerald-400 mb-2">"Brasília"</p>
+                <p class="text-sm text-neutral-300">= <strong>2 tokens</strong> (Bras + ília)</p>
+              </div>
+              <div class="bg-neutral-800/50 p-4 rounded-lg">
+                <p class="font-mono text-emerald-400 mb-2">"ChatGPT"</p>
+                <p class="text-sm text-neutral-300">= <strong>2 tokens</strong> (Chat + GPT)</p>
+              </div>
+              <div class="bg-neutral-800/50 p-4 rounded-lg">
+                <p class="font-mono text-emerald-400 mb-2">"Inteligência Artificial"</p>
+                <p class="text-sm text-neutral-300">= <strong>4-5 tokens</strong></p>
+              </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/30">
+              <p class="text-primary font-semibold">📏 Regra Geral</p>
+              <p class="text-neutral-300 mt-1">~4 caracteres = 1 token em português. Espaços e pontuação também contam!</p>
+            </div>
+          </div>
+
+          <!-- Por que importa -->
+          <div class="bg-blue-900/20 p-6 rounded-xl border border-blue-500/30">
+            <h4 class="font-bold text-blue-400 mb-3">🤔 Por que Tokens Importam?</h4>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="text-center p-4">
+                <div class="text-3xl mb-2">🚫</div>
+                <p class="font-semibold text-blue-400 mb-1">Limites Físicos</p>
+                <p class="text-xs text-neutral-300">Se ultrapassar o context window, o modelo não funciona</p>
+              </div>
+              <div class="text-center p-4">
+                <div class="text-3xl mb-2">💰</div>
+                <p class="font-semibold text-blue-400 mb-1">Custo</p>
+                <p class="text-xs text-neutral-300">APIs cobram por token - tanto input quanto output</p>
+              </div>
+              <div class="text-center p-4">
+                <div class="text-3xl mb-2">⚡</div>
+                <p class="font-semibold text-blue-400 mb-1">Performance</p>
+                <p class="text-xs text-neutral-300">Prompts muito longos podem afetar qualidade e velocidade</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conceito 2: Context Window -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📦</span>
+          <div>
+            <h2 class="text-2xl font-bold text-neutral-100">Context Window (Janela de Contexto)</h2>
+            <p class="text-neutral-400">O limite máximo de tokens que o modelo processa</p>
+          </div>
+        </div>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-neutral-300 text-lg mb-6">
+            O "context window" é a quantidade máxima de tokens que o modelo pode processar de uma vez.
+            <strong class="text-accent">Tudo</strong> precisa caber nesse limite - seu prompt, histórico e a resposta.
+          </p>
+
+          <!-- Tamanhos Comuns -->
+          <div class="bg-neutral-700/50 rounded-xl p-6 mb-6">
+            <h3 class="text-xl font-bold text-accent mb-4">📊 Tamanhos por Modelo (2025)</h3>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between p-4 bg-neutral-800/50 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center">
+                    <span class="text-orange-400 font-bold">C</span>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-neutral-100">Claude 3.5 Sonnet</p>
+                    <p class="text-xs text-neutral-400">Anthropic</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="font-bold text-orange-400">200.000 tokens</p>
+                  <p class="text-xs text-neutral-400">~150.000 palavras</p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-neutral-800/50 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                    <span class="text-green-400 font-bold">G</span>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-neutral-100">GPT-4 Turbo</p>
+                    <p class="text-xs text-neutral-400">OpenAI</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="font-bold text-green-400">128.000 tokens</p>
+                  <p class="text-xs text-neutral-400">~96.000 palavras</p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-4 bg-neutral-800/50 rounded-lg">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
+                    <span class="text-blue-400 font-bold">G</span>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-neutral-100">Gemini 1.5 Pro</p>
+                    <p class="text-xs text-neutral-400">Google</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="font-bold text-blue-400">1.000.000 tokens</p>
+                  <p class="text-xs text-neutral-400">~750.000 palavras</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- O que conta -->
+          <div class="bg-purple-900/20 p-6 rounded-xl border border-purple-500/30">
+            <h4 class="font-bold text-purple-400 mb-3">📋 O que Conta no Context Window?</h4>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <ul class="space-y-2 text-neutral-300">
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2">✓</span>
+                    <span>Seu prompt atual</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2">✓</span>
+                    <span>Todo o histórico da conversa</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <ul class="space-y-2 text-neutral-300">
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2">✓</span>
+                    <span>A resposta do modelo</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-purple-400 mr-2">✓</span>
+                    <span>Exemplos e contexto fornecidos</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conceito 3: Calculando Tokens -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🧮</span>
+          <div>
+            <h2 class="text-2xl font-bold text-purple-400">Calculando Tokens na Prática</h2>
+            <p class="text-neutral-400">Aprenda a estimar se seu conteúdo cabe</p>
+          </div>
+        </div>
+
+        <div class="prose prose-invert max-w-none">
+          <!-- Exemplo 1 -->
+          <div class="bg-emerald-900/20 p-6 rounded-xl border border-emerald-500/30 mb-6">
+            <h4 class="font-bold text-emerald-400 mb-4">✅ Exemplo: Texto Curto</h4>
+            <div class="bg-neutral-800/50 p-4 rounded-lg font-mono text-sm mb-4">
+              <p class="text-neutral-300">Texto de 1.000 palavras em português</p>
+              <p class="text-emerald-400">≈ 1.300 tokens</p>
+            </div>
+            <div class="bg-neutral-700/50 p-4 rounded-lg">
+              <p class="text-neutral-300 mb-2">Se o limite é <strong>4.000 tokens</strong>:</p>
+              <ul class="space-y-1 text-sm text-neutral-300">
+                <li>• Seu texto: 1.300 tokens</li>
+                <li>• Sua pergunta: ~50 tokens</li>
+                <li>• Resposta esperada: ~500 tokens</li>
+                <li class="text-emerald-400 font-semibold">• Total: ~1.850 tokens ✅ Cabe!</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Exemplo 2 -->
+          <div class="bg-red-900/20 p-6 rounded-xl border border-red-500/30 mb-6">
+            <h4 class="font-bold text-red-400 mb-4">❌ Exemplo: Documento Grande</h4>
+            <div class="bg-neutral-800/50 p-4 rounded-lg font-mono text-sm mb-4">
+              <p class="text-neutral-300">Documento de 50.000 palavras</p>
+              <p class="text-red-400">≈ 65.000 tokens</p>
+            </div>
+            <div class="bg-neutral-700/50 p-4 rounded-lg mb-4">
+              <p class="text-neutral-300">Se o limite é <strong>16.000 tokens</strong> (GPT-3.5):</p>
+              <p class="text-red-400 font-semibold mt-2">❌ NÃO CABE!</p>
+            </div>
+            <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+              <p class="font-semibold text-emerald-400 mb-2">💡 Soluções:</p>
+              <ol class="space-y-1 text-sm text-neutral-300">
+                <li>1. Use modelo com context window maior (Claude, Gemini)</li>
+                <li>2. Divida o documento em partes menores</li>
+                <li>3. Resuma primeiro, depois analise o resumo</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dicas Práticas -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">⭐</span>
+          <div>
+            <h2 class="text-2xl font-bold text-yellow-400">Dicas Práticas</h2>
+            <p class="text-neutral-400">Otimize seu uso de tokens</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">Use ferramentas como <strong>tiktoken</strong> (OpenAI) para contar tokens exatos antes de enviar.</span>
+          </div>
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">Para português, estime <strong>1.3x o número de palavras</strong> para ter uma aproximação de tokens.</span>
+          </div>
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">Deixe sempre <strong>20-30% de margem</strong> para a resposta - não use 100% do contexto com seu prompt.</span>
+          </div>
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">Se estourar o limite, <strong>divida em partes menores</strong> ou use técnicas de resumo progressivo.</span>
+          </div>
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">Lembre-se: o <strong>histórico da conversa também conta</strong> - conversas longas consomem contexto.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erros Comuns -->
+    <section class="mb-12">
+      <div class="bg-red-900/20 rounded-2xl p-8 border border-red-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">⚠️</span>
+          <div>
+            <h2 class="text-2xl font-bold text-red-400">Erros Comuns</h2>
+            <p class="text-neutral-400">O que evitar com tokens</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-neutral-800/50 p-6 rounded-xl">
+            <h4 class="font-bold text-red-400 mb-2">❌ Ignorar contagem de tokens</h4>
+            <p class="text-sm text-neutral-400 mb-3">Exemplo: Colar documento gigante sem verificar se cabe</p>
+            <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+              <p class="text-sm text-emerald-400"><strong>✓ Solução:</strong> Sempre estime tokens antes de enviar. Use ferramentas de contagem.</p>
+            </div>
+          </div>
+
+          <div class="bg-neutral-800/50 p-6 rounded-xl">
+            <h4 class="font-bold text-red-400 mb-2">❌ Usar todo o context window</h4>
+            <p class="text-sm text-neutral-400 mb-3">Exemplo: Prompt de 15.900 tokens em modelo de 16k</p>
+            <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+              <p class="text-sm text-emerald-400"><strong>✓ Solução:</strong> Deixe pelo menos 20-30% para a resposta do modelo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-emerald-600 to-primary text-white rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">🚀 Próximo Passo</h2>
+        <p class="text-lg mb-6 text-emerald-100">
+          Agora que você entende tokens, aprenda a <strong>Anatomia de um Prompt</strong> para estruturar suas instruções de forma eficaz!
+        </p>
+        <a href="modulo1-anatomia.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-emerald-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+          <span>Ir para Anatomia</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">
+        FEP - Fundamentos de Engenharia de Prompt | Módulo 1: Tokens
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    if (localStorage.getItem('color-theme') === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+
+</body>
+</html>

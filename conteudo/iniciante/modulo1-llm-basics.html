@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Basics e Funcionamento | FEP - Engenharia de Prompt</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#10B981',
+            accent: '#6366F1'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .bg-neutral-700 { background-color: #f5f5f5 !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .border-neutral-600 { border-color: #d4d4d4 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-200 { color: #262626 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-iniciante.html" class="flex items-center space-x-2 text-neutral-400 hover:text-primary transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>Voltar para Iniciante</span>
+        </a>
+        <span class="text-primary font-semibold">Módulo 01</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-semibold mb-4">
+        MÓDULO 1 - FUNDAMENTOS
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🤖 LLM Basics e Funcionamento</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Large Language Models são redes neurais treinadas em bilhões de textos para entender e gerar linguagem.
+        Compreender como funcionam é fundamental para criar prompts eficazes.
+      </p>
+    </div>
+
+    <!-- Stats Banner -->
+    <div class="grid grid-cols-3 gap-4 mb-12">
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-primary">100B+</div>
+        <div class="text-xs text-neutral-400">Parâmetros</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-accent">1T+</div>
+        <div class="text-xs text-neutral-400">Tokens de Treino</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-emerald-400">~4</div>
+        <div class="text-xs text-neutral-400">Chars/Token</div>
+      </div>
+    </div>
+
+    <!-- Conceito 1: O que é um LLM? -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/30 to-neutral-800 rounded-2xl p-8 border border-emerald-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🧠</span>
+          <div>
+            <h2 class="text-2xl font-bold text-emerald-400">O que é um LLM?</h2>
+            <p class="text-neutral-400">Entendendo a tecnologia por trás da IA generativa</p>
+          </div>
+        </div>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-neutral-300 text-lg mb-6">
+            Um LLM (Large Language Model) é um modelo de IA treinado em <strong class="text-emerald-400">bilhões de palavras</strong> de texto da internet, livros, artigos e outras fontes. Através desse treinamento massivo, ele aprende padrões de linguagem, conhecimento factual e capacidades de raciocínio.
+          </p>
+
+          <!-- Como Funciona -->
+          <div class="bg-neutral-700/50 rounded-xl p-6 mb-6">
+            <h3 class="text-xl font-bold text-emerald-400 mb-4">⚙️ Como um LLM Funciona</h3>
+
+            <!-- Timeline Visual -->
+            <div class="relative my-8">
+              <div class="absolute left-0 right-0 h-2 bg-neutral-600 rounded-full top-4"></div>
+              <div class="absolute left-0 h-2 bg-gradient-to-r from-emerald-500 to-primary rounded-full top-4" style="width: 100%"></div>
+              <div class="flex justify-between relative">
+                <div class="text-center">
+                  <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-neutral-900 font-bold mb-2">1</div>
+                  <p class="text-xs text-neutral-400">Treinamento</p>
+                  <p class="text-xs text-emerald-400">Bilhões de textos</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-neutral-900 font-bold mb-2">2</div>
+                  <p class="text-xs text-neutral-400">Padrões</p>
+                  <p class="text-xs text-emerald-400">Identifica regras</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-neutral-900 font-bold mb-2">3</div>
+                  <p class="text-xs text-neutral-400">Prompt</p>
+                  <p class="text-xs text-emerald-400">Você pergunta</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-neutral-900 font-bold mb-2">4</div>
+                  <p class="text-xs text-neutral-400">Geração</p>
+                  <p class="text-xs text-primary">Token por token</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4 mt-6">
+              <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-emerald-500">
+                <p class="font-semibold text-emerald-400 mb-1">Predição de Tokens</p>
+                <p class="text-sm text-neutral-300">O modelo prevê a próxima palavra mais provável baseado em tudo que veio antes, criando texto coerente.</p>
+              </div>
+              <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-primary">
+                <p class="font-semibold text-primary mb-1">Atenção (Attention)</p>
+                <p class="text-sm text-neutral-300">Mecanismo que permite ao modelo "prestar atenção" em partes relevantes do contexto ao gerar cada palavra.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Características Principais -->
+          <div class="bg-blue-900/20 p-6 rounded-xl border border-blue-500/30 mb-6">
+            <h4 class="font-bold text-blue-400 mb-3">📊 Características Principais</h4>
+            <ul class="space-y-3 text-neutral-300">
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2 mt-1">•</span>
+                <span><strong>Não tem consciência:</strong> É uma ferramenta matemática sofisticada, não pensa ou sente como humanos.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2 mt-1">•</span>
+                <span><strong>Baseado em probabilidade:</strong> Escolhe palavras com base em qual é mais provável vir a seguir no contexto.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2 mt-1">•</span>
+                <span><strong>Sem memória persistente:</strong> Cada conversa é isolada - não "lembra" de conversas anteriores.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-400 mr-2 mt-1">•</span>
+                <span><strong>Data de corte:</strong> Conhecimento limitado até a data de treinamento (não sabe eventos recentes).</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conceito 2: Modelos Populares -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🏆</span>
+          <div>
+            <h2 class="text-2xl font-bold text-neutral-100">Modelos Populares em 2025</h2>
+            <p class="text-neutral-400">Conheça os principais LLMs do mercado</p>
+          </div>
+        </div>
+
+        <div class="prose prose-invert max-w-none">
+          <!-- Comparação Visual -->
+          <div class="grid md:grid-cols-3 gap-6 mb-6">
+            <div class="bg-gradient-to-br from-orange-900/30 to-neutral-800 p-6 rounded-xl border border-orange-500/30">
+              <h4 class="font-bold text-orange-400 mb-4">🟠 Claude (Anthropic)</h4>
+              <ul class="space-y-2 text-neutral-300 text-sm">
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-2">✓</span>
+                  <span>Excelente em raciocínio complexo</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-2">✓</span>
+                  <span>Forte em seguir instruções longas</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-2">✓</span>
+                  <span>200K tokens de contexto</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-orange-400 mr-2">✓</span>
+                  <span>Foco em segurança e ética</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-gradient-to-br from-green-900/30 to-neutral-800 p-6 rounded-xl border border-green-500/30">
+              <h4 class="font-bold text-green-400 mb-4">🟢 GPT-4 (OpenAI)</h4>
+              <ul class="space-y-2 text-neutral-300 text-sm">
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-2">✓</span>
+                  <span>Muito versátil e criativo</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-2">✓</span>
+                  <span>Grande conhecimento geral</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-2">✓</span>
+                  <span>Forte em código e análise</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-400 mr-2">✓</span>
+                  <span>Integração com plugins</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-gradient-to-br from-blue-900/30 to-neutral-800 p-6 rounded-xl border border-blue-500/30">
+              <h4 class="font-bold text-blue-400 mb-4">🔵 Gemini (Google)</h4>
+              <ul class="space-y-2 text-neutral-300 text-sm">
+                <li class="flex items-start">
+                  <span class="text-blue-400 mr-2">✓</span>
+                  <span>Integrado com Google</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-400 mr-2">✓</span>
+                  <span>Forte em pesquisa e fatos</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-400 mr-2">✓</span>
+                  <span>Multimodal nativo</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-400 mr-2">✓</span>
+                  <span>1M tokens de contexto</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conceito 3: Como o LLM Responde -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">💬</span>
+          <div>
+            <h2 class="text-2xl font-bold text-purple-400">Como o LLM Responde</h2>
+            <p class="text-neutral-400">Entenda o processo de geração de texto</p>
+          </div>
+        </div>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-neutral-300 text-lg mb-6">
+            Quando você pergunta <strong class="text-purple-400">"Qual é a capital do Brasil?"</strong>, o LLM não "sabe" a resposta - ele <strong>reconhece padrões</strong> e gera a continuação mais provável.
+          </p>
+
+          <!-- Comparação Visual -->
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-red-900/20 p-6 rounded-xl border border-red-500/30">
+              <h4 class="font-bold text-red-400 mb-4">❌ O que o LLM NÃO faz</h4>
+              <ul class="space-y-3 text-neutral-300">
+                <li class="flex items-start">
+                  <span class="text-red-400 mr-2">✗</span>
+                  <span>Buscar em um banco de dados</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-400 mr-2">✗</span>
+                  <span>Consultar a internet em tempo real</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-400 mr-2">✗</span>
+                  <span>"Lembrar" de conversas anteriores</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-red-400 mr-2">✗</span>
+                  <span>Raciocinar como um humano</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-emerald-900/20 p-6 rounded-xl border border-emerald-500/30">
+              <h4 class="font-bold text-emerald-400 mb-4">✓ O que o LLM FAZ</h4>
+              <ul class="space-y-3 text-neutral-300">
+                <li class="flex items-start">
+                  <span class="text-emerald-400 mr-2">✓</span>
+                  <span>Analisa seu prompt palavra por palavra</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-emerald-400 mr-2">✓</span>
+                  <span>Identifica padrões do treinamento</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-emerald-400 mr-2">✓</span>
+                  <span>Gera tokens mais prováveis em sequência</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-emerald-400 mr-2">✓</span>
+                  <span>Continua até completar a resposta</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Insight -->
+          <div class="bg-primary/10 p-6 rounded-xl border border-primary/30">
+            <h4 class="font-bold text-primary mb-3">💡 Insight Crucial</h4>
+            <p class="text-neutral-300 mb-4">
+              É por isso que <strong>prompts claros ajudam</strong>: você guia o modelo para os padrões certos!
+            </p>
+            <p class="text-neutral-300">
+              O modelo não "sabe" as coisas - ele <strong>reconhece padrões e gera respostas prováveis</strong>. Quanto mais específico seu prompt, mais fácil para o modelo encontrar os padrões corretos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dicas Práticas -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">⭐</span>
+          <div>
+            <h2 class="text-2xl font-bold text-yellow-400">Dicas Práticas</h2>
+            <p class="text-neutral-400">Como usar LLMs de forma eficaz</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">LLMs são melhores em tarefas com muitos exemplos em seu treinamento - tarefas comuns tendem a funcionar melhor.</span>
+          </div>
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">Quanto mais claro e específico seu prompt, melhor será a resposta - evite ambiguidade.</span>
+          </div>
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">LLMs podem "alucinar" - inventar informações que parecem reais. Sempre verifique fatos importantes.</span>
+          </div>
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">Use LLMs como assistentes, não como fontes definitivas de verdade - são ferramentas, não oráculos.</span>
+          </div>
+          <div class="flex items-start gap-3 bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+            <span class="text-yellow-400 text-xl flex-shrink-0">💡</span>
+            <span class="text-neutral-300">Diferentes modelos têm diferentes pontos fortes - experimente para encontrar o melhor para sua tarefa.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erros Comuns -->
+    <section class="mb-12">
+      <div class="bg-red-900/20 rounded-2xl p-8 border border-red-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">⚠️</span>
+          <div>
+            <h2 class="text-2xl font-bold text-red-400">Erros Comuns</h2>
+            <p class="text-neutral-400">O que evitar ao usar LLMs</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-neutral-800/50 p-6 rounded-xl">
+            <h4 class="font-bold text-red-400 mb-2">❌ Tratar o LLM como onisciente</h4>
+            <p class="text-sm text-neutral-400 mb-3">Exemplo: Perguntar sobre eventos após a data de treinamento</p>
+            <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+              <p class="text-sm text-emerald-400"><strong>✓ Solução:</strong> Forneça contexto se a informação é recente ou muito específica. Verifique a data de corte do modelo.</p>
+            </div>
+          </div>
+
+          <div class="bg-neutral-800/50 p-6 rounded-xl">
+            <h4 class="font-bold text-red-400 mb-2">❌ Assumir que o LLM "entende"</h4>
+            <p class="text-sm text-neutral-400 mb-3">Exemplo: Esperar que o modelo tenha senso comum como humanos</p>
+            <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+              <p class="text-sm text-emerald-400"><strong>✓ Solução:</strong> Seja explícito em suas instruções, não assuma nada. Detalhe o que você quer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-emerald-600 to-primary text-white rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">🚀 Próximo Passo</h2>
+        <p class="text-lg mb-6 text-emerald-100">
+          Agora que você entende como LLMs funcionam, aprenda sobre <strong>Tokens e Context Window</strong> para entender os limites do que você pode fazer!
+        </p>
+        <a href="modulo1-tokens.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-emerald-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+          <span>Ir para Tokens</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">
+        FEP - Fundamentos de Engenharia de Prompt | Módulo 1: LLM Basics
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme initialization
+    if (localStorage.getItem('color-theme') === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+
+</body>
+</html>

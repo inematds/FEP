@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4: Formatação de Outputs | FEP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10B981', accent: '#F97316' } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-iniciante.html" class="flex items-center space-x-2 text-neutral-400 hover:text-accent transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          <span>Voltar para Iniciante</span>
+        </a>
+        <span class="text-accent font-semibold">Módulo 04</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold mb-4">MÓDULO 4 COMPLETO</span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">📝 Formatação de Outputs</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Controle como a IA formata suas respostas: Markdown, tabelas, templates.
+        Respostas bem formatadas são mais fáceis de usar.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 mb-12">
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-accent">3</div>
+        <div class="text-xs text-neutral-400">Tópicos</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-emerald-400">100%</div>
+        <div class="text-xs text-neutral-400">Controle</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-purple-400">Pro</div>
+        <div class="text-xs text-neutral-400">Output</div>
+      </div>
+    </div>
+
+    <!-- Markdown -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-orange-900/30 to-neutral-800 rounded-2xl p-8 border border-orange-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📄</span>
+          <div>
+            <h2 class="text-2xl font-bold text-orange-400">1. Markdown e Formatação Rica</h2>
+            <p class="text-neutral-400">Títulos, bullets, código, destaques</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Instrua a IA a formatar com Markdown para respostas organizadas e legíveis.</p>
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-orange-400">"Formate sua resposta usando Markdown:</p>
+          <p class="text-neutral-300">- Use ## para títulos de seção</p>
+          <p class="text-neutral-300">- Use - para listas</p>
+          <p class="text-neutral-300">- Use **bold** para destacar</p>
+          <p class="text-neutral-300">- Use ```code``` para código"</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-2 text-center">
+          <div class="bg-neutral-800/50 p-3 rounded-lg"><p class="text-orange-400 font-mono text-sm"># H1</p></div>
+          <div class="bg-neutral-800/50 p-3 rounded-lg"><p class="text-orange-400 font-mono text-sm">**bold**</p></div>
+          <div class="bg-neutral-800/50 p-3 rounded-lg"><p class="text-orange-400 font-mono text-sm">- lista</p></div>
+          <div class="bg-neutral-800/50 p-3 rounded-lg"><p class="text-orange-400 font-mono text-sm">`code`</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabelas -->
+    <section class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📊</span>
+          <div>
+            <h2 class="text-2xl font-bold text-blue-400">2. Tabelas e Comparações</h2>
+            <p class="text-neutral-400">Visualização lado a lado</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Tabelas facilitam decisões. Peça comparações estruturadas.</p>
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-blue-400">"Compare [opções] em uma tabela com colunas:</p>
+          <p class="text-neutral-300">| Opção | Preço | Prós | Contras |</p>
+          <p class="text-neutral-300">Ordene por [critério]"</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-neutral-700">
+              <tr><th class="p-2 text-left">Opção</th><th class="p-2 text-left">Preço</th><th class="p-2 text-left">Melhor Para</th></tr>
+            </thead>
+            <tbody class="text-neutral-300">
+              <tr class="border-b border-neutral-700"><td class="p-2">Opção A</td><td class="p-2">R$50</td><td class="p-2">Iniciantes</td></tr>
+              <tr><td class="p-2">Opção B</td><td class="p-2">R$100</td><td class="p-2">Avançados</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Templates -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📋</span>
+          <div>
+            <h2 class="text-2xl font-bold text-purple-400">3. Templates Reutilizáveis</h2>
+            <p class="text-neutral-400">Crie uma vez, use infinitamente</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Peça à IA criar templates com placeholders [CAMPO] para reutilização.</p>
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-purple-400">"Crie um template de email de [TIPO] com:</p>
+          <p class="text-neutral-300">- Placeholders em [COLCHETES]</p>
+          <p class="text-neutral-300">- Instruções para preencher cada campo</p>
+          <p class="text-neutral-300">- 2-3 variações de tom"</p>
+        </div>
+        <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+          <p class="text-emerald-400 font-semibold">💡 Exemplo de Placeholder</p>
+          <p class="text-sm text-neutral-300">"Olá [NOME], sobre [ASSUNTO], gostaria de [OBJETIVO]..."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">🚀 Último Módulo!</h2>
+        <p class="text-lg mb-6 text-orange-100">Finalize com o <strong>Módulo 5: Melhores Práticas</strong> - erros comuns e dicas de especialistas!</p>
+        <a href="../../nivel-iniciante.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-orange-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+          <span>Voltar ao Curso</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">FEP - Módulo 4: Formatação de Outputs</p>
+    </div>
+  </footer>
+
+  <script>if (localStorage.getItem('color-theme') === 'light') document.documentElement.classList.remove('dark');</script>
+</body>
+</html>
