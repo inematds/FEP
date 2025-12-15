@@ -6,61 +6,314 @@
     <title>Nível Iniciante | FEP - Engenharia de Prompt</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilos para o conteúdo markdown dentro do modal */
-        #modalConteudoCompleto h1 {
+        * {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Dark Mode */
+        .dark {
+            background-color: #111827;
+            color: #e5e7eb;
+        }
+
+        .dark .bg-white {
+            background-color: #1f2937 !important;
+        }
+
+        .dark .text-gray-900 {
+            color: #f3f4f6 !important;
+        }
+
+        .dark .text-gray-700 {
+            color: #d1d5db !important;
+        }
+
+        .dark .text-gray-600 {
+            color: #9ca3af !important;
+        }
+
+        .dark .border-gray-200 {
+            border-color: #374151 !important;
+        }
+
+        .dark .bg-gray-50 {
+            background-color: #1f2937 !important;
+        }
+
+        .dark .bg-emerald-50 {
+            background-color: #064e3b !important;
+        }
+
+        .dark .shadow-md {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* Module Card Hover */
+        .module-card {
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Topic Item */
+        .topic-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+        }
+
+        .dark .topic-item {
+            border-bottom-color: #374151;
+        }
+
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+
+        .topic-button {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+            text-align: left;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .topic-button:hover {
+            background-color: #ecfdf5;
+        }
+
+        .dark .topic-button:hover {
+            background-color: #064e3b;
+        }
+
+        /* Topic Explanation */
+        .topic-explanation {
+            margin-top: 1rem;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-radius: 0.75rem;
+            border-left: 4px solid #10b981;
+        }
+
+        .dark .topic-explanation {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+        }
+
+        .topic-explanation p {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .topic-explanation p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .dark .modal-content {
+            background-color: #1f2937;
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dark .modal-header {
+            border-bottom-color: #374151;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            max-height: calc(90vh - 80px);
+        }
+
+        .close-modal {
+            color: #9ca3af;
             font-size: 2rem;
             font-weight: 700;
-            margin-top: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #ef4444;
+        }
+
+        /* Action Buttons */
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .action-btn-primary {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .action-btn-primary:hover {
+            background-color: #059669;
+        }
+
+        .action-btn-secondary {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .action-btn-secondary:hover {
+            background-color: #2563eb;
+        }
+
+        .action-btn-outline {
+            background-color: transparent;
+            border: 2px solid #6b7280;
+            color: #6b7280;
+        }
+
+        .action-btn-outline:hover {
+            border-color: #374151;
+            color: #374151;
+            background-color: #f3f4f6;
+        }
+
+        .dark .action-btn-outline {
+            border-color: #9ca3af;
+            color: #9ca3af;
+        }
+
+        .dark .action-btn-outline:hover {
+            border-color: #e5e7eb;
+            color: #e5e7eb;
+            background-color: #374151;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: #1f2937;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            z-index: 50;
+        }
+
+        .dark .theme-toggle {
+            background-color: #fbbf24;
+            color: #1f2937;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Markdown Content Styles */
+        #modalConteudoCompleto h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
             margin-bottom: 1rem;
             color: #1f2937;
             border-bottom: 2px solid #e5e7eb;
             padding-bottom: 0.5rem;
         }
+
         #modalConteudoCompleto h2 {
-            font-size: 1.5rem;
+            font-size: 1.375rem;
             font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 0.25rem;
-        }
-        #modalConteudoCompleto h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+
+        #modalConteudoCompleto h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
             color: #374151;
         }
-        #modalConteudoCompleto h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            color: #4b5563;
-        }
+
         #modalConteudoCompleto p {
             margin-bottom: 1rem;
             line-height: 1.7;
             color: #4b5563;
         }
+
         #modalConteudoCompleto ul, #modalConteudoCompleto ol {
             margin-bottom: 1rem;
             padding-left: 1.5rem;
         }
+
         #modalConteudoCompleto li {
             margin-bottom: 0.5rem;
             line-height: 1.6;
         }
+
         #modalConteudoCompleto pre {
-            background-color: #f3f4f6;
+            background-color: #1f2937;
+            color: #e5e7eb;
             padding: 1rem;
             border-radius: 0.5rem;
             overflow-x: auto;
             margin: 1rem 0;
         }
+
         #modalConteudoCompleto code {
             background-color: #f3f4f6;
             padding: 0.2rem 0.4rem;
@@ -68,14 +321,13 @@
             font-family: 'Courier New', monospace;
             font-size: 0.9em;
         }
+
         #modalConteudoCompleto pre code {
             background: none;
             padding: 0;
+            color: #e5e7eb;
         }
-        #modalConteudoCompleto strong {
-            font-weight: 600;
-            color: #1f2937;
-        }
+
         #modalConteudoCompleto blockquote {
             border-left: 4px solid #10b981;
             padding-left: 1rem;
@@ -83,489 +335,1314 @@
             font-style: italic;
             color: #6b7280;
         }
+
         #modalConteudoCompleto table {
             width: 100%;
             border-collapse: collapse;
             margin: 1rem 0;
         }
+
         #modalConteudoCompleto th, #modalConteudoCompleto td {
             border: 1px solid #e5e7eb;
             padding: 0.75rem;
             text-align: left;
         }
+
         #modalConteudoCompleto th {
             background-color: #f9fafb;
             font-weight: 600;
         }
-        #modalConteudoCompleto hr {
-            border: none;
-            border-top: 2px solid #e5e7eb;
-            margin: 2rem 0;
+
+        .dark #modalConteudoCompleto h1,
+        .dark #modalConteudoCompleto h2,
+        .dark #modalConteudoCompleto h3 {
+            color: #f3f4f6;
+        }
+
+        .dark #modalConteudoCompleto p,
+        .dark #modalConteudoCompleto li {
+            color: #d1d5db;
+        }
+
+        .dark #modalConteudoCompleto code {
+            background-color: #374151;
+            color: #e5e7eb;
+        }
+
+        .dark #modalConteudoCompleto th {
+            background-color: #374151;
+        }
+
+        .dark #modalConteudoCompleto td,
+        .dark #modalConteudoCompleto th {
+            border-color: #4b5563;
+        }
+
+        /* Badge/Tag styles */
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tag-fundamento {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .tag-tecnica {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .dark .tag-fundamento {
+            background-color: #1e3a5f;
+            color: #93c5fd;
+        }
+
+        .dark .tag-tecnica {
+            background-color: #064e3b;
+            color: #6ee7b7;
         }
     </style>
 </head>
-<body class="font-['Inter'] bg-gray-50">
-    <nav class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <span class="text-2xl font-bold text-blue-600">FEP</span>
-                    <span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
-                </a>
-                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar ao Início</a>
-            </div>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-4 py-4">
+            <a href="index.html" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
+                <span>←</span>
+                <span class="text-xl">FEP</span>
+                <span class="text-gray-400">|</span>
+                <span class="text-gray-600">Engenharia de Prompt</span>
+            </a>
         </div>
-    </nav>
+    </header>
 
-    <main class="container mx-auto px-4 py-12">
-        <div class="breadcrumb mb-8">
-            <a href="index.html">Início</a>
-            <span class="breadcrumb-separator">/</span>
-            <span>Nível Iniciante</span>
-        </div>
-
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl p-8 text-white mb-12">
-                <div class="text-6xl mb-4">🌟</div>
-                <h1 class="text-4xl font-bold mb-4">Nível Iniciante</h1>
-                <p class="text-xl text-emerald-100 mb-4">12-15 horas de conteúdo</p>
-                <p class="text-lg">Seus primeiros passos na Engenharia de Prompt. Aprenda os fundamentos sem necessidade de conhecimento prévio.</p>
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="text-center mb-12">
+            <div class="text-6xl mb-4">🌟</div>
+            <h1 class="text-4xl font-bold text-gray-900 mb-3">Nível Iniciante</h1>
+            <p class="text-xl text-gray-600 mb-4">Seus primeiros passos na Engenharia de Prompt</p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <span class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium">
+                    <span>⏱️</span> 12-15 horas
+                </span>
+                <span class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">
+                    <span>📚</span> 5 Módulos
+                </span>
+                <span class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">
+                    <span>🎯</span> 30+ Tópicos
+                </span>
             </div>
+        </section>
 
-            <div class="grid gap-8 mb-12">
-                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-emerald-200" data-module-id="modulo-1">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 1</span>
-                        <span class="text-gray-500 text-sm">4-6 horas</span>
+        <!-- Módulo 1: Fundamentos -->
+        <section class="module-card bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-3xl">🧠</span>
+                        <h2 class="text-2xl font-bold text-gray-900">Módulo 1: Fundamentos de IA e LLMs</h2>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Fundamentos de Engenharia de Prompt</h3>
-                    <p class="text-gray-600 mb-4">Entenda LLMs, tokens, contexto e a anatomia de prompts eficazes.</p>
+                    <p class="text-gray-600">Entenda como funcionam os modelos de linguagem e a base da engenharia de prompt.</p>
+                </div>
+                <span class="tag tag-fundamento">Fundamento</span>
+            </div>
 
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
-                            <button class="expand-topics text-emerald-500 text-sm hover:text-emerald-700" data-target="topics-1">
-                                Ver todos os tópicos (4) ▼
-                            </button>
+            <!-- Topics List -->
+            <div class="space-y-0">
+                <!-- Topic 1: LLM Basics -->
+                <div class="topic-item" data-topic="llm-basics">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🤖</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">LLM Basics e Funcionamento</h3>
+                            <p class="text-sm text-gray-500">Como Large Language Models processam e geram texto</p>
                         </div>
-                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-1">
-                            <li class="topic-item" data-topic="llm-basics">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">🤖</span> LLM Basics e Funcionamento
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Large Language Models (LLMs) são modelos de IA que processam e geram texto humano através de padrões aprendidos de enormes quantidades de dados.</p>
-                                    <p class="text-sm mt-2"><strong>Por que aprender:</strong> Entender como funcionam te ajuda a criar prompts muito mais eficazes.</p>
-                                    <p class="text-sm mt-2"><strong>Conceitos chave:</strong> Predição de próxima palavra, padrões estatísticos, treinamento com dados massivos.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="llm-basics">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=llm-basics" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="tokens">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">🔤</span> Tokens e Janela de Contexto
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Tokens são pedaços de texto (palavras ou partes de palavras) que o modelo processa. A janela de contexto é o limite de tokens que o modelo consegue "lembrar" de uma vez.</p>
-                                    <p class="text-sm mt-2"><strong>Por que importa:</strong> Saber isso te ajuda a escrever prompts que cabem no limite e usar o espaço de forma eficiente.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Olá mundo" = ~2-3 tokens. Modelos típicos têm janelas de 4k a 200k+ tokens.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="tokens">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=tokens" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="anatomia">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">📐</span> Anatomia de Prompts
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> A estrutura ideal de um prompt: contexto, instruções, dados de entrada e formato desejado.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Prompts bem estruturados geram respostas muito melhores e mais consistentes.</p>
-                                    <p class="text-sm mt-2"><strong>Partes principais:</strong> 1) Contexto/papel, 2) Tarefa clara, 3) Dados/exemplos, 4) Formato de saída.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="anatomia">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=anatomia" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="clareza">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">✨</span> Clareza e Especificidade
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Ser específico e direto no que você quer, evitando ambiguidade.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Quanto mais claro você for, melhor será a resposta do modelo.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Em vez de "escreva sobre carros", use "escreva 3 parágrafos sobre a história dos carros elétricos desde 1900".</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="clareza">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=clareza" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <a href="docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-emerald-500 text-emerald-600 font-semibold rounded-lg hover:bg-emerald-50">
-                            📖 Ver Markdown
-                        </a>
-                        <a href="docs/pdf/🌟_Curso_Iniciante_Completo_Fundamentos_de_Engenharia_de_Prompt.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-600">
-                            📄 Baixar PDF
-                        </a>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Large Language Models (LLMs) são redes neurais treinadas em bilhões de textos para entender e gerar linguagem humana. Funcionam prevendo a próxima palavra mais provável.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Entender como o modelo "pensa" permite criar prompts que trabalham com suas forças e contornam limitações.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Predição de tokens, atenção (attention), contexto, temperatura, alucinações.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="llm-basics">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=llm-basics" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo1-llm-basics.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-emerald-200" data-module-id="modulo-2">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 2</span>
-                        <span class="text-gray-500 text-sm">8-10 horas</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Técnicas Fundamentais</h3>
-                    <p class="text-gray-600 mb-4">Domine Zero-Shot, Few-Shot, Chain of Thought e prompts de persona.</p>
-
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
-                            <button class="expand-topics text-emerald-500 text-sm hover:text-emerald-700" data-target="topics-2">
-                                Ver todos os tópicos (11) ▼
-                            </button>
+                <!-- Topic 2: Tokens -->
+                <div class="topic-item" data-topic="tokens">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🔤</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Tokens e Janela de Contexto</h3>
+                            <p class="text-sm text-gray-500">A unidade básica de processamento e seus limites</p>
                         </div>
-                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-2">
-                            <li class="topic-item" data-topic="zero-shot">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">🎯</span> Zero-Shot Prompting
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Pedir ao modelo para realizar uma tarefa sem dar exemplos, apenas com instruções diretas.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Simples, rápido e funciona bem para tarefas comuns que o modelo já conhece.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Traduza para inglês: Olá, como você está?" (sem exemplos de tradução).</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="zero-shot">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=zero-shot" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="few-shot">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">📚</span> Few-Shot Prompting
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Fornecer alguns exemplos (2-5) de como você quer que a tarefa seja feita antes de pedir a resposta final.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Ensina o modelo através de exemplos, melhorando muito a qualidade para tarefas específicas.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Mostrar 3 exemplos de como classificar sentimento (positivo/negativo) antes de pedir para classificar uma nova frase.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="few-shot">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=few-shot" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="cot">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">🧠</span> Chain of Thought (CoT)
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Pedir ao modelo para "pensar em voz alta" mostrando o raciocínio passo a passo antes de dar a resposta final.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora drasticamente respostas em problemas que requerem lógica, matemática ou raciocínio complexo.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Pense passo a passo para resolver: Maria tem 3 maçãs, compra o dobro. Quantas tem?" → Modelo mostra: "3 maçãs × 2 = 6 compradas. 3 + 6 = 9 no total".</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="cot">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=cot" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="role">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">🎭</span> Role Prompting e Personas
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Dar ao modelo um papel ou personalidade para assumir (ex: "Você é um professor de física").</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Ajusta o tom, estilo e profundidade das respostas para o contexto desejado.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Você é um chef profissional. Explique como fazer um risoto perfeito" → Resposta com tom e detalhes de especialista culinário.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="role">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=role" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="contextualizacao">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">🎯</span> Contextualização Efetiva
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Fornecer informações de background que orientam a resposta do modelo na direção certa.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> O modelo não sabe quem você é, onde está ou o que precisa - a menos que você conte.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Contexto: Sou iniciante em programação. Explique o que é deploy" → Resposta adaptada para iniciantes.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="contextualizacao">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=contextualizacao" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="empoderamento">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">⚡</span> Prompt de Empoderamento (EXPERT)
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                    <p class="text-sm"><strong>O que é:</strong> Framework EXPERT que empodera a IA a pensar de forma autônoma e profunda sobre problemas complexos.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Transforma respostas superficiais em análises ricas, multidimensionais e verdadeiramente úteis.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Usar expertise, planejamento e raciocínio para criar soluções completas em vez de respostas genéricas.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="empoderamento">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=empoderamento" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="meta-prompting">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">🔧</span> Engenheiro de Prompt Interativo
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Meta-prompting que transforma a IA em um engenheiro especializado em criar e refinar prompts.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Automatiza a criação de prompts otimizados através de processo iterativo de perguntas e refinamento.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> A IA faz perguntas estratégicas para entender sua necessidade e cria o prompt perfeito para você.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="meta-prompting">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=meta-prompting" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="prompts-iterativos">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">🔄</span> Prompts Conversacionais (Iterativo)
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Técnica de refinar respostas através de múltiplas interações em vez de buscar perfeição no primeiro prompt.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Mais natural e eficiente do que tentar criar o prompt perfeito imediatamente.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Começa com prompt simples e usa follow-ups como "mais técnico", "adicione exemplos", "simplifique".</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="prompts-iterativos">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=prompts-iterativos" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="skeleton-of-thought">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">🦴</span> Skeleton of Thought
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Técnica que pede primeiro um esqueleto (outline) da resposta antes do conteúdo completo.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Acelera respostas longas e permite validar estrutura antes de gerar tudo.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Primeiro liste os tópicos principais, depois expanda cada um" - reduz latência e melhora organização.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="skeleton-of-thought">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=skeleton-of-thought" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="24-dimensoes-persona">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">👤</span> 24 Dimensões de Persona
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Framework de 24 atributos para criar personas profundas e multifacetadas para a IA assumir.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Cria simulações muito mais ricas e autênticas do que role prompting simples.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Definir nome, idade, formação, valores, objetivos, desafios, estilo de comunicação e mais para uma persona completa.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="24-dimensoes-persona">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=24-dimensoes-persona" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="humanizacao">
-                                <button class="topic-button w-full text-left hover:text-emerald-600 transition-colors">
-                                    <span class="mr-2">✍️</span> Humanização de Texto
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Técnicas para fazer texto gerado por IA parecer escrito por humanos, com naturalidade e imperfeições estratégicas.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Aumenta autenticidade, engajamento e reduz detecção por ferramentas anti-IA.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Usar contrações, variação de estruturas, opiniões pessoais, tom conversacional e erros sutis.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2" data-topico="humanizacao">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=humanizacao" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Tokens são pedaços de texto (palavras, sílabas ou caracteres) que o modelo processa. A janela de contexto é o limite total de tokens que o modelo consegue "lembrar".</p>
+                        <p><strong>🎯 Por que aprender:</strong> Saber contar tokens ajuda a otimizar prompts e evitar cortes inesperados em respostas longas.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> ~4 caracteres = 1 token em inglês, janelas de 4K a 200K+ tokens, custo por token.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="tokens">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=tokens" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo1-tokens.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="flex gap-3">
-                        <a href="docs/md/✨ Jornada Iniciante_ Seus Primeiros Passos na Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-emerald-500 text-emerald-600 font-semibold rounded-lg hover:bg-emerald-50">
-                            📖 Ver Markdown
-                        </a>
-                        <a href="docs/pdf/✨_Jornada_Iniciante_Seus_Primeiros_Passos_na_Engenharia_de_Prompt.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-600">
-                            📄 Baixar PDF
-                        </a>
+                <!-- Topic 3: Anatomia de Prompts -->
+                <div class="topic-item" data-topic="anatomia">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📐</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Anatomia de Prompts</h3>
+                            <p class="text-sm text-gray-500">Estrutura e componentes de um prompt eficaz</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> A estrutura ideal de um prompt inclui: contexto/papel, instruções claras, dados de entrada e formato de saída esperado.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Prompts bem estruturados geram respostas mais consistentes, precisas e úteis.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Sistema vs usuário, delimitadores, exemplos, restrições, formato de output.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="anatomia">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=anatomia" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo1-anatomia.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic 4: Clareza e Especificidade -->
+                <div class="topic-item" data-topic="clareza">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">✨</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Clareza e Especificidade</h3>
+                            <p class="text-sm text-gray-500">A arte de ser preciso nas instruções</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Ser específico e direto no que você quer, eliminando ambiguidade e dando detalhes suficientes.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Quanto mais claro o pedido, melhor a resposta. Ambiguidade gera resultados genéricos.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Evitar pronomes vagos, especificar formato, definir extensão, dar contexto.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="clareza">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=clareza" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo1-clareza.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-blue-50 rounded-lg p-8 text-center border-2 border-blue-200">
-                <h3 class="text-2xl font-bold mb-4 text-gray-900">Pronto para o próximo desafio?</h3>
-                <p class="text-gray-700 mb-6">Continue sua jornada com o Nível Técnico e domine aplicações práticas profissionais.</p>
-                <a href="nivel-tecnico.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg">
-                    Ir para Nível Técnico ⚡
+            <!-- Module Footer -->
+            <div class="mt-6 pt-6 border-t border-gray-200 flex flex-wrap gap-3">
+                <a href="docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md" class="action-btn action-btn-outline">
+                    📖 Módulo Completo (MD)
+                </a>
+                <a href="docs/pdf/🌟_Curso_Iniciante_Completo_Fundamentos_de_Engenharia_de_Prompt.pdf" class="action-btn action-btn-primary">
+                    📄 Baixar PDF
                 </a>
             </div>
-        </div>
+        </section>
+
+        <!-- Módulo 2: Técnicas Fundamentais -->
+        <section class="module-card bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-3xl">🎯</span>
+                        <h2 class="text-2xl font-bold text-gray-900">Módulo 2: Técnicas Fundamentais</h2>
+                    </div>
+                    <p class="text-gray-600">Domine as técnicas essenciais de prompting usadas por profissionais.</p>
+                </div>
+                <span class="tag tag-tecnica">Técnica</span>
+            </div>
+
+            <!-- Topics List -->
+            <div class="space-y-0">
+                <!-- Topic: Zero-Shot -->
+                <div class="topic-item" data-topic="zero-shot">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🎯</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Zero-Shot Prompting</h3>
+                            <p class="text-sm text-gray-500">Instruções diretas sem exemplos prévios</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Pedir ao modelo para realizar uma tarefa sem fornecer exemplos - apenas com instruções claras e diretas.</p>
+                        <p><strong>🎯 Por que aprender:</strong> É a técnica mais simples e rápida. Funciona bem para tarefas que o modelo já conhece.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Instruções diretas, tarefas conhecidas, quando usar vs quando evitar.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="zero-shot">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=zero-shot" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-zero-shot.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Few-Shot -->
+                <div class="topic-item" data-topic="few-shot">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📚</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Few-Shot Prompting</h3>
+                            <p class="text-sm text-gray-500">Aprendizado através de exemplos demonstrativos</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Fornecer 2-5 exemplos de como a tarefa deve ser feita antes de pedir a resposta. O modelo aprende o padrão.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Melhora drasticamente a qualidade para tarefas específicas ou formatos customizados.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Exemplos representativos, consistência, quantidade ideal (3-5).</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="few-shot">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=few-shot" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-few-shot.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Chain of Thought -->
+                <div class="topic-item" data-topic="cot">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🧠</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Chain of Thought (CoT)</h3>
+                            <p class="text-sm text-gray-500">Raciocínio passo a passo explícito</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Pedir ao modelo para "pensar em voz alta", mostrando cada etapa do raciocínio antes da resposta final.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Melhora dramaticamente respostas em problemas de lógica, matemática e decisões complexas.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> "Pense passo a passo", "Let's think step by step", validação de raciocínio.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="cot">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=cot" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-cot.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Role Prompting -->
+                <div class="topic-item" data-topic="role">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🎭</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Role Prompting e Personas</h3>
+                            <p class="text-sm text-gray-500">Atribuir papéis e personalidades ao modelo</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Dar ao modelo um papel específico: "Você é um especialista em...", "Aja como um...".</p>
+                        <p><strong>🎯 Por que aprender:</strong> Ajusta tom, vocabulário e profundidade técnica das respostas automaticamente.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Definição de expertise, tom de voz, perspectiva, limitações do papel.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="role">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=role" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-role.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Contextualização -->
+                <div class="topic-item" data-topic="contextualizacao">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🎯</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Contextualização Efetiva</h3>
+                            <p class="text-sm text-gray-500">Fornecer background relevante para melhores respostas</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Fornecer informações de background que orientam a resposta: quem você é, seu objetivo, restrições.</p>
+                        <p><strong>🎯 Por que aprender:</strong> O modelo não sabe nada sobre você. Contexto transforma respostas genéricas em personalizadas.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Audiência, objetivo, restrições, nível de expertise esperado.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="contextualizacao">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=contextualizacao" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-contextualizacao.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Empoderamento -->
+                <div class="topic-item" data-topic="empoderamento">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">⚡</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Prompt de Empoderamento (EXPERT)</h3>
+                            <p class="text-sm text-gray-500">Framework para respostas profundas e autônomas</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Framework EXPERT que empodera a IA a pensar de forma autônoma, explorando múltiplas dimensões do problema.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Transforma respostas superficiais em análises ricas e verdadeiramente úteis.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Expertise, Planning, Exploration, Reasoning, Thoroughness.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="empoderamento">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=empoderamento" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-empoderamento.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Meta-Prompting -->
+                <div class="topic-item" data-topic="meta-prompting">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🔧</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Engenheiro de Prompt Interativo</h3>
+                            <p class="text-sm text-gray-500">Meta-prompting para criar prompts otimizados</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Usar a IA para criar e refinar prompts através de processo iterativo de perguntas e melhorias.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Automatiza a criação de prompts otimizados - a IA ajuda você a criar melhores prompts.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Meta-cognição, refinamento iterativo, perguntas clarificadoras.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="meta-prompting">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=meta-prompting" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-meta-prompting.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Prompts Iterativos -->
+                <div class="topic-item" data-topic="prompts-iterativos">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🔄</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Prompts Conversacionais (Iterativo)</h3>
+                            <p class="text-sm text-gray-500">Refinamento através de múltiplas interações</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Refinar respostas através de múltiplas interações em vez de buscar perfeição no primeiro prompt.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Mais natural e eficiente. Permite ajustar em tempo real baseado no resultado.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Follow-ups estratégicos, "mais técnico", "simplifique", "adicione exemplos".</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="prompts-iterativos">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=prompts-iterativos" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-prompts-iterativos.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Skeleton of Thought -->
+                <div class="topic-item" data-topic="skeleton-of-thought">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🦴</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Skeleton of Thought</h3>
+                            <p class="text-sm text-gray-500">Estrutura primeiro, conteúdo depois</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Pedir primeiro um esqueleto/outline da resposta, depois expandir cada parte. Divide para conquistar.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Acelera respostas longas e permite validar a estrutura antes de gerar todo o conteúdo.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Outline primeiro, expansão por seção, redução de latência.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="skeleton-of-thought">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=skeleton-of-thought" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-skeleton-of-thought.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: 24 Dimensões de Persona -->
+                <div class="topic-item" data-topic="24-dimensoes-persona">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">👤</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">24 Dimensões de Persona</h3>
+                            <p class="text-sm text-gray-500">Framework completo para personas profundas</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Framework de 24 atributos para criar personas ricas: nome, idade, formação, valores, objetivos, estilo de comunicação...</p>
+                        <p><strong>🎯 Por que aprender:</strong> Cria simulações muito mais autênticas e consistentes que role prompting simples.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Dimensões demográficas, psicológicas, profissionais, comunicacionais.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="24-dimensoes-persona">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=24-dimensoes-persona" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-24-dimensoes-persona.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Humanização -->
+                <div class="topic-item" data-topic="humanizacao">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">✍️</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Humanização de Texto</h3>
+                            <p class="text-sm text-gray-500">Tornar texto de IA natural e autêntico</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Técnicas para fazer texto gerado parecer escrito por humanos: variação, imperfeições estratégicas, tom conversacional.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Aumenta autenticidade e engajamento. Evita o "tom de IA" detectável.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Contrações, opiniões pessoais, variação estrutural, erros sutis intencionais.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="humanizacao">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=humanizacao" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo2-humanizacao.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module Footer -->
+            <div class="mt-6 pt-6 border-t border-gray-200 flex flex-wrap gap-3">
+                <a href="docs/md/✨ Jornada Iniciante_ Seus Primeiros Passos na Engenharia de Prompt.md" class="action-btn action-btn-outline">
+                    📖 Módulo Completo (MD)
+                </a>
+                <a href="docs/pdf/✨_Jornada_Iniciante_Seus_Primeiros_Passos_na_Engenharia_de_Prompt.pdf" class="action-btn action-btn-primary">
+                    📄 Baixar PDF
+                </a>
+            </div>
+        </section>
+
+        <!-- Módulo 3: Aplicações Práticas -->
+        <section class="module-card bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-3xl">💼</span>
+                        <h2 class="text-2xl font-bold text-gray-900">Módulo 3: Aplicações Práticas do Dia a Dia</h2>
+                    </div>
+                    <p class="text-gray-600">Use IA para tarefas reais: escrita, análise, produtividade e comunicação.</p>
+                </div>
+                <span class="tag tag-tecnica">Prático</span>
+            </div>
+
+            <!-- Topics List -->
+            <div class="space-y-0">
+                <!-- Topic: Escrita e Redação -->
+                <div class="topic-item" data-topic="escrita-redacao">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">✍️</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Escrita e Redação com IA</h3>
+                            <p class="text-sm text-gray-500">Criar, revisar e aprimorar textos de qualquer tipo</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Usar IA como assistente de escrita para criar rascunhos, revisar gramática, ajustar tom, expandir ideias e reformular textos.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Acelera a produção de conteúdo em 5-10x mantendo qualidade. Funciona para emails, artigos, relatórios, posts.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Tom de voz, público-alvo, estrutura de texto, revisão iterativa, adaptação de estilo.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="escrita-redacao">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=escrita-redacao" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo3-escrita-redacao.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Emails Profissionais -->
+                <div class="topic-item" data-topic="emails-profissionais">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📧</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Emails Profissionais Perfeitos</h3>
+                            <p class="text-sm text-gray-500">Comunicação corporativa clara e eficaz</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Prompts específicos para criar emails profissionais: follow-ups, negociações, pedidos, reclamações, apresentações.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Email é 40% do tempo de trabalho. Prompts certos economizam horas por semana.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Estrutura BLUF (Bottom Line Up Front), tom formal vs informal, call-to-action, brevidade.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="emails-profissionais">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=emails-profissionais" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo3-emails-profissionais.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Resumo e Síntese -->
+                <div class="topic-item" data-topic="resumo-sintese">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📋</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Resumo e Síntese de Conteúdo</h3>
+                            <p class="text-sm text-gray-500">Extrair o essencial de textos longos</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Técnicas para resumir documentos, artigos, reuniões e vídeos. Extrair pontos-chave, criar bullet points, gerar TL;DR.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Processar informação é o gargalo do século XXI. Resumir bem é superpoder.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Níveis de resumo (executivo, detalhado), extração de insights, formatação estruturada.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="resumo-sintese">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=resumo-sintese" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo3-resumo-sintese.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Brainstorming -->
+                <div class="topic-item" data-topic="brainstorming">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">💡</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Brainstorming e Geração de Ideias</h3>
+                            <p class="text-sm text-gray-500">Usar IA como parceiro criativo</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Técnicas para usar IA como parceiro de brainstorming: gerar ideias, explorar ângulos, desafiar pressupostos.</p>
+                        <p><strong>🎯 Por que aprender:</strong> IA não tem bloqueio criativo. É um gerador infinito de ideias para você filtrar.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Divergência e convergência, SCAMPER, "e se...", perspectivas múltiplas.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="brainstorming">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=brainstorming" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo3-brainstorming.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Análise de Dados Simples -->
+                <div class="topic-item" data-topic="analise-dados-simples">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📊</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Análise de Dados Simples</h3>
+                            <p class="text-sm text-gray-500">Extrair insights de tabelas e números</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Usar IA para analisar planilhas, identificar padrões, calcular métricas e gerar interpretações de dados.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Transformar números em insights sem precisar de ferramentas complexas de BI.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Formatação de dados, perguntas analíticas, visualização textual, tendências.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="analise-dados-simples">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=analise-dados-simples" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo3-analise-dados-simples.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Tradução e Localização -->
+                <div class="topic-item" data-topic="traducao-localizacao">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🌍</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Tradução e Localização</h3>
+                            <p class="text-sm text-gray-500">Traduzir com contexto e nuance cultural</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Prompts para tradução que vai além do literal: adaptação cultural, tom de voz, terminologia técnica específica.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Tradução contextual supera Google Translate. Essencial para negócios globais.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Contexto cultural, registro formal/informal, glossários técnicos, localização.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="traducao-localizacao">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=traducao-localizacao" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo3-traducao-localizacao.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module Footer -->
+            <div class="mt-6 pt-6 border-t border-gray-200 flex flex-wrap gap-3">
+                <a href="conteudo/modulo3-aplicacoes-praticas.md" class="action-btn action-btn-outline">
+                    📖 Módulo Completo (MD)
+                </a>
+                <a href="docs/pdf/modulo3-aplicacoes-praticas.pdf" class="action-btn action-btn-primary">
+                    📄 Baixar PDF
+                </a>
+            </div>
+        </section>
+
+        <!-- Módulo 4: Formatação e Estrutura -->
+        <section class="module-card bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-3xl">📝</span>
+                        <h2 class="text-2xl font-bold text-gray-900">Módulo 4: Formatação e Estrutura de Outputs</h2>
+                    </div>
+                    <p class="text-gray-600">Controle exatamente como a IA formata suas respostas.</p>
+                </div>
+                <span class="tag tag-fundamento">Estrutura</span>
+            </div>
+
+            <!-- Topics List -->
+            <div class="space-y-0">
+                <!-- Topic: Markdown e Formatação -->
+                <div class="topic-item" data-topic="markdown-formatacao">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📄</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Markdown e Formatação Rica</h3>
+                            <p class="text-sm text-gray-500">Estruturar respostas com headers, listas e tabelas</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Usar instruções para que a IA formate respostas com Markdown: títulos, bullet points, tabelas, código, citações.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Respostas bem formatadas são mais fáceis de ler, copiar e usar diretamente.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Headers (#, ##), listas (-), tabelas (|), código (```), negrito (**), itálico (*).</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="markdown-formatacao">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=markdown-formatacao" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo4-markdown-formatacao.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Listas e Bullet Points -->
+                <div class="topic-item" data-topic="listas-bullets">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📌</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Listas e Bullet Points Eficazes</h3>
+                            <p class="text-sm text-gray-500">Organizar informação de forma escaneável</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Técnicas para pedir listas organizadas: numeradas, com sub-itens, com descrições, priorizadas.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Listas são o formato mais prático para ação. Fáceis de escanear e executar.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Listas numeradas vs bullets, hierarquia, paralelismo, acionabilidade.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="listas-bullets">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=listas-bullets" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo4-listas-bullets.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Tabelas e Comparações -->
+                <div class="topic-item" data-topic="tabelas-comparacoes">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📊</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Tabelas e Comparações</h3>
+                            <p class="text-sm text-gray-500">Visualizar dados lado a lado</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Solicitar respostas em formato de tabela para comparar opções, listar características, organizar dados.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Tabelas facilitam decisões. Visualização lado a lado é poderosa.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Colunas relevantes, ordenação, destaque de diferenças, formato CSV/Markdown.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="tabelas-comparacoes">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=tabelas-comparacoes" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo4-tabelas-comparacoes.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Templates e Modelos -->
+                <div class="topic-item" data-topic="templates-modelos">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📋</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Templates e Modelos Reutilizáveis</h3>
+                            <p class="text-sm text-gray-500">Criar estruturas prontas para preencher</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Usar IA para criar templates: emails, relatórios, propostas, documentos com campos para preencher.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Templates economizam tempo. Crie uma vez, use infinitamente.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Placeholders [CAMPO], instruções inline, variações, personalização.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="templates-modelos">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=templates-modelos" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo4-templates-modelos.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Controle de Extensão -->
+                <div class="topic-item" data-topic="controle-extensao">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📏</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Controle de Extensão e Profundidade</h3>
+                            <p class="text-sm text-gray-500">Definir tamanho e nível de detalhe das respostas</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Técnicas para controlar o tamanho das respostas: "em 3 frases", "em 500 palavras", "resumo executivo vs detalhado".</p>
+                        <p><strong>🎯 Por que aprender:</strong> Evita respostas muito longas ou muito curtas. Você controla a densidade.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Limites de palavras/caracteres, níveis de detalhe, "expandir" e "condensar".</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="controle-extensao">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=controle-extensao" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo4-controle-extensao.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module Footer -->
+            <div class="mt-6 pt-6 border-t border-gray-200 flex flex-wrap gap-3">
+                <a href="conteudo/modulo4-formatacao-estrutura.md" class="action-btn action-btn-outline">
+                    📖 Módulo Completo (MD)
+                </a>
+                <a href="docs/pdf/modulo4-formatacao-estrutura.pdf" class="action-btn action-btn-primary">
+                    📄 Baixar PDF
+                </a>
+            </div>
+        </section>
+
+        <!-- Módulo 5: Melhores Práticas e Erros Comuns -->
+        <section class="module-card bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-3xl">⚡</span>
+                        <h2 class="text-2xl font-bold text-gray-900">Módulo 5: Melhores Práticas e Erros Comuns</h2>
+                    </div>
+                    <p class="text-gray-600">Evite armadilhas e acelere seu aprendizado com dicas dos especialistas.</p>
+                </div>
+                <span class="tag tag-tecnica">Essencial</span>
+            </div>
+
+            <!-- Topics List -->
+            <div class="space-y-0">
+                <!-- Topic: Erros de Iniciantes -->
+                <div class="topic-item" data-topic="erros-iniciantes">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">❌</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">10 Erros Mais Comuns de Iniciantes</h3>
+                            <p class="text-sm text-gray-500">O que evitar nos seus primeiros prompts</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Lista dos erros mais frequentes: prompts vagos, sem contexto, muito longos, expectativas irreais, não iterar.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Aprender com erros dos outros acelera sua curva de aprendizado exponencialmente.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Ambiguidade, falta de exemplos, ignorar limitações, não revisar outputs.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="erros-iniciantes">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=erros-iniciantes" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo5-erros-iniciantes.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Limitações da IA -->
+                <div class="topic-item" data-topic="limitacoes-ia">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🚧</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Entendendo as Limitações da IA</h3>
+                            <p class="text-sm text-gray-500">O que a IA não consegue fazer (ainda)</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Conhecer os limites: alucinações, conhecimento desatualizado, raciocínio matemático, fatos em tempo real.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Expectativas realistas evitam frustrações. Saber os limites ajuda a contorná-los.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Cutoff date, alucinações, viés, consistência, verificação de fatos.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="limitacoes-ia">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=limitacoes-ia" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo5-limitacoes-ia.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Verificação e Fact-Checking -->
+                <div class="topic-item" data-topic="verificacao-fatos">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🔍</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Verificação e Fact-Checking</h3>
+                            <p class="text-sm text-gray-500">Como validar informações geradas por IA</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Estratégias para verificar outputs: pedir fontes, cross-check, identificar sinais de alucinação.</p>
+                        <p><strong>🎯 Por que aprender:</strong> IA erra com confiança. Verificar é responsabilidade do usuário.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Pedir referências, triangulação, sinais de alerta, "como você sabe?".</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="verificacao-fatos">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=verificacao-fatos" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo5-verificacao-fatos.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Ética e Uso Responsável -->
+                <div class="topic-item" data-topic="etica-uso-responsavel">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">⚖️</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Ética e Uso Responsável de IA</h3>
+                            <p class="text-sm text-gray-500">Princípios para usar IA de forma consciente</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Considerações éticas: transparência sobre uso de IA, viés algorítmico, privacidade, propriedade intelectual.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Uso responsável protege você e os outros. Ética é diferencial profissional.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Disclosure, viés, dados sensíveis, plágio, atribuição.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="etica-uso-responsavel">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=etica-uso-responsavel" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo5-etica-uso-responsavel.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Dicas dos Especialistas -->
+                <div class="topic-item" data-topic="dicas-especialistas">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">🏆</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Dicas dos Especialistas</h3>
+                            <p class="text-sm text-gray-500">Truques avançados para iniciantes</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Compilado de dicas de engenheiros de prompt experientes: atalhos, hacks, técnicas secretas.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Anos de experiência condensados em dicas práticas imediatamente aplicáveis.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> "Respire fundo", temperatura ideal, quando reiniciar conversa, prompts de sistema.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="dicas-especialistas">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=dicas-especialistas" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo5-dicas-especialistas.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic: Construindo sua Biblioteca -->
+                <div class="topic-item" data-topic="biblioteca-prompts">
+                    <button class="topic-button" onclick="toggleTopic(this)">
+                        <span class="text-2xl">📚</span>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-gray-900">Construindo sua Biblioteca de Prompts</h3>
+                            <p class="text-sm text-gray-500">Organizar e reutilizar seus melhores prompts</p>
+                        </div>
+                        <span class="text-gray-400 transform transition-transform">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p><strong>📌 O que é:</strong> Estratégias para salvar, organizar, versionar e compartilhar prompts que funcionam bem.</p>
+                        <p><strong>🎯 Por que aprender:</strong> Prompts bons são ativos valiosos. Não reinvente a roda toda vez.</p>
+                        <p><strong>💡 Conceitos-chave:</strong> Categorização, versionamento, anotações, snippets, compartilhamento.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button class="action-btn action-btn-primary ver-detalhes-btn" data-topico="biblioteca-prompts">
+                                <span>📖</span> Ver Modal
+                            </button>
+                            <a href="topico-detalhes.html?id=biblioteca-prompts" class="action-btn action-btn-secondary">
+                                <span>🔗</span> Página Completa
+                            </a>
+                            <a href="conteudo/modulo5-biblioteca-prompts.md" download class="action-btn action-btn-outline">
+                                <span>⬇️</span> Download MD
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module Footer -->
+            <div class="mt-6 pt-6 border-t border-gray-200 flex flex-wrap gap-3">
+                <a href="conteudo/modulo5-melhores-praticas.md" class="action-btn action-btn-outline">
+                    📖 Módulo Completo (MD)
+                </a>
+                <a href="docs/pdf/modulo5-melhores-praticas.pdf" class="action-btn action-btn-primary">
+                    📄 Baixar PDF
+                </a>
+            </div>
+        </section>
+
+        <!-- Next Level CTA -->
+        <section class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-8 text-center text-white">
+            <h3 class="text-2xl font-bold mb-3">Pronto para o próximo nível?</h3>
+            <p class="text-blue-100 mb-6">Continue sua jornada com técnicas avançadas e aplicações profissionais.</p>
+            <a href="nivel-tecnico.html" class="inline-flex items-center gap-2 bg-white text-blue-600 font-bold py-3 px-8 rounded-lg hover:bg-blue-50 transition-colors">
+                Ir para Nível Técnico <span>⚡</span>
+            </a>
+        </section>
     </main>
 
-    <!-- Modal de Detalhamento de Tópico -->
-    <div id="topicoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
-            <!-- Header do Modal -->
-            <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-6 text-white flex justify-between items-start">
-                <div>
-                    <div class="text-5xl mb-2" id="modalIcon"></div>
-                    <h2 class="text-3xl font-bold" id="modalTitulo"></h2>
-                    <p class="text-green-100 mt-1"><span id="modalNivel"></span> • Módulo <span id="modalModulo"></span></p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-12">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <p>&copy; 2025 FEP - Fundamentos de Engenharia de Prompt</p>
+            <p class="text-sm mt-2">Conteúdo gratuito para a comunidade</p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">
+        <span class="dark-icon hidden">☀️</span>
+        <span class="light-icon">🌙</span>
+    </button>
+
+    <!-- Modal -->
+    <div id="topicoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-to-r from-emerald-500 to-emerald-600 text-white">
+                <div class="flex items-center gap-3">
+                    <span class="text-4xl" id="modalIcon"></span>
+                    <div>
+                        <h2 class="text-2xl font-bold" id="modalTitulo"></h2>
+                        <p class="text-emerald-100"><span id="modalNivel"></span> • Módulo <span id="modalModulo"></span></p>
+                    </div>
                 </div>
-                <button id="closeModal" class="text-white hover:text-green-100 transition-colors">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
             </div>
-
-            <!-- Conteúdo do Modal -->
-            <div class="overflow-y-auto p-8" style="max-height: calc(90vh - 140px);">
-                <!-- Introdução -->
-                <div class="mb-8">
-                    <div class="text-lg leading-relaxed text-gray-700 bg-green-50 p-6 rounded-lg border-l-4 border-green-500" id="modalIntroducao"></div>
-                </div>
-
-                <!-- Conteúdo Completo -->
-                <div class="prose prose-lg max-w-none mb-8" id="modalConteudoCompleto"></div>
-
-                <!-- Exemplos -->
-                <div id="modalExemplos" class="mb-8"></div>
-
-                <!-- Casos de Uso -->
-                <div id="modalCasosUso" class="mb-8"></div>
-
-                <!-- Dicas Práticas -->
-                <div id="modalDicas" class="mb-8"></div>
-
-                <!-- Erros Comuns -->
-                <div id="modalErros" class="mb-8"></div>
-
-                <!-- Recursos Adicionais -->
-                <div id="modalRecursos"></div>
-            </div>
-
-            <!-- Footer do Modal -->
-            <div class="border-t border-gray-200 p-6 bg-gray-50 flex justify-between items-center">
-                <div class="text-sm text-gray-600">
-                    💡 Dica: Pratique com exemplos reais para dominar esta técnica
-                </div>
-                <button id="closeModalBtn" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold">
-                    Fechar
-                </button>
+            <div class="modal-body">
+                <div class="bg-emerald-50 dark:bg-emerald-900/30 p-4 rounded-lg border-l-4 border-emerald-500 mb-6" id="modalIntroducao"></div>
+                <div id="modalConteudoCompleto"></div>
+                <div id="modalExemplos" class="mt-6"></div>
+                <div id="modalCasosUso" class="mt-6"></div>
+                <div id="modalDicas" class="mt-6"></div>
+                <div id="modalErros" class="mt-6"></div>
+                <div id="modalRecursos" class="mt-6"></div>
             </div>
         </div>
     </div>
 
-    <footer class="bg-gray-900 text-white py-8 mt-16">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 FEP - Engenharia de Prompt</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <!-- Scripts -->
     <script src="topicos-data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="topicos-modal.js"></script>
+    <script>
+        // Toggle topic expansion
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const arrow = button.querySelector('span:last-child');
+
+            // Close other open topics in the same module
+            const moduleCard = button.closest('.module-card');
+            moduleCard.querySelectorAll('.topic-explanation').forEach(el => {
+                if (el !== explanation && !el.classList.contains('hidden')) {
+                    el.classList.add('hidden');
+                    el.closest('.topic-item').querySelector('.topic-button span:last-child').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle current
+            explanation.classList.toggle('hidden');
+            arrow.style.transform = explanation.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+            document.querySelector('.dark-icon').classList.toggle('hidden', !isDark);
+            document.querySelector('.light-icon').classList.toggle('hidden', isDark);
+        }
+
+        // Check saved theme
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark');
+            document.querySelector('.dark-icon').classList.remove('hidden');
+            document.querySelector('.light-icon').classList.add('hidden');
+        }
+
+        // Modal functions
+        function openModal(topicoId) {
+            const topico = window.topicosData ? window.topicosData[topicoId] : null;
+            if (!topico) {
+                console.error('Tópico não encontrado:', topicoId);
+                return;
+            }
+
+            document.getElementById('modalIcon').textContent = topico.icon || '📖';
+            document.getElementById('modalTitulo').textContent = topico.titulo;
+            document.getElementById('modalNivel').textContent = topico.nivel;
+            document.getElementById('modalModulo').textContent = topico.modulo;
+            document.getElementById('modalIntroducao').innerHTML = topico.introducao;
+
+            // Load content
+            if (topico.conteudoArquivo) {
+                fetch(topico.conteudoArquivo)
+                    .then(response => response.text())
+                    .then(md => {
+                        document.getElementById('modalConteudoCompleto').innerHTML = marked.parse(md);
+                    })
+                    .catch(() => {
+                        document.getElementById('modalConteudoCompleto').innerHTML = topico.conteudoCompleto || '';
+                    });
+            } else {
+                document.getElementById('modalConteudoCompleto').innerHTML = topico.conteudoCompleto || '';
+            }
+
+            // Render sections
+            renderSection('modalExemplos', 'Exemplos Práticos', topico.exemplos, '💡');
+            renderSection('modalCasosUso', 'Casos de Uso', topico.casosDeUso, '🎯');
+            renderSection('modalDicas', 'Dicas Práticas', topico.dicasPraticas, '✅');
+            renderSection('modalErros', 'Erros Comuns', topico.errosComuns, '⚠️');
+            renderSection('modalRecursos', 'Recursos Adicionais', topico.recursosAdicionais, '📚');
+
+            document.getElementById('topicoModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function renderSection(elementId, title, items, icon) {
+            const element = document.getElementById(elementId);
+            if (!items || items.length === 0) {
+                element.innerHTML = '';
+                return;
+            }
+
+            element.innerHTML = `
+                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
+                    <span>${icon}</span> ${title}
+                </h3>
+                <ul class="space-y-2">
+                    ${items.map(item => `<li class="text-gray-700 dark:text-gray-300 pl-4 border-l-2 border-gray-200 dark:border-gray-600">${item}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        function closeModal() {
+            document.getElementById('topicoModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.getElementById('topicoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Close modal on ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Add click handlers to modal buttons
+        document.querySelectorAll('.ver-detalhes-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const topicoId = this.getAttribute('data-topico');
+                openModal(topicoId);
+            });
+        });
+    </script>
 </body>
 </html>
