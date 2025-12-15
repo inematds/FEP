@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível Avançado | FEP - Engenharia de Prompt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal-content { background-color: white; margin: auto; width: 90%; max-width: 900px; max-height: 90vh; border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 25px rgba(0,0,0,0.3); }
+        .dark .modal-content { background-color: #1f2937; }
+        .modal-header { padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; }
+        .dark .modal-header { border-bottom-color: #374151; }
+        .modal-body { padding: 1.5rem; overflow-y: auto; max-height: calc(90vh - 60px); }
+        .close-modal { color: #9ca3af; font-size: 1.75rem; font-weight: 700; cursor: pointer; line-height: 1; }
+        .close-modal:hover { color: #ef4444; }
+
+        /* Topic Item Compacto */
+        .topic-item { border-bottom: 1px solid #e5e7eb; }
+        .dark .topic-item { border-bottom-color: #374151; }
+        .topic-item:last-child { border-bottom: none; }
+        .topic-button { display: flex; align-items: center; gap: 0.5rem; width: 100%; text-align: left; padding: 0.5rem 0.75rem; border-radius: 0.375rem; transition: all 0.2s; font-weight: 500; }
+        .topic-button:hover { background-color: #f5f5f5; }
+        .dark .topic-button:hover { background-color: #374151; }
+
+        /* Topic Explanation */
+        .topic-explanation { padding: 0.75rem; margin: 0.25rem 0 0.5rem 0; background: #f3e8ff; border-radius: 0.5rem; border-left: 3px solid #9333ea; }
+        .dark .topic-explanation { background: #3b1f5f; }
+
+        /* Module Card */
+        .module-card { transition: all 0.3s ease; }
+        .module-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+        /* Theme Toggle */
+        .theme-toggle { position: fixed; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 50; }
+    </style>
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen transition-colors">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 sticky top-0 z-40">
+        <div class="max-w-4xl mx-auto px-4 py-3">
+            <a href="index.html" class="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 font-semibold transition-colors">
+                <span>←</span>
+                <span class="text-lg">FEP</span>
+                <span class="text-neutral-400">|</span>
+                <span class="text-neutral-600 dark:text-neutral-400 text-sm">Engenharia de Prompt</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-6">
+        <!-- Hero Section -->
+        <section class="text-center mb-6">
+            <div class="text-4xl mb-2">🧠</div>
+            <h1 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Nível Avançado</h1>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-1">Engenharia de Contexto & Skills</p>
+            <p class="text-xs text-purple-600 dark:text-purple-400 mb-3">Pós-RAG | Long Context | Skills Reutilizáveis</p>
+            <div class="flex justify-center gap-2 flex-wrap">
+                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-semibold">⏱️ 40-50h</span>
+                <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-800 dark:text-violet-300 rounded-full text-xs font-semibold">📚 6 Módulos</span>
+                <span class="px-3 py-1 bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-800 dark:text-fuchsia-300 rounded-full text-xs font-semibold">🎯 36 Tópicos</span>
+            </div>
+        </section>
+
+        <!-- Módulo 1: Engenharia de Contexto -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🧠</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 1: Engenharia de Contexto</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-purple-500 text-white text-xs font-semibold rounded-full">Núcleo</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔄 Prompt como Sistema de Contexto
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Entender prompt não como texto, mas como sistema de contexto estruturado.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Modelos modernos respondem a contexto, não a comandos isolados.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Contexto como contrato, sistema vivo, layers de informação.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo1-completo.html#sistema-contexto" class="px-3 py-1 bg-purple-500 text-white text-xs rounded font-semibold hover:bg-purple-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📊 Camadas de Contexto (System, Global, Task, Dados)
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Organizar contexto em camadas com propósitos distintos.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Cada camada tem prioridade e função específica.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> System prompt, global context, task context, data layer.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo1-completo.html#camadas" class="px-3 py-1 bg-purple-500 text-white text-xs rounded font-semibold hover:bg-purple-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔺 Hierarquia e Prioridade de Contexto
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Como modelos resolvem conflitos entre diferentes níveis de contexto.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Prioridade mal definida gera comportamentos inesperados.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Override, herança, escopo, resolução de conflitos.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo1-completo.html#hierarquia" class="px-3 py-1 bg-purple-500 text-white text-xs rounded font-semibold hover:bg-purple-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        💾 Contexto Persistente vs Dinâmico
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Diferenciar contexto que permanece vs contexto que muda por interação.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Otimiza uso da janela e mantém consistência.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Static context, dynamic injection, context refresh.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo1-completo.html#persistente-dinamico" class="px-3 py-1 bg-purple-500 text-white text-xs rounded font-semibold hover:bg-purple-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎯 Controle de Escopo em Contextos Longos
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Manter foco quando há muito contexto disponível.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Mais contexto nem sempre é melhor - foco é essencial.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Scope boundaries, attention steering, relevance filtering.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo1-completo.html#escopo" class="px-3 py-1 bg-purple-500 text-white text-xs rounded font-semibold hover:bg-purple-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ⚠️ Falhas Causadas por Excesso de Contexto
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Anti-patterns e problemas de contexto excessivo ou mal organizado.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> "Lost in the middle", diluição de instruções, conflitos.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Context overflow, attention dilution, instruction drift.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo1-completo.html#falhas" class="px-3 py-1 bg-purple-500 text-white text-xs rounded font-semibold hover:bg-purple-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Módulo 2: Gestão de Long Context -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">⚙️</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 2: Gestão de Long Context (100k → 1M+)</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-violet-500 text-white text-xs font-semibold rounded-full">Evolução</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔬 Como Modelos Interpretam Long Context
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Mecanismos internos de atenção em contextos extensos.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Entender limitações ajuda a otimizar uso.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Attention patterns, recency bias, position encoding.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo2-completo.html#interpretacao" class="px-3 py-1 bg-violet-500 text-white text-xs rounded font-semibold hover:bg-violet-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ⚖️ Janelas Grandes vs RAG Tradicional
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Quando usar janela completa vs recuperação seletiva.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Com 1M+ tokens, RAG nem sempre é necessário.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Full context loading, selective retrieval, hybrid approaches.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo2-completo.html#janelas-vs-rag" class="px-3 py-1 bg-violet-500 text-white text-xs rounded font-semibold hover:bg-violet-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📂 Estratégias de Organização de Contexto Extenso
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Como estruturar 100k-1M tokens de forma eficiente.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Organização impacta diretamente a qualidade das respostas.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Document ordering, section markers, table of contents.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo2-completo.html#organizacao" class="px-3 py-1 bg-violet-500 text-white text-xs rounded font-semibold hover:bg-violet-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🗜️ Resumo Progressivo e Compressão Semântica
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Técnicas para manter informação essencial em menos tokens.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Preserva conhecimento quando janela é insuficiente.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Hierarchical summarization, semantic compression, lossy vs lossless.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo2-completo.html#compressao" class="px-3 py-1 bg-violet-500 text-white text-xs rounded font-semibold hover:bg-violet-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎚️ Priorização e Descarte de Contexto
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Decidir o que manter e o que descartar quando espaço é limitado.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Priorização inteligente é crítica para eficácia.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Relevance scoring, recency weighting, importance markers.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo2-completo.html#priorizacao" class="px-3 py-1 bg-violet-500 text-white text-xs rounded font-semibold hover:bg-violet-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🚫 Anti-Patterns em Long Context
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Erros comuns ao trabalhar com contextos massivos.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Evitar armadilhas que degradam performance.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Context dumping, lost in the middle, noise injection.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo2-completo.html#anti-patterns" class="px-3 py-1 bg-violet-500 text-white text-xs rounded font-semibold hover:bg-violet-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Módulo 3: Engenharia de Skill -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🧩</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 3: Engenharia de Skill</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-fuchsia-500 text-white text-xs font-semibold rounded-full">Claude-Style</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎓 O que são "Skills" em LLMs
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Capacidades modulares e reutilizáveis que definem comportamentos.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Skills transformam prompts de comandos em capacidades.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Skill definition, capability boundaries, skill interface.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo3-completo.html#o-que-sao-skills" class="px-3 py-1 bg-fuchsia-500 text-white text-xs rounded font-semibold hover:bg-fuchsia-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📝 Prompt como Definição de Habilidade
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Estruturar prompts que definem habilidades, não apenas tarefas.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Habilidades são generalizáveis, tarefas são pontuais.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Skill prompt template, capability scope, generalization.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo3-completo.html#prompt-como-habilidade" class="px-3 py-1 bg-fuchsia-500 text-white text-xs rounded font-semibold hover:bg-fuchsia-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔄 Skills Reutilizáveis e Combináveis
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Criar skills que funcionam em múltiplos contextos e combinações.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Reutilização acelera desenvolvimento e garante consistência.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Modular skills, skill composition, inheritance patterns.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo3-completo.html#reutilizaveis" class="px-3 py-1 bg-fuchsia-500 text-white text-xs rounded font-semibold hover:bg-fuchsia-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🏢 Skills Especializadas por Domínio
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Skills otimizadas para domínios específicos (código, análise, escrita).</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Especialização aumenta qualidade em áreas específicas.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Domain expertise, specialized prompts, vertical skills.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo3-completo.html#especializadas" class="px-3 py-1 bg-fuchsia-500 text-white text-xs rounded font-semibold hover:bg-fuchsia-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔛 Ativação e Desativação de Skills por Contexto
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Controlar quais skills estão ativas em cada momento.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Skills conflitantes podem degradar resultados.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Skill toggling, conditional activation, context-aware loading.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo3-completo.html#ativacao" class="px-3 py-1 bg-fuchsia-500 text-white text-xs rounded font-semibold hover:bg-fuchsia-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📋 Versionamento de Skills
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Gerenciar versões e evolução de skills ao longo do tempo.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Permite rollback, testes A/B e melhoria contínua.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Semantic versioning, changelog, migration strategies.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo3-completo.html#versionamento" class="px-3 py-1 bg-fuchsia-500 text-white text-xs rounded font-semibold hover:bg-fuchsia-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Módulo 4: Orquestração de Contexto e Skills -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🔗</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 4: Orquestração de Contexto e Skills</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-indigo-500 text-white text-xs font-semibold rounded-full">Integração</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔀 Combinação de Múltiplos Contextos
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Integrar diferentes fontes de contexto em um sistema coerente.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Aplicações reais requerem múltiplas fontes de informação.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Context merging, source attribution, priority rules.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo4-completo.html#multiplos-contextos" class="px-3 py-1 bg-indigo-500 text-white text-xs rounded font-semibold hover:bg-indigo-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎼 Orquestração de Skills por Tarefa
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Selecionar e combinar skills apropriadas para cada tarefa.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Tarefas complexas requerem múltiplas habilidades.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Skill routing, task decomposition, skill chaining.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo4-completo.html#orquestracao-skills" class="px-3 py-1 bg-indigo-500 text-white text-xs rounded font-semibold hover:bg-indigo-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📊 Fluxos Baseados em Contexto, não em Código
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Definir comportamentos via contexto em vez de programação tradicional.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Flexibilidade e iteração mais rápida.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Context-driven flows, declarative behavior, prompt-as-code.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo4-completo.html#fluxos-contexto" class="px-3 py-1 bg-indigo-500 text-white text-xs rounded font-semibold hover:bg-indigo-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ⚔️ Conflitos de Instruções e Resolução
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Identificar e resolver conflitos entre diferentes instruções/skills.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Conflitos geram comportamentos imprevisíveis.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Conflict detection, resolution strategies, priority chains.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo4-completo.html#conflitos" class="px-3 py-1 bg-indigo-500 text-white text-xs rounded font-semibold hover:bg-indigo-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ⛓️ Cadeias Baseadas em Contexto
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Construir cadeias de processamento usando contexto como conexão.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Permite pipelines complexos sem código adicional.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Context chaining, output-to-input, state propagation.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo4-completo.html#cadeias" class="px-3 py-1 bg-indigo-500 text-white text-xs rounded font-semibold hover:bg-indigo-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        💼 Casos Técnicos Reais
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Exemplos de implementação em produtos reais.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Conecta teoria com prática profissional.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Case studies, production patterns, lessons learned.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo4-completo.html#casos-reais" class="px-3 py-1 bg-indigo-500 text-white text-xs rounded font-semibold hover:bg-indigo-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Módulo 5: RAG Moderno e Contexto Híbrido -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🧠</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 5: RAG Moderno e Contexto Híbrido</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-teal-500 text-white text-xs font-semibold rounded-full">Pós-RAG</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ❓ Quando RAG Ainda é Necessário
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Critérios para decidir usar RAG vs contexto completo.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> RAG não é obsoleto, mas seu papel mudou.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Scale thresholds, freshness needs, precision requirements.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo5-completo.html#quando-rag" class="px-3 py-1 bg-teal-500 text-white text-xs rounded font-semibold hover:bg-teal-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🤝 RAG como Complemento ao Long Context
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Usar RAG para enriquecer, não substituir, contexto extenso.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Combinação oferece o melhor dos dois mundos.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Hybrid retrieval, context augmentation, selective injection.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo5-completo.html#rag-complemento" class="px-3 py-1 bg-teal-500 text-white text-xs rounded font-semibold hover:bg-teal-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        💉 Injeção Seletiva de Conhecimento
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Adicionar conhecimento específico apenas quando necessário.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Evita poluição do contexto com informação irrelevante.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Just-in-time retrieval, query-aware injection, relevance gates.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo5-completo.html#injecao-seletiva" class="px-3 py-1 bg-teal-500 text-white text-xs rounded font-semibold hover:bg-teal-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔀 Contexto Híbrido (Fixo + Recuperado)
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Arquitetura que combina contexto estático com dinâmico.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Balanceia estabilidade com atualização.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Static base, dynamic overlay, context composition.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo5-completo.html#contexto-hibrido" class="px-3 py-1 bg-teal-500 text-white text-xs rounded font-semibold hover:bg-teal-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🛡️ Redução de Alucinação via Contexto
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Usar contexto estrategicamente para reduzir fabricação.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Contexto adequado é a melhor defesa contra alucinações.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Grounding, source attribution, confidence calibration.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo5-completo.html#alucinacao" class="px-3 py-1 bg-teal-500 text-white text-xs rounded font-semibold hover:bg-teal-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📊 Avaliação de Qualidade Contextual
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Métricas e métodos para avaliar eficácia do contexto.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Sem métricas, não há melhoria sistemática.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Context relevance, utilization rate, signal-to-noise ratio.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo5-completo.html#avaliacao" class="px-3 py-1 bg-teal-500 text-white text-xs rounded font-semibold hover:bg-teal-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Módulo 6: Preparação para Masterclass -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🚀</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 6: Preparação para o Masterclass</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-rose-500 text-white text-xs font-semibold rounded-full">Ponte</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🏗️ Prompt como Componente Arquitetural
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Tratar prompts como componentes de software, não scripts.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Permite design patterns e engenharia de software aplicada.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Prompt components, interfaces, contracts, dependencies.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo6-completo.html#componente-arquitetural" class="px-3 py-1 bg-rose-500 text-white text-xs rounded font-semibold hover:bg-rose-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📜 Contexto como Contrato de Comportamento
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Definir expectativas comportamentais via contexto formal.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Contratos permitem verificação e garantias.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Behavioral contracts, invariants, preconditions, postconditions.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo6-completo.html#contrato-comportamento" class="px-3 py-1 bg-rose-500 text-white text-xs rounded font-semibold hover:bg-rose-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔧 Skills como Unidades de Engenharia
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Aplicar práticas de engenharia de software a skills.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Profissionaliza o desenvolvimento de prompts.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Testing, documentation, CI/CD for prompts, observability.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo6-completo.html#unidades-engenharia" class="px-3 py-1 bg-rose-500 text-white text-xs rounded font-semibold hover:bg-rose-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🚧 Limites do Nível Técnico
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> O que você domina agora e o que ainda precisa aprender.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Auto-avaliação honesta é essencial para crescimento.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Competency map, skill gaps, learning path.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo6-completo.html#limites" class="px-3 py-1 bg-rose-500 text-white text-xs rounded font-semibold hover:bg-rose-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎯 O que Muda no Masterclass
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Preview do próximo nível e suas expectativas.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Prepara mentalmente para a próxima etapa.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> Arquitetura avançada, sistemas multi-agente, produção enterprise.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo6-completo.html#masterclass-preview" class="px-3 py-1 bg-rose-500 text-white text-xs rounded font-semibold hover:bg-rose-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📋 Projeto Integrador (Context + Skills)
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">O que é:</strong> Projeto final que integra todos os conceitos da trilha.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Por que:</strong> Demonstra competência completa no nível avançado.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-purple-600 dark:text-purple-400">Conceitos:</strong> System design, implementation, evaluation, documentation.</p>
+                        <div class="flex gap-2 mt-2">
+                            <a href="conteudo/avancado/modulo6-completo.html#projeto-integrador" class="px-3 py-1 bg-rose-500 text-white text-xs rounded font-semibold hover:bg-rose-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-xl p-6 text-center text-white">
+            <h3 class="text-xl font-bold mb-2">Pronto para o Masterclass?</h3>
+            <p class="text-purple-100 text-sm mb-4">Após dominar Contexto & Skills, você está preparado para arquitetura avançada</p>
+            <a href="nivel-masterclass.html" class="inline-block px-6 py-2 bg-white text-purple-600 rounded-lg font-semibold hover:bg-purple-50 transition-colors">
+                🚀 Ir para Masterclass
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-100 dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 mt-8 py-6">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                FEP - Fundamentos de Engenharia de Prompt
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Toggle Topic Explanation
+        function toggleTopic(button) {
+            const explanation = button.nextElementSibling;
+            const arrow = button.querySelector('span:last-child');
+
+            explanation.classList.toggle('hidden');
+            arrow.textContent = explanation.classList.contains('hidden') ? '▼' : '▲';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Engenharia de Skill - Nível Avançado | FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+    <style>
+        html.dark body { background-color: #0a0a0a; }
+        html.dark .dark\:bg-neutral-900 { background-color: #171717; }
+        html.dark .dark\:bg-neutral-800 { background-color: #262626; }
+        html.dark .dark\:bg-neutral-700 { background-color: #404040; }
+    </style>
+</head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="../../nivel-avancado.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-fuchsia-600 dark:hover:text-fuchsia-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span class="text-sm font-medium">Voltar ao Nível Avançado</span>
+            </a>
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700">
+                <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-900/30 to-neutral-800 dark:from-fuchsia-900/20 dark:to-neutral-900"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.05)\"%3E%3C/path%3E%3C/svg%3E')] opacity-40"></div>
+        <div class="relative max-w-4xl mx-auto px-4 py-16">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-semibold bg-fuchsia-500/20 text-fuchsia-300 rounded-full border border-fuchsia-500/30">MÓDULO 3</span>
+                <span class="px-3 py-1 text-xs font-semibold bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">CLAUDE-STYLE</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Engenharia de Skill
+                <span class="block text-2xl md:text-3xl text-fuchsia-400 mt-2">Prompt como Habilidade</span>
+            </h1>
+            <p class="text-lg text-neutral-300 max-w-2xl">
+                Inspirado no modelo do Claude. Prompts deixam de ser comandos e viram capacidades
+                modulares, reutilizáveis e combináveis.
+            </p>
+            <div class="grid grid-cols-3 gap-4 mt-8 max-w-lg">
+                <div class="text-center"><div class="text-3xl font-bold text-white">6</div><div class="text-sm text-neutral-400">Tópicos</div></div>
+                <div class="text-center"><div class="text-3xl font-bold text-white">90</div><div class="text-sm text-neutral-400">Minutos</div></div>
+                <div class="text-center"><div class="text-3xl font-bold text-white">12</div><div class="text-sm text-neutral-400">Exercícios</div></div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex gap-1 overflow-x-auto py-2">
+                <a href="#o-que-sao-skills" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-fuchsia-600 whitespace-nowrap rounded-lg hover:bg-fuchsia-50 dark:hover:bg-fuchsia-900/20">O que são</a>
+                <a href="#prompt-como-habilidade" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-fuchsia-600 whitespace-nowrap rounded-lg hover:bg-fuchsia-50 dark:hover:bg-fuchsia-900/20">Definição</a>
+                <a href="#reutilizaveis" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-fuchsia-600 whitespace-nowrap rounded-lg hover:bg-fuchsia-50 dark:hover:bg-fuchsia-900/20">Reutilizáveis</a>
+                <a href="#especializadas" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-fuchsia-600 whitespace-nowrap rounded-lg hover:bg-fuchsia-50 dark:hover:bg-fuchsia-900/20">Especializadas</a>
+                <a href="#ativacao" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-fuchsia-600 whitespace-nowrap rounded-lg hover:bg-fuchsia-50 dark:hover:bg-fuchsia-900/20">Ativação</a>
+                <a href="#versionamento" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-fuchsia-600 whitespace-nowrap rounded-lg hover:bg-fuchsia-50 dark:hover:bg-fuchsia-900/20">Versioning</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <!-- Seção 1 -->
+        <section id="o-que-sao-skills" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-fuchsia-50 to-transparent dark:from-fuchsia-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-fuchsia-100 dark:bg-fuchsia-900/50 flex items-center justify-center">
+                            <span class="text-fuchsia-600 dark:text-fuchsia-400 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">O que são "Skills" em LLMs</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Capacidades modulares definidas por contexto</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Skills são <strong>capacidades encapsuladas</strong> que você define para o modelo. Diferente de
+                            instruções pontuais, uma skill é uma habilidade persistente que pode ser ativada, combinada
+                            e reutilizada em diferentes contextos.
+                        </p>
+                    </div>
+
+                    <div class="bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200 dark:border-fuchsia-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-fuchsia-900 dark:text-fuchsia-300 mb-4">Comando vs Skill</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-4">
+                                <h5 class="font-medium text-red-900 dark:text-red-300 mb-2">❌ Comando</h5>
+                                <p class="text-sm text-red-800 dark:text-red-200 font-mono">"Traduza este texto para inglês"</p>
+                                <p class="text-xs text-red-600 mt-2">Uma ação, um resultado, descartado</p>
+                            </div>
+                            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4">
+                                <h5 class="font-medium text-green-900 dark:text-green-300 mb-2">✅ Skill</h5>
+                                <p class="text-sm text-green-800 dark:text-green-200 font-mono">"[SKILL: Translator] Você é um tradutor profissional..."</p>
+                                <p class="text-xs text-green-600 mt-2">Capacidade persistente, reutilizável</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Anatomia de uma Skill</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+                            <p class="text-fuchsia-600 dark:text-fuchsia-400">## SKILL: code_reviewer</p>
+                            <p class="text-neutral-500 mt-2">### CAPABILITY</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">Analisar código fonte e identificar problemas</p>
+                            <p class="text-neutral-500 mt-2">### INPUTS</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- code: string (código a revisar)</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- language: string (linguagem)</p>
+                            <p class="text-neutral-500 mt-2">### OUTPUTS</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- issues: lista de problemas encontrados</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- suggestions: melhorias sugeridas</p>
+                            <p class="text-neutral-500 mt-2">### BEHAVIOR</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- Foco em segurança, performance, legibilidade</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- Cite linha específica dos problemas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2 -->
+        <section id="prompt-como-habilidade" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-pink-50 to-transparent dark:from-pink-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-pink-100 dark:bg-pink-900/50 flex items-center justify-center">
+                            <span class="text-pink-600 dark:text-pink-400 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompt como Definição de Habilidade</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Estruturando prompts que definem capacidades</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-pink-50 dark:bg-pink-900/20 border border-pink-200 dark:border-pink-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-pink-900 dark:text-pink-300 mb-4">Template de Skill</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <span class="text-sm font-semibold text-pink-600">1. Nome e Escopo</span>
+                                <p class="text-xs text-neutral-600 dark:text-neutral-400">Identificador único e limites claros de atuação</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <span class="text-sm font-semibold text-pink-600">2. Expertise</span>
+                                <p class="text-xs text-neutral-600 dark:text-neutral-400">Conhecimento especializado necessário</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <span class="text-sm font-semibold text-pink-600">3. Interface</span>
+                                <p class="text-xs text-neutral-600 dark:text-neutral-400">Inputs esperados e outputs garantidos</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <span class="text-sm font-semibold text-pink-600">4. Constraints</span>
+                                <p class="text-xs text-neutral-600 dark:text-neutral-400">Limites e comportamentos proibidos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3 -->
+        <section id="reutilizaveis" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center">
+                            <span class="text-violet-600 dark:text-violet-400 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Skills Reutilizáveis e Combináveis</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Composição e modularidade</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-violet-900 dark:text-violet-300 mb-4">Patterns de Composição</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔗 Chaining</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Output de uma skill → input de outra</p>
+                                <p class="text-xs text-violet-600 mt-1">Translator → Summarizer → Formatter</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔀 Parallel</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Múltiplas skills no mesmo input</p>
+                                <p class="text-xs text-violet-600 mt-1">[Analyzer + Critic + Fact-Checker]</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📦 Nested</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Skill que usa outras skills internamente</p>
+                                <p class="text-xs text-violet-600 mt-1">Editor(Translator(text))</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔄 Conditional</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Skill selecionada baseada em contexto</p>
+                                <p class="text-xs text-violet-600 mt-1">if(technical) → Expert else → Simplifier</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4 -->
+        <section id="especializadas" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center">
+                            <span class="text-indigo-600 dark:text-indigo-400 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Skills Especializadas por Domínio</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Verticais de expertise</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+                            <div class="text-2xl mb-2">💻</div>
+                            <h5 class="font-medium text-neutral-900 dark:text-white">Code Skills</h5>
+                            <ul class="text-xs text-neutral-600 dark:text-neutral-400 mt-2 space-y-1">
+                                <li>• Reviewer</li>
+                                <li>• Debugger</li>
+                                <li>• Refactorer</li>
+                                <li>• Documenter</li>
+                            </ul>
+                        </div>
+                        <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
+                            <div class="text-2xl mb-2">📝</div>
+                            <h5 class="font-medium text-neutral-900 dark:text-white">Writing Skills</h5>
+                            <ul class="text-xs text-neutral-600 dark:text-neutral-400 mt-2 space-y-1">
+                                <li>• Editor</li>
+                                <li>• Copywriter</li>
+                                <li>• Summarizer</li>
+                                <li>• Translator</li>
+                            </ul>
+                        </div>
+                        <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
+                            <div class="text-2xl mb-2">📊</div>
+                            <h5 class="font-medium text-neutral-900 dark:text-white">Analysis Skills</h5>
+                            <ul class="text-xs text-neutral-600 dark:text-neutral-400 mt-2 space-y-1">
+                                <li>• Data Analyst</li>
+                                <li>• Researcher</li>
+                                <li>• Fact-Checker</li>
+                                <li>• Comparator</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5 -->
+        <section id="ativacao" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-cyan-50 to-transparent dark:from-cyan-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-900/50 flex items-center justify-center">
+                            <span class="text-cyan-600 dark:text-cyan-400 font-bold">5</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Ativação e Desativação de Skills por Contexto</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Controle dinâmico de capacidades</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-cyan-900 dark:text-cyan-300 mb-4">Mecanismos de Ativação</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Explicit Activation</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 font-mono">[ACTIVATE: code_reviewer]</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔍 Context-Triggered</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Ativa automaticamente quando detecta código no input</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">⛔ Explicit Deactivation</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 font-mono">[DEACTIVATE: translator] // responda em português</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6 -->
+        <section id="versionamento" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+                            <span class="text-emerald-600 dark:text-emerald-400 font-bold">6</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Versionamento de Skills</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Evolução e controle de mudanças</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-4">Semantic Versioning para Skills</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+                            <p class="text-emerald-600">skill: code_reviewer@2.1.0</p>
+                            <p class="text-neutral-500 mt-2"># MAJOR.MINOR.PATCH</p>
+                            <p class="text-neutral-600 dark:text-neutral-400">2 = breaking changes na interface</p>
+                            <p class="text-neutral-600 dark:text-neutral-400">1 = novas capacidades compatíveis</p>
+                            <p class="text-neutral-600 dark:text-neutral-400">0 = fixes sem mudança de comportamento</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Changelog Example</h4>
+                        <div class="text-sm text-neutral-600 dark:text-neutral-400 space-y-2">
+                            <p><strong>v2.1.0</strong> - Adicionado suporte a TypeScript</p>
+                            <p><strong>v2.0.0</strong> - Mudança no formato de output (breaking)</p>
+                            <p><strong>v1.3.1</strong> - Fix: false positives em arrow functions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="flex items-center justify-between pt-8 border-t border-neutral-200 dark:border-neutral-700">
+            <a href="modulo2-completo.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-fuchsia-600 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span>Módulo 2: Long Context</span>
+            </a>
+            <a href="modulo4-completo.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-fuchsia-600 transition-colors">
+                <span>Módulo 4: Orquestração</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-neutral-100 dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 mt-16">
+        <div class="max-w-4xl mx-auto px-4 py-8 text-center">
+            <span class="text-xl font-bold text-fuchsia-600 dark:text-fuchsia-400">FEP</span>
+            <span class="text-neutral-600 dark:text-neutral-400 ml-2">Fundamentos de Engenharia de Prompt</span>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() { document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); }
+        if (localStorage.getItem('theme') === 'light') { document.documentElement.classList.remove('dark'); }
+    </script>
+</body>
+</html>

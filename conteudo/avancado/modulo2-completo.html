@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Gestão de Long Context - Nível Avançado | FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
+        }
+    </script>
+    <style>
+        html.dark body { background-color: #0a0a0a; }
+        html.dark .dark\:bg-neutral-900 { background-color: #171717; }
+        html.dark .dark\:bg-neutral-800 { background-color: #262626; }
+        html.dark .dark\:bg-neutral-700 { background-color: #404040; }
+    </style>
+</head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="../../nivel-avancado.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span class="text-sm font-medium">Voltar ao Nível Avançado</span>
+            </a>
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
+                <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-violet-900/30 to-neutral-800 dark:from-violet-900/20 dark:to-neutral-900"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.05)\"%3E%3C/path%3E%3C/svg%3E')] opacity-40"></div>
+        <div class="relative max-w-4xl mx-auto px-4 py-16">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-semibold bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30">MÓDULO 2</span>
+                <span class="px-3 py-1 text-xs font-semibold bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">NÍVEL AVANÇADO</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Gestão de Long Context
+                <span class="block text-2xl md:text-3xl text-violet-400 mt-2">(100K → 1M+ tokens)</span>
+            </h1>
+            <p class="text-lg text-neutral-300 max-w-2xl">
+                Modelos com janelas gigantes mudam tudo. Aprenda a trabalhar com contextos de 100k a 2 milhões de tokens
+                e entenda quando RAG ainda é necessário.
+            </p>
+            <div class="grid grid-cols-3 gap-4 mt-8 max-w-lg">
+                <div class="text-center"><div class="text-3xl font-bold text-white">6</div><div class="text-sm text-neutral-400">Tópicos</div></div>
+                <div class="text-center"><div class="text-3xl font-bold text-white">100</div><div class="text-sm text-neutral-400">Minutos</div></div>
+                <div class="text-center"><div class="text-3xl font-bold text-white">10</div><div class="text-sm text-neutral-400">Exercícios</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex gap-1 overflow-x-auto py-2 scrollbar-hide">
+                <a href="#interpretacao" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 whitespace-nowrap rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/20 transition-colors">Interpretação</a>
+                <a href="#janelas-vs-rag" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 whitespace-nowrap rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/20 transition-colors">vs RAG</a>
+                <a href="#organizacao" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 whitespace-nowrap rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/20 transition-colors">Organização</a>
+                <a href="#compressao" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 whitespace-nowrap rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/20 transition-colors">Compressão</a>
+                <a href="#priorizacao" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 whitespace-nowrap rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/20 transition-colors">Priorização</a>
+                <a href="#anti-patterns" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 whitespace-nowrap rounded-lg hover:bg-violet-50 dark:hover:bg-violet-900/20 transition-colors">Anti-Patterns</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <!-- Seção 1 -->
+        <section id="interpretacao" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center">
+                            <span class="text-violet-600 dark:text-violet-400 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Como Modelos Interpretam Long Context</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Mecanismos internos e limitações</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Modelos com janelas de 100k-2M tokens não processam todo o texto igualmente. Entender os
+                            mecanismos de atenção e seus vieses é fundamental para otimizar o uso de contextos extensos.
+                        </p>
+                    </div>
+
+                    <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-violet-900 dark:text-violet-300 mb-4">Vieses de Atenção</h4>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 text-center">
+                                <div class="text-3xl mb-2">📍</div>
+                                <h5 class="font-medium text-neutral-900 dark:text-white">Primacy Bias</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">Início do contexto tem maior peso</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 text-center">
+                                <div class="text-3xl mb-2">🕳️</div>
+                                <h5 class="font-medium text-neutral-900 dark:text-white">Lost in Middle</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">Centro tende a ser ignorado</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 text-center">
+                                <div class="text-3xl mb-2">⏱️</div>
+                                <h5 class="font-medium text-neutral-900 dark:text-white">Recency Bias</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">Final do contexto tem alta prioridade</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Implicações Práticas</h4>
+                        <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+                            <li class="flex items-start gap-2">
+                                <span class="text-violet-500">→</span>
+                                <span>Coloque instruções críticas no <strong>início</strong> do contexto</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-violet-500">→</span>
+                                <span>Repita informações importantes no <strong>final</strong> (task reminder)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-violet-500">→</span>
+                                <span>Use marcadores explícitos para conteúdo no meio</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-violet-500">→</span>
+                                <span>Teste retrieval de informações em diferentes posições</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2 -->
+        <section id="janelas-vs-rag" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Janelas Grandes vs RAG Tradicional</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Quando usar cada abordagem</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Com 1-2M tokens disponíveis, você pode carregar documentos inteiros na janela de contexto.
+                            Isso muda fundamentalmente a necessidade de RAG - mas não elimina.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
+                            <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-3">📚 Full Context Loading</h4>
+                            <p class="text-sm text-blue-800 dark:text-blue-200 mb-3">Quando usar:</p>
+                            <ul class="text-sm text-blue-700 dark:text-blue-300 space-y-1">
+                                <li>• Corpus cabe na janela (&lt;1M tokens)</li>
+                                <li>• Precisa de visão holística</li>
+                                <li>• Cross-referência entre documentos</li>
+                                <li>• Latência de retrieval é problema</li>
+                            </ul>
+                        </div>
+                        <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
+                            <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">🔍 RAG Seletivo</h4>
+                            <p class="text-sm text-emerald-800 dark:text-emerald-200 mb-3">Quando usar:</p>
+                            <ul class="text-sm text-emerald-700 dark:text-emerald-300 space-y-1">
+                                <li>• Corpus é muito grande (TB de dados)</li>
+                                <li>• Dados mudam frequentemente</li>
+                                <li>• Custo por token é crítico</li>
+                                <li>• Precisa de precisão cirúrgica</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-100 to-emerald-100 dark:from-blue-900/30 dark:to-emerald-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Decisão Matrix</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="text-left border-b border-neutral-300 dark:border-neutral-600">
+                                        <th class="py-2 pr-4 text-neutral-700 dark:text-neutral-300">Cenário</th>
+                                        <th class="py-2 pr-4 text-neutral-700 dark:text-neutral-300">Full Context</th>
+                                        <th class="py-2 text-neutral-700 dark:text-neutral-300">RAG</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-neutral-600 dark:text-neutral-400">
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                                        <td class="py-2 pr-4">Manual de 50 páginas</td>
+                                        <td class="py-2 pr-4 text-blue-600">✅ Ideal</td>
+                                        <td class="py-2 text-neutral-400">Desnecessário</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                                        <td class="py-2 pr-4">Base de 10M documentos</td>
+                                        <td class="py-2 pr-4 text-neutral-400">Impossível</td>
+                                        <td class="py-2 text-emerald-600">✅ Necessário</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-700">
+                                        <td class="py-2 pr-4">Codebase de 500k linhas</td>
+                                        <td class="py-2 pr-4 text-blue-600">✅ Viável</td>
+                                        <td class="py-2 text-emerald-600">✅ Alternativa</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 pr-4">News feed em tempo real</td>
+                                        <td class="py-2 pr-4 text-neutral-400">Impraticável</td>
+                                        <td class="py-2 text-emerald-600">✅ Ideal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3 -->
+        <section id="organizacao" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center">
+                            <span class="text-indigo-600 dark:text-indigo-400 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Estratégias de Organização de Contexto Extenso</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Estruturando 100k-1M tokens</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-4">Técnicas de Organização</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📑 Table of Contents</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Inclua um índice no início listando seções e suas posições. Modelo usa como mapa de navegação.
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🏷️ Section Headers</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Use delimitadores claros e consistentes: === SEÇÃO: Nome ===
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Relevance Ordering</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Ordene documentos por relevância esperada, mais relevantes primeiro e último.
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📋 Metadata Enrichment</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Adicione metadados: [SOURCE: doc1.pdf] [DATE: 2024-01] [RELEVANCE: HIGH]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Estrutura para Análise de Codebase</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs">
+                            <p class="text-indigo-600">=== TABLE OF CONTENTS ===</p>
+                            <p class="text-neutral-500">1. Architecture Overview (line 50)</p>
+                            <p class="text-neutral-500">2. API Endpoints (line 500)</p>
+                            <p class="text-neutral-500">3. Data Models (line 2000)</p>
+                            <p class="text-neutral-500">4. Tests (line 5000)</p>
+                            <p class="text-indigo-600 mt-2">=== SECTION: Architecture Overview ===</p>
+                            <p class="text-neutral-500">[RELEVANCE: HIGH] [TYPE: documentation]</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4 -->
+        <section id="compressao" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-teal-50 to-transparent dark:from-teal-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center">
+                            <span class="text-teal-600 dark:text-teal-400 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Resumo Progressivo e Compressão Semântica</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Preservando informação com menos tokens</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Mesmo com janelas grandes, às vezes o contexto excede o limite. Técnicas de compressão
+                            permitem manter informação essencial enquanto reduz tokens.
+                        </p>
+                    </div>
+
+                    <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Técnicas de Compressão</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔄 Hierarchical Summarization</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Resuma em níveis: documento → seção → parágrafo. Carregue nível apropriado.
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Entity Extraction</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Extraia entidades e relações chave, descarte texto narrativo.
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📊 Structured Conversion</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Converta prosa em JSON/tabelas - mais denso semanticamente.
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🗜️ Progressive Compression</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Conteúdo antigo = mais comprimido. Recente = detalhado.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5 -->
+        <section id="priorizacao" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
+                            <span class="text-amber-600 dark:text-amber-400 font-bold">5</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Priorização e Descarte de Contexto</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Decidindo o que manter</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-amber-900 dark:text-amber-300 mb-4">Critérios de Priorização</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <span class="text-2xl">🎯</span>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Relevância para tarefa</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Score de similaridade semântica com a query</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-2xl">⏰</span>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Recência</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Informação mais recente geralmente mais relevante</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-2xl">⭐</span>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Importance markers</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Tags explícitas: [CRITICAL], [REQUIRED], [OPTIONAL]</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-2xl">🔗</span>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Dependencies</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Contexto referenciado por outros mantidos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6 -->
+        <section id="anti-patterns" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/50 flex items-center justify-center">
+                            <span class="text-red-600 dark:text-red-400 font-bold">6</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Anti-Patterns em Long Context</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Erros comuns e como evitar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-red-900 dark:text-red-300 mb-4">Anti-Patterns Comuns</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-red-500">
+                                <h5 class="font-medium text-neutral-900 dark:text-white">❌ "More is Better" Fallacy</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Adicionar todo contexto disponível sem curadoria.</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-orange-500">
+                                <h5 class="font-medium text-neutral-900 dark:text-white">❌ Flat Context</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Nenhuma estrutura ou hierarquia - tudo no mesmo nível.</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-yellow-500">
+                                <h5 class="font-medium text-neutral-900 dark:text-white">❌ Instructions Burial</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Colocar instruções importantes no meio do contexto.</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-purple-500">
+                                <h5 class="font-medium text-neutral-900 dark:text-white">❌ Stale Context</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Manter contexto desatualizado ou contraditório.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Footer -->
+        <div class="flex items-center justify-between pt-8 border-t border-neutral-200 dark:border-neutral-700">
+            <a href="modulo1-completo.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span>Módulo 1: Engenharia de Contexto</span>
+            </a>
+            <a href="modulo3-completo.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+                <span>Módulo 3: Engenharia de Skill</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-100 dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 mt-16">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-violet-600 dark:text-violet-400">FEP</span>
+                    <span class="text-neutral-600 dark:text-neutral-400">Fundamentos de Engenharia de Prompt</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'light') { document.documentElement.classList.remove('dark'); }
+    </script>
+</body>
+</html>

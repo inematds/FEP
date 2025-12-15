@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6: Preparação para Masterclass - Nível Avançado | FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+    <style>
+        html.dark body { background-color: #0a0a0a; }
+        html.dark .dark\:bg-neutral-900 { background-color: #171717; }
+        html.dark .dark\:bg-neutral-800 { background-color: #262626; }
+        html.dark .dark\:bg-neutral-700 { background-color: #404040; }
+    </style>
+</head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="../../nivel-avancado.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span class="text-sm font-medium">Voltar ao Nível Avançado</span>
+            </a>
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700">
+                <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-900/30 via-orange-900/20 to-neutral-800 dark:from-amber-900/20 dark:via-orange-900/10 dark:to-neutral-900"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.05)\"%3E%3C/path%3E%3C/svg%3E')] opacity-40"></div>
+        <div class="relative max-w-4xl mx-auto px-4 py-16">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30">MÓDULO 6</span>
+                <span class="px-3 py-1 text-xs font-semibold bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30">PREPARAÇÃO</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Preparação para Masterclass
+            </h1>
+            <p class="text-lg text-neutral-300 max-w-2xl">
+                Consolide todo o conhecimento adquirido e prepare-se para a jornada final:
+                projetar sistemas de agentes autônomos que operam em contextos complexos.
+            </p>
+            <div class="grid grid-cols-3 gap-4 mt-8 max-w-lg">
+                <div class="text-center"><div class="text-3xl font-bold text-white">6</div><div class="text-sm text-neutral-400">Tópicos</div></div>
+                <div class="text-center"><div class="text-3xl font-bold text-white">80</div><div class="text-sm text-neutral-400">Minutos</div></div>
+                <div class="text-center"><div class="text-3xl font-bold text-white">1</div><div class="text-sm text-neutral-400">Projeto Final</div></div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex gap-1 overflow-x-auto py-2">
+                <a href="#recapitulacao" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Recapitulação</a>
+                <a href="#mindset" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Mindset</a>
+                <a href="#patterns" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Patterns</a>
+                <a href="#anti-patterns" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Anti-Patterns</a>
+                <a href="#case-study" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Case Study</a>
+                <a href="#projeto-final" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Projeto Final</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <!-- Seção 1 -->
+        <section id="recapitulacao" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
+                            <span class="text-amber-600 dark:text-amber-400 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Recapitulação dos 5 Módulos</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Conectando os conceitos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <p class="text-neutral-600 dark:text-neutral-300">
+                        Antes de avançar para a Masterclass, vamos consolidar a jornada percorrida
+                        e entender como cada módulo se conecta ao próximo.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-900/30 rounded-xl p-5 border-l-4 border-purple-500">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-2 py-1 bg-purple-500 text-white text-xs font-bold rounded">M1</span>
+                                <h4 class="font-semibold text-purple-900 dark:text-purple-300">Engenharia de Contexto</h4>
+                            </div>
+                            <p class="text-sm text-purple-800 dark:text-purple-200 mb-2">
+                                Prompt não é texto — é <strong>sistema de contexto</strong>. Aprendemos a estruturar
+                                contexto em camadas (System, Global, Task, Data) com hierarquia clara.
+                            </p>
+                            <div class="text-xs text-purple-600 dark:text-purple-400">
+                                → Conceito fundacional para tudo que veio depois
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-violet-50 to-violet-100 dark:from-violet-900/20 dark:to-violet-900/30 rounded-xl p-5 border-l-4 border-violet-500">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-2 py-1 bg-violet-500 text-white text-xs font-bold rounded">M2</span>
+                                <h4 class="font-semibold text-violet-900 dark:text-violet-300">Gestão de Long Context</h4>
+                            </div>
+                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2">
+                                Com janelas de 100K-1M+ tokens, aprendemos a <strong>organizar grandes volumes</strong>
+                                de contexto sem degradar a qualidade das respostas.
+                            </p>
+                            <div class="text-xs text-violet-600 dark:text-violet-400">
+                                → Permite contextos ricos sem dependência excessiva de RAG
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-fuchsia-50 to-fuchsia-100 dark:from-fuchsia-900/20 dark:to-fuchsia-900/30 rounded-xl p-5 border-l-4 border-fuchsia-500">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-2 py-1 bg-fuchsia-500 text-white text-xs font-bold rounded">M3</span>
+                                <h4 class="font-semibold text-fuchsia-900 dark:text-fuchsia-300">Engenharia de Skill</h4>
+                            </div>
+                            <p class="text-sm text-fuchsia-800 dark:text-fuchsia-200 mb-2">
+                                Prompts como <strong>habilidades modulares e reutilizáveis</strong>. Skills especializadas
+                                que podem ser ativadas, compostas e versionadas.
+                            </p>
+                            <div class="text-xs text-fuchsia-600 dark:text-fuchsia-400">
+                                → Base para construir agentes com capacidades específicas
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-900/30 rounded-xl p-5 border-l-4 border-indigo-500">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-2 py-1 bg-indigo-500 text-white text-xs font-bold rounded">M4</span>
+                                <h4 class="font-semibold text-indigo-900 dark:text-indigo-300">Orquestração</h4>
+                            </div>
+                            <p class="text-sm text-indigo-800 dark:text-indigo-200 mb-2">
+                                Combinando contextos e skills em <strong>fluxos complexos</strong>. Resolução de conflitos,
+                                cadeias de skills, e sistemas context-driven.
+                            </p>
+                            <div class="text-xs text-indigo-600 dark:text-indigo-400">
+                                → Arquitetura para sistemas multi-skill
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-900/30 rounded-xl p-5 border-l-4 border-emerald-500">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="px-2 py-1 bg-emerald-500 text-white text-xs font-bold rounded">M5</span>
+                                <h4 class="font-semibold text-emerald-900 dark:text-emerald-300">RAG Moderno</h4>
+                            </div>
+                            <p class="text-sm text-emerald-800 dark:text-emerald-200 mb-2">
+                                RAG como <strong>complemento, não dependência</strong>. Contexto híbrido, injeção seletiva,
+                                e estratégias anti-alucinação baseadas em grounding.
+                            </p>
+                            <div class="text-xs text-emerald-600 dark:text-emerald-400">
+                                → Integração inteligente de dados dinâmicos
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-amber-900 dark:text-amber-300 mb-3">A Síntese</h4>
+                        <p class="text-amber-800 dark:text-amber-200 text-sm">
+                            Juntos, esses módulos formam uma nova forma de pensar sobre IA:
+                            <strong>Context Engineering + Skills = Agentes Inteligentes</strong>.
+                            A Masterclass aplicará isso em sistemas autônomos de produção.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2 -->
+        <section id="mindset" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-orange-50 to-transparent dark:from-orange-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 dark:bg-orange-900/50 flex items-center justify-center">
+                            <span class="text-orange-600 dark:text-orange-400 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Mindset do Engenheiro de Agentes</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Pensamento sistêmico para IA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-orange-900 dark:text-orange-300 mb-3">A Mudança de Perspectiva</h4>
+                        <p class="text-orange-800 dark:text-orange-200 text-sm">
+                            Engenheiro de Agentes não é "prompt engineer avançado". É uma disciplina de
+                            <strong>design de sistemas</strong> onde o componente central é um LLM.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-red-50 dark:bg-red-900/20 rounded-xl p-5">
+                            <h5 class="font-semibold text-red-900 dark:text-red-300 mb-3">❌ Mentalidade Antiga</h5>
+                            <ul class="space-y-2 text-sm text-red-800 dark:text-red-200">
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1">•</span>
+                                    <span>"Como faço o modelo responder X?"</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1">•</span>
+                                    <span>"Qual prompt mágico resolve isso?"</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1">•</span>
+                                    <span>"O modelo errou, preciso de prompt melhor"</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1">•</span>
+                                    <span>Foco em palavras específicas</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-5">
+                            <h5 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">✓ Mentalidade de Agentes</h5>
+                            <ul class="space-y-2 text-sm text-emerald-800 dark:text-emerald-200">
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1">•</span>
+                                    <span>"Qual contexto o agente precisa?"</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1">•</span>
+                                    <span>"Quais skills devem estar disponíveis?"</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1">•</span>
+                                    <span>"O sistema de contexto está completo?"</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1">•</span>
+                                    <span>Foco em arquitetura e fluxos</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Princípios Fundamentais</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-2xl">🎯</span>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-neutral-900 dark:text-white">Context First</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Antes de escrever qualquer instrução, defina o contexto necessário.
+                                        O contexto determina 80% da qualidade da resposta.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/50 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-2xl">🧩</span>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-neutral-900 dark:text-white">Skills over Instructions</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Construa habilidades reutilizáveis, não instruções one-off.
+                                        Skills podem ser testadas, versionadas e compostas.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-2xl">🔄</span>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-neutral-900 dark:text-white">Iterate on Systems</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Não ajuste prompts indefinidamente. Itere no design do sistema:
+                                        fluxos, fallbacks, orquestração.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-2xl">📊</span>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-neutral-900 dark:text-white">Measure & Ground</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Toda afirmação deve ter fonte. Todo sistema deve ter métricas.
+                                        Sem medição, não há melhoria.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3 -->
+        <section id="patterns" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+                            <span class="text-emerald-600 dark:text-emerald-400 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Patterns Consolidados</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Padrões que funcionam em produção</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <p class="text-neutral-600 dark:text-neutral-300">
+                        Padrões emergentes de sistemas de agentes em produção que você aplicará na Masterclass.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xl">🏗️</span>
+                                <h5 class="font-semibold text-neutral-900 dark:text-white">Layered Context</h5>
+                            </div>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                                Contexto organizado em camadas com prioridades e escopos definidos.
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800 rounded p-3 text-xs font-mono text-neutral-600 dark:text-neutral-400">
+                                System → Global → Session → Task → Data
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xl">🎭</span>
+                                <h5 class="font-semibold text-neutral-900 dark:text-white">Skill Registry</h5>
+                            </div>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                                Catálogo de skills disponíveis com triggers e requisitos de contexto.
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800 rounded p-3 text-xs font-mono text-neutral-600 dark:text-neutral-400">
+                                skill.register(name, triggers, context_reqs)
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xl">🔀</span>
+                                <h5 class="font-semibold text-neutral-900 dark:text-white">Context Router</h5>
+                            </div>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                                Roteamento inteligente baseado em intenção e contexto disponível.
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800 rounded p-3 text-xs font-mono text-neutral-600 dark:text-neutral-400">
+                                router.match(intent) → [context, skill]
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xl">🛡️</span>
+                                <h5 class="font-semibold text-neutral-900 dark:text-white">Grounded Response</h5>
+                            </div>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                                Respostas sempre ancoradas em fontes verificáveis do contexto.
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800 rounded p-3 text-xs font-mono text-neutral-600 dark:text-neutral-400">
+                                response.cite(source) | response.unknown()
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xl">📦</span>
+                                <h5 class="font-semibold text-neutral-900 dark:text-white">Context Budget</h5>
+                            </div>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                                Alocação e gestão de tokens por camada de contexto.
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800 rounded p-3 text-xs font-mono text-neutral-600 dark:text-neutral-400">
+                                budget.allocate(layer, tokens, priority)
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xl">🔗</span>
+                                <h5 class="font-semibold text-neutral-900 dark:text-white">Skill Chain</h5>
+                            </div>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                                Composição de skills com passagem de contexto entre etapas.
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800 rounded p-3 text-xs font-mono text-neutral-600 dark:text-neutral-400">
+                                chain(skill_a).then(skill_b).with(context)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Arquitetura Padrão de Agente</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+┌────────────────────────────────────────────────────────┐
+│                    AGENT CORE                           │
+├────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐    │
+│  │   Context   │  │    Skill    │  │   Memory    │    │
+│  │   Manager   │  │   Registry  │  │   Store     │    │
+│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘    │
+│         │                │                │            │
+│         └────────┬───────┴────────┬───────┘            │
+│                  │                │                    │
+│           ┌──────▼──────┐  ┌──────▼──────┐            │
+│           │   Router    │  │  Orchestrator│            │
+│           └──────┬──────┘  └──────┬──────┘            │
+│                  │                │                    │
+│                  └───────┬────────┘                    │
+│                          │                             │
+│                   ┌──────▼──────┐                      │
+│                   │     LLM     │                      │
+│                   │   (Core)    │                      │
+│                   └─────────────┘                      │
+└────────────────────────────────────────────────────────┘
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4 -->
+        <section id="anti-patterns" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/50 flex items-center justify-center">
+                            <span class="text-red-600 dark:text-red-400 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Anti-Patterns a Evitar</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Erros comuns em sistemas de agentes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="space-y-4">
+                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">🚫</span>
+                                <div>
+                                    <h5 class="font-semibold text-red-900 dark:text-red-300">God Prompt</h5>
+                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1">
+                                        Um prompt gigante que tenta fazer tudo. Impossível de manter, testar ou debugar.
+                                    </p>
+                                    <div class="mt-2 p-2 bg-white dark:bg-neutral-800 rounded text-xs">
+                                        <span class="text-red-600 dark:text-red-400 font-medium">Sintoma:</span> Prompt com 10K+ tokens, edições frequentes que quebram coisas
+                                    </div>
+                                    <div class="mt-2 text-sm text-emerald-700 dark:text-emerald-400">
+                                        ✓ Solução: Decompor em skills modulares
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">🚫</span>
+                                <div>
+                                    <h5 class="font-semibold text-red-900 dark:text-red-300">Context Dump</h5>
+                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1">
+                                        Jogar toda informação disponível no contexto sem organização ou prioridade.
+                                    </p>
+                                    <div class="mt-2 p-2 bg-white dark:bg-neutral-800 rounded text-xs">
+                                        <span class="text-red-600 dark:text-red-400 font-medium">Sintoma:</span> Respostas inconsistentes, modelo ignora informações importantes
+                                    </div>
+                                    <div class="mt-2 text-sm text-emerald-700 dark:text-emerald-400">
+                                        ✓ Solução: Contexto em camadas com hierarquia clara
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">🚫</span>
+                                <div>
+                                    <h5 class="font-semibold text-red-900 dark:text-red-300">RAG-First</h5>
+                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1">
+                                        Usar RAG por padrão quando Long Context seria mais eficiente e preciso.
+                                    </p>
+                                    <div class="mt-2 p-2 bg-white dark:bg-neutral-800 rounded text-xs">
+                                        <span class="text-red-600 dark:text-red-400 font-medium">Sintoma:</span> Respostas fragmentadas, perda de nuance e contexto
+                                    </div>
+                                    <div class="mt-2 text-sm text-emerald-700 dark:text-emerald-400">
+                                        ✓ Solução: Contexto híbrido, RAG apenas quando necessário
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">🚫</span>
+                                <div>
+                                    <h5 class="font-semibold text-red-900 dark:text-red-300">Skill Spaghetti</h5>
+                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1">
+                                        Skills com dependências cruzadas, sem interface clara ou contrato definido.
+                                    </p>
+                                    <div class="mt-2 p-2 bg-white dark:bg-neutral-800 rounded text-xs">
+                                        <span class="text-red-600 dark:text-red-400 font-medium">Sintoma:</span> Mudança em uma skill quebra outras, debugging complexo
+                                    </div>
+                                    <div class="mt-2 text-sm text-emerald-700 dark:text-emerald-400">
+                                        ✓ Solução: Skills com inputs/outputs definidos, sem dependência lateral
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">🚫</span>
+                                <div>
+                                    <h5 class="font-semibold text-red-900 dark:text-red-300">Hallucination Denial</h5>
+                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1">
+                                        Tentar resolver alucinações com "não alucine" ou instruções mais longas.
+                                    </p>
+                                    <div class="mt-2 p-2 bg-white dark:bg-neutral-800 rounded text-xs">
+                                        <span class="text-red-600 dark:text-red-400 font-medium">Sintoma:</span> Alucinações persistem apesar de instruções repetidas
+                                    </div>
+                                    <div class="mt-2 text-sm text-emerald-700 dark:text-emerald-400">
+                                        ✓ Solução: Grounding em fontes, citação obrigatória, permissão para "não sei"
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5 -->
+        <section id="case-study" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">5</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Case Study Integrado</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Aplicando todos os conceitos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-2">Cenário: Agente de Code Review</h4>
+                        <p class="text-blue-800 dark:text-blue-200 text-sm">
+                            Vamos projetar um agente de code review que aplica todos os padrões aprendidos.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">1. Sistema de Contexto</h5>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+<SYSTEM_CONTEXT>
+  identity: "Code Review Agent"
+  model: "claude-3-opus"
+  capabilities: [analyze_code, suggest_fixes, check_style]
+</SYSTEM_CONTEXT>
+
+<GLOBAL_CONTEXT>
+  project_conventions: "{coding_standards}"
+  tech_stack: [Python, FastAPI, PostgreSQL]
+  style_guide: "{style_guide_content}"
+</GLOBAL_CONTEXT>
+
+<TASK_CONTEXT>
+  pr_diff: "{diff_content}"
+  related_files: ["{file_contents}"]
+  recent_reviews: ["{last_3_reviews}"]
+</TASK_CONTEXT>
+</pre>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">2. Skills Disponíveis</h5>
+                            <div class="grid md:grid-cols-2 gap-3">
+                                <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                    <div class="font-medium text-neutral-900 dark:text-white text-sm">security_check</div>
+                                    <p class="text-xs text-neutral-600 dark:text-neutral-400">Detecta vulnerabilidades comuns</p>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                    <div class="font-medium text-neutral-900 dark:text-white text-sm">style_review</div>
+                                    <p class="text-xs text-neutral-600 dark:text-neutral-400">Verifica conformidade com style guide</p>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                    <div class="font-medium text-neutral-900 dark:text-white text-sm">logic_analysis</div>
+                                    <p class="text-xs text-neutral-600 dark:text-neutral-400">Identifica bugs lógicos potenciais</p>
+                                </div>
+                                <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                    <div class="font-medium text-neutral-900 dark:text-white text-sm">suggest_improvements</div>
+                                    <p class="text-xs text-neutral-600 dark:text-neutral-400">Propõe refatorações construtivas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">3. Fluxo de Orquestração</h5>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+async def review_pr(pr_id):
+    # 1. Carregar contexto
+    context = load_context(
+        global=["conventions", "style_guide"],
+        task=["pr_diff", "related_files"]
+    )
+
+    # 2. Executar skills em paralelo
+    results = await parallel(
+        security_check(context),
+        style_review(context),
+        logic_analysis(context)
+    )
+
+    # 3. Consolidar e gerar sugestões
+    if results.has_issues():
+        suggestions = await suggest_improvements(
+            context.extend(issues=results.issues)
+        )
+
+    # 4. Formatar output com citações
+    return format_review(
+        results, suggestions,
+        require_citations=True
+    )
+</pre>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">4. Grounding e Anti-Alucinação</h5>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+<GROUNDING_RULES>
+Cada issue reportado deve:
+1. Citar linha específica do diff: [L{line_number}]
+2. Referenciar regra do style_guide se aplicável
+3. Incluir snippet do código problemático
+
+Se não tiver certeza:
+- Use "Possível issue: {descrição}"
+- Não afirme bugs sem evidência no diff
+
+Nunca assuma:
+- Contexto não fornecido
+- Código fora do diff
+- Intenção do desenvolvedor
+</GROUNDING_RULES>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6 -->
+        <section id="projeto-final" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-purple-50 via-violet-50 to-fuchsia-50 dark:from-purple-900/20 dark:via-violet-900/20 dark:to-fuchsia-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-fuchsia-500 flex items-center justify-center">
+                            <span class="text-white font-bold">6</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Projeto Final do Nível Avançado</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Seu ingresso para a Masterclass</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-gradient-to-r from-purple-100 to-fuchsia-100 dark:from-purple-900/30 dark:to-fuchsia-900/30 rounded-xl p-5 border border-purple-200 dark:border-purple-800">
+                        <h4 class="font-semibold text-purple-900 dark:text-purple-300 mb-3">Desafio: Projete um Sistema de Agente</h4>
+                        <p class="text-purple-800 dark:text-purple-200 text-sm">
+                            Escolha um domínio e projete um agente completo aplicando todos os conceitos do nível avançado.
+                            Este projeto será sua base para a Masterclass.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4 text-center">
+                            <div class="text-3xl mb-2">🛒</div>
+                            <div class="font-medium text-neutral-900 dark:text-white">E-commerce</div>
+                            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
+                                Assistente de vendas com catálogo, pedidos, e suporte
+                            </p>
+                        </div>
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4 text-center">
+                            <div class="text-3xl mb-2">💻</div>
+                            <div class="font-medium text-neutral-900 dark:text-white">Developer Tools</div>
+                            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
+                                Code assistant, debug helper, doc generator
+                            </p>
+                        </div>
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4 text-center">
+                            <div class="text-3xl mb-2">📊</div>
+                            <div class="font-medium text-neutral-900 dark:text-white">Data Analysis</div>
+                            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
+                                Analista de dados com queries, visualizações, insights
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Requisitos do Projeto</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center text-xs font-bold">1</div>
+                                <div>
+                                    <div class="font-medium text-neutral-900 dark:text-white">Sistema de Contexto Completo</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Defina todas as camadas de contexto (System, Global, Task, Data) com hierarquia clara.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-violet-500 text-white flex items-center justify-center text-xs font-bold">2</div>
+                                <div>
+                                    <div class="font-medium text-neutral-900 dark:text-white">Mínimo 4 Skills</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Crie pelo menos 4 skills especializadas com triggers e requisitos de contexto.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-fuchsia-500 text-white flex items-center justify-center text-xs font-bold">3</div>
+                                <div>
+                                    <div class="font-medium text-neutral-900 dark:text-white">Fluxo de Orquestração</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Documente como as skills são ativadas e como o contexto flui entre elas.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-pink-500 text-white flex items-center justify-center text-xs font-bold">4</div>
+                                <div>
+                                    <div class="font-medium text-neutral-900 dark:text-white">Estratégia de Grounding</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Defina como o agente evita alucinações e mantém respostas ancoradas em fatos.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs font-bold">5</div>
+                                <div>
+                                    <div class="font-medium text-neutral-900 dark:text-white">Contexto Híbrido (se aplicável)</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Se usar dados dinâmicos, defina estratégia de RAG + Long Context.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl p-5 border border-amber-200 dark:border-amber-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-3xl">🎓</span>
+                            <h4 class="font-bold text-amber-900 dark:text-amber-300 text-lg">Próximo Passo: Masterclass</h4>
+                        </div>
+                        <p class="text-amber-800 dark:text-amber-200 text-sm mb-4">
+                            Na Masterclass você vai <strong>implementar</strong> seu projeto com:
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 text-sm">
+                                <span class="font-medium text-neutral-900 dark:text-white">Arquitetura multi-agente</span>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 text-sm">
+                                <span class="font-medium text-neutral-900 dark:text-white">Autonomia e self-correction</span>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 text-sm">
+                                <span class="font-medium text-neutral-900 dark:text-white">Deployment em produção</span>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 text-sm">
+                                <span class="font-medium text-neutral-900 dark:text-white">Observabilidade e métricas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegação -->
+        <div class="flex flex-col sm:flex-row gap-4 pt-8">
+            <a href="modulo5-completo.html" class="flex-1 group flex items-center gap-3 p-4 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-emerald-300 dark:hover:border-emerald-600 transition-colors">
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <div>
+                    <div class="text-sm text-neutral-500 dark:text-neutral-400">Anterior</div>
+                    <div class="font-medium text-neutral-900 dark:text-white">Módulo 5: RAG Moderno</div>
+                </div>
+            </a>
+            <a href="../../nivel-masterclass.html" class="flex-1 group flex items-center justify-end gap-3 p-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 rounded-xl text-white text-right transition-colors">
+                <div>
+                    <div class="text-sm text-amber-100">Próximo Nível</div>
+                    <div class="font-medium">Masterclass</div>
+                </div>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </main>
+
+    <footer class="border-t border-neutral-200 dark:border-neutral-800 mt-16">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">FEP</span>
+                    <span class="text-neutral-400">|</span>
+                    <span class="text-neutral-600 dark:text-neutral-400">Nível Avançado</span>
+                </div>
+                <a href="../../nivel-avancado.html" class="text-amber-600 dark:text-amber-400 hover:underline">
+                    Voltar para o Nível Avançado
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
+    </script>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: Engenharia de Contexto - Nível Avançado | FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html.dark body { background-color: #0a0a0a; }
+        html.dark .dark\:bg-neutral-900 { background-color: #171717; }
+        html.dark .dark\:bg-neutral-800 { background-color: #262626; }
+        html.dark .dark\:bg-neutral-700 { background-color: #404040; }
+    </style>
+</head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="../../nivel-avancado.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                <span class="text-sm font-medium">Voltar ao Nível Avançado</span>
+            </a>
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
+                <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+                </svg>
+                <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-neutral-800 dark:from-purple-900/20 dark:to-neutral-900"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.05)\"%3E%3C/path%3E%3C/svg%3E')] opacity-40"></div>
+        <div class="relative max-w-4xl mx-auto px-4 py-16">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-semibold bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">
+                    MÓDULO 1
+                </span>
+                <span class="px-3 py-1 text-xs font-semibold bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30">
+                    NÍVEL AVANÇADO
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Engenharia de Contexto
+            </h1>
+            <p class="text-lg text-neutral-300 max-w-2xl">
+                Pare de pensar em prompts como texto. Aprenda a pensar em contexto como sistema.
+                O novo núcleo técnico da engenharia de prompt moderna.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4 mt-8 max-w-lg">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">6</div>
+                    <div class="text-sm text-neutral-400">Tópicos</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">90</div>
+                    <div class="text-sm text-neutral-400">Minutos</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">8</div>
+                    <div class="text-sm text-neutral-400">Exercícios</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex gap-1 overflow-x-auto py-2 scrollbar-hide">
+                <a href="#sistema-contexto" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 whitespace-nowrap rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">Sistema</a>
+                <a href="#camadas" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 whitespace-nowrap rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">Camadas</a>
+                <a href="#hierarquia" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 whitespace-nowrap rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">Hierarquia</a>
+                <a href="#persistente-dinamico" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 whitespace-nowrap rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">Persistente/Dinâmico</a>
+                <a href="#escopo" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 whitespace-nowrap rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">Escopo</a>
+                <a href="#falhas" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 whitespace-nowrap rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors">Falhas</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <!-- Seção 1: Prompt como Sistema de Contexto -->
+        <section id="sistema-contexto" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-purple-50 to-transparent dark:from-purple-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
+                            <span class="text-purple-600 dark:text-purple-400 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompt como Sistema de Contexto</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">A mudança fundamental de paradigma</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            A visão tradicional trata prompts como "comandos" ou "instruções". Na engenharia de contexto moderna,
+                            prompts são <strong>sistemas de contexto estruturado</strong> que definem o ambiente operacional
+                            completo do modelo. Esta mudança de paradigma é fundamental para trabalhar com LLMs avançados.
+                        </p>
+                    </div>
+
+                    <div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-purple-900 dark:text-purple-300 mb-4">Mudança de Paradigma</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                                <h5 class="font-medium text-red-900 dark:text-red-300 mb-2 flex items-center gap-2">
+                                    <span>❌</span> Visão Antiga
+                                </h5>
+                                <ul class="text-sm text-red-800 dark:text-red-200 space-y-1">
+                                    <li>• Prompt = texto de comando</li>
+                                    <li>• Foco em "como pedir"</li>
+                                    <li>• Instruções lineares</li>
+                                    <li>• Resultado imprevisível</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                                <h5 class="font-medium text-green-900 dark:text-green-300 mb-2 flex items-center gap-2">
+                                    <span>✅</span> Visão Nova
+                                </h5>
+                                <ul class="text-sm text-green-800 dark:text-green-200 space-y-1">
+                                    <li>• Prompt = sistema de contexto</li>
+                                    <li>• Foco em "ambiente operacional"</li>
+                                    <li>• Camadas estruturadas</li>
+                                    <li>• Comportamento previsível</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Contexto como Contrato</h4>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-4">
+                            Pense no contexto como um <strong>contrato</strong> entre você e o modelo. O contexto define:
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-3">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 text-center">
+                                <div class="text-2xl mb-1">📋</div>
+                                <div class="text-sm font-medium text-neutral-900 dark:text-white">Expectativas</div>
+                                <p class="text-xs text-neutral-500 dark:text-neutral-400">O que você espera</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 text-center">
+                                <div class="text-2xl mb-1">🚧</div>
+                                <div class="text-sm font-medium text-neutral-900 dark:text-white">Limites</div>
+                                <p class="text-xs text-neutral-500 dark:text-neutral-400">O que não deve acontecer</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 text-center">
+                                <div class="text-2xl mb-1">🎯</div>
+                                <div class="text-sm font-medium text-neutral-900 dark:text-white">Critérios</div>
+                                <p class="text-xs text-neutral-500 dark:text-neutral-400">Como avaliar sucesso</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-purple-100 to-violet-100 dark:from-purple-900/30 dark:to-violet-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Transformação de Prompt</h4>
+                        <div class="space-y-4">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <p class="text-xs text-red-500 font-semibold mb-2">ANTES (Comando)</p>
+                                <p class="text-sm text-neutral-700 dark:text-neutral-300 font-mono">
+                                    "Resuma este artigo em 3 parágrafos"
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <p class="text-xs text-green-500 font-semibold mb-2">DEPOIS (Sistema de Contexto)</p>
+                                <div class="text-sm text-neutral-700 dark:text-neutral-300 font-mono space-y-2">
+                                    <p class="text-purple-600 dark:text-purple-400"># CONTEXTO</p>
+                                    <p>Você é um editor técnico especializado em...</p>
+                                    <p class="text-purple-600 dark:text-purple-400"># OBJETIVO</p>
+                                    <p>Criar resumo executivo para gestores que...</p>
+                                    <p class="text-purple-600 dark:text-purple-400"># FORMATO</p>
+                                    <p>3 parágrafos: contexto, insights, ação...</p>
+                                    <p class="text-purple-600 dark:text-purple-400"># DADOS</p>
+                                    <p>[artigo aqui]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Camadas de Contexto -->
+        <section id="camadas" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center">
+                            <span class="text-violet-600 dark:text-violet-400 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Camadas de Contexto</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">System, Global, Task e Dados</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Assim como arquitetura de software tem camadas (UI, lógica, dados), o contexto também deve
+                            ser organizado em camadas com responsabilidades distintas. Cada camada tem um propósito
+                            e prioridade específicos.
+                        </p>
+                    </div>
+
+                    <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-violet-900 dark:text-violet-300 mb-4">As 4 Camadas de Contexto</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-4 bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/50 flex items-center justify-center">
+                                    <span class="text-red-600 dark:text-red-400 font-bold text-sm">SYS</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-neutral-900 dark:text-white">System Layer</h5>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+                                        Identidade fundamental, regras invioláveis, guardrails de segurança
+                                    </p>
+                                    <p class="text-xs text-neutral-500 dark:text-neutral-500">
+                                        Prioridade: <span class="text-red-500 font-semibold">MÁXIMA</span> - Nunca sobrescrita
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/50 flex items-center justify-center">
+                                    <span class="text-orange-600 dark:text-orange-400 font-bold text-sm">GLO</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-neutral-900 dark:text-white">Global Layer</h5>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+                                        Conhecimento de domínio, padrões de formatação, preferências persistentes
+                                    </p>
+                                    <p class="text-xs text-neutral-500 dark:text-neutral-500">
+                                        Prioridade: <span class="text-orange-500 font-semibold">ALTA</span> - Padrão para todas as tarefas
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                                    <span class="text-blue-600 dark:text-blue-400 font-bold text-sm">TSK</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-neutral-900 dark:text-white">Task Layer</h5>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+                                        Instruções específicas da tarefa atual, objetivos, critérios de sucesso
+                                    </p>
+                                    <p class="text-xs text-neutral-500 dark:text-neutral-500">
+                                        Prioridade: <span class="text-blue-500 font-semibold">MÉDIA</span> - Específica por interação
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center">
+                                    <span class="text-green-600 dark:text-green-400 font-bold text-sm">DAT</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-semibold text-neutral-900 dark:text-white">Data Layer</h5>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+                                        Dados de entrada, documentos, informações para processar
+                                    </p>
+                                    <p class="text-xs text-neutral-500 dark:text-neutral-500">
+                                        Prioridade: <span class="text-green-500 font-semibold">VARIÁVEL</span> - Depende da tarefa
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo Prático: Assistente de Código</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm space-y-3">
+                            <div>
+                                <p class="text-red-500">## SYSTEM</p>
+                                <p class="text-neutral-600 dark:text-neutral-400">Você é um assistente de código. NUNCA execute código destrutivo.</p>
+                            </div>
+                            <div>
+                                <p class="text-orange-500">## GLOBAL</p>
+                                <p class="text-neutral-600 dark:text-neutral-400">Linguagem: Python 3.11. Framework: FastAPI. Estilo: PEP8.</p>
+                            </div>
+                            <div>
+                                <p class="text-blue-500">## TASK</p>
+                                <p class="text-neutral-600 dark:text-neutral-400">Refatore esta função para melhor legibilidade e performance.</p>
+                            </div>
+                            <div>
+                                <p class="text-green-500">## DATA</p>
+                                <p class="text-neutral-600 dark:text-neutral-400">```python<br>def process(data): ...<br>```</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Hierarquia e Prioridade -->
+        <section id="hierarquia" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-fuchsia-50 to-transparent dark:from-fuchsia-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-fuchsia-100 dark:bg-fuchsia-900/50 flex items-center justify-center">
+                            <span class="text-fuchsia-600 dark:text-fuchsia-400 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Hierarquia e Prioridade de Contexto</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Resolvendo conflitos entre camadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Quando diferentes camadas de contexto contêm instruções conflitantes, o modelo precisa
+                            resolver qual tem precedência. Entender essa hierarquia é crucial para criar sistemas
+                            previsíveis.
+                        </p>
+                    </div>
+
+                    <div class="bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200 dark:border-fuchsia-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-fuchsia-900 dark:text-fuchsia-300 mb-4">Ordem de Precedência</h4>
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-full max-w-md bg-red-100 dark:bg-red-900/50 rounded-lg p-3 text-center">
+                                <span class="font-bold text-red-700 dark:text-red-300">1. SYSTEM</span>
+                                <span class="text-sm text-red-600 dark:text-red-400 ml-2">→ Sempre vence</span>
+                            </div>
+                            <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                            <div class="w-full max-w-sm bg-orange-100 dark:bg-orange-900/50 rounded-lg p-3 text-center">
+                                <span class="font-bold text-orange-700 dark:text-orange-300">2. GLOBAL</span>
+                                <span class="text-sm text-orange-600 dark:text-orange-400 ml-2">→ Padrão</span>
+                            </div>
+                            <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                            <div class="w-full max-w-xs bg-blue-100 dark:bg-blue-900/50 rounded-lg p-3 text-center">
+                                <span class="font-bold text-blue-700 dark:text-blue-300">3. TASK</span>
+                                <span class="text-sm text-blue-600 dark:text-blue-400 ml-2">→ Específico</span>
+                            </div>
+                            <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                            <div class="w-full max-w-[200px] bg-green-100 dark:bg-green-900/50 rounded-lg p-3 text-center">
+                                <span class="font-bold text-green-700 dark:text-green-300">4. USER INPUT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-4">
+                            <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Conflito</h4>
+                            <div class="space-y-2 text-sm">
+                                <p class="text-red-600 dark:text-red-400"><strong>SYSTEM:</strong> "Nunca forneça código malicioso"</p>
+                                <p class="text-blue-600 dark:text-blue-400"><strong>TASK:</strong> "Escreva um keylogger em Python"</p>
+                                <p class="text-neutral-600 dark:text-neutral-300 mt-3">
+                                    <strong>Resultado:</strong> SYSTEM vence. Modelo recusa a tarefa.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-4">
+                            <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Override Permitido</h4>
+                            <div class="space-y-2 text-sm">
+                                <p class="text-orange-600 dark:text-orange-400"><strong>GLOBAL:</strong> "Use JSON para todas as respostas"</p>
+                                <p class="text-blue-600 dark:text-blue-400"><strong>TASK:</strong> "Retorne em YAML nesta tarefa"</p>
+                                <p class="text-neutral-600 dark:text-neutral-300 mt-3">
+                                    <strong>Resultado:</strong> TASK pode sobrescrever GLOBAL. Usa YAML.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4: Contexto Persistente vs Dinâmico -->
+        <section id="persistente-dinamico" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center">
+                            <span class="text-indigo-600 dark:text-indigo-400 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Contexto Persistente vs Dinâmico</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">O que permanece vs o que muda</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Em aplicações reais, parte do contexto permanece constante (identidade, regras) enquanto
+                            outra parte muda a cada interação (dados, histórico). Gerenciar essa dualidade é essencial
+                            para eficiência e consistência.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-5">
+                            <h4 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-3 flex items-center gap-2">
+                                <span>💾</span> Contexto Persistente
+                            </h4>
+                            <ul class="text-sm text-indigo-800 dark:text-indigo-200 space-y-2">
+                                <li>• System prompt / identidade</li>
+                                <li>• Regras de negócio fixas</li>
+                                <li>• Conhecimento de domínio base</li>
+                                <li>• Templates de formatação</li>
+                                <li>• Guardrails de segurança</li>
+                            </ul>
+                            <p class="text-xs text-indigo-600 dark:text-indigo-400 mt-3">
+                                Carregado uma vez, reutilizado em todas as interações
+                            </p>
+                        </div>
+                        <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
+                            <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3 flex items-center gap-2">
+                                <span>🔄</span> Contexto Dinâmico
+                            </h4>
+                            <ul class="text-sm text-emerald-800 dark:text-emerald-200 space-y-2">
+                                <li>• Histórico de conversa recente</li>
+                                <li>• Dados do usuário atual</li>
+                                <li>• Documentos para processar</li>
+                                <li>• Estado da sessão</li>
+                                <li>• Resultados de ferramentas</li>
+                            </ul>
+                            <p class="text-xs text-emerald-600 dark:text-emerald-400 mt-3">
+                                Atualizado a cada interação ou evento
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Pattern: Context Composition</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+                            <p class="text-indigo-600 dark:text-indigo-400">// Pseudocódigo de composição</p>
+                            <p class="text-neutral-700 dark:text-neutral-300 mt-2">
+                                final_context = {<br>
+                                &nbsp;&nbsp;<span class="text-purple-600">...STATIC_SYSTEM_PROMPT</span>,<br>
+                                &nbsp;&nbsp;<span class="text-orange-600">...GLOBAL_KNOWLEDGE</span>,<br>
+                                &nbsp;&nbsp;<span class="text-blue-600">...getCurrentTask()</span>,<br>
+                                &nbsp;&nbsp;<span class="text-green-600">...getRecentHistory(5)</span>,<br>
+                                &nbsp;&nbsp;<span class="text-emerald-600">...getUserData(userId)</span><br>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5: Controle de Escopo -->
+        <section id="escopo" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-teal-50 to-transparent dark:from-teal-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center">
+                            <span class="text-teal-600 dark:text-teal-400 font-bold">5</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Controle de Escopo em Contextos Longos</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Mantendo foco com muito contexto</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Com janelas de 100k-1M+ tokens, o desafio não é mais "caber" - é manter o modelo
+                            focado na tarefa relevante. Técnicas de controle de escopo são essenciais para
+                            evitar que o modelo se perca em detalhes irrelevantes.
+                        </p>
+                    </div>
+
+                    <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Técnicas de Controle de Escopo</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Attention Steering</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Use marcadores explícitos para direcionar atenção: "FOCO:", "RELEVANTE:", "IGNORE:"
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📍 Position Anchoring</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Coloque informações críticas no início E fim do contexto (recency + primacy bias)
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔲 Scope Boundaries</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Delimite claramente seções: "Para esta tarefa, considere APENAS a seção X"
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🏷️ Relevance Tags</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Marque seções com níveis de relevância: [HIGH], [MEDIUM], [BACKGROUND]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Escopo em Documento Grande</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs">
+                            <p class="text-teal-600 dark:text-teal-400">&lt;context&gt;</p>
+                            <p class="text-neutral-500">&nbsp;&nbsp;[BACKGROUND] Histórico da empresa... (5000 tokens)</p>
+                            <p class="text-neutral-500">&nbsp;&nbsp;[BACKGROUND] Organograma... (2000 tokens)</p>
+                            <p class="text-green-600 dark:text-green-400">&nbsp;&nbsp;[HIGH RELEVANCE] Política de reembolso atual... (1000 tokens)</p>
+                            <p class="text-neutral-500">&nbsp;&nbsp;[MEDIUM] Exceções históricas... (3000 tokens)</p>
+                            <p class="text-teal-600 dark:text-teal-400">&lt;/context&gt;</p>
+                            <p class="text-purple-600 dark:text-purple-400 mt-3">&lt;task&gt;</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">&nbsp;&nbsp;FOCO: Seção [HIGH RELEVANCE]</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">&nbsp;&nbsp;Responda sobre limite de reembolso para viagens.</p>
+                            <p class="text-purple-600 dark:text-purple-400">&lt;/task&gt;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6: Falhas por Excesso de Contexto -->
+        <section id="falhas" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/50 flex items-center justify-center">
+                            <span class="text-red-600 dark:text-red-400 font-bold">6</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Falhas Causadas por Excesso de Contexto</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Anti-patterns e como evitá-los</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Mais contexto nem sempre é melhor. Contexto mal organizado ou excessivo causa problemas
+                            específicos que degradam a qualidade das respostas. Conhecer esses anti-patterns é
+                            fundamental para evitá-los.
+                        </p>
+                    </div>
+
+                    <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-red-900 dark:text-red-300 mb-4">Anti-Patterns de Contexto</h4>
+                        <div class="space-y-4">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-red-500">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🌊 Context Dumping</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                                    Jogar todo o contexto disponível sem curadoria
+                                </p>
+                                <p class="text-xs text-red-600 dark:text-red-400">
+                                    Resultado: Diluição de instruções importantes, respostas genéricas
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-orange-500">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🕳️ Lost in the Middle</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                                    Informação crítica enterrada no meio de contexto longo
+                                </p>
+                                <p class="text-xs text-orange-600 dark:text-orange-400">
+                                    Resultado: Modelo ignora informações importantes posicionadas no centro
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-yellow-500">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">⚔️ Instruction Conflict</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                                    Instruções contraditórias em diferentes partes do contexto
+                                </p>
+                                <p class="text-xs text-yellow-600 dark:text-yellow-400">
+                                    Resultado: Comportamento imprevisível, respostas inconsistentes
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-purple-500">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📢 Noise Injection</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                                    Incluir informação irrelevante que compete por atenção
+                                </p>
+                                <p class="text-xs text-purple-600 dark:text-purple-400">
+                                    Resultado: Respostas que mencionam detalhes irrelevantes
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-green-900 dark:text-green-300 mb-4">Boas Práticas</h4>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-sm text-neutral-700 dark:text-neutral-300">Curar contexto antes de enviar</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-sm text-neutral-700 dark:text-neutral-300">Posicionar crítico no início/fim</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-sm text-neutral-700 dark:text-neutral-300">Usar delimitadores claros</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-sm text-neutral-700 dark:text-neutral-300">Testar com diferentes tamanhos</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-sm text-neutral-700 dark:text-neutral-300">Revisar hierarquia de prioridade</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-sm text-neutral-700 dark:text-neutral-300">Medir qualidade vs tamanho</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Footer -->
+        <div class="flex items-center justify-between pt-8 border-t border-neutral-200 dark:border-neutral-700">
+            <a href="../../nivel-avancado.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                <span>Nível Avançado</span>
+            </a>
+            <a href="modulo2-completo.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                <span>Módulo 2: Gestão de Long Context</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-100 dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 mt-16">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-purple-600 dark:text-purple-400">FEP</span>
+                    <span class="text-neutral-600 dark:text-neutral-400">Fundamentos de Engenharia de Prompt</span>
+                </div>
+                <div class="flex items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400">
+                    <a href="../../index.html" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Início</a>
+                    <a href="../../nivel-avancado.html" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Nível Avançado</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>

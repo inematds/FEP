@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: RAG Moderno e Contexto Híbrido - Nível Avançado | FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } }</script>
+    <style>
+        html.dark body { background-color: #0a0a0a; }
+        html.dark .dark\:bg-neutral-900 { background-color: #171717; }
+        html.dark .dark\:bg-neutral-800 { background-color: #262626; }
+        html.dark .dark\:bg-neutral-700 { background-color: #404040; }
+    </style>
+</head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="../../nivel-avancado.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span class="text-sm font-medium">Voltar ao Nível Avançado</span>
+            </a>
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700">
+                <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-neutral-800 dark:from-emerald-900/20 dark:to-neutral-900"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.05)\"%3E%3C/path%3E%3C/svg%3E')] opacity-40"></div>
+        <div class="relative max-w-4xl mx-auto px-4 py-16">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 rounded-full border border-emerald-500/30">MÓDULO 5</span>
+                <span class="px-3 py-1 text-xs font-semibold bg-teal-500/20 text-teal-300 rounded-full border border-teal-500/30">PÓS-RAG</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                RAG Moderno e Contexto Híbrido
+            </h1>
+            <p class="text-lg text-neutral-300 max-w-2xl">
+                Repensando RAG na era do Long Context. Quando usar, como integrar com contexto
+                fixo, e estratégias para reduzir alucinações com contexto híbrido.
+            </p>
+            <div class="grid grid-cols-3 gap-4 mt-8 max-w-lg">
+                <div class="text-center"><div class="text-3xl font-bold text-white">6</div><div class="text-sm text-neutral-400">Tópicos</div></div>
+                <div class="text-center"><div class="text-3xl font-bold text-white">90</div><div class="text-sm text-neutral-400">Minutos</div></div>
+                <div class="text-center"><div class="text-3xl font-bold text-white">6</div><div class="text-sm text-neutral-400">Exercícios</div></div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex gap-1 overflow-x-auto py-2">
+                <a href="#quando-rag" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 whitespace-nowrap rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20">Quando RAG</a>
+                <a href="#rag-complemento" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 whitespace-nowrap rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20">Complemento</a>
+                <a href="#injecao-seletiva" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 whitespace-nowrap rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20">Injeção Seletiva</a>
+                <a href="#contexto-hibrido" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 whitespace-nowrap rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20">Híbrido</a>
+                <a href="#reducao-alucinacao" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 whitespace-nowrap rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20">Alucinações</a>
+                <a href="#avaliacao-qualidade" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 whitespace-nowrap rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20">Qualidade</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <!-- Seção 1 -->
+        <section id="quando-rag" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+                            <span class="text-emerald-600 dark:text-emerald-400 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Quando RAG Ainda é Necessário</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Casos de uso que justificam RAG em 2024+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-amber-900 dark:text-amber-300 mb-3">A Mudança de Paradigma</h4>
+                        <p class="text-amber-800 dark:text-amber-200 text-sm">
+                            Com janelas de contexto de 100K-1M+ tokens, a pergunta mudou de "como usar RAG?" para
+                            <strong>"quando RAG ainda faz sentido?"</strong>. RAG deixou de ser a solução padrão
+                            para se tornar uma ferramenta específica.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
+                            <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">✅ RAG Ainda Faz Sentido</h4>
+                            <ul class="space-y-2 text-sm text-emerald-800 dark:text-emerald-200">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-500 mt-1">•</span>
+                                    <span><strong>Dados em tempo real:</strong> Preços, estoque, status</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-500 mt-1">•</span>
+                                    <span><strong>Base > 1M tokens:</strong> Quando excede o contexto</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-500 mt-1">•</span>
+                                    <span><strong>Multi-tenant:</strong> Dados isolados por usuário</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-500 mt-1">•</span>
+                                    <span><strong>Custo:</strong> Long context é caro para dados raramente usados</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-500 mt-1">•</span>
+                                    <span><strong>Atualização frequente:</strong> Dados que mudam constantemente</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+                            <h4 class="font-semibold text-red-900 dark:text-red-300 mb-3">❌ Long Context é Melhor</h4>
+                            <ul class="space-y-2 text-sm text-red-800 dark:text-red-200">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 mt-1">•</span>
+                                    <span><strong>Documentação fixa:</strong> Manuais, políticas, specs</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 mt-1">•</span>
+                                    <span><strong>Codebases:</strong> Código fonte do projeto</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 mt-1">•</span>
+                                    <span><strong>Análise profunda:</strong> Quando precisa ver tudo junto</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 mt-1">•</span>
+                                    <span><strong>Consistência:</strong> Respostas dependem de múltiplos docs</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 mt-1">•</span>
+                                    <span><strong>Contexto rico:</strong> Nuances e interrelações importam</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Matriz de Decisão RAG vs Long Context</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b border-neutral-300 dark:border-neutral-600">
+                                        <th class="text-left py-2 text-neutral-600 dark:text-neutral-300">Critério</th>
+                                        <th class="text-center py-2 text-neutral-600 dark:text-neutral-300">RAG</th>
+                                        <th class="text-center py-2 text-neutral-600 dark:text-neutral-300">Long Context</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-neutral-700 dark:text-neutral-200">
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
+                                        <td class="py-2">Dados mudam constantemente</td>
+                                        <td class="text-center text-emerald-600 dark:text-emerald-400">✓</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
+                                        <td class="py-2">Volume > 1M tokens</td>
+                                        <td class="text-center text-emerald-600 dark:text-emerald-400">✓</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
+                                        <td class="py-2">Precisão máxima necessária</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                        <td class="text-center text-emerald-600 dark:text-emerald-400">✓</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
+                                        <td class="py-2">Análise de relações entre docs</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                        <td class="text-center text-emerald-600 dark:text-emerald-400">✓</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2">Custo por query importa</td>
+                                        <td class="text-center text-emerald-600 dark:text-emerald-400">✓</td>
+                                        <td class="text-center text-neutral-400">—</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2 -->
+        <section id="rag-complemento" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-teal-50 to-transparent dark:from-teal-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center">
+                            <span class="text-teal-600 dark:text-teal-400 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">RAG como Complemento ao Long Context</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Integração inteligente de abordagens</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <p class="text-neutral-600 dark:text-neutral-300">
+                        A arquitetura moderna não escolhe entre RAG e Long Context — ela os <strong>combina
+                        estrategicamente</strong>. Cada um tem seu papel no sistema de contexto.
+                    </p>
+
+                    <div class="bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 border border-teal-200 dark:border-teal-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Arquitetura Complementar</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+                            <div class="text-neutral-500 dark:text-neutral-400 mb-2">// Contexto em camadas com RAG complementar</div>
+                            <pre class="text-teal-700 dark:text-teal-300 overflow-x-auto">
+┌─────────────────────────────────────────────┐
+│  SYSTEM CONTEXT (Long Context - Fixo)       │
+│  • Identidade, regras, políticas            │
+│  • Skills disponíveis                       │
+│  • Formato de resposta esperado             │
+├─────────────────────────────────────────────┤
+│  GLOBAL CONTEXT (Long Context - Sessão)     │
+│  • Documentação do projeto                  │
+│  • Codebase relevante                       │
+│  • Histórico resumido                       │
+├─────────────────────────────────────────────┤
+│  DYNAMIC CONTEXT (RAG - Por query)          │
+│  • Dados em tempo real                      │
+│  • Resultados de busca                      │
+│  • Informações específicas do momento       │
+├─────────────────────────────────────────────┤
+│  USER QUERY                                 │
+└─────────────────────────────────────────────┘</pre>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4">
+                            <h5 class="font-semibold text-purple-900 dark:text-purple-300 mb-2">🏗️ Fundação</h5>
+                            <p class="text-sm text-purple-800 dark:text-purple-200">
+                                Long Context para tudo que é estável: identidade, regras, documentação base.
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
+                            <h5 class="font-semibold text-blue-900 dark:text-blue-300 mb-2">🔄 Dinâmico</h5>
+                            <p class="text-sm text-blue-800 dark:text-blue-200">
+                                RAG para dados que mudam: preços, status, novidades, dados externos.
+                            </p>
+                        </div>
+                        <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4">
+                            <h5 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-2">⚡ Sob Demanda</h5>
+                            <p class="text-sm text-emerald-800 dark:text-emerald-200">
+                                RAG triggered por necessidade: busca ativada por keywords ou skill.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Assistente de Suporte</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start gap-3">
+                                <span class="px-2 py-1 bg-purple-200 dark:bg-purple-800 text-purple-800 dark:text-purple-200 rounded font-medium text-xs">FIXO</span>
+                                <span class="text-neutral-700 dark:text-neutral-300">Manual do produto (50K tokens) + Políticas (10K tokens)</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="px-2 py-1 bg-blue-200 dark:bg-blue-800 text-blue-800 dark:text-blue-200 rounded font-medium text-xs">RAG</span>
+                                <span class="text-neutral-700 dark:text-neutral-300">Status do pedido do cliente + Histórico de tickets recentes</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="px-2 py-1 bg-emerald-200 dark:bg-emerald-800 text-emerald-800 dark:text-emerald-200 rounded font-medium text-xs">TRIGGER</span>
+                                <span class="text-neutral-700 dark:text-neutral-300">"Buscar casos similares" ativado quando skill de escalação é chamado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3 -->
+        <section id="injecao-seletiva" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-cyan-50 to-transparent dark:from-cyan-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-900/50 flex items-center justify-center">
+                            <span class="text-cyan-600 dark:text-cyan-400 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Injeção Seletiva de Conhecimento</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Precisão sobre quantidade</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-cyan-900 dark:text-cyan-300 mb-3">O Problema do RAG Tradicional</h4>
+                        <p class="text-cyan-800 dark:text-cyan-200 text-sm mb-3">
+                            RAG clássico recupera chunks por similaridade semântica, mas nem sempre o mais
+                            "similar" é o mais "relevante". Injeção seletiva resolve isso.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <span class="text-red-500 font-bold">❌</span>
+                                <span class="text-sm text-neutral-700 dark:text-neutral-300 ml-2">Recuperar top-K por embedding</span>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <span class="text-emerald-500 font-bold">✓</span>
+                                <span class="text-sm text-neutral-700 dark:text-neutral-300 ml-2">Recuperar por intenção + contexto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white">Estratégias de Injeção Seletiva</h4>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">1. Injeção por Classificação de Intent</h5>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+# Primeiro: classificar a intenção
+intent = classify_intent(user_query)
+# → "troubleshooting" | "how_to" | "pricing" | "status"
+
+# Depois: recuperar da fonte correta
+if intent == "troubleshooting":
+    context = retrieve_from("knowledge_base/errors")
+elif intent == "pricing":
+    context = retrieve_from("pricing_api", realtime=True)
+elif intent == "status":
+    context = retrieve_from("orders_db", user_id=user.id)
+</pre>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">2. Injeção por Skill Ativo</h5>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+# Skill determina o que precisa
+skill = "code_review"
+required_context = skill.required_context()
+# → ["file_content", "project_conventions", "recent_changes"]
+
+# Injetar apenas o necessário
+for ctx_type in required_context:
+    inject_context(ctx_type, scope=skill.scope)
+</pre>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">3. Injeção Condicional</h5>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+# Injetar apenas se necessário
+if mentions_product(query):
+    inject("product_specs", lazy=True)
+
+if mentions_policy(query):
+    inject("company_policies", section=detect_policy_type(query))
+
+if requires_calculation(query):
+    inject("pricing_formulas")
+    inject("current_rates", source="api", cache=60s)
+</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-cyan-100 to-teal-100 dark:from-cyan-900/30 dark:to-teal-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Benefícios da Seletividade</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">🎯</span>
+                                <div>
+                                    <div class="font-medium text-neutral-900 dark:text-white">Precisão</div>
+                                    <div class="text-sm text-neutral-600 dark:text-neutral-300">Contexto relevante, não apenas similar</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">💰</span>
+                                <div>
+                                    <div class="font-medium text-neutral-900 dark:text-white">Custo</div>
+                                    <div class="text-sm text-neutral-600 dark:text-neutral-300">Menos tokens = menor custo por query</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">⚡</span>
+                                <div>
+                                    <div class="font-medium text-neutral-900 dark:text-white">Latência</div>
+                                    <div class="text-sm text-neutral-600 dark:text-neutral-300">Contexto menor = resposta mais rápida</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">🧠</span>
+                                <div>
+                                    <div class="font-medium text-neutral-900 dark:text-white">Foco</div>
+                                    <div class="text-sm text-neutral-600 dark:text-neutral-300">LLM não se distrai com contexto irrelevante</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4 -->
+        <section id="contexto-hibrido" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center">
+                            <span class="text-violet-600 dark:text-violet-400 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Contexto Híbrido (Fixo + Recuperado)</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">O melhor dos dois mundos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <p class="text-neutral-600 dark:text-neutral-300">
+                        Contexto híbrido combina a <strong>estabilidade do Long Context</strong> com a
+                        <strong>dinamicidade do RAG</strong>, criando sistemas que são ao mesmo tempo
+                        consistentes e atualizados.
+                    </p>
+
+                    <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-violet-900 dark:text-violet-300 mb-4">Anatomia do Contexto Híbrido</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-4">
+                                <div class="w-24 text-right text-sm font-medium text-violet-700 dark:text-violet-300">Estático</div>
+                                <div class="flex-1 h-8 bg-gradient-to-r from-purple-500 to-purple-400 rounded-lg flex items-center px-3">
+                                    <span class="text-white text-sm">System + Global Context</span>
+                                </div>
+                                <div class="w-16 text-sm text-neutral-500">~40%</div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-24 text-right text-sm font-medium text-violet-700 dark:text-violet-300">Semi-estático</div>
+                                <div class="flex-1 h-8 bg-gradient-to-r from-blue-500 to-blue-400 rounded-lg flex items-center px-3">
+                                    <span class="text-white text-sm">Sessão + Preferências</span>
+                                </div>
+                                <div class="w-16 text-sm text-neutral-500">~20%</div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-24 text-right text-sm font-medium text-violet-700 dark:text-violet-300">Dinâmico</div>
+                                <div class="flex-1 h-8 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-lg flex items-center px-3">
+                                    <span class="text-white text-sm">RAG + Tools + APIs</span>
+                                </div>
+                                <div class="w-16 text-sm text-neutral-500">~30%</div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-24 text-right text-sm font-medium text-violet-700 dark:text-violet-300">Query</div>
+                                <div class="flex-1 h-8 bg-gradient-to-r from-orange-500 to-orange-400 rounded-lg flex items-center px-3">
+                                    <span class="text-white text-sm">User Input</span>
+                                </div>
+                                <div class="w-16 text-sm text-neutral-500">~10%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">Padrão: Context Window Budget</h5>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between items-center p-2 bg-white dark:bg-neutral-800 rounded">
+                                    <span>System Context</span>
+                                    <span class="font-mono text-purple-600 dark:text-purple-400">10K max</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-white dark:bg-neutral-800 rounded">
+                                    <span>Global Knowledge</span>
+                                    <span class="font-mono text-blue-600 dark:text-blue-400">50K max</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-white dark:bg-neutral-800 rounded">
+                                    <span>Session History</span>
+                                    <span class="font-mono text-teal-600 dark:text-teal-400">20K max</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-white dark:bg-neutral-800 rounded">
+                                    <span>RAG Results</span>
+                                    <span class="font-mono text-emerald-600 dark:text-emerald-400">15K dynamic</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-white dark:bg-neutral-800 rounded">
+                                    <span>Response Buffer</span>
+                                    <span class="font-mono text-orange-600 dark:text-orange-400">5K reserved</span>
+                                </div>
+                                <div class="flex justify-between items-center p-2 bg-violet-100 dark:bg-violet-900/50 rounded font-medium">
+                                    <span>Total Budget</span>
+                                    <span class="font-mono text-violet-600 dark:text-violet-400">100K tokens</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">Estratégias de Gestão</h5>
+                            <div class="space-y-3">
+                                <div class="p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                    <div class="font-medium text-neutral-900 dark:text-white">Priority Eviction</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Remover contexto menos prioritário quando excede budget</p>
+                                </div>
+                                <div class="p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                    <div class="font-medium text-neutral-900 dark:text-white">Lazy Loading</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Carregar contexto apenas quando necessário</p>
+                                </div>
+                                <div class="p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                    <div class="font-medium text-neutral-900 dark:text-white">Summarization</div>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Comprimir histórico antigo em resumos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-violet-100 to-purple-100 dark:from-violet-900/30 dark:to-purple-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo Prático: E-commerce Assistant</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+context_budget = ContextBudget(total=100_000)
+
+# Camada fixa (sempre presente)
+context_budget.allocate("system",
+    content=system_prompt + skills_definition,
+    priority=CRITICAL, evictable=False)
+
+# Camada por sessão
+context_budget.allocate("catalog_summary",
+    content=get_catalog_summary(),
+    priority=HIGH, evictable=True)
+
+# Camada dinâmica (por query)
+if user_query.mentions_product():
+    context_budget.allocate("product_details",
+        content=rag.retrieve(user_query, top_k=5),
+        priority=MEDIUM, evictable=True)
+
+if user_query.mentions_order():
+    context_budget.allocate("order_status",
+        content=api.get_order(user.current_order),
+        priority=HIGH, evictable=True)
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5 -->
+        <section id="reducao-alucinacao" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-rose-50 to-transparent dark:from-rose-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center">
+                            <span class="text-rose-600 dark:text-rose-400 font-bold">5</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Redução de Alucinação via Contexto</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Grounding em fatos concretos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-rose-900 dark:text-rose-300 mb-3">Por Que LLMs Alucinam</h4>
+                        <p class="text-rose-800 dark:text-rose-200 text-sm mb-4">
+                            Alucinações acontecem quando o modelo precisa preencher lacunas de conhecimento.
+                            A solução não é pedir "não alucine" — é <strong>fornecer o contexto que elimina as lacunas</strong>.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <span class="text-sm font-medium text-rose-700 dark:text-rose-300">Lacuna de Fatos</span>
+                                <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Modelo inventa dados que não conhece</p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <span class="text-sm font-medium text-rose-700 dark:text-rose-300">Pressão para Responder</span>
+                                <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Prompt implica que deve haver resposta</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white">Estratégias de Grounding</h4>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">1. Contexto Autoritativo</h5>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                                Forneça a fonte de verdade explicitamente, com instruções para usá-la.
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+<pre class="text-emerald-700 dark:text-emerald-300">
+<PRODUCT_DATABASE>
+{product_data}
+</PRODUCT_DATABASE>
+
+Responda APENAS com informações presentes em
+PRODUCT_DATABASE. Se a informação não estiver
+disponível, diga "Não encontrei essa informação
+no catálogo."
+</pre>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">2. Citação Obrigatória</h5>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                                Force o modelo a citar suas fontes, impedindo invenções.
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+<pre class="text-blue-700 dark:text-blue-300">
+Cada afirmação factual deve incluir [fonte: documento#seção].
+Se não puder citar uma fonte do contexto fornecido,
+marque como [fonte: conhecimento geral] ou omita.
+</pre>
+                            </div>
+                        </div>
+
+                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">3. Permissão para "Não Sei"</h5>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                                Reduza a pressão para inventar respostas.
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+<pre class="text-violet-700 dark:text-violet-300">
+É perfeitamente aceitável responder:
+- "Não tenho essa informação"
+- "Precisaria verificar no sistema"
+- "Posso ajudar com X, mas não tenho dados sobre Y"
+
+Respostas parciais são melhores que respostas inventadas.
+</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Framework Anti-Alucinação</h4>
+                        <div class="grid md:grid-cols-4 gap-3">
+                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                <div class="text-2xl mb-2">📚</div>
+                                <div class="text-sm font-medium text-neutral-900 dark:text-white">Contexto Rico</div>
+                                <div class="text-xs text-neutral-500">Dados completos</div>
+                            </div>
+                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                <div class="text-2xl mb-2">🏷️</div>
+                                <div class="text-sm font-medium text-neutral-900 dark:text-white">Citação</div>
+                                <div class="text-xs text-neutral-500">Rastreabilidade</div>
+                            </div>
+                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                <div class="text-2xl mb-2">🚫</div>
+                                <div class="text-sm font-medium text-neutral-900 dark:text-white">Limites</div>
+                                <div class="text-xs text-neutral-500">Escopo definido</div>
+                            </div>
+                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+                                <div class="text-2xl mb-2">✅</div>
+                                <div class="text-sm font-medium text-neutral-900 dark:text-white">Validação</div>
+                                <div class="text-xs text-neutral-500">Verificação pós</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6 -->
+        <section id="avaliacao-qualidade" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
+                            <span class="text-amber-600 dark:text-amber-400 font-bold">6</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Avaliação de Qualidade Contextual</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Métricas e diagnóstico</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <p class="text-neutral-600 dark:text-neutral-300">
+                        Como saber se seu contexto está funcionando? Métricas específicas ajudam a
+                        diagnosticar problemas e otimizar o sistema de contexto.
+                    </p>
+
+                    <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-amber-900 dark:text-amber-300 mb-4">Métricas de Qualidade</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="text-lg">🎯</span>
+                                    <span class="font-semibold text-neutral-900 dark:text-white">Relevância</span>
+                                </div>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                                    % do contexto efetivamente usado na resposta
+                                </p>
+                                <div class="text-xs text-amber-600 dark:text-amber-400">Target: > 70%</div>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="text-lg">📊</span>
+                                    <span class="font-semibold text-neutral-900 dark:text-white">Cobertura</span>
+                                </div>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                                    % de perguntas respondidas com contexto disponível
+                                </p>
+                                <div class="text-xs text-amber-600 dark:text-amber-400">Target: > 90%</div>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="text-lg">🔍</span>
+                                    <span class="font-semibold text-neutral-900 dark:text-white">Precisão</span>
+                                </div>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                                    % de respostas factualmente corretas
+                                </p>
+                                <div class="text-xs text-amber-600 dark:text-amber-400">Target: > 95%</div>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="text-lg">⚡</span>
+                                    <span class="font-semibold text-neutral-900 dark:text-white">Eficiência</span>
+                                </div>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                                    Tokens usados vs qualidade da resposta
+                                </p>
+                                <div class="text-xs text-amber-600 dark:text-amber-400">Otimizar continuamente</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Framework de Diagnóstico</h4>
+                        <div class="space-y-4">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-red-500 text-xl">❌</span>
+                                    <div>
+                                        <div class="font-medium text-neutral-900 dark:text-white">Respostas "Não sei" frequentes</div>
+                                        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                                            <strong>Diagnóstico:</strong> Contexto insuficiente ou mal recuperado
+                                        </p>
+                                        <p class="text-sm text-emerald-600 dark:text-emerald-400">
+                                            <strong>Ação:</strong> Aumentar base de conhecimento ou melhorar retrieval
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-red-500 text-xl">❌</span>
+                                    <div>
+                                        <div class="font-medium text-neutral-900 dark:text-white">Alucinações frequentes</div>
+                                        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                                            <strong>Diagnóstico:</strong> Contexto presente mas ignorado, ou lacunas
+                                        </p>
+                                        <p class="text-sm text-emerald-600 dark:text-emerald-400">
+                                            <strong>Ação:</strong> Melhorar instruções de grounding, adicionar citações obrigatórias
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-red-500 text-xl">❌</span>
+                                    <div>
+                                        <div class="font-medium text-neutral-900 dark:text-white">Respostas lentas/caras</div>
+                                        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                                            <strong>Diagnóstico:</strong> Contexto muito grande ou mal organizado
+                                        </p>
+                                        <p class="text-sm text-emerald-600 dark:text-emerald-400">
+                                            <strong>Ação:</strong> Implementar injeção seletiva, comprimir contexto estático
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-red-500 text-xl">❌</span>
+                                    <div>
+                                        <div class="font-medium text-neutral-900 dark:text-white">Inconsistências entre respostas</div>
+                                        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                                            <strong>Diagnóstico:</strong> Conflitos no contexto ou falta de priorização
+                                        </p>
+                                        <p class="text-sm text-emerald-600 dark:text-emerald-400">
+                                            <strong>Ação:</strong> Estabelecer hierarquia clara, resolver conflitos na fonte
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Checklist de Qualidade Contextual</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span class="w-5 h-5 rounded border-2 border-amber-400 flex items-center justify-center text-xs">✓</span>
+                                    <span class="text-neutral-700 dark:text-neutral-300">Contexto contém informações atualizadas?</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span class="w-5 h-5 rounded border-2 border-amber-400 flex items-center justify-center text-xs">✓</span>
+                                    <span class="text-neutral-700 dark:text-neutral-300">Hierarquia de prioridade definida?</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span class="w-5 h-5 rounded border-2 border-amber-400 flex items-center justify-center text-xs">✓</span>
+                                    <span class="text-neutral-700 dark:text-neutral-300">Conflitos resolvidos na fonte?</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span class="w-5 h-5 rounded border-2 border-amber-400 flex items-center justify-center text-xs">✓</span>
+                                    <span class="text-neutral-700 dark:text-neutral-300">Budget de tokens respeitado?</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span class="w-5 h-5 rounded border-2 border-amber-400 flex items-center justify-center text-xs">✓</span>
+                                    <span class="text-neutral-700 dark:text-neutral-300">Métricas de qualidade monitoradas?</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm">
+                                    <span class="w-5 h-5 rounded border-2 border-amber-400 flex items-center justify-center text-xs">✓</span>
+                                    <span class="text-neutral-700 dark:text-neutral-300">Fallbacks para falhas de RAG?</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegação -->
+        <div class="flex flex-col sm:flex-row gap-4 pt-8">
+            <a href="modulo4-completo.html" class="flex-1 group flex items-center gap-3 p-4 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors">
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <div>
+                    <div class="text-sm text-neutral-500 dark:text-neutral-400">Anterior</div>
+                    <div class="font-medium text-neutral-900 dark:text-white">Módulo 4: Orquestração</div>
+                </div>
+            </a>
+            <a href="modulo6-completo.html" class="flex-1 group flex items-center justify-end gap-3 p-4 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-300 dark:hover:border-amber-600 transition-colors text-right">
+                <div>
+                    <div class="text-sm text-neutral-500 dark:text-neutral-400">Próximo</div>
+                    <div class="font-medium text-neutral-900 dark:text-white">Módulo 6: Preparação Masterclass</div>
+                </div>
+                <svg class="w-5 h-5 text-neutral-400 group-hover:text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </main>
+
+    <footer class="border-t border-neutral-200 dark:border-neutral-800 mt-16">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">FEP</span>
+                    <span class="text-neutral-400">|</span>
+                    <span class="text-neutral-600 dark:text-neutral-400">Nível Avançado</span>
+                </div>
+                <a href="../../nivel-avancado.html" class="text-emerald-600 dark:text-emerald-400 hover:underline">
+                    Voltar para o Nível Avançado
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
+    </script>
+</body>
+</html>
