@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2: Controle de Saída | FEP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#8B5CF6', accent: '#EC4899' } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-tecnico.html" class="flex items-center space-x-2 text-neutral-400 hover:text-accent transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          <span>Voltar para Técnico</span>
+        </a>
+        <span class="text-purple-400 font-semibold">Módulo 02</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full text-sm font-semibold mb-4">MÓDULO 2 COMPLETO</span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🎚️ Controle de Saída</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Domine a formatação, restrições e validação de outputs.
+        Controle total sobre como o modelo responde.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-4 gap-4 mb-12">
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-purple-400">7</div>
+        <div class="text-xs text-neutral-400">Tópicos</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-pink-400">5-8h</div>
+        <div class="text-xs text-neutral-400">Duração</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-emerald-400">100%</div>
+        <div class="text-xs text-neutral-400">Controle</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-blue-400">API</div>
+        <div class="text-xs text-neutral-400">Ready</div>
+      </div>
+    </div>
+
+    <!-- Tópico 1: Instruções Negativas -->
+    <section id="negativas" class="mb-12">
+      <div class="bg-gradient-to-br from-red-900/30 to-neutral-800 rounded-2xl p-8 border border-red-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🚫</span>
+          <div>
+            <h2 class="text-2xl font-bold text-red-400">1. Instruções Negativas</h2>
+            <p class="text-neutral-400">Diga o que NÃO fazer</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Às vezes é mais fácil dizer o que evitar do que descrever tudo que você quer. Use instruções negativas para eliminar comportamentos indesejados.</p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-red-400"># Exemplos de Instruções Negativas</p>
+          <p class="text-neutral-300 mt-2">- NÃO use jargão técnico</p>
+          <p class="text-neutral-300">- NÃO invente dados ou estatísticas</p>
+          <p class="text-neutral-300">- NÃO faça introduções ou conclusões genéricas</p>
+          <p class="text-neutral-300">- NÃO repita a pergunta na resposta</p>
+          <p class="text-neutral-300">- NÃO use mais de 3 bullets por seção</p>
+        </div>
+
+        <div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/30">
+          <p class="text-yellow-400 font-semibold">⚠️ Cuidado</p>
+          <p class="text-sm text-neutral-300">Muitas negações podem confundir. Use com moderação e sempre combine com instruções positivas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 2: Restrições -->
+    <section id="restricoes" class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📏</span>
+          <div>
+            <h2 class="text-2xl font-bold text-orange-400">2. Restrições e Limites Explícitos</h2>
+            <p class="text-neutral-400">Controle de extensão e escopo</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Defina limites claros para evitar respostas prolixas ou fora do escopo.</p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-neutral-900 p-4 rounded-lg">
+            <p class="text-orange-400 font-semibold mb-2">📊 Limites de Extensão</p>
+            <ul class="text-sm text-neutral-300 space-y-1">
+              <li>• "Máximo 150 palavras"</li>
+              <li>• "Entre 3-5 parágrafos"</li>
+              <li>• "Exatamente 10 itens"</li>
+              <li>• "Uma frase por ponto"</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-900 p-4 rounded-lg">
+            <p class="text-blue-400 font-semibold mb-2">🎯 Limites de Escopo</p>
+            <ul class="text-sm text-neutral-300 space-y-1">
+              <li>• "Apenas sobre [TEMA]"</li>
+              <li>• "Foque no período 2020-2024"</li>
+              <li>• "Considere apenas [CONTEXTO]"</li>
+              <li>• "Ignore aspectos [X, Y, Z]"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 3: Formatação Avançada -->
+    <section id="formatacao" class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/30 to-neutral-800 rounded-2xl p-8 border border-blue-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📐</span>
+          <div>
+            <h2 class="text-2xl font-bold text-blue-400">3. Formatação Avançada de Respostas</h2>
+            <p class="text-neutral-400">JSON, XML, Markdown, tabelas</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Outputs estruturados são essenciais para integração com sistemas. Especifique o formato exato.</p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-blue-400"># Forçando JSON</p>
+          <p class="text-neutral-300 mt-2">Responda APENAS com JSON válido no formato:</p>
+          <p class="text-neutral-300">{"análise": "...", "score": 0-10, "tags": ["tag1", "tag2"]}</p>
+          <p class="text-neutral-300 mt-2">Não inclua texto antes ou depois do JSON.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-emerald-900/20 p-3 rounded-lg border border-emerald-500/30 text-center">
+            <p class="text-emerald-400 font-semibold">JSON</p>
+            <p class="text-xs text-neutral-300">Para APIs</p>
+          </div>
+          <div class="bg-purple-900/20 p-3 rounded-lg border border-purple-500/30 text-center">
+            <p class="text-purple-400 font-semibold">Markdown</p>
+            <p class="text-xs text-neutral-300">Para docs</p>
+          </div>
+          <div class="bg-orange-900/20 p-3 rounded-lg border border-orange-500/30 text-center">
+            <p class="text-orange-400 font-semibold">XML</p>
+            <p class="text-xs text-neutral-300">Para Claude</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 4: Prefilling -->
+    <section id="prefilling" class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">✍️</span>
+          <div>
+            <h2 class="text-2xl font-bold text-cyan-400">4. Output Prefilling</h2>
+            <p class="text-neutral-400">Inicie a resposta do modelo</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Comece a resposta com texto pré-definido para garantir o formato e direcionar o estilo.</p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-gray-500"># User message</p>
+          <p class="text-neutral-300">Analise o sentimento deste texto: "[TEXTO]"</p>
+          <p class="text-cyan-400 mt-3"># Assistant (prefill)</p>
+          <p class="text-neutral-300">{"sentimento": "</p>
+          <p class="text-gray-500 mt-2"># O modelo continua a partir daqui...</p>
+        </div>
+
+        <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+          <p class="text-emerald-400 font-semibold">💡 Casos de Uso</p>
+          <p class="text-sm text-neutral-300">Forçar JSON, iniciar com formato específico, evitar preâmbulos, garantir idioma.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 5: Tom e Estilo -->
+    <section id="tom-estilo" class="mb-12">
+      <div class="bg-gradient-to-br from-pink-900/30 to-neutral-800 rounded-2xl p-8 border border-pink-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🎨</span>
+          <div>
+            <h2 class="text-2xl font-bold text-pink-400">5. Controle de Tom, Estilo e Profundidade</h2>
+            <p class="text-neutral-400">Adapte ao público-alvo</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">O mesmo conteúdo pode ser apresentado de formas completamente diferentes. Defina claramente o estilo.</p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="text-pink-400 font-semibold mb-2">🎭 Escalas de Tom</p>
+            <ul class="text-sm text-neutral-300 space-y-1">
+              <li>• Formal ←→ Casual</li>
+              <li>• Técnico ←→ Leigo</li>
+              <li>• Conciso ←→ Detalhado</li>
+              <li>• Sério ←→ Leve</li>
+            </ul>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="text-purple-400 font-semibold mb-2">📊 Níveis de Profundidade</p>
+            <ul class="text-sm text-neutral-300 space-y-1">
+              <li>• Overview executivo</li>
+              <li>• Explicação intermediária</li>
+              <li>• Deep dive técnico</li>
+              <li>• Referência completa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 6: Validação -->
+    <section id="validacao" class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">✅</span>
+          <div>
+            <h2 class="text-2xl font-bold text-emerald-400">6. Validação e Checagem de Respostas</h2>
+            <p class="text-neutral-400">Self-check e verificação</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Peça ao modelo verificar sua própria resposta antes de finalizar.</p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-emerald-400"># Prompt com Self-Check</p>
+          <p class="text-neutral-300 mt-2">[Sua tarefa aqui]</p>
+          <p class="text-neutral-300 mt-2">Antes de responder, verifique:</p>
+          <p class="text-neutral-300">1. A resposta atende todos os requisitos?</p>
+          <p class="text-neutral-300">2. O formato está correto?</p>
+          <p class="text-neutral-300">3. Há informações inventadas?</p>
+          <p class="text-neutral-300">4. A extensão está dentro do limite?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 7: Padronização -->
+    <section id="padronizacao" class="mb-12">
+      <div class="bg-gradient-to-br from-yellow-900/30 to-neutral-800 rounded-2xl p-8 border border-yellow-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📊</span>
+          <div>
+            <h2 class="text-2xl font-bold text-yellow-400">7. Padronização de Outputs</h2>
+            <p class="text-neutral-400">Consistência em escala</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Para produção, outputs precisam ser consistentes e previsíveis para processamento automatizado.</p>
+
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 bg-neutral-800/50 p-4 rounded-lg border-l-4 border-yellow-500">
+            <span class="text-yellow-400">📋</span>
+            <div>
+              <p class="text-yellow-400 font-semibold">Schema Definition</p>
+              <p class="text-sm text-neutral-300">Defina JSON Schema ou tipos esperados para validação automática.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-neutral-800/50 p-4 rounded-lg border-l-4 border-yellow-500">
+            <span class="text-yellow-400">🔄</span>
+            <div>
+              <p class="text-yellow-400 font-semibold">Retry Logic</p>
+              <p class="text-sm text-neutral-300">Se output inválido, re-tente com prompt mais específico.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-neutral-800/50 p-4 rounded-lg border-l-4 border-yellow-500">
+            <span class="text-yellow-400">📈</span>
+            <div>
+              <p class="text-yellow-400 font-semibold">Monitoramento</p>
+              <p class="text-sm text-neutral-300">Track taxa de outputs válidos e ajuste prompts conforme necessário.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">🚀 Próximo: Módulo 3</h2>
+        <p class="text-lg mb-6 text-purple-100">Continue para <strong>Cadeias e Processos</strong> e domine prompt chaining e workflows complexos!</p>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <a href="../../nivel-tecnico.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-purple-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+            <span>Voltar ao Curso</span>
+          </a>
+          <a href="modulo3-completo.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-pink-800 text-white rounded-lg font-bold hover:bg-pink-700 transition-colors">
+            <span>Ir para Módulo 3</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">FEP - Módulo 2: Controle de Saída</p>
+    </div>
+  </footer>
+
+  <script>if (localStorage.getItem('color-theme') === 'light') document.documentElement.classList.remove('dark');</script>
+</body>
+</html>

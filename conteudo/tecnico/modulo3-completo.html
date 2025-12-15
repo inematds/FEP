@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3: Cadeias e Processos | FEP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#10B981', accent: '#3B82F6' } } } }</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+  </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="../../nivel-tecnico.html" class="flex items-center space-x-2 text-neutral-400 hover:text-accent transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          <span>Voltar para Técnico</span>
+        </a>
+        <span class="text-emerald-400 font-semibold">Módulo 03</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-semibold mb-4">MÓDULO 3 COMPLETO</span>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🔗 Cadeias e Processos</h1>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Domine prompt chaining e workflows complexos.
+        Conecte prompts para resolver problemas sofisticados.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-4 gap-4 mb-12">
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-emerald-400">7</div>
+        <div class="text-xs text-neutral-400">Tópicos</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-blue-400">6-10h</div>
+        <div class="text-xs text-neutral-400">Duração</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-purple-400">Flow</div>
+        <div class="text-xs text-neutral-400">Workflow</div>
+      </div>
+      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+        <div class="text-2xl font-bold text-orange-400">Pro</div>
+        <div class="text-xs text-neutral-400">Nível</div>
+      </div>
+    </div>
+
+    <!-- Tópico 1: Decomposição -->
+    <section id="decomposicao" class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/30 to-neutral-800 rounded-2xl p-8 border border-emerald-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📋</span>
+          <div>
+            <h2 class="text-2xl font-bold text-emerald-400">1. Decomposição de Tarefas</h2>
+            <p class="text-neutral-400">Quebre problemas complexos</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Tarefas complexas geram melhores resultados quando divididas em subtarefas menores e focadas.</p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-red-400">❌ Tarefa única complexa:</p>
+          <p class="text-neutral-300">"Analise este documento, extraia dados, crie resumo e gere recomendações"</p>
+          <p class="text-emerald-400 mt-4">✓ Tarefas decompostas:</p>
+          <p class="text-neutral-300">1. "Extraia os dados principais deste documento"</p>
+          <p class="text-neutral-300">2. "Analise os dados extraídos e identifique padrões"</p>
+          <p class="text-neutral-300">3. "Crie um resumo executivo da análise"</p>
+          <p class="text-neutral-300">4. "Gere 5 recomendações baseadas no resumo"</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+            <p class="text-emerald-400 font-semibold">✓ Benefícios</p>
+            <p class="text-sm text-neutral-300">Maior precisão, debug fácil, reuso de componentes</p>
+          </div>
+          <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+            <p class="text-blue-400 font-semibold">🎯 Quando usar</p>
+            <p class="text-sm text-neutral-300">Tarefas com múltiplas etapas ou tipos de processamento</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 2: Chaining -->
+    <section id="chaining" class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">⛓️</span>
+          <div>
+            <h2 class="text-2xl font-bold text-blue-400">2. Prompt Chaining</h2>
+            <p class="text-neutral-400">Conecte prompts em sequência</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">O output de um prompt alimenta o input do próximo. Crie pipelines de processamento.</p>
+
+        <div class="flex items-center justify-center gap-2 mb-6">
+          <div class="bg-blue-900/30 px-4 py-2 rounded-lg border border-blue-500/30">
+            <p class="text-blue-400 text-sm font-semibold">Prompt 1</p>
+            <p class="text-xs text-neutral-300">Extração</p>
+          </div>
+          <span class="text-blue-400">→</span>
+          <div class="bg-purple-900/30 px-4 py-2 rounded-lg border border-purple-500/30">
+            <p class="text-purple-400 text-sm font-semibold">Prompt 2</p>
+            <p class="text-xs text-neutral-300">Análise</p>
+          </div>
+          <span class="text-purple-400">→</span>
+          <div class="bg-emerald-900/30 px-4 py-2 rounded-lg border border-emerald-500/30">
+            <p class="text-emerald-400 text-sm font-semibold">Prompt 3</p>
+            <p class="text-xs text-neutral-300">Síntese</p>
+          </div>
+        </div>
+
+        <div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/30">
+          <p class="text-yellow-400 font-semibold">💡 Dica</p>
+          <p class="text-sm text-neutral-300">Mantenha cada prompt focado em uma única responsabilidade. Facilita manutenção e debug.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 3: Multi-Etapas -->
+    <section id="multi-etapas" class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">📊</span>
+          <div>
+            <h2 class="text-2xl font-bold text-purple-400">3. Prompts Multi-Etapas</h2>
+            <p class="text-neutral-400">Múltiplas fases em um prompt</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Guie o modelo através de fases sequenciais dentro de um único prompt.</p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-purple-400"># Prompt Multi-Etapas</p>
+          <p class="text-neutral-300 mt-2">Execute as seguintes etapas em ordem:</p>
+          <p class="text-neutral-300 mt-2">**ETAPA 1 - ANÁLISE:**</p>
+          <p class="text-neutral-300">Identifique os 3 principais problemas no texto.</p>
+          <p class="text-neutral-300 mt-2">**ETAPA 2 - PRIORIZAÇÃO:**</p>
+          <p class="text-neutral-300">Ordene por impacto (alto/médio/baixo).</p>
+          <p class="text-neutral-300 mt-2">**ETAPA 3 - SOLUÇÕES:**</p>
+          <p class="text-neutral-300">Proponha uma solução para cada problema.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 4: PER Framework -->
+    <section id="per" class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🎯</span>
+          <div>
+            <h2 class="text-2xl font-bold text-orange-400">4. Planejar → Executar → Revisar</h2>
+            <p class="text-neutral-400">Framework de 3 fases</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Separe planejamento de execução para resultados mais consistentes.</p>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+            <p class="text-blue-400 font-semibold mb-2">1️⃣ PLANEJAR</p>
+            <p class="text-sm text-neutral-300">"Crie um plano detalhado para resolver [X]. Não execute ainda."</p>
+          </div>
+          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+            <p class="text-emerald-400 font-semibold mb-2">2️⃣ EXECUTAR</p>
+            <p class="text-sm text-neutral-300">"Execute o plano acima passo a passo."</p>
+          </div>
+          <div class="bg-purple-900/20 p-4 rounded-lg border border-purple-500/30">
+            <p class="text-purple-400 font-semibold mb-2">3️⃣ REVISAR</p>
+            <p class="text-sm text-neutral-300">"Revise a execução e identifique melhorias."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 5: Refinamento -->
+    <section id="refinamento" class="mb-12">
+      <div class="bg-gradient-to-br from-cyan-900/30 to-neutral-800 rounded-2xl p-8 border border-cyan-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🔄</span>
+          <div>
+            <h2 class="text-2xl font-bold text-cyan-400">5. Refinamento Iterativo</h2>
+            <p class="text-neutral-400">Melhore através de ciclos</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Use o output como base para refinamento em ciclos subsequentes.</p>
+
+        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+          <p class="text-cyan-400"># Ciclo de Refinamento</p>
+          <p class="text-neutral-300 mt-2">Prompt 1: "Escreva um rascunho sobre [X]"</p>
+          <p class="text-neutral-300 mt-2">Prompt 2: "Melhore este texto focando em [CRITÉRIO]"</p>
+          <p class="text-neutral-300 mt-2">Prompt 3: "Refine novamente considerando [FEEDBACK]"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 6: Contexto em Cadeias -->
+    <section id="contexto-cadeias" class="mb-12">
+      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">🧠</span>
+          <div>
+            <h2 class="text-2xl font-bold text-pink-400">6. Controle de Contexto em Cadeias</h2>
+            <p class="text-neutral-400">Gerencie informações entre prompts</p>
+          </div>
+        </div>
+        <p class="text-neutral-300 mb-6">Decida o que passar adiante e o que descartar para otimizar tokens e foco.</p>
+
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 bg-neutral-900 p-4 rounded-lg border-l-4 border-pink-500">
+            <span class="text-pink-400 font-bold">1.</span>
+            <div>
+              <p class="text-pink-400 font-semibold">Summarize before passing</p>
+              <p class="text-sm text-neutral-300">Resuma outputs longos antes de passar para próximo prompt.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-neutral-900 p-4 rounded-lg border-l-4 border-pink-500">
+            <span class="text-pink-400 font-bold">2.</span>
+            <div>
+              <p class="text-pink-400 font-semibold">Extract key entities</p>
+              <p class="text-sm text-neutral-300">Extraia apenas entidades relevantes para próxima etapa.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-neutral-900 p-4 rounded-lg border-l-4 border-pink-500">
+            <span class="text-pink-400 font-bold">3.</span>
+            <div>
+              <p class="text-pink-400 font-semibold">State management</p>
+              <p class="text-sm text-neutral-300">Mantenha "estado" estruturado (JSON) entre chamadas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tópico 7: Casos Práticos -->
+    <section id="casos-praticos" class="mb-12">
+      <div class="bg-gradient-to-br from-yellow-900/30 to-neutral-800 rounded-2xl p-8 border border-yellow-500/30">
+        <div class="flex items-center mb-6">
+          <span class="text-4xl mr-4">💼</span>
+          <div>
+            <h2 class="text-2xl font-bold text-yellow-400">7. Casos Práticos Estruturados</h2>
+            <p class="text-neutral-400">Workflows do mundo real</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="text-yellow-400 font-semibold mb-2">📝 Content Pipeline</p>
+            <p class="text-xs text-neutral-300">Research → Outline → Draft → Edit → SEO</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="text-blue-400 font-semibold mb-2">📊 Data Analysis</p>
+            <p class="text-xs text-neutral-300">Extract → Clean → Analyze → Visualize → Report</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="text-emerald-400 font-semibold mb-2">💻 Code Review</p>
+            <p class="text-xs text-neutral-300">Scan → Identify → Classify → Suggest → Document</p>
+          </div>
+          <div class="bg-neutral-800/50 p-4 rounded-lg">
+            <p class="text-purple-400 font-semibold mb-2">📧 Email Automation</p>
+            <p class="text-xs text-neutral-300">Classify → Extract → Route → Draft → Send</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-r from-emerald-600 to-blue-600 text-white rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">🚀 Próximo: Módulo 4</h2>
+        <p class="text-lg mb-6 text-emerald-100">Continue para <strong>Prompting Multimodal</strong> e domine imagens, vídeos e conteúdo visual!</p>
+        <div class="flex justify-center gap-4 flex-wrap">
+          <a href="../../nivel-tecnico.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-emerald-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
+            <span>Voltar ao Curso</span>
+          </a>
+          <a href="modulo4-completo.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-blue-800 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors">
+            <span>Ir para Módulo 4</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-neutral-500 text-sm">FEP - Módulo 3: Cadeias e Processos</p>
+    </div>
+  </footer>
+
+  <script>if (localStorage.getItem('color-theme') === 'light') document.documentElement.classList.remove('dark');</script>
+</body>
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: Prompting Multimodal (Imagem e Vídeo) - Nível Técnico | FEP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html.dark body { background-color: #0a0a0a; }
+        html.dark .dark\:bg-neutral-900 { background-color: #171717; }
+        html.dark .dark\:bg-neutral-800 { background-color: #262626; }
+        html.dark .dark\:bg-neutral-700 { background-color: #404040; }
+    </style>
+</head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="../../nivel-tecnico.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                <span class="text-sm font-medium">Voltar ao Nível Técnico</span>
+            </a>
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
+                <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+                </svg>
+                <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-900/30 to-neutral-800 dark:from-pink-900/20 dark:to-neutral-900"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.05)\"%3E%3C/path%3E%3C/svg%3E')] opacity-40"></div>
+        <div class="relative max-w-4xl mx-auto px-4 py-16">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="px-3 py-1 text-xs font-semibold bg-pink-500/20 text-pink-300 rounded-full border border-pink-500/30">
+                    MÓDULO 4
+                </span>
+                <span class="px-3 py-1 text-xs font-semibold bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30">
+                    NÍVEL TÉCNICO
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Prompting Multimodal
+                <span class="block text-2xl md:text-3xl text-pink-400 mt-2">(Imagem e Vídeo)</span>
+            </h1>
+            <p class="text-lg text-neutral-300 max-w-2xl">
+                Domine a arte de criar prompts para modelos multimodais. Aprenda a gerar, interpretar e controlar
+                conteúdo visual com precisão técnica.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4 mt-8 max-w-lg">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">7</div>
+                    <div class="text-sm text-neutral-400">Tópicos</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">90</div>
+                    <div class="text-sm text-neutral-400">Minutos</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white">12</div>
+                    <div class="text-sm text-neutral-400">Exercícios</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex gap-1 overflow-x-auto py-2 scrollbar-hide">
+                <a href="#interpretacao" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 whitespace-nowrap rounded-lg hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors">Interpretação</a>
+                <a href="#geracao" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 whitespace-nowrap rounded-lg hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors">Geração</a>
+                <a href="#negativos" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 whitespace-nowrap rounded-lg hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors">Negativos</a>
+                <a href="#consistencia" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 whitespace-nowrap rounded-lg hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors">Consistência</a>
+                <a href="#videos" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 whitespace-nowrap rounded-lg hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors">Vídeos</a>
+                <a href="#storyboards" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 whitespace-nowrap rounded-lg hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors">Storyboards</a>
+                <a href="#aplicacoes" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 whitespace-nowrap rounded-lg hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors">Aplicações</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <!-- Seção 1: Interpretação Multimodal -->
+        <section id="interpretacao" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-pink-50 to-transparent dark:from-pink-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-pink-100 dark:bg-pink-900/50 flex items-center justify-center">
+                            <span class="text-pink-600 dark:text-pink-400 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Interpretação Multimodal de Prompts</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Como os modelos processam diferentes tipos de entrada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Modelos multimodais representam uma evolução significativa na IA, capazes de processar e integrar
+                            informações de diferentes modalidades - texto, imagem, áudio e vídeo. Compreender como esses modelos
+                            interpretam entradas combinadas é fundamental para criar prompts eficazes.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-4">
+                            <h4 class="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                Visão + Texto
+                            </h4>
+                            <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-1">
+                                <li>• Análise de imagens com contexto</li>
+                                <li>• OCR e extração de informações</li>
+                                <li>• Descrição e interpretação visual</li>
+                                <li>• Comparação de imagens</li>
+                            </ul>
+                        </div>
+                        <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-4">
+                            <h4 class="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                                </svg>
+                                Áudio + Contexto
+                            </h4>
+                            <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-1">
+                                <li>• Transcrição com análise de sentimento</li>
+                                <li>• Identificação de falantes</li>
+                                <li>• Extração de informações de áudio</li>
+                                <li>• Análise de tom e emoção</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-pink-50 dark:bg-pink-900/20 border border-pink-200 dark:border-pink-800 rounded-xl p-4">
+                        <h4 class="font-semibold text-pink-900 dark:text-pink-300 mb-2">Estratégia de Interpretação</h4>
+                        <p class="text-sm text-pink-800 dark:text-pink-200 mb-3">
+                            Ao trabalhar com entradas multimodais, sempre forneça contexto claro sobre o que você espera
+                            que o modelo faça com cada tipo de entrada.
+                        </p>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 font-mono text-sm">
+                            <p class="text-neutral-500 dark:text-neutral-400"># Exemplo de prompt multimodal eficaz</p>
+                            <p class="text-pink-600 dark:text-pink-400 mt-2">[Imagem: captura de tela de dashboard]</p>
+                            <p class="text-neutral-700 dark:text-neutral-300 mt-2">
+                                Analise esta captura de tela de dashboard e:<br>
+                                1. Identifique os KPIs principais mostrados<br>
+                                2. Descreva tendências visíveis nos gráficos<br>
+                                3. Sugira 3 insights de negócio baseados nos dados
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Geração de Imagens -->
+        <section id="geracao" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center">
+                            <span class="text-violet-600 dark:text-violet-400 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompts para Geração de Imagens</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Estrutura e técnicas para criação visual</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            A geração de imagens via prompt é uma arte que combina descrição técnica com criatividade.
+                            A estrutura do prompt influencia diretamente a qualidade e relevância das imagens geradas.
+                        </p>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Anatomia de um Prompt de Imagem</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xs font-bold">1</span>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Sujeito Principal</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">O que ou quem está na imagem</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xs font-bold">2</span>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Estilo Visual</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Fotorrealista, ilustração, 3D, aquarela, etc.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xs font-bold">3</span>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Composição</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Ângulo, enquadramento, perspectiva</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xs font-bold">4</span>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Iluminação</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Natural, estúdio, dramática, suave</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xs font-bold">5</span>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Detalhes Técnicos</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Resolução, qualidade, parâmetros específicos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-violet-100 to-pink-100 dark:from-violet-900/30 dark:to-pink-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Prompt Estruturado</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm space-y-2">
+                            <p class="text-violet-600 dark:text-violet-400">// Sujeito</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">Uma cientista trabalhando em laboratório futurista,</p>
+                            <p class="text-violet-600 dark:text-violet-400">// Estilo</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">estilo cyberpunk com influências de Syd Mead,</p>
+                            <p class="text-violet-600 dark:text-violet-400">// Composição</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">plano médio, ângulo levemente baixo,</p>
+                            <p class="text-violet-600 dark:text-violet-400">// Iluminação</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">iluminação neon roxa e azul, alto contraste,</p>
+                            <p class="text-violet-600 dark:text-violet-400">// Técnico</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">8k, ultra detalhado, ray tracing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Prompts Negativos -->
+        <section id="negativos" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/50 flex items-center justify-center">
+                            <span class="text-red-600 dark:text-red-400 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompts Negativos em Imagens</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Controlando o que NÃO deve aparecer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Prompts negativos são tão importantes quanto os positivos na geração de imagens. Eles permitem
+                            excluir elementos indesejados, corrigir artefatos comuns e refinar a qualidade final.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
+                            <h4 class="font-semibold text-green-900 dark:text-green-300 mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Prompt Positivo
+                            </h4>
+                            <p class="text-sm text-green-800 dark:text-green-200">
+                                Retrato profissional, fundo neutro, iluminação de estúdio, alta resolução, foco nítido
+                            </p>
+                        </div>
+                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
+                            <h4 class="font-semibold text-red-900 dark:text-red-300 mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                                Prompt Negativo
+                            </h4>
+                            <p class="text-sm text-red-800 dark:text-red-200">
+                                Deformações, mãos extras, dedos extras, olhos cruzados, desfocado, baixa qualidade, marca d'água
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Categorias de Prompts Negativos</h4>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-red-500 pl-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white">Qualidade Técnica</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    blurry, low resolution, pixelated, jpeg artifacts, noise, grainy, overexposed, underexposed
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-orange-500 pl-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white">Anatomia e Proporções</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    extra limbs, missing fingers, deformed hands, unnatural poses, distorted faces, asymmetrical
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-yellow-500 pl-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white">Elementos Indesejados</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    watermark, signature, text overlay, frame, border, logo, username, cropped
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-purple-500 pl-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white">Estilo Específico</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    cartoon (se quer realismo), realistic (se quer ilustração), anime, photobash, stock photo look
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-amber-900 dark:text-amber-300">Dica Importante</h4>
+                                <p class="text-sm text-amber-800 dark:text-amber-200">
+                                    Nem todos os modelos de geração de imagem suportam prompts negativos da mesma forma.
+                                    Verifique a documentação específica de cada ferramenta (DALL-E, Midjourney, Stable Diffusion).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4: Consistência Visual -->
+        <section id="consistencia" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-teal-50 to-transparent dark:from-teal-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center">
+                            <span class="text-teal-600 dark:text-teal-400 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Consistência Visual</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Mantendo identidade entre múltiplas gerações</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Um dos maiores desafios em projetos visuais com IA é manter consistência entre múltiplas imagens.
+                            Seja para criar um personagem recorrente, uma série de ilustrações ou materiais de marca,
+                            a consistência é crucial.
+                        </p>
+                    </div>
+
+                    <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Técnicas de Consistência</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🎨 Style Reference</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Use imagens de referência para estabelecer o estilo visual base e manter
+                                    coerência em novas gerações.
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📝 Prompt Templates</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Crie templates de prompt reutilizáveis com elementos fixos e variáveis
+                                    para cada nova imagem.
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔢 Seeds Fixas</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Quando disponível, use a mesma seed para manter características similares
+                                    entre variações.
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📋 Character Sheets</h5>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                    Crie documentos de referência detalhados descrevendo cada elemento
+                                    que deve permanecer consistente.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Template de Personagem</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+                            <p class="text-teal-600 dark:text-teal-400"># Personagem: Maya</p>
+                            <p class="text-neutral-500 dark:text-neutral-400 mt-2">## Características Fixas:</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- Cabelo: curto, preto, estilo pixie</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- Olhos: amendoados, cor âmbar</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- Estilo: cyberpunk casual</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- Acessório: brinco de argola dourada</p>
+                            <p class="text-neutral-500 dark:text-neutral-400 mt-2">## Variáveis por Cena:</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- Roupa: [INSERIR]</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- Pose: [INSERIR]</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">- Cenário: [INSERIR]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5: Prompting para Vídeos -->
+        <section id="videos" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                            <span class="text-blue-600 dark:text-blue-400 font-bold">5</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompting para Vídeos</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Adicionando a dimensão temporal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            A geração de vídeo via IA adiciona complexidade significativa ao prompting, pois além dos
+                            elementos visuais estáticos, você precisa descrever movimento, transições e temporalidade.
+                        </p>
+                    </div>
+
+                    <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-4">Elementos de um Prompt de Vídeo</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Movimento de Câmera</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Pan, zoom, dolly, tracking shot, steadicam</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Ação do Sujeito</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Descreva o movimento: caminhando, correndo, gesticulando</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Ritmo e Duração</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Lento, rápido, time-lapse, slow motion</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-neutral-900 dark:text-white">Atmosfera e Mood</span>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Cinematográfico, documentário, onírico, energético</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Prompt de Vídeo</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+                            <p class="text-blue-600 dark:text-blue-400">Slow dolly shot</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">aproximando-se de uma xícara de café fumegante</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">em uma mesa de madeira rústica,</p>
+                            <p class="text-blue-600 dark:text-blue-400">luz dourada de manhã</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">entrando pela janela,</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">partículas de poeira flutuando no ar,</p>
+                            <p class="text-blue-600 dark:text-blue-400">estilo cinematográfico,</p>
+                            <p class="text-neutral-700 dark:text-neutral-300">shallow depth of field, 24fps, filme 35mm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6: Storyboards via Prompt -->
+        <section id="storyboards" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center">
+                            <span class="text-amber-600 dark:text-amber-400 font-bold">6</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Storyboards via Prompt</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Planejamento visual narrativo com IA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            Storyboards são ferramentas essenciais para pré-visualização de projetos audiovisuais.
+                            Com IA, você pode criar rapidamente visualizações de cenas para validar conceitos antes
+                            da produção.
+                        </p>
+                    </div>
+
+                    <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-amber-900 dark:text-amber-300 mb-4">Workflow de Storyboard com IA</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold">1</span>
+                                <div class="flex-1 bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                    <h5 class="font-medium text-neutral-900 dark:text-white">Definir Estrutura Narrativa</h5>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Divida sua história em cenas-chave e momentos dramáticos importantes
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold">2</span>
+                                <div class="flex-1 bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                    <h5 class="font-medium text-neutral-900 dark:text-white">Criar Prompt Base</h5>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Estabeleça estilo visual, proporção e elementos recorrentes
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold">3</span>
+                                <div class="flex-1 bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                    <h5 class="font-medium text-neutral-900 dark:text-white">Gerar Frames-Chave</h5>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Crie imagens para cada cena usando prompts específicos para enquadramento
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold">4</span>
+                                <div class="flex-1 bg-white dark:bg-neutral-800 rounded-lg p-3">
+                                    <h5 class="font-medium text-neutral-900 dark:text-white">Anotar e Organizar</h5>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                        Adicione notas de direção, diálogos e indicações técnicas
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Prompt para Cena de Storyboard</h4>
+                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
+                            <p class="text-amber-600 dark:text-amber-400">// CENA 3 - REVELAÇÃO</p>
+                            <p class="text-neutral-500 dark:text-neutral-400 mt-2">Enquadramento: Close-up</p>
+                            <p class="text-neutral-700 dark:text-neutral-300 mt-1">
+                                Rosto da protagonista (Maya) em close,<br>
+                                expressão de surpresa mudando para determinação,<br>
+                                iluminação lateral dramática criando sombras,<br>
+                                fundo desfocado com luzes de néon,<br>
+                                aspect ratio 16:9, estilo storyboard cinematográfico,<br>
+                                traços limpos, preto e branco com toques de cor
+                            </p>
+                            <p class="text-neutral-500 dark:text-neutral-400 mt-2">Nota: Transição para cena 4 com zoom out</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 7: Aplicações Práticas -->
+        <section id="aplicacoes" class="scroll-mt-32">
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+                            <span class="text-emerald-600 dark:text-emerald-400 font-bold">7</span>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Aplicações Práticas</h2>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Casos de uso reais em diferentes indústrias</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="prose dark:prose-invert max-w-none">
+                        <p>
+                            O prompting multimodal tem aplicações em diversas indústrias, desde marketing até
+                            educação. Conhecer esses casos de uso ajuda a identificar oportunidades em sua área.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-5 border border-emerald-200 dark:border-emerald-800">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-2xl">🎨</span>
+                                <h4 class="font-semibold text-neutral-900 dark:text-white">Marketing & Publicidade</h4>
+                            </div>
+                            <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-2">
+                                <li>• Criação de assets para campanhas</li>
+                                <li>• Mockups de produtos</li>
+                                <li>• Variações de anúncios para A/B testing</li>
+                                <li>• Conteúdo para redes sociais</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-5 border border-blue-200 dark:border-blue-800">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-2xl">🎬</span>
+                                <h4 class="font-semibold text-neutral-900 dark:text-white">Entretenimento</h4>
+                            </div>
+                            <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-2">
+                                <li>• Concept art para games</li>
+                                <li>• Storyboards para filmes</li>
+                                <li>• Character design iterativo</li>
+                                <li>• Visualização de cenários</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-5 border border-purple-200 dark:border-purple-800">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-2xl">📚</span>
+                                <h4 class="font-semibold text-neutral-900 dark:text-white">Educação</h4>
+                            </div>
+                            <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-2">
+                                <li>• Ilustrações educativas</li>
+                                <li>• Infográficos personalizados</li>
+                                <li>• Material didático visual</li>
+                                <li>• Representações históricas</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 rounded-xl p-5 border border-orange-200 dark:border-orange-800">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-2xl">🏢</span>
+                                <h4 class="font-semibold text-neutral-900 dark:text-white">Arquitetura & Design</h4>
+                            </div>
+                            <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-2">
+                                <li>• Visualização de projetos</li>
+                                <li>• Mood boards automatizados</li>
+                                <li>• Variações de design de interiores</li>
+                                <li>• Renderizações rápidas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
+                        <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-4">Exercício Prático Final</h4>
+                        <div class="space-y-4">
+                            <p class="text-sm text-emerald-800 dark:text-emerald-200">
+                                Escolha um projeto real da sua área de atuação e crie:
+                            </p>
+                            <ol class="text-sm text-emerald-800 dark:text-emerald-200 space-y-2 list-decimal list-inside">
+                                <li>Um prompt base com estilo visual definido</li>
+                                <li>Um prompt negativo apropriado para o contexto</li>
+                                <li>3 variações de prompt para diferentes cenários</li>
+                                <li>Um template reutilizável para futuras gerações</li>
+                            </ol>
+                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 mt-4">
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400 italic">
+                                    💡 Dica: Comece com algo simples e vá adicionando complexidade gradualmente.
+                                    Documente o que funciona e o que não funciona para criar seu próprio
+                                    "playbook" de prompts visuais.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Footer -->
+        <div class="flex items-center justify-between pt-8 border-t border-neutral-200 dark:border-neutral-700">
+            <a href="modulo3-completo.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                <span>Módulo 3: Cadeias e Processos</span>
+            </a>
+            <a href="modulo5-completo.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
+                <span>Módulo 5: Prompts de Sistema</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-100 dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 mt-16">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-bold text-pink-600 dark:text-pink-400">FEP</span>
+                    <span class="text-neutral-600 dark:text-neutral-400">Fundamentos de Engenharia de Prompt</span>
+                </div>
+                <div class="flex items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400">
+                    <a href="../../index.html" class="hover:text-pink-600 dark:hover:text-pink-400 transition-colors">Início</a>
+                    <a href="../../nivel-tecnico.html" class="hover:text-pink-600 dark:hover:text-pink-400 transition-colors">Nível Técnico</a>
+                    <a href="../../certificado.html" class="hover:text-pink-600 dark:hover:text-pink-400 transition-colors">Certificado</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        // Check for saved theme preference or default to dark
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>

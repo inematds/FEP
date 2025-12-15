@@ -3,615 +3,1035 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nível Técnico | FEP</title>
+    <title>Nível Técnico | FEP - Engenharia de Prompt</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilos para conteúdo Markdown renderizado pelo marked.js */
-        #modalConteudoCompleto h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
-        }
-        #modalConteudoCompleto h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 0.5rem;
-        }
-        #modalConteudoCompleto h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: #374151;
-        }
-        #modalConteudoCompleto h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            color: #4b5563;
-        }
-        #modalConteudoCompleto p {
-            margin-bottom: 1rem;
-            line-height: 1.7;
-            color: #4b5563;
-        }
-        #modalConteudoCompleto ul, #modalConteudoCompleto ol {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-        }
-        #modalConteudoCompleto li {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-        #modalConteudoCompleto pre {
-            background-color: #f3f4f6;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        #modalConteudoCompleto code {
-            background-color: #f3f4f6;
-            padding: 0.2rem 0.4rem;
-            border-radius: 0.25rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-        }
-        #modalConteudoCompleto pre code {
-            background: none;
-            padding: 0;
-        }
-        #modalConteudoCompleto strong {
-            font-weight: 600;
-            color: #1f2937;
-        }
-        #modalConteudoCompleto blockquote {
-            border-left: 4px solid #3b82f6;
-            padding-left: 1rem;
-            margin: 1rem 0;
-            font-style: italic;
-            color: #6b7280;
-        }
-        #modalConteudoCompleto table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-        #modalConteudoCompleto th, #modalConteudoCompleto td {
-            border: 1px solid #e5e7eb;
-            padding: 0.75rem;
-            text-align: left;
-        }
-        #modalConteudoCompleto th {
-            background-color: #f9fafb;
-            font-weight: 600;
-        }
-        #modalConteudoCompleto hr {
-            border: none;
-            border-top: 2px solid #e5e7eb;
-            margin: 2rem 0;
-        }
+        * { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal-content { background-color: white; margin: auto; width: 90%; max-width: 900px; max-height: 90vh; border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 25px rgba(0,0,0,0.3); }
+        .dark .modal-content { background-color: #1f2937; }
+        .modal-header { padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; }
+        .dark .modal-header { border-bottom-color: #374151; }
+        .modal-body { padding: 1.5rem; overflow-y: auto; max-height: calc(90vh - 60px); }
+        .close-modal { color: #9ca3af; font-size: 1.75rem; font-weight: 700; cursor: pointer; line-height: 1; }
+        .close-modal:hover { color: #ef4444; }
+
+        /* Topic Item Compacto */
+        .topic-item { border-bottom: 1px solid #e5e7eb; }
+        .dark .topic-item { border-bottom-color: #374151; }
+        .topic-item:last-child { border-bottom: none; }
+        .topic-button { display: flex; align-items: center; gap: 0.5rem; width: 100%; text-align: left; padding: 0.5rem 0.75rem; border-radius: 0.375rem; transition: all 0.2s; font-weight: 500; }
+        .topic-button:hover { background-color: #f5f5f5; }
+        .dark .topic-button:hover { background-color: #374151; }
+
+        /* Topic Explanation */
+        .topic-explanation { padding: 0.75rem; margin: 0.25rem 0 0.5rem 0; background: #eff6ff; border-radius: 0.5rem; border-left: 3px solid #3b82f6; }
+        .dark .topic-explanation { background: #1e3a5f; }
+
+        /* Module Card */
+        .module-card { transition: all 0.3s ease; }
+        .module-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+        /* Theme Toggle */
+        .theme-toggle { position: fixed; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 50; }
     </style>
 </head>
-<body class="font-['Inter'] bg-gray-50">
-    <nav class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <span class="text-2xl font-bold text-blue-600">FEP</span>
-                    <span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
-                </a>
-                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar ao Início</a>
-            </div>
+<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen transition-colors">
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
+    </button>
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 sticky top-0 z-40">
+        <div class="max-w-4xl mx-auto px-4 py-3">
+            <a href="index.html" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 font-semibold transition-colors">
+                <span>←</span>
+                <span class="text-lg">FEP</span>
+                <span class="text-neutral-400">|</span>
+                <span class="text-neutral-600 dark:text-neutral-400 text-sm">Engenharia de Prompt</span>
+            </a>
         </div>
-    </nav>
+    </header>
 
-    <main class="container mx-auto px-4 py-12">
-        <div class="breadcrumb mb-8">
-            <a href="index.html">Início</a>
-            <span class="breadcrumb-separator">/</span>
-            <span>Nível Técnico</span>
-        </div>
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-6">
+        <!-- Hero Section -->
+        <section class="text-center mb-6">
+            <div class="text-4xl mb-2">⚡</div>
+            <h1 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Nível Técnico</h1>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Domine técnicas avançadas de Engenharia de Prompt</p>
+            <div class="flex justify-center gap-2 flex-wrap">
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-xs font-semibold">⏱️ 35-45h</span>
+                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-semibold">📚 6 Módulos</span>
+                <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-xs font-semibold">🎯 42 Tópicos</span>
+            </div>
+        </section>
 
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-8 text-white mb-12">
-                <div class="text-6xl mb-4">⚡</div>
-                <h1 class="text-4xl font-bold mb-4">Nível Técnico</h1>
-                <p class="text-xl text-blue-100 mb-4">35-45 horas de conteúdo</p>
-                <p class="text-lg">Aplicações práticas para profissionais. Domine técnicas avançadas, RAG e contexto.</p>
+        <!-- Módulo 1: Arquitetura de Prompts -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">⚙️</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 1: Arquitetura de Prompts</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-blue-500 text-white text-xs font-semibold rounded-full">Fundamento</span>
             </div>
 
-            <div class="grid gap-8 mb-12">
-                <!-- Módulo 3 -->
-                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-blue-200" data-module-id="modulo-3">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 3</span>
-                        <span class="text-gray-500 text-sm">8-10 horas</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Técnicas Intermediárias</h3>
-                    <p class="text-gray-600 mb-4">Decomposição de tarefas, chaining e técnicas de formatação avançada.</p>
-
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
-                            <button class="expand-topics text-blue-500 text-sm hover:text-blue-700" data-target="topics-3">
-                                Ver todos os tópicos (7) ▼
-                            </button>
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🏗️ Estruturação Avançada de Prompts
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Técnicas para criar prompts com estrutura clara e hierárquica.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Prompts bem estruturados geram respostas mais precisas e consistentes.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Headers, seções, delimitadores XML/Markdown, hierarquia de instruções.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('estruturacao')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo1-completo.html#estruturacao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
                         </div>
-                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-3">
-                            <li class="topic-item" data-topic="decomposicao">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">📋</span> Decomposição de Tarefas
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Quebrar problemas complexos em subtarefas menores e mais gerenciáveis.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora a precisão e permite que o LLM processe cada parte com foco total.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Em vez de "Crie um relatório completo", use: "1. Liste os dados, 2. Analise tendências, 3. Crie conclusões".</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="decomposicao">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=decomposicao" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="chaining">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🔗</span> Prompt Chaining
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Conectar múltiplos prompts em sequência, usando a saída de um como entrada do próximo.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Permite fluxos de trabalho complexos e processamento em etapas.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Prompt 1: Extrair dados → Prompt 2: Analisar → Prompt 3: Gerar relatório.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="chaining">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=chaining" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="negative">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🚫</span> Instruções Negativas
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Especificar explicitamente o que NÃO fazer.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Evita comportamentos indesejados e direciona melhor a resposta.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "NÃO use jargão técnico" ou "NÃO invente dados".</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="negative">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=negative" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="parameters">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🎚️</span> Ajuste de Parâmetros
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Controlar temperatura, top-p e outros parâmetros do modelo.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Fine-tune entre criatividade e precisão conforme necessário.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Temperature 0.2 para respostas factuais, 0.9 para criatividade.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="parameters">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=parameters" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="prefilling">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">✍️</span> Output Prefilling
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Começar a resposta do modelo com texto pré-definido.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Controla formato e direciona o tom da resposta.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Assistant: "Aqui está uma análise detalhada..." (continua).</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="prefilling">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=prefilling" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="formatting">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">📝</span> Formatação Avançada
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Estruturar prompts com delimitadores, seções e hierarquia clara.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Melhora compreensão e separação de instruções vs. dados.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Usar XML tags, Markdown, ou delimitadores como ### ou ---.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="formatting">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=formatting" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="refinamento">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🔄</span> Refinamento Iterativo
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Melhorar prompts através de ciclos sucessivos de tentativa, avaliação e ajuste.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Raramente acerta-se o prompt perfeito de primeira. Refinamento é uma habilidade essencial.</p>
-                                    <p class="text-sm mt-2"><strong>Processo:</strong> Prompt inicial → Avaliar → Identificar problema → Ajustar → Repetir.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="refinamento">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=refinamento" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
-
-                    <div class="flex gap-3">
-                        <a href="docs/md/⚡ Curso Técnico_ Aplicações Práticas de Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-50">
-                            📖 Ver Markdown
-                        </a>
-                        <a href="docs/pdf/⚡_Curso_Técnico_Aplicações_Práticas_de_Engenharia_de_Prompt.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
-                            📄 Baixar PDF
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Módulo 4 -->
-                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-blue-200" data-module-id="modulo-4">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 4</span>
-                        <span class="text-gray-500 text-sm">10-12 horas</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Técnicas Avançadas</h3>
-                    <p class="text-gray-600 mb-4">Structured outputs, long context, multimodal e otimizações específicas.</p>
-
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <h4 class="font-semibold text-gray-700">Tópicos:</h4>
-                            <button class="expand-topics text-blue-500 text-sm hover:text-blue-700" data-target="topics-4">
-                                Ver todos os tópicos (5) ▼
-                            </button>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📋 Separação de Instruções, Contexto e Dados
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Organizar prompts em blocos distintos para cada tipo de informação.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Evita confusão e melhora a interpretação do modelo.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Blocos de sistema, contexto, dados de entrada, instruções específicas.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('separacao')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo1-completo.html#separacao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
                         </div>
-                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-4">
-                            <li class="topic-item" data-topic="structured">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🗂️</span> Structured Outputs (JSON/XML)
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Forçar o modelo a retornar dados em formatos estruturados como JSON ou XML.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Facilita parsing e integração com sistemas.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Retorne no formato: {'nome': 'João', 'idade': 30}".</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="structured">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=structured" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="longcontext">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">📚</span> Long Context Management
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Técnicas para trabalhar com janelas de contexto grandes (100k+ tokens).</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Processar documentos longos sem perder informação.</p>
-                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> Chunking, summarization, indexing estratégico.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="longcontext">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=longcontext" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="multimodal">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🖼️</span> Multimodal Prompting
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Prompts que combinam texto com imagens, áudio ou vídeo.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Análise de imagens, OCR, descrições visuais.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> "Analise esta imagem e descreva os elementos principais".</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="multimodal">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=multimodal" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="optimization">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">⚙️</span> Model-Specific Optimization
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Adaptar prompts para características específicas de cada modelo (Claude, GPT, Gemini).</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Maximizar performance de cada modelo.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplo:</strong> Claude prefere XML, GPT funciona bem com JSON.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="optimization">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=optimization" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item hidden extra-topic" data-topic="testing">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🧪</span> Prompt Testing & A/B
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Testar sistematicamente variações de prompts e comparar resultados.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Encontrar a melhor versão baseada em dados.</p>
-                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> A/B testing, métricas de qualidade, validação automatizada.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="testing">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=testing" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎯 Prompts Orientados a Objetivos
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Definir claramente o objetivo antes de elaborar o prompt.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Foco no resultado desejado aumenta eficácia.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> SMART goals, critérios de sucesso, métricas de qualidade.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('objetivos')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo1-completo.html#objetivos" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📚 Uso Estratégico de Exemplos (Few-Shot)
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Selecionar e posicionar exemplos para máximo impacto.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Exemplos bem escolhidos definem padrões e expectativas.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Diversidade, representatividade, ordenação, quantidade ideal.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('few-shot-avancado')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo1-completo.html#few-shot" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔍 Redução de Ambiguidade
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Eliminar interpretações múltiplas em prompts.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Ambiguidade é a principal causa de respostas incorretas.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Definições explícitas, termos técnicos, escopo delimitado.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('ambiguidade')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo1-completo.html#ambiguidade" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📝 Templates Reutilizáveis
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Criar estruturas de prompt parametrizáveis.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Economiza tempo e garante consistência.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Placeholders, variáveis, templates dinâmicos, bibliotecas de prompts.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('templates')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo1-completo.html#templates" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔧 Análise e Correção de Falhas
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Diagnosticar e corrigir prompts que não funcionam.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Debugging sistemático acelera otimização.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Padrões de erro, testes A/B, iteração sistemática.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('debugging')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo1-completo.html#debugging" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
-                    <div class="flex gap-3">
-                        <a href="docs/md/⚡ Curso Técnico_ Aplicações Práticas de Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-50">
-                            📖 Ver Markdown
-                        </a>
-                        <a href="docs/pdf/⚡_Curso_Técnico_Aplicações_Práticas_de_Engenharia_de_Prompt.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
-                            📄 Baixar PDF
-                        </a>
-                    </div>
+            <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+                <button class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModuleModal(1)">📖 Ver Modal</button>
+                <a href="conteudo/tecnico/modulo1-completo.html" class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+            </div>
+        </section>
+
+        <!-- Módulo 2: Controle de Saída -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🎚️</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 2: Controle de Saída</h2>
                 </div>
-
-                <!-- Módulo 5 -->
-                <div class="module-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all p-6 border-2 border-blue-200" data-module-id="modulo-5">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Módulo 5</span>
-                        <span class="text-gray-500 text-sm">8-10 horas</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Engenharia de Contexto e RAG</h3>
-                    <p class="text-gray-600 mb-4">Context optimization, RAG, vector databases e memory hierarchies.</p>
-
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-gray-700 mb-3">Tópicos:</h4>
-                        <ul class="topics-list text-sm text-gray-600 space-y-2" id="topics-5">
-                            <li class="topic-item" data-topic="context-arch">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🏗️</span> Arquitetura de Contexto
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Estruturar e organizar informações dentro da janela de contexto.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Maximizar uso eficiente do contexto disponível.</p>
-                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> Priorização, chunking semântico, context stuffing.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="context-arch">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=context-arch" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="rag">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🔍</span> RAG (Retrieval-Augmented Generation)
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Combinar LLMs com busca em bases de conhecimento externas.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Respostas baseadas em dados específicos e atualizados.</p>
-                                    <p class="text-sm mt-2"><strong>Componentes:</strong> Embedding, Vector DB, Retrieval, Generation.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="rag">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=rag" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="vectordb">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">💾</span> Vector Databases
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Bancos de dados otimizados para busca por similaridade semântica.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Recuperação eficiente de informações relevantes.</p>
-                                    <p class="text-sm mt-2"><strong>Exemplos:</strong> Pinecone, Weaviate, ChromaDB, Qdrant.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="vectordb">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=vectordb" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="embeddings">
-                                <button class="topic-button w-full text-left hover:text-blue-600 transition-colors">
-                                    <span class="mr-2">🧬</span> Embeddings e Similarity
-                                </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                                    <p class="text-sm"><strong>O que é:</strong> Representações vetoriais de texto para busca semântica.</p>
-                                    <p class="text-sm mt-2"><strong>Por que usar:</strong> Encontrar documentos similares baseado em significado.</p>
-                                    <p class="text-sm mt-2"><strong>Técnicas:</strong> Cosine similarity, dense retrieval, reranking.</p>
-                                    <div class="mt-3 grid grid-cols-2 gap-2">
-                                        <button class="ver-detalhes-btn px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2" data-topico="embeddings">
-                                            <span>📖</span>
-                                            <span>Ver Modal</span>
-                                        </button>
-                                        <a href="topico-detalhes.html?id=embeddings" class="px-4 py-2 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
-                                            <span>🔗</span>
-                                            <span>Abrir Página</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <a href="docs/md/⚡ Curso Técnico_ Aplicações Práticas de Engenharia de Prompt.md" class="flex-1 inline-flex items-center justify-center px-4 py-2 border-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-50">
-                            📖 Ver Markdown
-                        </a>
-                        <a href="docs/pdf/⚡_Curso_Técnico_Aplicações_Práticas_de_Engenharia_de_Prompt.pdf" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
-                            📄 Baixar PDF
-                        </a>
-                    </div>
-                </div>
+                <span class="px-2 py-0.5 bg-purple-500 text-white text-xs font-semibold rounded-full">Técnica</span>
             </div>
 
-            <div class="bg-purple-50 rounded-lg p-8 text-center border-2 border-purple-200">
-                <h3 class="text-2xl font-bold mb-4 text-gray-900">Pronto para o próximo desafio?</h3>
-                <p class="text-gray-700 mb-6">Continue sua jornada com o Nível Masterclass e domine agentes autônomos e sistemas complexos.</p>
-                <a href="nivel-masterclass.html" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-lg">
-                    Ir para Nível Masterclass 👑
-                </a>
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🚫 Instruções Negativas
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Especificar explicitamente o que NÃO fazer.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Evita comportamentos indesejados comuns.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Proibições explícitas, limites de comportamento, guardrails.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('negativas')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo2-completo.html#negativas" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📏 Restrições e Limites Explícitos
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Definir limites claros de extensão, formato e escopo.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Controla verbosidade e mantém foco.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Limites de palavras, bullets máximos, profundidade controlada.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('restricoes')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo2-completo.html#restricoes" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📐 Formatação Avançada de Respostas
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Controlar estrutura, hierarquia e apresentação do output.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Outputs estruturados são mais úteis e parseáveis.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> JSON, XML, Markdown, tabelas, schemas.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('formatacao-avancada')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo2-completo.html#formatacao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ✍️ Output Prefilling
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Iniciar a resposta do modelo com texto pré-definido.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Garante formato e direciona o estilo.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Assistant prefill, JSON starter, estrutura forçada.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('prefilling')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo2-completo.html#prefilling" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎨 Controle de Tom, Estilo e Profundidade
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Ajustar voz, formalidade e nível técnico.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Adapta resposta ao público-alvo.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Escalas de formalidade, níveis de expertise, personas de estilo.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('tom-estilo')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo2-completo.html#tom-estilo" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ✅ Validação e Checagem de Respostas
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Pedir ao modelo verificar sua própria resposta.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Reduz erros e aumenta confiabilidade.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Self-check, validação de formato, verificação de fatos.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('validacao')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo2-completo.html#validacao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📊 Padronização de Outputs
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Criar padrões consistentes para outputs em escala.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Facilita integração e processamento automatizado.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Schemas, contratos de API, validação automática.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('padronizacao')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo2-completo.html#padronizacao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+                <button class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModuleModal(2)">📖 Ver Modal</button>
+                <a href="conteudo/tecnico/modulo2-completo.html" class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
             </div>
-        </div>
+        </section>
+
+        <!-- Módulo 3: Cadeias e Processos -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🔗</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 3: Cadeias e Processos</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-emerald-500 text-white text-xs font-semibold rounded-full">Workflow</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📋 Decomposição de Tarefas
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Quebrar problemas complexos em subtarefas gerenciáveis.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Melhora precisão e permite processamento focado.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Task breakdown, dependências, paralelização.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('decomposicao')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo3-completo.html#decomposicao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ⛓️ Prompt Chaining
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Conectar prompts em sequência, output de um vira input do próximo.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Permite fluxos complexos e especializados.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Pipelines, transformações, agregação.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('chaining')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo3-completo.html#chaining" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📊 Prompts Multi-Etapas
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Prompts que guiam através de múltiplas fases.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Estrutura pensamento complexo dentro de um prompt.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Fases sequenciais, checkpoints, ramificações.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('multi-etapas')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo3-completo.html#multi-etapas" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎯 Planejar → Executar → Revisar
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Framework de 3 fases para tarefas complexas.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Separa pensamento estratégico de execução.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Planning prompts, execution prompts, review prompts.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('per')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo3-completo.html#per" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔄 Refinamento Iterativo
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Melhorar outputs através de ciclos de feedback.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Alcança qualidade superior através de iteração.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Feedback loops, critérios de melhoria, convergência.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('refinamento')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo3-completo.html#refinamento" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🧠 Controle de Contexto em Cadeias
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Gerenciar informações através de múltiplos prompts.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Evita perda de informação e mantém coerência.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Context passing, summarization, state management.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('contexto-cadeias')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo3-completo.html#contexto-cadeias" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        💼 Casos Práticos Estruturados
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Exemplos reais de workflows com prompts encadeados.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Aprenda aplicando em cenários do mundo real.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Case studies, templates de workflow, benchmarks.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('casos-praticos')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo3-completo.html#casos-praticos" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+                <button class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModuleModal(3)">📖 Ver Modal</button>
+                <a href="conteudo/tecnico/modulo3-completo.html" class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+            </div>
+        </section>
+
+        <!-- Módulo 4: Prompting Multimodal -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🎨</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 4: Prompting Multimodal</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-pink-500 text-white text-xs font-semibold rounded-full">Criativo</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🖼️ Interpretação Multimodal de Prompts
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Como modelos processam texto + imagem/áudio/vídeo.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Entender o modelo permite prompts mais eficazes.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Vision encoders, cross-modal attention, grounding.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('multimodal-interpretacao')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo4-completo.html#interpretacao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎨 Prompts para Geração de Imagens
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Estrutura de prompts para DALL-E, Midjourney, Stable Diffusion.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Cada modelo tem sintaxe e estilo próprios.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Subject, style, medium, lighting, composition.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('geracao-imagens')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo4-completo.html#geracao-imagens" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🚫 Prompts Negativos em Imagens
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Especificar o que NÃO incluir na imagem.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Evita artefatos e elementos indesejados.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Negative prompts, exclusões, quality tags.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('negativos-imagens')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo4-completo.html#negativos-imagens" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔄 Consistência Visual
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Manter estilo e personagens consistentes entre imagens.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Essencial para projetos profissionais e branding.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Style seeds, character sheets, reference images.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('consistencia-visual')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo4-completo.html#consistencia" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎬 Prompting para Vídeos
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Prompts para Sora, Runway, Pika e geradores de vídeo.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Vídeo adiciona dimensão temporal aos prompts.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Motion, timing, transitions, camera movement.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('prompting-video')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo4-completo.html#video" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📝 Storyboards via Prompt
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Criar sequências visuais narrativas com prompts.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Planejamento visual para vídeos e animações.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Scene breakdown, shot types, continuity.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('storyboards')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo4-completo.html#storyboards" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        💼 Aplicações Práticas Multimodais
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Casos reais de uso multimodal em produção.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Veja como empresas usam multimodal.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Marketing, e-commerce, educação, entretenimento.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('aplicacoes-multimodal')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo4-completo.html#aplicacoes" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+                <button class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModuleModal(4)">📖 Ver Modal</button>
+                <a href="conteudo/tecnico/modulo4-completo.html" class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+            </div>
+        </section>
+
+        <!-- Módulo 5: Prompts de Sistema e Agentes -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🤖</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 5: Prompts de Sistema e Agentes</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-orange-500 text-white text-xs font-semibold rounded-full">Avançado</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ⚙️ Função do System Prompt
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Instruções persistentes que definem comportamento base.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Estabelece contexto e regras para toda conversa.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> System vs user prompts, prioridade, persistência.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('system-prompt')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo5-completo.html#system-prompt" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🏗️ Design de Prompts de Sistema
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Arquitetura e estrutura de system prompts eficazes.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> System prompts bem projetados são a base de bons assistentes.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Seções, hierarquia, exemplos embutidos, guardrails.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('design-system')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo5-completo.html#design-system" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎭 Personas e Papéis Persistentes
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Definir identidade e expertise que persiste na conversa.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Cria assistentes especializados e consistentes.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Character design, knowledge boundaries, voice consistency.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('personas')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo5-completo.html#personas" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🤖 Prompts para Agentes
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Prompts que habilitam ações autônomas e uso de ferramentas.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Agentes são o futuro da automação com IA.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Tool use, function calling, action planning.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('agentes')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo5-completo.html#agentes" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🛡️ Guardrails e Controle de Comportamento
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Limites e proteções para comportamento do modelo.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Segurança e compliance em produção.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Safety rules, content filters, scope limitations.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('guardrails')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo5-completo.html#guardrails" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        💾 Memória e Estado de Agentes
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Gerenciar informações entre interações.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Agentes precisam "lembrar" para ser úteis.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Short/long-term memory, state persistence, summarization.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('memoria')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo5-completo.html#memoria" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎯 Orquestração de Agentes
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Coordenar múltiplos agentes em sistemas complexos.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Sistemas multiagente são mais poderosos.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Agent routing, delegation, consensus, collaboration.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('orquestracao')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo5-completo.html#orquestracao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+                <button class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModuleModal(5)">📖 Ver Modal</button>
+                <a href="conteudo/tecnico/modulo5-completo.html" class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+            </div>
+        </section>
+
+        <!-- Módulo 6: Contexto, RAG e Produção -->
+        <section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🧠</span>
+                    <h2 class="text-base font-bold text-neutral-900 dark:text-neutral-100">Módulo 6: Contexto, RAG e Produção</h2>
+                </div>
+                <span class="px-2 py-0.5 bg-red-500 text-white text-xs font-semibold rounded-full">Expert</span>
+            </div>
+
+            <ul class="topics-list space-y-0.5">
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🏗️ Arquitetura de Contexto
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Design estratégico de como informações são organizadas no contexto.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Maximiza aproveitamento da janela de contexto.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Priorização, chunking semântico, context stuffing.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('arquitetura-contexto')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo6-completo.html#arquitetura" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔍 RAG (Retrieval-Augmented Generation)
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Combinar LLMs com busca em bases de conhecimento.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Respostas baseadas em dados atualizados e específicos.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Retrieval, augmentation, generation pipeline.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('rag')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo6-completo.html#rag" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🧬 Embeddings
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Representações vetoriais de texto para busca semântica.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Base para RAG e busca por similaridade.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Embedding models, similarity metrics, dimensionality.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('embeddings')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo6-completo.html#embeddings" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        💾 Vector Databases
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Bancos de dados otimizados para busca vetorial.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Infraestrutura essencial para RAG em escala.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Pinecone, Weaviate, ChromaDB, Qdrant, indexing.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('vectordb')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo6-completo.html#vectordb" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📚 Long Context e Chunking
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Estratégias para lidar com documentos muito longos.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Nem tudo cabe na janela de contexto.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Chunking strategies, overlap, semantic splitting.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('chunking')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo6-completo.html#chunking" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🧪 Testes e Avaliação de Prompts
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Metodologias para testar e avaliar qualidade de prompts.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Garantir performance antes de produção.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Eval frameworks, A/B testing, benchmarks, metrics.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('avaliacao')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo6-completo.html#avaliacao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="topic-item">
+                    <button class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🚀 Otimização para Produção
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+                    </button>
+                    <div class="topic-explanation hidden">
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">O que é:</strong> Preparar prompts para deployment em escala.</p>
+                        <p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Por que:</strong> Produção tem requisitos de custo, latência e confiabilidade.</p>
+                        <p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-blue-600 dark:text-blue-400">Conceitos:</strong> Caching, batching, model selection, cost optimization.</p>
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModal('producao')">📖 Modal</button>
+                            <a href="conteudo/tecnico/modulo6-completo.html#producao" class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+                <button class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" onclick="openModuleModal(6)">📖 Ver Modal</button>
+                <a href="conteudo/tecnico/modulo6-completo.html" class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600">🔗 Completo</a>
+            </div>
+        </section>
+
+        <!-- Next Level CTA -->
+        <section class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg p-5 text-center text-white mt-6">
+            <h3 class="text-lg font-bold mb-2">👑 Pronto para o nível máximo?</h3>
+            <p class="text-purple-100 text-sm mb-3">Continue sua jornada com o Nível Masterclass e domine sistemas complexos de IA.</p>
+            <a href="nivel-masterclass.html" class="inline-block bg-white text-purple-600 font-semibold py-2 px-6 rounded-lg hover:bg-neutral-100 transition-colors text-sm">
+                Ir para Nível Masterclass 👑
+            </a>
+        </section>
     </main>
 
-    <footer class="bg-gray-900 text-white py-8 mt-16">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 FEP - Engenharia de Prompt</p>
+    <!-- Footer -->
+    <footer class="bg-neutral-900 text-neutral-400 py-4 mt-8">
+        <div class="max-w-4xl mx-auto px-4 text-center text-xs">
+            <p>&copy; 2025 FEP - Fundamentos de Engenharia de Prompt</p>
         </div>
     </footer>
 
-    <!-- Modal de Detalhamento de Tópico -->
-    <div id="topicoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
-            <!-- Header do Modal -->
-            <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white flex justify-between items-start">
-                <div>
-                    <div class="text-5xl mb-2" id="modalIcon"></div>
-                    <h2 class="text-3xl font-bold" id="modalTitulo"></h2>
-                    <p class="text-blue-100 mt-1"><span id="modalNivel"></span> • Módulo <span id="modalModulo"></span></p>
+    <!-- Modal de Tópico -->
+    <div id="topicoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl" id="modalIcon">📖</span>
+                    <div>
+                        <h2 class="text-lg font-bold" id="modalTitulo">Título</h2>
+                        <p class="text-blue-100 text-xs" id="modalSubtitulo">Técnico • Módulo 1</p>
+                    </div>
                 </div>
-                <button id="closeModal" class="text-white hover:text-blue-100 transition-colors">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
+                <span class="close-modal">&times;</span>
             </div>
-
-            <!-- Conteúdo do Modal -->
-            <div class="overflow-y-auto p-8" style="max-height: calc(90vh - 140px);">
-                <!-- Introdução -->
-                <div class="mb-8">
-                    <div class="text-lg leading-relaxed text-gray-700 bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500" id="modalIntroducao"></div>
-                </div>
-
-                <!-- Conteúdo Completo -->
-                <div class="prose prose-lg max-w-none mb-8" id="modalConteudoCompleto"></div>
-
-                <!-- Exemplos -->
-                <div id="modalExemplos" class="mb-8"></div>
-
-                <!-- Casos de Uso -->
-                <div id="modalCasosUso" class="mb-8"></div>
-
-                <!-- Dicas Práticas -->
-                <div id="modalDicas" class="mb-8"></div>
-
-                <!-- Erros Comuns -->
-                <div id="modalErros" class="mb-8"></div>
-
-                <!-- Recursos Adicionais -->
-                <div id="modalRecursos"></div>
-            </div>
-
-            <!-- Footer do Modal -->
-            <div class="border-t border-gray-200 p-6 bg-gray-50 flex justify-between items-center">
-                <div class="text-sm text-gray-600">
-                    💡 Dica: Pratique com exemplos reais para dominar esta técnica
-                </div>
-                <button id="closeModalBtn" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold">
-                    Fechar
-                </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Conteúdo dinâmico -->
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
     <script src="topicos-data.js"></script>
-    <!-- Marked.js para parsing de Markdown -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="topicos-modal.js"></script>
+    <script>
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' ||
+            (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Toggle Topic
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const arrow = button.querySelector('span:last-child');
+
+            // Close others in same module
+            const moduleCard = button.closest('.module-card');
+            moduleCard.querySelectorAll('.topic-explanation').forEach(exp => {
+                if (exp !== explanation) {
+                    exp.classList.add('hidden');
+                    exp.closest('.topic-item').querySelector('.topic-button span:last-child').textContent = '▼';
+                }
+            });
+
+            explanation.classList.toggle('hidden');
+            arrow.textContent = explanation.classList.contains('hidden') ? '▼' : '▲';
+        }
+
+        // Open Topic Modal
+        function openModal(topicoId) {
+            const topico = window.topicosData ? window.topicosData[topicoId] : null;
+
+            document.getElementById('modalIcon').textContent = topico?.icon || '📖';
+            document.getElementById('modalTitulo').textContent = topico?.titulo || topicoId;
+            document.getElementById('modalSubtitulo').textContent = `${topico?.nivel || 'Técnico'} • Módulo ${topico?.modulo || 1}`;
+
+            let bodyHTML = '';
+
+            // Intro
+            if (topico?.introducao) {
+                bodyHTML += `<div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border-l-4 border-blue-500 mb-4">
+                    <p class="text-sm text-neutral-700 dark:text-neutral-300">${topico.introducao}</p>
+                </div>`;
+            }
+
+            // Conteúdo completo
+            if (topico?.conteudoCompleto) {
+                bodyHTML += `<div class="prose prose-sm dark:prose-invert max-w-none mb-4">${marked.parse(topico.conteudoCompleto)}</div>`;
+            }
+
+            // Dicas
+            if (topico?.dicasPraticas?.length) {
+                bodyHTML += `<div class="bg-emerald-50 dark:bg-emerald-900/20 p-3 rounded-lg border-l-4 border-emerald-400 mb-4">
+                    <p class="font-bold text-emerald-900 dark:text-emerald-300 text-sm mb-2">💡 Dicas Práticas</p>
+                    <ul class="space-y-1 text-xs text-neutral-700 dark:text-neutral-300">
+                        ${topico.dicasPraticas.map(d => `<li>${d}</li>`).join('')}
+                    </ul>
+                </div>`;
+            }
+
+            // Erros comuns
+            if (topico?.errosComuns?.length) {
+                bodyHTML += `<div class="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg border-l-4 border-red-400 mb-4">
+                    <p class="font-bold text-red-900 dark:text-red-300 text-sm mb-2">⚠️ Erros Comuns</p>
+                    <ul class="space-y-1 text-xs text-neutral-700 dark:text-neutral-300">
+                        ${topico.errosComuns.map(e => `<li>❌ ${e.erro || e}</li>`).join('')}
+                    </ul>
+                </div>`;
+            }
+
+            // CTA
+            bodyHTML += `<div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-4 text-center mt-4">
+                <p class="text-sm font-semibold mb-2">🎯 Próximo Passo</p>
+                <p class="text-xs text-blue-100">Pratique com os exemplos acima e experimente variações!</p>
+            </div>`;
+
+            document.getElementById('modalBody').innerHTML = bodyHTML;
+            document.getElementById('topicoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Open Module Modal
+        function openModuleModal(modulo) {
+            const modulos = {
+                1: { icon: '⚙️', titulo: 'Módulo 1: Arquitetura de Prompts', desc: 'Estruturação avançada e design de prompts profissionais.' },
+                2: { icon: '🎚️', titulo: 'Módulo 2: Controle de Saída', desc: 'Domine formatação, restrições e validação de outputs.' },
+                3: { icon: '🔗', titulo: 'Módulo 3: Cadeias e Processos', desc: 'Prompt chaining e workflows complexos.' },
+                4: { icon: '🎨', titulo: 'Módulo 4: Prompting Multimodal', desc: 'Imagens, vídeos e conteúdo visual com IA.' },
+                5: { icon: '🤖', titulo: 'Módulo 5: Prompts de Sistema e Agentes', desc: 'System prompts e agentes autônomos.' },
+                6: { icon: '🧠', titulo: 'Módulo 6: Contexto, RAG e Produção', desc: 'RAG, vector databases e deploy em escala.' }
+            };
+
+            const m = modulos[modulo];
+            document.getElementById('modalIcon').textContent = m.icon;
+            document.getElementById('modalTitulo').textContent = m.titulo;
+            document.getElementById('modalSubtitulo').textContent = 'Nível Técnico';
+
+            document.getElementById('modalBody').innerHTML = `
+                <div class="mb-4">
+                    <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-3">${m.desc}</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-xs font-semibold">⏱️ 5-8 horas</span>
+                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-semibold">📚 7 tópicos</span>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-4 mb-4 border border-blue-200 dark:border-blue-800">
+                    <div class="flex items-center mb-3">
+                        <span class="text-2xl mr-2">📌</span>
+                        <h3 class="text-base font-bold text-blue-900 dark:text-blue-300">O que você vai aprender</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Técnicas avançadas de engenharia de prompt</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Aplicações profissionais e produção</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Projetos práticos e cases reais</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-4 text-center">
+                    <p class="text-sm font-semibold mb-2">🚀 Comece Agora</p>
+                    <p class="text-xs text-blue-100 mb-3">Clique nos tópicos para expandir e aprender!</p>
+                </div>
+            `;
+
+            document.getElementById('topicoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            if (e.target.classList.contains('close-modal')) {
+                e.target.closest('.modal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
