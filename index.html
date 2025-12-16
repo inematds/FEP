@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,50 +8,73 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * { font-family: 'Inter', system-ui, sans-serif; }
+        html { scroll-behavior: smooth; }
+        .text-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+        }
+    </style>
 </head>
-<body class="font-['Inter'] bg-gray-50">
+<body class="bg-gray-950 text-gray-100">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
+    <nav class="sticky top-0 z-50 bg-gray-950/95 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center space-x-2">
-                    <span class="text-2xl font-bold text-blue-600">FEP</span>
-                    <span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
+                    <span class="text-2xl font-bold text-gradient">FEP</span>
+                    <span class="text-sm text-gray-400 hidden md:inline">Engenharia de Prompt</span>
                 </a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Início</a>
+                    <a href="index.html" class="text-gray-300 hover:text-blue-400 font-medium transition-colors">Início</a>
 
                     <!-- Dropdown -->
                     <div class="relative group">
-                        <button class="text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center">
+                        <button class="text-gray-300 hover:text-blue-400 font-medium transition-colors flex items-center">
                             Cursos
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
-                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 py-2 w-48">
-                            <a href="nivel-iniciante.html" class="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600">🌟 Iniciante</a>
-                            <a href="nivel-tecnico.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">⚡ Técnico</a>
-                            <a href="nivel-avancado.html" class="block px-4 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600">🚀 Avançado</a>
-                            <a href="nivel-masterclass.html" class="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600">👑 Masterclass</a>
+                        <div class="absolute hidden group-hover:block bg-gray-900 border border-gray-700 shadow-xl rounded-lg mt-2 py-2 w-48">
+                            <a href="nivel-iniciante.html" class="block px-4 py-2 text-gray-300 hover:bg-emerald-500/10 hover:text-emerald-400">🌟 Iniciante</a>
+                            <a href="nivel-tecnico.html" class="block px-4 py-2 text-gray-300 hover:bg-blue-500/10 hover:text-blue-400">⚡ Técnico</a>
+                            <a href="nivel-avancado.html" class="block px-4 py-2 text-gray-300 hover:bg-purple-500/10 hover:text-purple-400">🚀 Avançado</a>
+                            <a href="nivel-masterclass.html" class="block px-4 py-2 text-gray-300 hover:bg-amber-500/10 hover:text-amber-400">👑 Masterclass</a>
                         </div>
                     </div>
 
-                    <a href="exercicios.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Exercícios</a>
-                    <a href="recursos.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Recursos</a>
-                    <a href="https://github.com/inematds/FEP" target="_blank" class="text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center">
+                    <a href="exercicios.html" class="text-gray-300 hover:text-blue-400 font-medium transition-colors">Exercícios</a>
+                    <a href="recursos.html" class="text-gray-300 hover:text-blue-400 font-medium transition-colors">Recursos</a>
+                    <a href="https://github.com/inematds/FEP" target="_blank" class="text-gray-300 hover:text-blue-400 font-medium transition-colors flex items-center">
                         <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                         </svg>
@@ -60,7 +83,7 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                <button id="mobile-menu-button" class="md:hidden text-gray-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
@@ -69,73 +92,77 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-2">
-                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Início</a>
-                <a href="nivel-iniciante.html" class="block py-2 text-gray-700 hover:text-emerald-600">🌟 Iniciante</a>
-                <a href="nivel-tecnico.html" class="block py-2 text-gray-700 hover:text-blue-600">⚡ Técnico</a>
-                <a href="nivel-avancado.html" class="block py-2 text-gray-700 hover:text-purple-600">🚀 Avançado</a>
-                <a href="nivel-masterclass.html" class="block py-2 text-gray-700 hover:text-amber-600">👑 Masterclass</a>
-                <a href="exercicios.html" class="block py-2 text-gray-700 hover:text-blue-600">Exercícios</a>
-                <a href="recursos.html" class="block py-2 text-gray-700 hover:text-teal-600">🎁 Recursos</a>
-                <a href="https://github.com/inematds/FEP" target="_blank" class="block py-2 text-gray-700 hover:text-blue-600">GitHub</a>
+                <a href="index.html" class="block py-2 text-gray-300 hover:text-blue-400">Início</a>
+                <a href="nivel-iniciante.html" class="block py-2 text-gray-300 hover:text-emerald-400">🌟 Iniciante</a>
+                <a href="nivel-tecnico.html" class="block py-2 text-gray-300 hover:text-blue-400">⚡ Técnico</a>
+                <a href="nivel-avancado.html" class="block py-2 text-gray-300 hover:text-purple-400">🚀 Avançado</a>
+                <a href="nivel-masterclass.html" class="block py-2 text-gray-300 hover:text-amber-400">👑 Masterclass</a>
+                <a href="exercicios.html" class="block py-2 text-gray-300 hover:text-blue-400">Exercícios</a>
+                <a href="recursos.html" class="block py-2 text-gray-300 hover:text-teal-400">🎁 Recursos</a>
+                <a href="https://github.com/inematds/FEP" target="_blank" class="block py-2 text-gray-300 hover:text-blue-400">GitHub</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-                Domine a Engenharia de Prompt:<br>Do Zero ao Especialista
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="text-white">Domine a </span>
+                <span class="text-gradient">Engenharia de Prompt</span>
+                <br>
+                <span class="text-white">Do Zero ao Especialista</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 text-blue-100">
-                97-120 horas de conteúdo estruturado em 3 níveis progressivos
+            <p class="text-xl md:text-2xl mb-8 text-gray-400 max-w-3xl mx-auto">
+                4 trilhas progressivas de conteúdo estruturado. Do iniciante ao arquiteto de sistemas.
             </p>
-            <a href="#niveis" class="inline-block bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-blue-50 transition-all transform hover:scale-105">
+            <a href="#niveis" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-8 rounded-xl hover:opacity-90 transition-all transform hover:scale-105 shadow-lg shadow-blue-500/25">
                 Começar Agora →
             </a>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
+    <section class="py-16 border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="animate-on-scroll">
+                <div>
                     <div class="text-4xl mb-2">📚</div>
-                    <div class="text-2xl font-bold text-gray-900">8 Módulos</div>
-                    <div class="text-gray-600">Completos</div>
+                    <div class="text-2xl font-bold text-white">4 Trilhas</div>
+                    <div class="text-gray-500">Progressivas</div>
                 </div>
-                <div class="animate-on-scroll">
+                <div>
                     <div class="text-4xl mb-2">🎯</div>
-                    <div class="text-2xl font-bold text-gray-900">Exercícios</div>
-                    <div class="text-gray-600">Práticos</div>
+                    <div class="text-2xl font-bold text-white">24 Módulos</div>
+                    <div class="text-gray-500">Completos</div>
                 </div>
-                <div class="animate-on-scroll">
+                <div>
                     <div class="text-4xl mb-2">🎓</div>
-                    <div class="text-2xl font-bold text-gray-900">Certificados</div>
-                    <div class="text-gray-600">de Conclusão</div>
+                    <div class="text-2xl font-bold text-white">Certificados</div>
+                    <div class="text-gray-500">de Conclusão</div>
                 </div>
-                <div class="animate-on-scroll">
+                <div>
                     <div class="text-4xl mb-2">🆓</div>
-                    <div class="text-2xl font-bold text-gray-900">100% Gratuito</div>
-                    <div class="text-gray-600">e Open Source</div>
+                    <div class="text-2xl font-bold text-white">100% Gratuito</div>
+                    <div class="text-gray-500">Open Source</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- GPT-5.1 Announcement Banner -->
-    <section class="py-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center justify-between text-white">
+    <section class="py-6 bg-gradient-to-r from-indigo-600/20 via-purple-600/20 to-pink-600/20 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="flex items-center mb-4 md:mb-0">
                     <span class="text-3xl mr-3">🚀</span>
                     <div>
-                        <h3 class="font-bold text-lg">NOVO: Guia de Prompting GPT-5.1</h3>
-                        <p class="text-sm text-indigo-100">Técnicas avançadas de prompting com as últimas inovações</p>
+                        <h3 class="font-bold text-lg text-white">NOVO: Guia de Prompting GPT-5.1</h3>
+                        <p class="text-sm text-gray-400">Técnicas avançadas de prompting com as últimas inovações</p>
                     </div>
                 </div>
-                <a href="recursos.html#gpt51" class="bg-white text-purple-600 font-bold py-3 px-6 rounded-lg hover:bg-indigo-50 transition-all transform hover:scale-105 shadow-lg">
+                <a href="recursos.html#gpt51" class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all transform hover:scale-105">
                     Explorar Agora →
                 </a>
             </div>
@@ -143,24 +170,24 @@
     </section>
 
     <!-- Level Cards Section -->
-    <section id="niveis" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">Escolha Seu Nível</h2>
-            <p class="text-center text-gray-600 mb-12 text-lg">Encontre o ponto de partida perfeito para sua jornada</p>
+    <section id="niveis" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 text-white">Escolha Sua Trilha</h2>
+            <p class="text-center text-gray-400 mb-12 text-lg">Encontre o ponto de partida perfeito para sua jornada</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Iniciante Card -->
-                <div class="level-card bg-gradient-to-br from-emerald-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border-2 border-emerald-200 hover:border-emerald-400 animate-on-scroll transform hover:-translate-y-2">
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 card-glow transform hover:-translate-y-2">
                     <div class="text-5xl mb-3">🌟</div>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-900">Nível Iniciante</h3>
-                    <div class="inline-block bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                    <h3 class="text-2xl font-bold mb-2 text-white">Nível Iniciante</h3>
+                    <div class="inline-block bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-emerald-500/30">
                         TRILHA 1
                     </div>
-                    <p class="text-gray-700 mb-4 text-sm">
+                    <p class="text-gray-400 mb-4 text-sm">
                         Fundamentos de LLMs e técnicas básicas de prompting.
                     </p>
                     <div class="mb-4">
-                        <ul class="text-xs text-gray-600 space-y-1">
+                        <ul class="text-xs text-gray-500 space-y-1">
                             <li>✓ Fundamentos de LLMs</li>
                             <li>✓ Anatomia de Prompts</li>
                             <li>✓ Zero-Shot e Few-Shot</li>
@@ -173,17 +200,17 @@
                 </div>
 
                 <!-- Técnico Card -->
-                <div class="level-card bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border-2 border-blue-200 hover:border-blue-400 animate-on-scroll transform hover:-translate-y-2">
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 card-glow transform hover:-translate-y-2">
                     <div class="text-5xl mb-3">⚡</div>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-900">Nível Técnico</h3>
-                    <div class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                    <h3 class="text-2xl font-bold mb-2 text-white">Nível Técnico</h3>
+                    <div class="inline-block bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-blue-500/30">
                         TRILHA 2
                     </div>
-                    <p class="text-gray-700 mb-4 text-sm">
+                    <p class="text-gray-400 mb-4 text-sm">
                         Técnicas avançadas, RAG e multimodal prompting.
                     </p>
                     <div class="mb-4">
-                        <ul class="text-xs text-gray-600 space-y-1">
+                        <ul class="text-xs text-gray-500 space-y-1">
                             <li>✓ Técnicas Avançadas</li>
                             <li>✓ Engenharia de Contexto</li>
                             <li>✓ RAG e Embeddings</li>
@@ -196,17 +223,17 @@
                 </div>
 
                 <!-- Avançado Card -->
-                <div class="level-card bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border-2 border-purple-200 hover:border-purple-400 animate-on-scroll transform hover:-translate-y-2">
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-purple-500/50 transition-all duration-300 card-glow transform hover:-translate-y-2">
                     <div class="text-5xl mb-3">🚀</div>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-900">Nível Avançado</h3>
-                    <div class="inline-block bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                    <h3 class="text-2xl font-bold mb-2 text-white">Nível Avançado</h3>
+                    <div class="inline-block bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-purple-500/30">
                         TRILHA 3
                     </div>
-                    <p class="text-gray-700 mb-4 text-sm">
+                    <p class="text-gray-400 mb-4 text-sm">
                         Engenharia de Contexto & Skills para sistemas complexos.
                     </p>
                     <div class="mb-4">
-                        <ul class="text-xs text-gray-600 space-y-1">
+                        <ul class="text-xs text-gray-500 space-y-1">
                             <li>✓ Engenharia de Contexto</li>
                             <li>✓ Long Context (100K-1M+)</li>
                             <li>✓ Engenharia de Skills</li>
@@ -219,17 +246,17 @@
                 </div>
 
                 <!-- Masterclass Card -->
-                <div class="level-card bg-gradient-to-br from-amber-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border-2 border-amber-300 hover:border-amber-500 animate-on-scroll transform hover:-translate-y-2">
+                <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-amber-500/50 transition-all duration-300 card-glow transform hover:-translate-y-2">
                     <div class="text-5xl mb-3">👑</div>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-900">Masterclass</h3>
-                    <div class="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                    <h3 class="text-2xl font-bold mb-2 text-white">Masterclass</h3>
+                    <div class="inline-block bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-amber-500/30">
                         TRILHA 4
                     </div>
-                    <p class="text-gray-700 mb-4 text-sm">
+                    <p class="text-gray-400 mb-4 text-sm">
                         Arquitetura de sistemas, decisão técnica e liderança.
                     </p>
                     <div class="mb-4">
-                        <ul class="text-xs text-gray-600 space-y-1">
+                        <ul class="text-xs text-gray-500 space-y-1">
                             <li>✓ Arquitetura de Sistemas</li>
                             <li>✓ Governança de Skills</li>
                             <li>✓ Risco e Avaliação</li>
@@ -244,30 +271,70 @@
         </div>
     </section>
 
+    <!-- Progression Section -->
+    <section class="py-20 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">Progressão Clara</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+                <div class="flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl px-6 py-4">
+                    <span class="text-2xl">🌟</span>
+                    <div>
+                        <p class="font-bold text-emerald-400">Iniciante</p>
+                        <p class="text-xs text-gray-500">Fundamentos</p>
+                    </div>
+                </div>
+                <span class="text-gray-600 text-2xl hidden md:block">→</span>
+                <div class="flex items-center gap-3 bg-blue-500/10 border border-blue-500/30 rounded-xl px-6 py-4">
+                    <span class="text-2xl">⚡</span>
+                    <div>
+                        <p class="font-bold text-blue-400">Técnico</p>
+                        <p class="text-xs text-gray-500">Aplicação</p>
+                    </div>
+                </div>
+                <span class="text-gray-600 text-2xl hidden md:block">→</span>
+                <div class="flex items-center gap-3 bg-purple-500/10 border border-purple-500/30 rounded-xl px-6 py-4">
+                    <span class="text-2xl">🚀</span>
+                    <div>
+                        <p class="font-bold text-purple-400">Avançado</p>
+                        <p class="text-xs text-gray-500">Especialização</p>
+                    </div>
+                </div>
+                <span class="text-gray-600 text-2xl hidden md:block">→</span>
+                <div class="flex items-center gap-3 bg-amber-500/10 border border-amber-500/30 rounded-xl px-6 py-4">
+                    <span class="text-2xl">👑</span>
+                    <div>
+                        <p class="font-bold text-amber-400">Masterclass</p>
+                        <p class="text-xs text-gray-500">Liderança</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
+    <section class="py-20 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-bold mb-6 text-gray-900">Sobre o Curso FEP</h2>
-                <p class="text-lg text-gray-700 mb-8">
-                    O <strong>FEP - Fundamentos e Engenharia de Prompt</strong> é um curso completo e gratuito que te leva do básico ao avançado em Engenharia de Prompt.
-                    Com 8 módulos estruturados em 3 níveis progressivos, você aprenderá tudo sobre LLMs, técnicas de prompting, RAG, agentes autônomos e muito mais.
+                <h2 class="text-4xl font-bold mb-6 text-white">Sobre o Curso FEP</h2>
+                <p class="text-lg text-gray-400 mb-8">
+                    O <strong class="text-white">FEP - Fundamentos e Engenharia de Prompt</strong> é um curso completo e gratuito que te leva do básico ao avançado em Engenharia de Prompt.
+                    Com 4 trilhas progressivas, você aprenderá tudo sobre LLMs, técnicas de prompting, RAG, agentes autônomos, arquitetura de sistemas e liderança técnica.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-                    <div class="p-6 bg-gray-50 rounded-lg">
+                    <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
                         <div class="text-3xl mb-3">🎯</div>
-                        <h3 class="font-bold text-gray-900 mb-2">Progressão Clara</h3>
-                        <p class="text-gray-600 text-sm">Do zero absoluto até sistemas avançados de agentes</p>
+                        <h3 class="font-bold text-white mb-2">Progressão Clara</h3>
+                        <p class="text-gray-500 text-sm">Do zero absoluto até arquiteto de sistemas de IA</p>
                     </div>
-                    <div class="p-6 bg-gray-50 rounded-lg">
+                    <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
                         <div class="text-3xl mb-3">💼</div>
-                        <h3 class="font-bold text-gray-900 mb-2">Aplicação Prática</h3>
-                        <p class="text-gray-600 text-sm">Exercícios reais e projetos para o mercado de trabalho</p>
+                        <h3 class="font-bold text-white mb-2">Aplicação Prática</h3>
+                        <p class="text-gray-500 text-sm">Exercícios reais e projetos para o mercado de trabalho</p>
                     </div>
-                    <div class="p-6 bg-gray-50 rounded-lg">
+                    <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl">
                         <div class="text-3xl mb-3">🚀</div>
-                        <h3 class="font-bold text-gray-900 mb-2">Conteúdo Atualizado</h3>
-                        <p class="text-gray-600 text-sm">Técnicas mais recentes e frameworks modernos</p>
+                        <h3 class="font-bold text-white mb-2">Conteúdo Atualizado</h3>
+                        <p class="text-gray-500 text-sm">Técnicas mais recentes e frameworks modernos</p>
                     </div>
                 </div>
             </div>
@@ -275,31 +342,32 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
+    <footer class="py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">FEP</h3>
-                    <p class="text-gray-400">Engenharia de Prompt do Zero ao Especialista</p>
+                    <h3 class="text-xl font-bold mb-4 text-gradient">FEP</h3>
+                    <p class="text-gray-500">Engenharia de Prompt do Zero ao Especialista</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="nivel-iniciante.html" class="hover:text-white">🌟 Iniciante</a></li>
-                        <li><a href="nivel-tecnico.html" class="hover:text-white">⚡ Técnico</a></li>
-                        <li><a href="nivel-masterclass.html" class="hover:text-white">👑 Masterclass</a></li>
-                        <li><a href="exercicios.html" class="hover:text-white">Exercícios</a></li>
+                    <h3 class="text-xl font-bold mb-4 text-white">Links Rápidos</h3>
+                    <ul class="space-y-2 text-gray-500">
+                        <li><a href="nivel-iniciante.html" class="hover:text-emerald-400 transition-colors">🌟 Iniciante</a></li>
+                        <li><a href="nivel-tecnico.html" class="hover:text-blue-400 transition-colors">⚡ Técnico</a></li>
+                        <li><a href="nivel-avancado.html" class="hover:text-purple-400 transition-colors">🚀 Avançado</a></li>
+                        <li><a href="nivel-masterclass.html" class="hover:text-amber-400 transition-colors">👑 Masterclass</a></li>
+                        <li><a href="exercicios.html" class="hover:text-white transition-colors">Exercícios</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Comunidade</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="https://github.com/inematds/FEP" target="_blank" class="hover:text-white">GitHub</a></li>
-                        <li><a href="mailto:inematds@gmail.com" class="hover:text-white">Contato</a></li>
+                    <h3 class="text-xl font-bold mb-4 text-white">Comunidade</h3>
+                    <ul class="space-y-2 text-gray-500">
+                        <li><a href="https://github.com/inematds/FEP" target="_blank" class="hover:text-white transition-colors">GitHub</a></li>
+                        <li><a href="mailto:inematds@gmail.com" class="hover:text-white transition-colors">Contato</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
                 <p>&copy; 2025 FEP - Engenharia de Prompt. Open Source - MIT License</p>
                 <p class="mt-2 text-sm">Desenvolvido por Manus | Feito com ❤️ para a comunidade de IA em Português</p>
             </div>
@@ -307,6 +375,14 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
