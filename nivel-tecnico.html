@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nível Técnico | FEP - Engenharia de Prompt</title>
+    <script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class'
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FACC15',
+              dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+            },
+            fontFamily: {
+              'inter': ['Inter', 'system-ui', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
         }
+      }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -44,9 +61,44 @@
 
         /* Theme Toggle */
         .theme-toggle { position: fixed; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 50; }
+
+        /* INEMA Light Mode Overrides - Base */
+        html:not(.dark) body { background-color: #f8fafc; }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+        /* INEMA Light Mode - Trilha accent (blue) */
+        html:not(.dark) .text-blue-400 { color: #2563eb; }
+        html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+        html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+        html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+        html:not(.dark) .hover\:bg-blue-500\/30:hover { background-color: rgba(37, 99, 235, 0.18); }
+
+        /* INEMA Light Mode - Remove gradients */
+        html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+        /* INEMA Light Mode - Special colors */
+        html:not(.dark) .text-primary { color: #a16207; }
+        html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+        html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+        html:not(.dark) .text-sky-400 { color: #0369a1; }
+        html:not(.dark) .text-yellow-400 { color: #a16207; }
+        html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+        html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+        /* INEMA Light Mode - Nav */
+        html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
 </head>
-<body class="bg-neutral-50 dark:bg-neutral-900 min-h-screen transition-colors">
+<body class="bg-dark-900 text-neutral-100 min-h-screen transition-colors">
     <!-- Theme Toggle -->
     <button id="theme-toggle" class="theme-toggle bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600">
         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-700" fill="currentColor" viewBox="0 0 20 20">
@@ -60,12 +112,16 @@
     <!-- Header -->
     <header class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 sticky top-0 z-40">
         <div class="max-w-4xl mx-auto px-4 py-3">
-            <a href="index.html" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 font-semibold transition-colors">
-                <span>←</span>
-                <span class="text-lg">FEP</span>
-                <span class="text-neutral-400">|</span>
-                <span class="text-neutral-600 dark:text-neutral-400 text-sm">Engenharia de Prompt</span>
-            </a>
+            <div class="flex items-center">
+                <a href="index.html" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 font-semibold transition-colors">
+                    <span>←</span>
+                    <span class="text-lg">FEP</span>
+                    <span class="text-neutral-400">|</span>
+                    <span class="text-neutral-600 dark:text-neutral-400 text-sm">Engenharia de Prompt</span>
+                </a>
+                <span class="text-neutral-600 mx-2">|</span>
+                <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+            </div>
         </div>
     </header>
 
@@ -884,9 +940,7 @@
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-        if (localStorage.getItem('color-theme') === 'dark' ||
-            (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
+        if (document.documentElement.classList.contains('dark')) {
             themeToggleLightIcon.classList.remove('hidden');
         } else {
             themeToggleDarkIcon.classList.remove('hidden');
@@ -898,10 +952,10 @@
 
             if (document.documentElement.classList.contains('dark')) {
                 document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
+                localStorage.setItem('theme', 'light');
             } else {
                 document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
             }
         });
 

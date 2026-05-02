@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+<html lang="pt-BR">
 <head>
+    <script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 5: Avaliação Sistêmica e Risco | Masterclass | FEP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'inter': ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FACC15',
+              dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+            },
+            fontFamily: {
+              'inter': ['Inter', 'system-ui', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
             }
+          }
         }
+      }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,17 +40,76 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* INEMA Light Mode Overrides - Base */
+        html:not(.dark) body { background-color: #f8fafc; color: #111827; }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .bg-gray-950 { background-color: #f8fafc; }
+        html:not(.dark) .bg-gray-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-gray-800 { background-color: #f3f4f6; }
+        html:not(.dark) .text-gray-100 { color: #111827; }
+        html:not(.dark) .text-gray-200 { color: #1f2937; }
+        html:not(.dark) .text-gray-300 { color: #4b5563; }
+        html:not(.dark) .text-gray-400 { color: #6b7280; }
+        html:not(.dark) .text-gray-500 { color: #9ca3af; }
+        html:not(.dark) .text-white { color: #111827; }
+        html:not(.dark) .border-gray-700 { border-color: #e5e7eb; }
+        html:not(.dark) .border-gray-800 { border-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+        /* INEMA Light Mode - Trilha accent (amber) */
+        html:not(.dark) .text-amber-400 { color: #92400e; }
+        html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+        html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+        html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+        html:not(.dark) .hover\:bg-amber-500\/30:hover { background-color: rgba(217, 119, 6, 0.18); }
+
+        /* INEMA Light Mode - Remove gradients */
+        html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+        /* INEMA Light Mode - Special colors */
+        html:not(.dark) .text-primary { color: #a16207; }
+        html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+        html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+        html:not(.dark) .text-sky-400 { color: #0369a1; }
+        html:not(.dark) .text-yellow-400 { color: #a16207; }
+        html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+        html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+        /* INEMA Light Mode - Nav */
+        html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+        html:not(.dark) .bg-gray-950\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-100">
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
 
     <!-- Header -->
     <header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <a href="../../index.html" class="text-xl font-bold text-gradient-gold">FEP</a>
+                <div class="flex items-center gap-3">
+                    <a href="../../index.html" class="text-xl font-bold text-gradient-gold">FEP</a>
+                    <span class="text-neutral-600 mx-2">|</span>
+                    <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+                </div>
                 <nav class="flex items-center space-x-6">
                     <a href="../../nivel-masterclass.html" class="text-gray-300 hover:text-amber-400 transition-colors text-sm">← Voltar ao Curso</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                        </svg>
+                    </button>
                 </nav>
             </div>
         </div>
@@ -578,5 +647,28 @@
         </div>
     </footer>
 
+    <script>
+      (function() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return;
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+
+        if (html.classList.contains('dark')) {
+          lightIcon && lightIcon.classList.remove('hidden');
+        } else {
+          darkIcon && darkIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', () => {
+          html.classList.toggle('dark');
+          const isDark = html.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          darkIcon && darkIcon.classList.toggle('hidden');
+          lightIcon && lightIcon.classList.toggle('hidden');
+        });
+      })();
+    </script>
 </body>
 </html>

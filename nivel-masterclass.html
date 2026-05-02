@@ -12,30 +12,76 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
-                }
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FACC15',
+              dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+            },
+            fontFamily: {
+              'inter': ['Inter', 'system-ui', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
             }
+          }
         }
+      }
     </script>
     <style>
         html.dark body { background-color: #0a0a0a; }
         .gold-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%); }
         .gold-text { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* INEMA Light Mode Overrides - Base */
+        html:not(.dark) body { background-color: #f8fafc; }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+        /* INEMA Light Mode - Trilha accent (amber) */
+        html:not(.dark) .text-amber-400 { color: #92400e; }
+        html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+        html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+        html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+        html:not(.dark) .hover\:bg-amber-500\/30:hover { background-color: rgba(217, 119, 6, 0.18); }
+
+        /* INEMA Light Mode - Remove gradients */
+        html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+        /* INEMA Light Mode - Special colors */
+        html:not(.dark) .text-primary { color: #a16207; }
+        html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+        html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+        html:not(.dark) .text-sky-400 { color: #0369a1; }
+        html:not(.dark) .text-yellow-400 { color: #a16207; }
+        html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+        html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+        /* INEMA Light Mode - Nav */
+        html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
 </head>
-<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+<body class="font-sans bg-dark-900 text-neutral-100 min-h-screen antialiased">
     <!-- Header -->
     <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <span class="text-xl font-bold gold-text">FEP</span>
-                <span class="text-neutral-400 dark:text-neutral-500">|</span>
-                <span class="text-sm text-neutral-600 dark:text-neutral-400">Masterclass</span>
-            </a>
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2">
+                    <span class="text-xl font-bold gold-text">FEP</span>
+                    <span class="text-neutral-400 dark:text-neutral-500">|</span>
+                    <span class="text-sm text-neutral-600 dark:text-neutral-400">Masterclass</span>
+                </a>
+                <span class="text-neutral-600 mx-2">|</span>
+                <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+            </div>
             <div class="flex items-center gap-4">
                 <nav class="hidden md:flex items-center gap-6">
                     <a href="nivel-iniciante.html" class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400">Iniciante</a>
@@ -194,7 +240,7 @@
                                         <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Análise de arquiteturas reais</span>
                                     </a>
                                 </div>
-                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap">
+                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
                                     <button class="px-3 py-1.5 bg-amber-500 text-white text-xs rounded font-semibold hover:bg-amber-600" onclick="openModuleModal(1)">📖 Ver Modal</button>
                                     <a href="conteudo/masterclass/modulo1-completo.html" class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600">🔗 Completo</a>
                                     <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700">⬇️ PDF</a>
@@ -246,7 +292,7 @@
                                         <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Falhas sistêmicas por contexto</span>
                                     </a>
                                 </div>
-                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap">
+                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
                                     <button class="px-3 py-1.5 bg-orange-500 text-white text-xs rounded font-semibold hover:bg-orange-600" onclick="openModuleModal(2)">📖 Ver Modal</button>
                                     <a href="conteudo/masterclass/modulo2-completo.html" class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600">🔗 Completo</a>
                                     <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700">⬇️ PDF</a>
@@ -298,7 +344,7 @@
                                         <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Evolução ao longo do tempo</span>
                                     </a>
                                 </div>
-                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap">
+                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
                                     <button class="px-3 py-1.5 bg-rose-500 text-white text-xs rounded font-semibold hover:bg-rose-600" onclick="openModuleModal(3)">📖 Ver Modal</button>
                                     <a href="conteudo/masterclass/modulo3-completo.html" class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600">🔗 Completo</a>
                                     <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700">⬇️ PDF</a>
@@ -350,7 +396,7 @@
                                         <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Estudos de caso reais</span>
                                     </a>
                                 </div>
-                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap">
+                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
                                     <button class="px-3 py-1.5 bg-indigo-500 text-white text-xs rounded font-semibold hover:bg-indigo-600" onclick="openModuleModal(4)">📖 Ver Modal</button>
                                     <a href="conteudo/masterclass/modulo4-completo.html" class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600">🔗 Completo</a>
                                     <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700">⬇️ PDF</a>
@@ -402,7 +448,7 @@
                                         <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Incidentes e resposta a falhas</span>
                                     </a>
                                 </div>
-                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap">
+                                <div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
                                     <button class="px-3 py-1.5 bg-red-500 text-white text-xs rounded font-semibold hover:bg-red-600" onclick="openModuleModal(5)">📖 Ver Modal</button>
                                     <a href="conteudo/masterclass/modulo5-completo.html" class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600">🔗 Completo</a>
                                     <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700">⬇️ PDF</a>
@@ -455,7 +501,7 @@
                                         <span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Projeto final: arquitetura completa</span>
                                     </a>
                                 </div>
-                                <div class="mt-4 pt-4 border-t border-amber-200 dark:border-amber-800 flex gap-2 flex-wrap">
+                                <div class="mt-4 pt-4 border-t border-amber-200 dark:border-amber-800 flex gap-2 flex-wrap justify-start">
                                     <button class="px-3 py-1.5 gold-gradient text-white text-xs rounded font-semibold hover:opacity-90" onclick="openModuleModal(6)">📖 Ver Modal</button>
                                     <a href="conteudo/masterclass/modulo6-completo.html" class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600">🔗 Completo</a>
                                     <a href="docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="px-3 py-1.5 border border-amber-300 dark:border-amber-600 text-amber-700 dark:text-amber-300 text-xs rounded font-semibold hover:bg-amber-50 dark:hover:bg-amber-900/30">⬇️ PDF</a>
