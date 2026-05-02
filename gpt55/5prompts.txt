@@ -1,0 +1,144 @@
+# 5 PROMPTS GPT-5.5 — Padroes Atualizados
+
+> **Base oficial:** https://developers.openai.com/api/docs/guides/prompt-guidance
+> Versoes para GPT-5.5. Para GPT-5.1, ver pasta `gpt51/`.
+
+---
+
+## 1. Controle de Estilo (Personality + Collaboration)
+
+**O que mudou vs 5.1:** divisao explicita entre PERSONALITY (tom) e COLLABORATION
+STYLE (como decide). Ambos curtos.
+
+```
+PERSONALITY
+Tom: {profissional / amigavel / tecnico}
+Verbosidade: {baixa / media / alta}
+
+COLLABORATION STYLE
+- Pergunte apenas quando a tarefa for irreversivel e faltar dado critico.
+- Em ambiguidade reversivel, assuma um caminho e explicite a suposicao.
+- Quando o usuario nao especificar formato, use texto direto sem cabecalhos.
+```
+
+---
+
+## 2. Outcome-First (substitui Solution Persistence)
+
+**O que mudou vs 5.1:** nao precisa mais dizer "persista ate o fim" / "viesado para
+acao". A guia recomenda descrever o RESULTADO desejado.
+
+```
+GOAL
+{descreva o artefato final concreto: codigo rodando, decisao tomada, documento
+escrito, etc.}
+
+SUCCESS CRITERIA
+- {criterio mensuravel 1}
+- {criterio mensuravel 2}
+- {criterio mensuravel 3}
+
+CONSTRAINTS
+- {limite tecnico ou de escopo}
+- {coisa a NAO fazer, se realmente invariavel}
+
+Entregue o artefato final. Nao pare em analise.
+```
+
+---
+
+## 3. Metaprompting para Diagnostico de Prompts
+
+**O que mudou vs 5.1:** a essencia continua valida — diagnostico + correcao cirurgica.
+Apenas removidas redundancias.
+
+### Parte 1 — Diagnostico
+```
+Vou colar meu prompt de sistema e exemplos onde ele falhou.
+
+Liste, citando linhas exatas:
+- contradicoes internas
+- regras vagas ou impossiveis
+- secoes que poderiam estar contribuindo para a falha observada
+
+Nao proponha correcoes ainda.
+```
+
+### Parte 2 — Correcao
+```
+Agora proponha edicoes minimas no prompt original. Restricoes:
+- nao reescreva secoes que estao OK
+- consolide regras duplicadas
+- remova ALWAYS / NEVER que nao sao realmente invariaveis (5.5 lida pior com regras
+  absolutas que nao sao necessarias)
+
+Devolva um diff (linhas removidas / adicionadas), nao o prompt completo.
+```
+
+---
+
+## 4. Retrieval Budget (substitui Tool Usage Hierarchy)
+
+**O que mudou vs 5.1:** a hierarquia detalhada de quando usar ferramenta foi
+substituida por um "orcamento" mais flexivel — quando buscar e, mais importante,
+quando PARAR de buscar.
+
+```
+RETRIEVAL BUDGET
+Faca uma busca quando:
+- a resposta depende de fato atualizado (preco, data, evento, versao recente)
+- o usuario pediu cobertura exaustiva
+- a tarefa envolve mais de 30 itens reais (lista, comparativo, base de fornecedores)
+
+Pare de buscar quando:
+- os top resultados ja respondem a pergunta nuclear
+- voce ja tem evidencia minima suficiente
+
+NAO:
+- re-busque a mesma coisa em formulacoes ligeiramente diferentes
+- amplie escopo da busca alem do que o usuario pediu
+
+Em paralelo: leituras em lote (read_file), edicoes em lote (apply_patch), e raciocinio
+paralelo quando seguro.
+```
+
+---
+
+## 5. Validation (substitui Self-Correction Loop)
+
+**O que mudou vs 5.1:** nao se pede mais "autoavalie depois de responder". Em vez
+disso, define-se VALIDACAO — um passo concreto de verificacao quando ha ferramentas
+disponiveis.
+
+```
+VALIDATION
+Antes de finalizar, rode a validacao mais relevante disponivel:
+- coding: testes targeted, type check, lint, ou smoke test
+- escrita factual: verifique numeros e nomes contra a fonte
+- decisao: liste os 2-3 trade-offs principais e qual venceu
+
+Se a validacao falhar:
+- corrija e prossiga (nao reinicie do zero)
+- se nao houver tempo/orcamento, reporte explicitamente o que nao foi validado
+```
+
+### Variante: clarificacao antes de comecar
+```
+Faca UMA pergunta alvo apenas se a tarefa for irreversivel (ex: deploy, envio, delete)
+e faltar parametro critico. Senao, comece com uma suposicao explicita.
+```
+
+---
+
+## Diferencas-chave 5.1 -> 5.5
+
+| Categoria | GPT-5.1 padrao | GPT-5.5 padrao |
+|-----------|----------------|----------------|
+| Filosofia | Process-heavy (regras detalhadas) | Outcome-first (descreva o destino) |
+| Persistencia | "Persista ate o fim" explicito | Implicito no goal/success criteria |
+| Auto-avaliacao | Loop pedido no prompt | Modelo ja faz internamente |
+| Ferramentas | Hierarquia detalhada | Retrieval budget enxuto |
+| Clarificacao | "1-3 perguntas" | "1 pergunta apenas se irreversivel" |
+| Reasoning | high comum | medium frequentemente suficiente |
+| Verbosidade | Implicita | Parametro explicito `text.verbosity` |
+| ALWAYS/NEVER | Comum | Evitar (estreita o espaco de busca) |

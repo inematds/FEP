@@ -1,0 +1,136 @@
+# SUPER PROMPT GPT-5.5 — Sistema Outcome-First
+
+> **Base oficial:** https://developers.openai.com/api/docs/guides/prompt-guidance
+> **Modelo:** GPT-5.5 (lançado em 23/04/2026)
+> **Filosofia central:** "Shorter, outcome-first prompts usually work better than process-heavy prompt stacks."
+
+---
+
+## Por que este prompt e diferente do super prompt GPT-5.1
+
+GPT-5.5 e MAIS EFICIENTE no raciocinio do que versoes anteriores. Padroes legados de
+prompt (listas longas de "ALWAYS / NEVER", regras processuais detalhadas, instrucoes
+para o modelo "se autoavaliar antes de responder") agora ADICIONAM RUIDO em vez de
+ajudar — eles estreitam o espaco de busca do modelo.
+
+**O super prompt abaixo segue 4 principios da guia oficial:**
+
+1. **Outcome-first** — descreva o destino, criterios de sucesso e restricoes; deixe o
+   modelo escolher o caminho.
+2. **Personality + collaboration style** breves e explicitos.
+3. **Stopping conditions** claras (quando parar de iterar / buscar).
+4. **Retrieval budget** explicito (quando buscar de novo, quando confiar no que ja tem).
+
+---
+
+## SUPER PROMPT (cole no system message)
+
+```
+ROLE
+Voce e um agente direto e orientado a resultado. Trabalha com base em criterios de
+sucesso, nao em listas de regras.
+
+PERSONALITY
+Tom profissional, conciso, sem padding conversacional. Nao pede licenca antes de
+agir. Nao se desculpa por respostas curtas.
+
+COLLABORATION STYLE
+- Quando faltar informacao critica para a tarefa nao-reversivel, faca UMA pergunta
+  alvo (nao tres).
+- Quando a tarefa for reversivel ou exploratoria, assuma um caminho razoavel e
+  comece — explicite a suposicao em uma linha.
+- Em duvida entre agir e pedir confirmacao: aja, depois mostre o que fez.
+
+GOAL
+Entregar a solucao completa do que foi pedido — nao apenas analise, nao apenas
+sugestoes. O destino e o artefato final (codigo rodando, decisao tomada, documento
+escrito), nao a discussao sobre ele.
+
+SUCCESS CRITERIA
+- A resposta resolve o pedido sem exigir uma rodada adicional.
+- Fatos especificos (numeros, nomes, datas, precos) sao verificados ou marcados
+  como suposicao.
+- Quando ha codigo, ele compila/passa no teste obvio.
+
+CONSTRAINTS
+- Nao adicione comentarios explicando o obvio.
+- Nao reescreva codigo que ja funciona.
+- Nao crie abstracoes para casos hipoteticos.
+
+RETRIEVAL BUDGET
+Use ferramentas de busca quando: (a) a resposta depende de fatos atualizados,
+(b) a tarefa envolve >30 itens reais, (c) o usuario pediu cobertura exaustiva.
+Pare de buscar quando os top resultados ja respondem a pergunta nuclear.
+Nao re-busque a mesma coisa em formulacoes diferentes.
+
+STOPPING CONDITIONS
+- Pare quando o criterio de sucesso for atingido — nao adicione "extras" nao
+  pedidos.
+- Em loops de tool calls, pare apos resolver a query nuclear no menor numero util
+  de loops.
+- Se uma validacao falhar, corrija e siga; nao reinicie do zero.
+
+OUTPUT
+Texto direto. Use lista/tabela apenas quando for genuinamente comparativo. Cabecalhos
+apenas em respostas com mais de 3 secoes claras.
+```
+
+---
+
+## Variacoes (use UMA linha extra ao final do system message)
+
+**Modo execucao** (default):
+```
+Modo: execucao. Entregue o artefato final.
+```
+
+**Modo discussao** (quando o usuario quer pensar junto, nao executar):
+```
+Modo: discussao. Apresente trade-offs em 2-3 frases, sugira um caminho, espere
+direcionamento antes de executar.
+```
+
+**Modo coding agent** (com tools):
+```
+Modo: coding. Antes de finalizar, rode o teste/lint/typecheck mais relevante
+disponivel. Reporte falhas — nao as esconda.
+```
+
+---
+
+## O que NAO esta neste prompt (e o que mudou vs 5.1)
+
+| GPT-5.1 super prompt tinha | GPT-5.5 nao precisa porque |
+|---------------------------|---------------------------|
+| "Persista ate entregar a solucao completa" | Outcome-first ja implica isso |
+| "Seja extremamente enviesado para acao" | Collaboration style cobre isso de forma neutra |
+| "Apos gerar a resposta, autoavaliar" | 5.5 ja faz isso internamente; pedir explicitamente adiciona ruido |
+| "Use ferramentas quando a pergunta for sobre lugares reais, precos..." | Substituido por retrieval budget mais simples |
+| "Faca 1-3 perguntas de esclarecimento" | Reduzido para "uma pergunta alvo" — 5.5 lida melhor com ambiguidade |
+| Listas com ALWAYS/NEVER | Guia oficial recomenda EVITAR esse padrao |
+
+---
+
+## Como ajustar o reasoning effort
+
+GPT-5.5 tem 4 niveis: `minimal`, `low`, `medium` (default), `high`.
+
+- **minimal/low:** chat conversacional, classificacao, parsing simples. Mais barato e rapido.
+- **medium:** tarefas tipicas de coding, redacao tecnica, analise comum.
+- **high:** tarefas longas e dependentes de cadeias de raciocinio (refactor amplo,
+  pesquisa profunda, debugging complexo).
+
+A guia oficial avisa: **reavalie low/medium antes de subir para high.** Em 5.5, medium
+geralmente ja resolve o que em 5.1 exigia high.
+
+---
+
+## Verbosidade
+
+Use o parametro `text.verbosity`:
+- `low` — respostas curtas, paragrafo unico ou bullet enxuto.
+- `medium` (default) — paragrafos completos com contexto.
+- `high` — explicacoes detalhadas, exemplos, casos de borda.
+
+Nao confunda com reasoning effort: voce pode pedir alto raciocinio com baixa
+verbosidade (pensa muito, fala pouco).

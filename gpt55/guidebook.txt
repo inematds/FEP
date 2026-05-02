@@ -1,0 +1,209 @@
+# GUIDEBOOK GPT-5.5 — Como prompar para o modelo de 23/04/2026
+
+> **Fonte oficial:** https://developers.openai.com/api/docs/guides/prompt-guidance
+> **Anuncio:** https://openai.com/index/introducing-gpt-5-5/
+> **System card:** https://openai.com/index/gpt-5-5-system-card/
+
+---
+
+## TL;DR — Os 7 principios oficiais
+
+1. **Prompts mais curtos e outcome-first funcionam melhor** que stacks pesadas de
+   processo.
+2. **Reavalie low/medium antes de subir para high** — o raciocinio em 5.5 e mais
+   eficiente; muito do que pedia high em 5.1 agora resolve em medium.
+3. **Evite padroes legados** que sobre-especificam processo (ALWAYS, NEVER, listas
+   numeradas longas de regras).
+4. **Defina personality e collaboration style explicitamente, mas curtos.**
+5. **Use preambles para streaming** (acknowledge antes de chamar tool) — melhora a
+   percepcao de responsividade.
+6. **Adicione stopping conditions explicitas** para retrieval e loops de iteracao.
+7. **Format serve a comprensao**, nao substitui clareza de objetivo.
+
+---
+
+## 1. Estrutura recomendada de prompt
+
+```
+ROLE          — 1-2 frases sobre o papel
+PERSONALITY   — tom, formalidade, humor, empatia (curto)
+COLLABORATION — quando perguntar, quando assumir, como lidar com incerteza (curto)
+GOAL          — o resultado visivel para o usuario
+SUCCESS       — criterios mensuraveis de "pronto"
+CONSTRAINTS   — limites reais, nao "preferencias estilisticas"
+OUTPUT        — formato esperado (apenas se realmente importa)
+STOP RULES    — quando parar (especialmente em loops e retrieval)
+```
+
+Mantenha cada secao com **maximo 2-4 linhas**. Se uma secao puder ser inferida do
+goal, omita.
+
+---
+
+## 2. Reasoning effort
+
+GPT-5.5 expoe 4 niveis no parametro `reasoning.effort`:
+
+| Nivel | Quando usar | Exemplos |
+|-------|-------------|----------|
+| `minimal` | Resposta imediata, sem raciocinio multi-passo | Classificacao, parsing simples, FAQ |
+| `low` | Tarefas curtas com pouco contexto | Explicacao de conceito, formatacao basica |
+| `medium` (default) | Maioria das tarefas tecnicas | Coding rotineiro, redacao, analise |
+| `high` | Cadeias longas de raciocinio | Refactor amplo, debugging complexo, pesquisa profunda |
+
+**Mudanca importante vs 5.1:** muitas tarefas que exigiam `high` em 5.1 resolvem em
+`medium` em 5.5. Sempre teste medium primeiro.
+
+---
+
+## 3. Verbosity
+
+Parametro independente de reasoning. Controla quanto o modelo FALA, nao quanto PENSA.
+
+| `text.verbosity` | Saida tipica |
+|------------------|--------------|
+| `low` | 1 paragrafo ou 3-5 bullets enxutos |
+| `medium` (default) | 2-4 paragrafos com contexto |
+| `high` | Explicacao detalhada, exemplos, edge cases |
+
+Combine: `reasoning.effort=high` + `text.verbosity=low` = pensa profundamente, fala
+o essencial. Util em agents.
+
+---
+
+## 4. Personality vs Collaboration Style
+
+A guia oficial separa esses dois conceitos:
+
+**Personality** — TOM. Como soa.
+- profissional / casual / amigavel / direto
+- formal / informal
+- com humor / serio
+- empatico / neutro
+
+**Collaboration Style** — DECISAO. Quando age sozinho, quando pergunta.
+- pergunta antes de assumir VS assume e explicita
+- valida antes de finalizar VS confia no caminho feliz
+- mostra trabalho intermediario VS so o resultado
+- 1 pergunta alvo VS varias
+
+Mantenha cada um com 2-4 linhas no system message.
+
+---
+
+## 5. Preambles para streaming
+
+Quando a UI mostra streaming e o agente vai chamar varias tools, instrua:
+
+```
+Antes de chamar uma tool, escreva 1 frase curta sinalizando o que vai fazer.
+Exemplo: "Verificando o schema do banco antes de gerar a query."
+Nao escreva preambles longos. Apenas o suficiente para o usuario saber que voce
+nao travou.
+```
+
+Isso melhora a **percepcao** de responsividade — o usuario ve atividade enquanto o
+modelo busca/raciocina.
+
+---
+
+## 6. Retrieval Budget
+
+Em vez de hierarquia detalhada de "quando usar ferramentas", a guia 5.5 recomenda
+um orcamento simples:
+
+```
+Faca uma nova busca apenas quando:
+- top resultados nao respondem a pergunta nuclear
+- fatos requeridos estao ausentes
+- o usuario pediu cobertura exaustiva
+- documentos especificos precisam ser lidos
+
+Senao: confie no que ja tem.
+```
+
+Combinado com o GOAL e SUCCESS CRITERIA, isso evita o anti-padrao classico de
+re-buscar a mesma coisa em formulacoes diferentes.
+
+---
+
+## 7. Stopping conditions
+
+Para qualquer tarefa que envolva loops (tools, retrieval, iteracao):
+
+```
+STOP RULES
+- Pare quando o criterio de sucesso for atingido. Nao adicione extras nao pedidos.
+- Em tool calls, resolva a query no menor numero util de loops.
+- Se uma validacao falhar, corrija e siga. Nao reinicie do zero.
+- Se nao for possivel resolver, REPORTE em vez de continuar tentando indefinidamente.
+```
+
+---
+
+## 8. Citacao e grounding
+
+Para tarefas com fatos verificaveis:
+
+```
+- Distinga claramente fatos com fonte vs frases criativas/genericas.
+- Cite a fonte de cada numero, nome proprio, data e preco.
+- Se a evidencia nao suporta uma afirmacao concreta, escreva uma versao generica
+  com placeholder em vez de inventar.
+```
+
+---
+
+## 9. Padroes a EVITAR em GPT-5.5
+
+A guia oficial cita explicitamente padroes legados que **adicionam ruido**:
+
+| Padrao a evitar | Por que |
+|-----------------|---------|
+| Listas longas de "ALWAYS / NEVER" | Estreita o espaco de busca; piora generalizacao |
+| Pseudocode-step-by-step | 5.5 e melhor escolhendo o caminho |
+| "Pense passo a passo" explicito | Ja faz isso por padrao no nivel de raciocinio adequado |
+| "Autoavalie sua resposta antes de entregar" | Ja faz internamente; pedir adiciona overhead |
+| Hierarquias rigidas de tool ("PRIMEIRO X, SO ENTAO Y") | Substituido por retrieval budget |
+| Repetir a mesma regra em varias secoes | Confunde mais do que reforca |
+
+---
+
+## 10. Migracao de prompts 5.1 -> 5.5
+
+Roteiro pratico:
+
+1. **Comprima.** Remova listas de regras processuais. Substitua por GOAL + SUCCESS.
+2. **Separe personality e collaboration.** Em 5.1 viravam um bloco so; em 5.5 sao 2
+   secoes curtas distintas.
+3. **Substitua tool hierarchy por retrieval budget.** Mais flexivel, menos ruido.
+4. **Remova self-eval explicito.** O modelo ja faz.
+5. **Adicione stop rules.** Especialmente para agents.
+6. **Reduza reasoning.effort um nivel** e teste. Provavelmente continua passando.
+7. **Defina text.verbosity explicitamente.** Default medium pode estar verboso demais.
+
+---
+
+## 11. Diferencas-chave de comportamento (5.1 -> 5.5)
+
+- **Mais conciso por padrao** — 5.5 e direto, evita padding conversacional.
+- **Mais "honesto" em incerteza** — explicita quando nao tem certeza.
+- **Melhor em tool use sequencial** — escolhe melhor o proximo passo.
+- **Pior se voce sobre-especifica** — quanto mais regras, pior a generalizacao.
+- **Melhor com prompts curtos** — o oposto de 5.1.
+
+---
+
+## 12. Recursos oficiais
+
+- **Prompt guidance:** https://developers.openai.com/api/docs/guides/prompt-guidance
+- **Anuncio do modelo:** https://openai.com/index/introducing-gpt-5-5/
+- **System card (seguranca):** https://openai.com/index/gpt-5-5-system-card/
+- **Cookbook (guides 5.0/5.1/5.2 enquanto 5.5 nao tem dedicado):**
+  - https://cookbook.openai.com/examples/gpt-5/gpt-5_prompting_guide
+  - https://cookbook.openai.com/examples/gpt-5/gpt-5-1_prompting_guide
+  - https://cookbook.openai.com/examples/gpt-5/gpt-5-2_prompting_guide
+
+> Nota: ate 02/05/2026, o cookbook NAO tem ainda um guia dedicado para 5.5. A
+> referencia oficial principal e a pagina de prompt guidance acima, que cobre 5.5
+> explicitamente. As guidelines de 5.2 ainda sao 90% aplicaveis a 5.5.
