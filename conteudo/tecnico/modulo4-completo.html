@@ -1,12 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="inema-course" content="fep">
+    <script data-inema-antifouc>
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+    <script type="application/json" data-inema-manifest>
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
     <script>
       if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     </script>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 4: Prompting Multimodal (Imagem e Vídeo) - Nível Técnico | FEP</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,7 +218,7 @@
         html:not(.dark) .text-neutral-100 { color: #111827; }
         html:not(.dark) .text-neutral-300 { color: #4b5563; }
         html:not(.dark) .text-neutral-400 { color: #6b7280; }
-        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
         html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
         html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 
@@ -71,10 +244,42 @@
         /* INEMA Light Mode - Nav */
         html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
+    <link rel="stylesheet" href="../../assets/learn.css">
+    <link rel="stylesheet" href="../../assets/v2.css">
 </head>
-<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased" data-inema-v2="2">
+  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+  <nav class="inema-v2-nav" aria-label="Navegação principal">
+    <div class="inema-v2-nav__inner">
+      <div class="inema-v2-brand">
+        <a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
+        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+      </div>
+      <div class="inema-v2-links" aria-label="Trilhas"><a href="../../nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="../../nivel-tecnico.html" class="inema-v2-link" aria-current="page"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="../../nivel-avancado.html" class="inema-v2-link"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="../../nivel-masterclass.html" class="inema-v2-link"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+      <div class="inema-v2-actions">
+        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
+        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
+        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
+      </div>
+    </div>
+    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
+      </div></div>
+    </div>
+  </nav>
     <!-- Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700" data-v2-legacy-nav>
         <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <a href="../../nivel-tecnico.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
@@ -153,9 +358,20 @@
     </nav>
 
     <!-- Content -->
-    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8" id="conteudo" data-inema-module="2-4" data-inema-track="2">
+    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
+      <div><div class="inema-v2-page-tools__eyebrow">Trilha 2 · Módulo 4</div><div class="inema-v2-page-tools__title">Prompting Multimodal</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
+      <div class="inema-v2-meter" data-inema-meter="modulo:2-4" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Prompting Multimodal">
+      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
+      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
+    </div>
+    </aside>
+    <nav data-inema-toc aria-label="Índice do módulo" class="sr-only"><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
         <!-- Seção 1: Interpretação Multimodal -->
-        <section id="interpretacao" class="scroll-mt-32">
+        <span id="interpretacao" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-1" data-inema-topic="modulo-2-4#topico-1"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-pink-50 to-transparent dark:from-pink-900/20">
                     <div class="flex items-center gap-3">
@@ -164,13 +380,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Interpretação Multimodal de Prompts</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Como os modelos processam diferentes tipos de entrada</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m2-4-t1-p1">Como os modelos processam diferentes tipos de entrada</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m2-4-t1-p2">
                             Modelos multimodais representam uma evolução significativa na IA, capazes de processar e integrar
                             informações de diferentes modalidades - texto, imagem, áudio e vídeo. Compreender como esses modelos
                             interpretam entradas combinadas é fundamental para criar prompts eficazes.
@@ -179,12 +395,12 @@
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-4">
-                            <h4 class="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center gap-2">
+                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center gap-2">
                                 <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
                                 Visão + Texto
-                            </h4>
+                            </h3>
                             <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-1">
                                 <li>• Análise de imagens com contexto</li>
                                 <li>• OCR e extração de informações</li>
@@ -193,12 +409,12 @@
                             </ul>
                         </div>
                         <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-4">
-                            <h4 class="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center gap-2">
+                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3 flex items-center gap-2">
                                 <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
                                 </svg>
                                 Áudio + Contexto
-                            </h4>
+                            </h3>
                             <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-1">
                                 <li>• Transcrição com análise de sentimento</li>
                                 <li>• Identificação de falantes</li>
@@ -209,13 +425,13 @@
                     </div>
 
                     <div class="bg-pink-50 dark:bg-pink-900/20 border border-pink-200 dark:border-pink-800 rounded-xl p-4">
-                        <h4 class="font-semibold text-pink-900 dark:text-pink-300 mb-2">Estratégia de Interpretação</h4>
-                        <p class="text-sm text-pink-800 dark:text-pink-200 mb-3">
+                        <h3 class="font-semibold text-pink-900 dark:text-pink-300 mb-2">Estratégia de Interpretação</h3>
+                        <p class="text-sm text-pink-800 dark:text-pink-200 mb-3" data-inema-block="m2-4-t1-p3">
                             Ao trabalhar com entradas multimodais, sempre forneça contexto claro sobre o que você espera
                             que o modelo faça com cada tipo de entrada.
                         </p>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 font-mono text-sm">
-                            <p class="text-neutral-500 dark:text-neutral-400"># Exemplo de prompt multimodal eficaz</p>
+                            <p class="text-neutral-500 dark:text-neutral-400" data-inema-block="m2-4-t1-p4"># Exemplo de prompt multimodal eficaz</p>
                             <p class="text-pink-600 dark:text-pink-400 mt-2">[Imagem: captura de tela de dashboard]</p>
                             <p class="text-neutral-700 dark:text-neutral-300 mt-2">
                                 Analise esta captura de tela de dashboard e:<br>
@@ -230,7 +446,10 @@
         </section>
 
         <!-- Seção 2: Geração de Imagens -->
-        <section id="geracao" class="scroll-mt-32">
+        <span id="geracao" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-2" data-inema-topic="modulo-2-4#topico-2"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
                     <div class="flex items-center gap-3">
@@ -239,33 +458,33 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompts para Geração de Imagens</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Estrutura e técnicas para criação visual</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m2-4-t2-p1">Estrutura e técnicas para criação visual</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m2-4-t2-p2">
                             A geração de imagens via prompt é uma arte que combina descrição técnica com criatividade.
                             A estrutura do prompt influencia diretamente a qualidade e relevância das imagens geradas.
                         </p>
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Anatomia de um Prompt de Imagem</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Anatomia de um Prompt de Imagem</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
                                 <span class="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xs font-bold">1</span>
                                 <div>
                                     <span class="font-medium text-neutral-900 dark:text-white">Sujeito Principal</span>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">O que ou quem está na imagem</p>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m2-4-t2-p3">O que ou quem está na imagem</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
                                 <span class="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xs font-bold">2</span>
                                 <div>
                                     <span class="font-medium text-neutral-900 dark:text-white">Estilo Visual</span>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Fotorrealista, ilustração, 3D, aquarela, etc.</p>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m2-4-t2-p4">Fotorrealista, ilustração, 3D, aquarela, etc.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -293,7 +512,7 @@
                     </div>
 
                     <div class="bg-gradient-to-r from-violet-100 to-pink-100 dark:from-violet-900/30 dark:to-pink-900/30 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Prompt Estruturado</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Prompt Estruturado</h3>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm space-y-2">
                             <p class="text-violet-600 dark:text-violet-400">// Sujeito</p>
                             <p class="text-neutral-700 dark:text-neutral-300">Uma cientista trabalhando em laboratório futurista,</p>
@@ -312,7 +531,10 @@
         </section>
 
         <!-- Seção 3: Prompts Negativos -->
-        <section id="negativos" class="scroll-mt-32">
+        <span id="negativos" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-3" data-inema-topic="modulo-2-4#topico-3"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
                     <div class="flex items-center gap-3">
@@ -321,13 +543,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompts Negativos em Imagens</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Controlando o que NÃO deve aparecer</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m2-4-t3-p1">Controlando o que NÃO deve aparecer</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m2-4-t3-p2">
                             Prompts negativos são tão importantes quanto os positivos na geração de imagens. Eles permitem
                             excluir elementos indesejados, corrigir artefatos comuns e refinar a qualidade final.
                         </p>
@@ -335,52 +557,52 @@
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
-                            <h4 class="font-semibold text-green-900 dark:text-green-300 mb-2 flex items-center gap-2">
+                            <h3 class="font-semibold text-green-900 dark:text-green-300 mb-2 flex items-center gap-2">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
                                 Prompt Positivo
-                            </h4>
-                            <p class="text-sm text-green-800 dark:text-green-200">
+                            </h3>
+                            <p class="text-sm text-green-800 dark:text-green-200" data-inema-block="m2-4-t3-p3">
                                 Retrato profissional, fundo neutro, iluminação de estúdio, alta resolução, foco nítido
                             </p>
                         </div>
                         <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
-                            <h4 class="font-semibold text-red-900 dark:text-red-300 mb-2 flex items-center gap-2">
+                            <h3 class="font-semibold text-red-900 dark:text-red-300 mb-2 flex items-center gap-2">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                                 </svg>
                                 Prompt Negativo
-                            </h4>
-                            <p class="text-sm text-red-800 dark:text-red-200">
+                            </h3>
+                            <p class="text-sm text-red-800 dark:text-red-200" data-inema-block="m2-4-t3-p4">
                                 Deformações, mãos extras, dedos extras, olhos cruzados, desfocado, baixa qualidade, marca d'água
                             </p>
                         </div>
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Categorias de Prompts Negativos</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Categorias de Prompts Negativos</h3>
                         <div class="space-y-4">
                             <div class="border-l-4 border-red-500 pl-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white">Qualidade Técnica</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">Qualidade Técnica</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-400">
                                     blurry, low resolution, pixelated, jpeg artifacts, noise, grainy, overexposed, underexposed
                                 </p>
                             </div>
                             <div class="border-l-4 border-orange-500 pl-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white">Anatomia e Proporções</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">Anatomia e Proporções</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-400">
                                     extra limbs, missing fingers, deformed hands, unnatural poses, distorted faces, asymmetrical
                                 </p>
                             </div>
                             <div class="border-l-4 border-yellow-500 pl-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white">Elementos Indesejados</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">Elementos Indesejados</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-400">
                                     watermark, signature, text overlay, frame, border, logo, username, cropped
                                 </p>
                             </div>
                             <div class="border-l-4 border-purple-500 pl-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white">Estilo Específico</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">Estilo Específico</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-400">
                                     cartoon (se quer realismo), realistic (se quer ilustração), anime, photobash, stock photo look
                                 </p>
@@ -394,7 +616,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                             </svg>
                             <div>
-                                <h4 class="font-semibold text-amber-900 dark:text-amber-300">Dica Importante</h4>
+                                <h3 class="font-semibold text-amber-900 dark:text-amber-300">Dica Importante</h3>
                                 <p class="text-sm text-amber-800 dark:text-amber-200">
                                     Nem todos os modelos de geração de imagem suportam prompts negativos da mesma forma.
                                     Verifique a documentação específica de cada ferramenta (DALL-E, Midjourney, Stable Diffusion).
@@ -407,7 +629,10 @@
         </section>
 
         <!-- Seção 4: Consistência Visual -->
-        <section id="consistencia" class="scroll-mt-32">
+        <span id="consistencia" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-4" data-inema-topic="modulo-2-4#topico-4"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-teal-50 to-transparent dark:from-teal-900/20">
                     <div class="flex items-center gap-3">
@@ -416,13 +641,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Consistência Visual</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Mantendo identidade entre múltiplas gerações</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m2-4-t4-p1">Mantendo identidade entre múltiplas gerações</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m2-4-t4-p2">
                             Um dos maiores desafios em projetos visuais com IA é manter consistência entre múltiplas imagens.
                             Seja para criar um personagem recorrente, uma série de ilustrações ou materiais de marca,
                             a consistência é crucial.
@@ -430,31 +655,31 @@
                     </div>
 
                     <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Técnicas de Consistência</h4>
+                        <h3 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Técnicas de Consistência</h3>
                         <div class="grid md:grid-cols-2 gap-4">
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🎨 Style Reference</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🎨 Style Reference</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m2-4-t4-p3">
                                     Use imagens de referência para estabelecer o estilo visual base e manter
                                     coerência em novas gerações.
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📝 Prompt Templates</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">📝 Prompt Templates</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m2-4-t4-p4">
                                     Crie templates de prompt reutilizáveis com elementos fixos e variáveis
                                     para cada nova imagem.
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔢 Seeds Fixas</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🔢 Seeds Fixas</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300">
                                     Quando disponível, use a mesma seed para manter características similares
                                     entre variações.
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📋 Character Sheets</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">📋 Character Sheets</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300">
                                     Crie documentos de referência detalhados descrevendo cada elemento
                                     que deve permanecer consistente.
@@ -464,7 +689,7 @@
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Template de Personagem</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Template de Personagem</h3>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
                             <p class="text-teal-600 dark:text-teal-400"># Personagem: Maya</p>
                             <p class="text-neutral-500 dark:text-neutral-400 mt-2">## Características Fixas:</p>
@@ -483,7 +708,10 @@
         </section>
 
         <!-- Seção 5: Prompting para Vídeos -->
-        <section id="videos" class="scroll-mt-32">
+        <span id="videos" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-5" data-inema-topic="modulo-2-4#topico-5"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20">
                     <div class="flex items-center gap-3">
@@ -492,20 +720,20 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompting para Vídeos</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Adicionando a dimensão temporal</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m2-4-t5-p1">Adicionando a dimensão temporal</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m2-4-t5-p2">
                             A geração de vídeo via IA adiciona complexidade significativa ao prompting, pois além dos
                             elementos visuais estáticos, você precisa descrever movimento, transições e temporalidade.
                         </p>
                     </div>
 
                     <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-4">Elementos de um Prompt de Vídeo</h4>
+                        <h3 class="font-semibold text-blue-900 dark:text-blue-300 mb-4">Elementos de um Prompt de Vídeo</h3>
                         <div class="space-y-3">
                             <div class="flex items-center gap-3 bg-white dark:bg-neutral-800 rounded-lg p-3">
                                 <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
@@ -515,7 +743,7 @@
                                 </div>
                                 <div>
                                     <span class="font-medium text-neutral-900 dark:text-white">Movimento de Câmera</span>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Pan, zoom, dolly, tracking shot, steadicam</p>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m2-4-t5-p3">Pan, zoom, dolly, tracking shot, steadicam</p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-3 bg-white dark:bg-neutral-800 rounded-lg p-3">
@@ -526,7 +754,7 @@
                                 </div>
                                 <div>
                                     <span class="font-medium text-neutral-900 dark:text-white">Ação do Sujeito</span>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Descreva o movimento: caminhando, correndo, gesticulando</p>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m2-4-t5-p4">Descreva o movimento: caminhando, correndo, gesticulando</p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-3 bg-white dark:bg-neutral-800 rounded-lg p-3">
@@ -555,7 +783,7 @@
                     </div>
 
                     <div class="bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Prompt de Vídeo</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Prompt de Vídeo</h3>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
                             <p class="text-blue-600 dark:text-blue-400">Slow dolly shot</p>
                             <p class="text-neutral-700 dark:text-neutral-300">aproximando-se de uma xícara de café fumegante</p>
@@ -572,7 +800,10 @@
         </section>
 
         <!-- Seção 6: Storyboards via Prompt -->
-        <section id="storyboards" class="scroll-mt-32">
+        <span id="storyboards" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-6" data-inema-topic="modulo-2-4#topico-6"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
                     <div class="flex items-center gap-3">
@@ -581,13 +812,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Storyboards via Prompt</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Planejamento visual narrativo com IA</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m2-4-t6-p1">Planejamento visual narrativo com IA</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m2-4-t6-p2">
                             Storyboards são ferramentas essenciais para pré-visualização de projetos audiovisuais.
                             Com IA, você pode criar rapidamente visualizações de cenas para validar conceitos antes
                             da produção.
@@ -595,13 +826,13 @@
                     </div>
 
                     <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-amber-900 dark:text-amber-300 mb-4">Workflow de Storyboard com IA</h4>
+                        <h3 class="font-semibold text-amber-900 dark:text-amber-300 mb-4">Workflow de Storyboard com IA</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
                                 <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold">1</span>
                                 <div class="flex-1 bg-white dark:bg-neutral-800 rounded-lg p-3">
-                                    <h5 class="font-medium text-neutral-900 dark:text-white">Definir Estrutura Narrativa</h5>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    <h3 class="font-medium text-neutral-900 dark:text-white">Definir Estrutura Narrativa</h3>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m2-4-t6-p3">
                                         Divida sua história em cenas-chave e momentos dramáticos importantes
                                     </p>
                                 </div>
@@ -609,8 +840,8 @@
                             <div class="flex items-start gap-3">
                                 <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold">2</span>
                                 <div class="flex-1 bg-white dark:bg-neutral-800 rounded-lg p-3">
-                                    <h5 class="font-medium text-neutral-900 dark:text-white">Criar Prompt Base</h5>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    <h3 class="font-medium text-neutral-900 dark:text-white">Criar Prompt Base</h3>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m2-4-t6-p4">
                                         Estabeleça estilo visual, proporção e elementos recorrentes
                                     </p>
                                 </div>
@@ -618,7 +849,7 @@
                             <div class="flex items-start gap-3">
                                 <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold">3</span>
                                 <div class="flex-1 bg-white dark:bg-neutral-800 rounded-lg p-3">
-                                    <h5 class="font-medium text-neutral-900 dark:text-white">Gerar Frames-Chave</h5>
+                                    <h3 class="font-medium text-neutral-900 dark:text-white">Gerar Frames-Chave</h3>
                                     <p class="text-sm text-neutral-600 dark:text-neutral-400">
                                         Crie imagens para cada cena usando prompts específicos para enquadramento
                                     </p>
@@ -627,7 +858,7 @@
                             <div class="flex items-start gap-3">
                                 <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold">4</span>
                                 <div class="flex-1 bg-white dark:bg-neutral-800 rounded-lg p-3">
-                                    <h5 class="font-medium text-neutral-900 dark:text-white">Anotar e Organizar</h5>
+                                    <h3 class="font-medium text-neutral-900 dark:text-white">Anotar e Organizar</h3>
                                     <p class="text-sm text-neutral-600 dark:text-neutral-400">
                                         Adicione notas de direção, diálogos e indicações técnicas
                                     </p>
@@ -637,7 +868,7 @@
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Prompt para Cena de Storyboard</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Prompt para Cena de Storyboard</h3>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
                             <p class="text-amber-600 dark:text-amber-400">// CENA 3 - REVELAÇÃO</p>
                             <p class="text-neutral-500 dark:text-neutral-400 mt-2">Enquadramento: Close-up</p>
@@ -657,7 +888,10 @@
         </section>
 
         <!-- Seção 7: Aplicações Práticas -->
-        <section id="aplicacoes" class="scroll-mt-32">
+        <span id="aplicacoes" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-7" data-inema-topic="modulo-2-4#topico-7"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
                     <div class="flex items-center gap-3">
@@ -666,13 +900,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Aplicações Práticas</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Casos de uso reais em diferentes indústrias</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m2-4-t7-p1">Casos de uso reais em diferentes indústrias</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m2-4-t7-p2">
                             O prompting multimodal tem aplicações em diversas indústrias, desde marketing até
                             educação. Conhecer esses casos de uso ajuda a identificar oportunidades em sua área.
                         </p>
@@ -682,7 +916,7 @@
                         <div class="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-5 border border-emerald-200 dark:border-emerald-800">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-2xl">🎨</span>
-                                <h4 class="font-semibold text-neutral-900 dark:text-white">Marketing & Publicidade</h4>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Marketing & Publicidade</h3>
                             </div>
                             <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-2">
                                 <li>• Criação de assets para campanhas</li>
@@ -694,7 +928,7 @@
                         <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-5 border border-blue-200 dark:border-blue-800">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-2xl">🎬</span>
-                                <h4 class="font-semibold text-neutral-900 dark:text-white">Entretenimento</h4>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Entretenimento</h3>
                             </div>
                             <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-2">
                                 <li>• Concept art para games</li>
@@ -706,7 +940,7 @@
                         <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-5 border border-purple-200 dark:border-purple-800">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-2xl">📚</span>
-                                <h4 class="font-semibold text-neutral-900 dark:text-white">Educação</h4>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Educação</h3>
                             </div>
                             <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-2">
                                 <li>• Ilustrações educativas</li>
@@ -718,7 +952,7 @@
                         <div class="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 rounded-xl p-5 border border-orange-200 dark:border-orange-800">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-2xl">🏢</span>
-                                <h4 class="font-semibold text-neutral-900 dark:text-white">Arquitetura & Design</h4>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Arquitetura & Design</h3>
                             </div>
                             <ul class="text-sm text-neutral-600 dark:text-neutral-300 space-y-2">
                                 <li>• Visualização de projetos</li>
@@ -730,9 +964,9 @@
                     </div>
 
                     <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-4">Exercício Prático Final</h4>
+                        <h3 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-4">Exercício Prático Final</h3>
                         <div class="space-y-4">
-                            <p class="text-sm text-emerald-800 dark:text-emerald-200">
+                            <p class="text-sm text-emerald-800 dark:text-emerald-200" data-inema-block="m2-4-t7-p3">
                                 Escolha um projeto real da sua área de atuação e crie:
                             </p>
                             <ol class="text-sm text-emerald-800 dark:text-emerald-200 space-y-2 list-decimal list-inside">
@@ -742,7 +976,7 @@
                                 <li>Um template reutilizável para futuras gerações</li>
                             </ol>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 mt-4">
-                                <p class="text-sm text-neutral-600 dark:text-neutral-400 italic">
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400 italic" data-inema-block="m2-4-t7-p4">
                                     💡 Dica: Comece com algo simples e vá adicionando complexidade gradualmente.
                                     Documente o que funciona e o que não funciona para criar seu próprio
                                     "playbook" de prompts visuais.
@@ -782,7 +1016,7 @@
                 <div class="flex items-center gap-4 text-sm text-neutral-500 dark:text-neutral-400">
                     <a href="../../index.html" class="hover:text-pink-600 dark:hover:text-pink-400 transition-colors">Início</a>
                     <a href="../../nivel-tecnico.html" class="hover:text-pink-600 dark:hover:text-pink-400 transition-colors">Nível Técnico</a>
-                    <a href="../../certificado.html" class="hover:text-pink-600 dark:hover:text-pink-400 transition-colors">Certificado</a>
+                    <a href="../../index.html" class="hover:text-pink-600 dark:hover:text-pink-400 transition-colors">Certificado</a>
                 </div>
             </div>
         </div>
@@ -799,5 +1033,8 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
+  <script src="../../assets/v2.js"></script>
+  <script src="../../assets/learn.js"></script>
+  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

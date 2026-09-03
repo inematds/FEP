@@ -1,12 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="inema-course" content="fep">
+    <script data-inema-antifouc>
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+    <script type="application/json" data-inema-manifest>
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
     <script>
       if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     </script>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 6: Autoria, Padrões e Liderança Técnica | Masterclass | FEP</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -61,7 +234,7 @@
         html:not(.dark) .text-neutral-100 { color: #111827; }
         html:not(.dark) .text-neutral-300 { color: #4b5563; }
         html:not(.dark) .text-neutral-400 { color: #6b7280; }
-        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
         html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
         html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 
@@ -88,11 +261,43 @@
         html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
         html:not(.dark) .bg-gray-950\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
+    <link rel="stylesheet" href="../../assets/learn.css">
+    <link rel="stylesheet" href="../../assets/v2.css">
 </head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<body class="bg-dark-900 text-neutral-100 min-h-screen" data-inema-v2="2">
+  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+  <nav class="inema-v2-nav" aria-label="Navegação principal">
+    <div class="inema-v2-nav__inner">
+      <div class="inema-v2-brand">
+        <a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
+        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+      </div>
+      <div class="inema-v2-links" aria-label="Trilhas"><a href="../../nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="../../nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="../../nivel-avancado.html" class="inema-v2-link"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="../../nivel-masterclass.html" class="inema-v2-link" aria-current="page"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+      <div class="inema-v2-actions">
+        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
+        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
+        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
+      </div>
+    </div>
+    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
+      </div></div>
+    </div>
+  </nav>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20">
+    <header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20" data-v2-legacy-nav>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
@@ -116,7 +321,16 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-12 relative overflow-hidden">
+    <main id="conteudo" data-inema-module="4-6" data-inema-track="4">
+    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
+      <div><div class="inema-v2-page-tools__eyebrow">Trilha 4 · Módulo 6</div><div class="inema-v2-page-tools__title">Padrões de Engenharia e Projeto Final</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
+      <div class="inema-v2-meter" data-inema-meter="modulo:4-6" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Padrões de Engenharia e Projeto Final">
+      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
+      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
+    </div>
+    </aside>
+    <nav data-inema-toc aria-label="Índice do módulo" class="sr-only"><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
+<section class="pt-24 pb-12 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-orange-500/5"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="text-center">
@@ -161,26 +375,29 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
             <!-- Tópico 1 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-1" data-inema-topic="modulo-4-6#topico-1"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">1</div>
                     <h2 class="text-2xl font-bold text-white">Definição de Padrões de Engenharia de Prompt</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-6-t1-p1">
                         <strong class="text-amber-400">Padrões de engenharia de prompt</strong> são convenções, estruturas
                         e práticas acordadas que garantem consistência, qualidade e manutenibilidade em escala organizacional.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Tipos de Padrões</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Tipos de Padrões</h3>
                         <div class="space-y-4">
                             <div class="border-l-2 border-blue-500 pl-4">
-                                <p class="font-medium text-blue-400">Padrões de Estrutura</p>
-                                <p class="text-sm text-gray-400">Como prompts devem ser organizados: seções obrigatórias, ordem, formatação</p>
+                                <p class="font-medium text-blue-400" data-inema-block="m4-6-t1-p2">Padrões de Estrutura</p>
+                                <p class="text-sm text-gray-400" data-inema-block="m4-6-t1-p3">Como prompts devem ser organizados: seções obrigatórias, ordem, formatação</p>
                             </div>
                             <div class="border-l-2 border-green-500 pl-4">
-                                <p class="font-medium text-green-400">Padrões de Estilo</p>
+                                <p class="font-medium text-green-400" data-inema-block="m4-6-t1-p4">Padrões de Estilo</p>
                                 <p class="text-sm text-gray-400">Tom, linguagem, terminologia, nível de detalhe, persona do sistema</p>
                             </div>
                             <div class="border-l-2 border-purple-500 pl-4">
@@ -195,7 +412,7 @@
                     </div>
 
                     <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Processo de Definição</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Processo de Definição</h3>
                         <ol class="text-gray-300 space-y-1 text-sm list-decimal list-inside">
                             <li>Auditar prompts existentes para identificar padrões emergentes</li>
                             <li>Documentar boas práticas observadas</li>
@@ -210,20 +427,23 @@
             </div>
 
             <!-- Tópico 2 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-2" data-inema-topic="modulo-4-6#topico-2"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">2</div>
                     <h2 class="text-2xl font-bold text-white">Criação de Guidelines e Frameworks Internos</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-6-t2-p1">
                         <strong class="text-amber-400">Guidelines</strong> traduzem padrões abstratos em orientações práticas.
                         <strong class="text-amber-400">Frameworks</strong> fornecem estruturas reutilizáveis que aceleram
                         desenvolvimento e garantem conformidade.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Estrutura de um Guideline Efetivo</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Estrutura de um Guideline Efetivo</h3>
                         <div class="space-y-3 text-sm">
                             <div class="flex gap-4">
                                 <span class="text-amber-400 font-medium w-28">Contexto</span>
@@ -249,11 +469,11 @@
                     </div>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Exemplo: Guideline de System Prompt</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Exemplo: Guideline de System Prompt</h3>
                         <div class="bg-gray-950 rounded-lg p-4 text-sm font-mono">
-                            <p class="text-gray-500"># System Prompt Guidelines v1.0</p>
-                            <p class="text-gray-300 mt-2">## Estrutura Obrigatória</p>
-                            <p class="text-gray-400">1. Identidade (quem o sistema é)</p>
+                            <p class="text-gray-500" data-inema-block="m4-6-t2-p2"># System Prompt Guidelines v1.0</p>
+                            <p class="text-gray-300 mt-2" data-inema-block="m4-6-t2-p3">## Estrutura Obrigatória</p>
+                            <p class="text-gray-400" data-inema-block="m4-6-t2-p4">1. Identidade (quem o sistema é)</p>
                             <p class="text-gray-400">2. Objetivo (o que deve fazer)</p>
                             <p class="text-gray-400">3. Constraints (o que NÃO deve fazer)</p>
                             <p class="text-gray-400">4. Formato de output (como responder)</p>
@@ -264,7 +484,7 @@
                     </div>
 
                     <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Frameworks Reutilizáveis</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Frameworks Reutilizáveis</h3>
                         <p class="text-gray-300 text-sm">
                             Crie <strong>templates de prompts</strong> para casos de uso comuns: sumarização, classificação,
                             extração, Q&A sobre documentos. Cada template encapsula as melhores práticas e pode ser
@@ -275,22 +495,25 @@
             </div>
 
             <!-- Tópico 3 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-3" data-inema-topic="modulo-4-6#topico-3"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">3</div>
                     <h2 class="text-2xl font-bold text-white">Documentação para Escala Organizacional</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-6-t3-p1">
                         Documentação em nível de arquiteto não é tutorial — é <strong class="text-amber-400">referência técnica</strong>
                         que permite que outros tomem decisões informadas sem depender de você.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Tipos de Documentação Arquitetural</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Tipos de Documentação Arquitetural</h3>
                         <div class="grid md:grid-cols-2 gap-4">
                             <div class="space-y-2">
-                                <p class="font-medium text-white">Para Desenvolvedores:</p>
+                                <p class="font-medium text-white" data-inema-block="m4-6-t3-p2">Para Desenvolvedores:</p>
                                 <ul class="text-sm text-gray-400 space-y-1">
                                     <li>• API de prompts e skills</li>
                                     <li>• Guia de contribuição</li>
@@ -299,7 +522,7 @@
                                 </ul>
                             </div>
                             <div class="space-y-2">
-                                <p class="font-medium text-white">Para Arquitetos:</p>
+                                <p class="font-medium text-white" data-inema-block="m4-6-t3-p3">Para Arquitetos:</p>
                                 <ul class="text-sm text-gray-400 space-y-1">
                                     <li>• ADRs (Architecture Decision Records)</li>
                                     <li>• Diagramas de sistema</li>
@@ -311,9 +534,9 @@
                     </div>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Template de ADR (Architecture Decision Record)</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Template de ADR (Architecture Decision Record)</h3>
                         <div class="bg-gray-950 rounded-lg p-4 text-sm font-mono space-y-2">
-                            <p class="text-gray-300"># ADR-001: Escolha de Arquitetura de Agentes</p>
+                            <p class="text-gray-300" data-inema-block="m4-6-t3-p4"># ADR-001: Escolha de Arquitetura de Agentes</p>
                             <p class="text-gray-500">## Status: Aceito</p>
                             <p class="text-gray-500">## Contexto</p>
                             <p class="text-gray-400">Precisamos decidir entre single-agent e multi-agent...</p>
@@ -326,7 +549,7 @@
                     </div>
 
                     <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Documentação como Código</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Documentação como Código</h3>
                         <p class="text-gray-300 text-sm">
                             Mantenha documentação <strong>junto ao código</strong> (docs-as-code). Use markdown,
                             versionamento git, e CI/CD para publicar. Documentação separada do código fica
@@ -337,31 +560,34 @@
             </div>
 
             <!-- Tópico 4 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-4" data-inema-topic="modulo-4-6#topico-4"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">4</div>
                     <h2 class="text-2xl font-bold text-white">Decisão Técnica e Trade-offs Complexos</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-6-t4-p1">
                         O arquiteto é quem faz <strong class="text-amber-400">decisões técnicas difíceis</strong> quando
                         não há resposta óbvia. Isso requer método, documentação e capacidade de defender posições.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Framework de Decisão</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Framework de Decisão</h3>
                         <ol class="text-gray-300 space-y-3 text-sm">
                             <li class="flex gap-3">
                                 <span class="text-amber-400 font-bold">1.</span>
                                 <div>
-                                    <p class="font-medium text-white">Definir o problema com clareza</p>
-                                    <p class="text-gray-400">O que precisa ser decidido? Quais são os constraints?</p>
+                                    <p class="font-medium text-white" data-inema-block="m4-6-t4-p2">Definir o problema com clareza</p>
+                                    <p class="text-gray-400" data-inema-block="m4-6-t4-p3">O que precisa ser decidido? Quais são os constraints?</p>
                                 </div>
                             </li>
                             <li class="flex gap-3">
                                 <span class="text-amber-400 font-bold">2.</span>
                                 <div>
-                                    <p class="font-medium text-white">Enumerar alternativas viáveis</p>
+                                    <p class="font-medium text-white" data-inema-block="m4-6-t4-p4">Enumerar alternativas viáveis</p>
                                     <p class="text-gray-400">Pelo menos 2-3 opções com seus prós/contras</p>
                                 </div>
                             </li>
@@ -390,7 +616,7 @@
                     </div>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Trade-offs Comuns em Engenharia de Prompt</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Trade-offs Comuns em Engenharia de Prompt</h3>
                         <table class="w-full text-sm">
                             <thead>
                                 <tr class="border-b border-gray-700">
@@ -425,7 +651,7 @@
                     </div>
 
                     <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6">
-                        <h4 class="text-red-400 font-semibold mb-2">⚠️ Erro de Decisão Comum</h4>
+                        <h3 class="text-red-400 font-semibold mb-2">⚠️ Erro de Decisão Comum</h3>
                         <p class="text-gray-300 text-sm">
                             <strong>Otimizar para a métrica errada.</strong> Se você otimiza para custo mas o problema
                             é qualidade, a solução vai falhar. Sempre valide que os critérios de avaliação
@@ -436,27 +662,30 @@
             </div>
 
             <!-- Tópico 5 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-5" data-inema-topic="modulo-4-6#topico-5"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">5</div>
                     <h2 class="text-2xl font-bold text-white">Comunicação com Times e Stakeholders</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-6-t5-p1">
                         O arquiteto é a <strong class="text-amber-400">ponte entre técnico e negócio</strong>.
                         Precisa comunicar complexidade técnica de forma acessível e traduzir requisitos de negócio
                         em especificações técnicas.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Audiências e Comunicação</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Audiências e Comunicação</h3>
                         <div class="space-y-4">
                             <div class="border-l-2 border-blue-500 pl-4">
-                                <p class="font-medium text-blue-400">Para Desenvolvedores</p>
-                                <p class="text-sm text-gray-400">Detalhe técnico, código, APIs, exemplos práticos. Foco em "como fazer".</p>
+                                <p class="font-medium text-blue-400" data-inema-block="m4-6-t5-p2">Para Desenvolvedores</p>
+                                <p class="text-sm text-gray-400" data-inema-block="m4-6-t5-p3">Detalhe técnico, código, APIs, exemplos práticos. Foco em "como fazer".</p>
                             </div>
                             <div class="border-l-2 border-green-500 pl-4">
-                                <p class="font-medium text-green-400">Para Product Managers</p>
+                                <p class="font-medium text-green-400" data-inema-block="m4-6-t5-p4">Para Product Managers</p>
                                 <p class="text-sm text-gray-400">Capabilities, limitações, trade-offs de features. Foco em "o que é possível".</p>
                             </div>
                             <div class="border-l-2 border-purple-500 pl-4">
@@ -471,7 +700,7 @@
                     </div>
 
                     <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Técnicas de Comunicação</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Técnicas de Comunicação</h3>
                         <ul class="text-gray-300 space-y-1 text-sm">
                             <li>• <strong>Analogias</strong>: conectar conceitos novos a conhecimento existente</li>
                             <li>• <strong>Visualizações</strong>: diagramas, fluxos, arquiteturas visuais</li>
@@ -482,7 +711,7 @@
                     </div>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 mt-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Comunicando Incerteza</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Comunicando Incerteza</h3>
                         <p class="text-gray-300 text-sm">
                             LLMs introduzem incerteza que sistemas tradicionais não têm. Aprenda a comunicar isso:
                             "O sistema acerta ~90% das vezes" é mais honesto e útil que "funciona bem".
@@ -493,32 +722,35 @@
             </div>
 
             <!-- Tópico 6 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-6" data-inema-topic="modulo-4-6#topico-6"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">6</div>
                     <h2 class="text-2xl font-bold text-white">Projeto Final: Arquitetura Completa de Prompt</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-6-t6-p1">
                         O projeto final consolida todo o aprendizado do Masterclass: você deve projetar uma
                         <strong class="text-amber-400">arquitetura completa de sistema baseado em prompt</strong>,
                         documentá-la e defender as decisões.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Entregáveis do Projeto</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Entregáveis do Projeto</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
                                 <span class="text-amber-400">□</span>
                                 <div>
-                                    <p class="font-medium text-white">Documento de Arquitetura</p>
-                                    <p class="text-sm text-gray-400">Visão geral, componentes, fluxos, decisões arquiteturais</p>
+                                    <p class="font-medium text-white" data-inema-block="m4-6-t6-p2">Documento de Arquitetura</p>
+                                    <p class="text-sm text-gray-400" data-inema-block="m4-6-t6-p3">Visão geral, componentes, fluxos, decisões arquiteturais</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
                                 <span class="text-amber-400">□</span>
                                 <div>
-                                    <p class="font-medium text-white">Design de Contexto</p>
+                                    <p class="font-medium text-white" data-inema-block="m4-6-t6-p4">Design de Contexto</p>
                                     <p class="text-sm text-gray-400">Estratégia de contexto, políticas de lifecycle, trade-offs</p>
                                 </div>
                             </div>
@@ -554,7 +786,7 @@
                     </div>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Critérios de Avaliação</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Critérios de Avaliação</h3>
                         <div class="grid md:grid-cols-2 gap-4 text-sm">
                             <div class="space-y-2">
                                 <p class="font-medium text-white">Técnico:</p>
@@ -578,7 +810,7 @@
                     </div>
 
                     <div class="bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/40 rounded-xl p-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">🏆 Ao Completar o Projeto</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">🏆 Ao Completar o Projeto</h3>
                         <p class="text-gray-300">
                             Você terá demonstrado capacidade de <strong>projetar, documentar e defender</strong> uma
                             arquitetura de sistema baseado em prompt em nível profissional. Isso é o que
@@ -695,13 +927,13 @@
                         </div>
                     </div>
                     <div class="flex gap-3">
-                        <a href="../../docs/pdf/masterclass-modulo6-autoria-padroes-lideranca.pdf" download class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors">
+                        <a href="../../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                             </svg>
                             PDF
                         </a>
-                        <a href="../../docs/md/masterclass-modulo6-autoria-padroes-lideranca.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
+                        <a href="../../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                             </svg>
@@ -714,7 +946,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 border-t border-gray-800">
+    </main>
+<footer class="py-8 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
             <p>Fundamentos de Engenharia de Prompt © 2025 | Nível Masterclass</p>
         </div>
@@ -743,5 +976,8 @@
         });
       })();
     </script>
+  <script src="../../assets/v2.js"></script>
+  <script src="../../assets/learn.js"></script>
+  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

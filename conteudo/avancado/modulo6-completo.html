@@ -1,12 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="inema-course" content="fep">
+    <script data-inema-antifouc>
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+    <script type="application/json" data-inema-manifest>
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
     <script>
       if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     </script>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 6: Preparação para Masterclass - Nível Avançado | FEP</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,7 +216,7 @@
         html:not(.dark) .text-neutral-100 { color: #111827; }
         html:not(.dark) .text-neutral-300 { color: #4b5563; }
         html:not(.dark) .text-neutral-400 { color: #6b7280; }
-        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
         html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
         html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 
@@ -69,9 +242,41 @@
         /* INEMA Light Mode - Nav */
         html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
+    <link rel="stylesheet" href="../../assets/learn.css">
+    <link rel="stylesheet" href="../../assets/v2.css">
 </head>
-<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
-    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased" data-inema-v2="2">
+  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+  <nav class="inema-v2-nav" aria-label="Navegação principal">
+    <div class="inema-v2-nav__inner">
+      <div class="inema-v2-brand">
+        <a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
+        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+      </div>
+      <div class="inema-v2-links" aria-label="Trilhas"><a href="../../nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="../../nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="../../nivel-avancado.html" class="inema-v2-link" aria-current="page"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="../../nivel-masterclass.html" class="inema-v2-link"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+      <div class="inema-v2-actions">
+        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
+        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
+        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
+      </div>
+    </div>
+    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
+      </div></div>
+    </div>
+  </nav>
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700" data-v2-legacy-nav>
         <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <a href="../../nivel-avancado.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
@@ -124,9 +329,20 @@
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8" id="conteudo" data-inema-module="3-6" data-inema-track="3">
+    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
+      <div><div class="inema-v2-page-tools__eyebrow">Trilha 3 · Módulo 6</div><div class="inema-v2-page-tools__title">Preparação para a Masterclass</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
+      <div class="inema-v2-meter" data-inema-meter="modulo:3-6" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Preparação para a Masterclass">
+      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
+      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
+    </div>
+    </aside>
+    <nav data-inema-toc aria-label="Índice do módulo" class="sr-only"><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
         <!-- Seção 1 -->
-        <section id="recapitulacao" class="scroll-mt-32">
+        <span id="recapitulacao" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-1" data-inema-topic="modulo-3-6#topico-1"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
                     <div class="flex items-center gap-3">
@@ -135,12 +351,12 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Recapitulação dos 5 Módulos</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Conectando os conceitos</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-6-t1-p1">Conectando os conceitos</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
-                    <p class="text-neutral-600 dark:text-neutral-300">
+                    <p class="text-neutral-600 dark:text-neutral-300" data-inema-block="m3-6-t1-p2">
                         Antes de avançar para a Masterclass, vamos consolidar a jornada percorrida
                         e entender como cada módulo se conecta ao próximo.
                     </p>
@@ -149,9 +365,9 @@
                         <div class="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-900/30 rounded-xl p-5 border-l-4 border-purple-500">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="px-2 py-1 bg-purple-500 text-white text-xs font-bold rounded">M1</span>
-                                <h4 class="font-semibold text-purple-900 dark:text-purple-300">Engenharia de Contexto</h4>
+                                <h3 class="font-semibold text-purple-900 dark:text-purple-300">Engenharia de Contexto</h3>
                             </div>
-                            <p class="text-sm text-purple-800 dark:text-purple-200 mb-2">
+                            <p class="text-sm text-purple-800 dark:text-purple-200 mb-2" data-inema-block="m3-6-t1-p3">
                                 Prompt não é texto — é <strong>sistema de contexto</strong>. Aprendemos a estruturar
                                 contexto em camadas (System, Global, Task, Data) com hierarquia clara.
                             </p>
@@ -163,9 +379,9 @@
                         <div class="bg-gradient-to-r from-violet-50 to-violet-100 dark:from-violet-900/20 dark:to-violet-900/30 rounded-xl p-5 border-l-4 border-violet-500">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="px-2 py-1 bg-violet-500 text-white text-xs font-bold rounded">M2</span>
-                                <h4 class="font-semibold text-violet-900 dark:text-violet-300">Gestão de Long Context</h4>
+                                <h3 class="font-semibold text-violet-900 dark:text-violet-300">Gestão de Long Context</h3>
                             </div>
-                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2">
+                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2" data-inema-block="m3-6-t1-p4">
                                 Com janelas de 100K-1M+ tokens, aprendemos a <strong>organizar grandes volumes</strong>
                                 de contexto sem degradar a qualidade das respostas.
                             </p>
@@ -177,7 +393,7 @@
                         <div class="bg-gradient-to-r from-fuchsia-50 to-fuchsia-100 dark:from-fuchsia-900/20 dark:to-fuchsia-900/30 rounded-xl p-5 border-l-4 border-fuchsia-500">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="px-2 py-1 bg-fuchsia-500 text-white text-xs font-bold rounded">M3</span>
-                                <h4 class="font-semibold text-fuchsia-900 dark:text-fuchsia-300">Engenharia de Skill</h4>
+                                <h3 class="font-semibold text-fuchsia-900 dark:text-fuchsia-300">Engenharia de Skill</h3>
                             </div>
                             <p class="text-sm text-fuchsia-800 dark:text-fuchsia-200 mb-2">
                                 Prompts como <strong>habilidades modulares e reutilizáveis</strong>. Skills especializadas
@@ -191,7 +407,7 @@
                         <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-900/30 rounded-xl p-5 border-l-4 border-indigo-500">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="px-2 py-1 bg-indigo-500 text-white text-xs font-bold rounded">M4</span>
-                                <h4 class="font-semibold text-indigo-900 dark:text-indigo-300">Orquestração</h4>
+                                <h3 class="font-semibold text-indigo-900 dark:text-indigo-300">Orquestração</h3>
                             </div>
                             <p class="text-sm text-indigo-800 dark:text-indigo-200 mb-2">
                                 Combinando contextos e skills em <strong>fluxos complexos</strong>. Resolução de conflitos,
@@ -205,7 +421,7 @@
                         <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-900/30 rounded-xl p-5 border-l-4 border-emerald-500">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="px-2 py-1 bg-emerald-500 text-white text-xs font-bold rounded">M5</span>
-                                <h4 class="font-semibold text-emerald-900 dark:text-emerald-300">RAG Moderno</h4>
+                                <h3 class="font-semibold text-emerald-900 dark:text-emerald-300">RAG Moderno</h3>
                             </div>
                             <p class="text-sm text-emerald-800 dark:text-emerald-200 mb-2">
                                 RAG como <strong>complemento, não dependência</strong>. Contexto híbrido, injeção seletiva,
@@ -218,7 +434,7 @@
                     </div>
 
                     <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-amber-900 dark:text-amber-300 mb-3">A Síntese</h4>
+                        <h3 class="font-semibold text-amber-900 dark:text-amber-300 mb-3">A Síntese</h3>
                         <p class="text-amber-800 dark:text-amber-200 text-sm">
                             Juntos, esses módulos formam uma nova forma de pensar sobre IA:
                             <strong>Context Engineering + Skills = Agentes Inteligentes</strong>.
@@ -230,7 +446,10 @@
         </section>
 
         <!-- Seção 2 -->
-        <section id="mindset" class="scroll-mt-32">
+        <span id="mindset" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-2" data-inema-topic="modulo-3-6#topico-2"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-orange-50 to-transparent dark:from-orange-900/20">
                     <div class="flex items-center gap-3">
@@ -239,14 +458,14 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Mindset do Engenheiro de Agentes</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Pensamento sistêmico para IA</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-6-t2-p1">Pensamento sistêmico para IA</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-orange-900 dark:text-orange-300 mb-3">A Mudança de Perspectiva</h4>
-                        <p class="text-orange-800 dark:text-orange-200 text-sm">
+                        <h3 class="font-semibold text-orange-900 dark:text-orange-300 mb-3">A Mudança de Perspectiva</h3>
+                        <p class="text-orange-800 dark:text-orange-200 text-sm" data-inema-block="m3-6-t2-p2">
                             Engenheiro de Agentes não é "prompt engineer avançado". É uma disciplina de
                             <strong>design de sistemas</strong> onde o componente central é um LLM.
                         </p>
@@ -254,7 +473,7 @@
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-red-50 dark:bg-red-900/20 rounded-xl p-5">
-                            <h5 class="font-semibold text-red-900 dark:text-red-300 mb-3">❌ Mentalidade Antiga</h5>
+                            <h3 class="font-semibold text-red-900 dark:text-red-300 mb-3">❌ Mentalidade Antiga</h3>
                             <ul class="space-y-2 text-sm text-red-800 dark:text-red-200">
                                 <li class="flex items-start gap-2">
                                     <span class="mt-1">•</span>
@@ -276,7 +495,7 @@
                         </div>
 
                         <div class="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-5">
-                            <h5 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">✓ Mentalidade de Agentes</h5>
+                            <h3 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">✓ Mentalidade de Agentes</h3>
                             <ul class="space-y-2 text-sm text-emerald-800 dark:text-emerald-200">
                                 <li class="flex items-start gap-2">
                                     <span class="mt-1">•</span>
@@ -299,7 +518,7 @@
                     </div>
 
                     <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Princípios Fundamentais</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Princípios Fundamentais</h3>
                         <div class="space-y-4">
                             <div class="flex items-start gap-4">
                                 <div class="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center flex-shrink-0">
@@ -307,7 +526,7 @@
                                 </div>
                                 <div>
                                     <div class="font-semibold text-neutral-900 dark:text-white">Context First</div>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-6-t2-p3">
                                         Antes de escrever qualquer instrução, defina o contexto necessário.
                                         O contexto determina 80% da qualidade da resposta.
                                     </p>
@@ -319,7 +538,7 @@
                                 </div>
                                 <div>
                                     <div class="font-semibold text-neutral-900 dark:text-white">Skills over Instructions</div>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-6-t2-p4">
                                         Construa habilidades reutilizáveis, não instruções one-off.
                                         Skills podem ser testadas, versionadas e compostas.
                                     </p>
@@ -356,7 +575,10 @@
         </section>
 
         <!-- Seção 3 -->
-        <section id="patterns" class="scroll-mt-32">
+        <span id="patterns" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-3" data-inema-topic="modulo-3-6#topico-3"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
                     <div class="flex items-center gap-3">
@@ -365,12 +587,12 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Patterns Consolidados</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Padrões que funcionam em produção</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-6-t3-p1">Padrões que funcionam em produção</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
-                    <p class="text-neutral-600 dark:text-neutral-300">
+                    <p class="text-neutral-600 dark:text-neutral-300" data-inema-block="m3-6-t3-p2">
                         Padrões emergentes de sistemas de agentes em produção que você aplicará na Masterclass.
                     </p>
 
@@ -378,9 +600,9 @@
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-xl">🏗️</span>
-                                <h5 class="font-semibold text-neutral-900 dark:text-white">Layered Context</h5>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Layered Context</h3>
                             </div>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3" data-inema-block="m3-6-t3-p3">
                                 Contexto organizado em camadas com prioridades e escopos definidos.
                             </p>
                             <div class="bg-white dark:bg-neutral-800 rounded p-3 text-xs font-mono text-neutral-600 dark:text-neutral-400">
@@ -391,9 +613,9 @@
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-xl">🎭</span>
-                                <h5 class="font-semibold text-neutral-900 dark:text-white">Skill Registry</h5>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Skill Registry</h3>
                             </div>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
+                            <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3" data-inema-block="m3-6-t3-p4">
                                 Catálogo de skills disponíveis com triggers e requisitos de contexto.
                             </p>
                             <div class="bg-white dark:bg-neutral-800 rounded p-3 text-xs font-mono text-neutral-600 dark:text-neutral-400">
@@ -404,7 +626,7 @@
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-xl">🔀</span>
-                                <h5 class="font-semibold text-neutral-900 dark:text-white">Context Router</h5>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Context Router</h3>
                             </div>
                             <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
                                 Roteamento inteligente baseado em intenção e contexto disponível.
@@ -417,7 +639,7 @@
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-xl">🛡️</span>
-                                <h5 class="font-semibold text-neutral-900 dark:text-white">Grounded Response</h5>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Grounded Response</h3>
                             </div>
                             <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
                                 Respostas sempre ancoradas em fontes verificáveis do contexto.
@@ -430,7 +652,7 @@
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-xl">📦</span>
-                                <h5 class="font-semibold text-neutral-900 dark:text-white">Context Budget</h5>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Context Budget</h3>
                             </div>
                             <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
                                 Alocação e gestão de tokens por camada de contexto.
@@ -443,7 +665,7 @@
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-xl">🔗</span>
-                                <h5 class="font-semibold text-neutral-900 dark:text-white">Skill Chain</h5>
+                                <h3 class="font-semibold text-neutral-900 dark:text-white">Skill Chain</h3>
                             </div>
                             <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-3">
                                 Composição de skills com passagem de contexto entre etapas.
@@ -455,7 +677,7 @@
                     </div>
 
                     <div class="bg-gradient-to-r from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Arquitetura Padrão de Agente</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Arquitetura Padrão de Agente</h3>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
 <pre class="text-neutral-700 dark:text-neutral-300">
 ┌────────────────────────────────────────────────────────┐
@@ -487,7 +709,10 @@
         </section>
 
         <!-- Seção 4 -->
-        <section id="anti-patterns" class="scroll-mt-32">
+        <span id="anti-patterns" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-4" data-inema-topic="modulo-3-6#topico-4"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
                     <div class="flex items-center gap-3">
@@ -496,7 +721,7 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Anti-Patterns a Evitar</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Erros comuns em sistemas de agentes</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-6-t4-p1">Erros comuns em sistemas de agentes</p>
                         </div>
                     </div>
                 </div>
@@ -506,8 +731,8 @@
                             <div class="flex items-start gap-3">
                                 <span class="text-2xl">🚫</span>
                                 <div>
-                                    <h5 class="font-semibold text-red-900 dark:text-red-300">God Prompt</h5>
-                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1">
+                                    <h3 class="font-semibold text-red-900 dark:text-red-300">God Prompt</h3>
+                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1" data-inema-block="m3-6-t4-p2">
                                         Um prompt gigante que tenta fazer tudo. Impossível de manter, testar ou debugar.
                                     </p>
                                     <div class="mt-2 p-2 bg-white dark:bg-neutral-800 rounded text-xs">
@@ -524,8 +749,8 @@
                             <div class="flex items-start gap-3">
                                 <span class="text-2xl">🚫</span>
                                 <div>
-                                    <h5 class="font-semibold text-red-900 dark:text-red-300">Context Dump</h5>
-                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1">
+                                    <h3 class="font-semibold text-red-900 dark:text-red-300">Context Dump</h3>
+                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1" data-inema-block="m3-6-t4-p3">
                                         Jogar toda informação disponível no contexto sem organização ou prioridade.
                                     </p>
                                     <div class="mt-2 p-2 bg-white dark:bg-neutral-800 rounded text-xs">
@@ -542,8 +767,8 @@
                             <div class="flex items-start gap-3">
                                 <span class="text-2xl">🚫</span>
                                 <div>
-                                    <h5 class="font-semibold text-red-900 dark:text-red-300">RAG-First</h5>
-                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1">
+                                    <h3 class="font-semibold text-red-900 dark:text-red-300">RAG-First</h3>
+                                    <p class="text-sm text-red-800 dark:text-red-200 mt-1" data-inema-block="m3-6-t4-p4">
                                         Usar RAG por padrão quando Long Context seria mais eficiente e preciso.
                                     </p>
                                     <div class="mt-2 p-2 bg-white dark:bg-neutral-800 rounded text-xs">
@@ -560,7 +785,7 @@
                             <div class="flex items-start gap-3">
                                 <span class="text-2xl">🚫</span>
                                 <div>
-                                    <h5 class="font-semibold text-red-900 dark:text-red-300">Skill Spaghetti</h5>
+                                    <h3 class="font-semibold text-red-900 dark:text-red-300">Skill Spaghetti</h3>
                                     <p class="text-sm text-red-800 dark:text-red-200 mt-1">
                                         Skills com dependências cruzadas, sem interface clara ou contrato definido.
                                     </p>
@@ -578,7 +803,7 @@
                             <div class="flex items-start gap-3">
                                 <span class="text-2xl">🚫</span>
                                 <div>
-                                    <h5 class="font-semibold text-red-900 dark:text-red-300">Hallucination Denial</h5>
+                                    <h3 class="font-semibold text-red-900 dark:text-red-300">Hallucination Denial</h3>
                                     <p class="text-sm text-red-800 dark:text-red-200 mt-1">
                                         Tentar resolver alucinações com "não alucine" ou instruções mais longas.
                                     </p>
@@ -597,7 +822,10 @@
         </section>
 
         <!-- Seção 5 -->
-        <section id="case-study" class="scroll-mt-32">
+        <span id="case-study" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-5" data-inema-topic="modulo-3-6#topico-5"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20">
                     <div class="flex items-center gap-3">
@@ -606,21 +834,21 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Case Study Integrado</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Aplicando todos os conceitos</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-6-t5-p1">Aplicando todos os conceitos</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-2">Cenário: Agente de Code Review</h4>
-                        <p class="text-blue-800 dark:text-blue-200 text-sm">
+                        <h3 class="font-semibold text-blue-900 dark:text-blue-300 mb-2">Cenário: Agente de Code Review</h3>
+                        <p class="text-blue-800 dark:text-blue-200 text-sm" data-inema-block="m3-6-t5-p2">
                             Vamos projetar um agente de code review que aplica todos os padrões aprendidos.
                         </p>
                     </div>
 
                     <div class="space-y-4">
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">1. Sistema de Contexto</h5>
+                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">1. Sistema de Contexto</h3>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
 <pre class="text-neutral-700 dark:text-neutral-300">
 <SYSTEM_CONTEXT>
@@ -645,15 +873,15 @@
                         </div>
 
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">2. Skills Disponíveis</h5>
+                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">2. Skills Disponíveis</h3>
                             <div class="grid md:grid-cols-2 gap-3">
                                 <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
                                     <div class="font-medium text-neutral-900 dark:text-white text-sm">security_check</div>
-                                    <p class="text-xs text-neutral-600 dark:text-neutral-400">Detecta vulnerabilidades comuns</p>
+                                    <p class="text-xs text-neutral-600 dark:text-neutral-400" data-inema-block="m3-6-t5-p3">Detecta vulnerabilidades comuns</p>
                                 </div>
                                 <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
                                     <div class="font-medium text-neutral-900 dark:text-white text-sm">style_review</div>
-                                    <p class="text-xs text-neutral-600 dark:text-neutral-400">Verifica conformidade com style guide</p>
+                                    <p class="text-xs text-neutral-600 dark:text-neutral-400" data-inema-block="m3-6-t5-p4">Verifica conformidade com style guide</p>
                                 </div>
                                 <div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
                                     <div class="font-medium text-neutral-900 dark:text-white text-sm">logic_analysis</div>
@@ -667,7 +895,7 @@
                         </div>
 
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">3. Fluxo de Orquestração</h5>
+                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">3. Fluxo de Orquestração</h3>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
 <pre class="text-neutral-700 dark:text-neutral-300">
 async def review_pr(pr_id):
@@ -700,7 +928,7 @@ async def review_pr(pr_id):
                         </div>
 
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                            <h5 class="font-semibold text-neutral-900 dark:text-white mb-3">4. Grounding e Anti-Alucinação</h5>
+                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">4. Grounding e Anti-Alucinação</h3>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
 <pre class="text-neutral-700 dark:text-neutral-300">
 <GROUNDING_RULES>
@@ -727,7 +955,10 @@ Nunca assuma:
         </section>
 
         <!-- Seção 6 -->
-        <section id="projeto-final" class="scroll-mt-32">
+        <span id="projeto-final" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-6" data-inema-topic="modulo-3-6#topico-6"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-purple-50 via-violet-50 to-fuchsia-50 dark:from-purple-900/20 dark:via-violet-900/20 dark:to-fuchsia-900/20">
                     <div class="flex items-center gap-3">
@@ -736,14 +967,14 @@ Nunca assuma:
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Projeto Final do Nível Avançado</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Seu ingresso para a Masterclass</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-6-t6-p1">Seu ingresso para a Masterclass</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="bg-gradient-to-r from-purple-100 to-fuchsia-100 dark:from-purple-900/30 dark:to-fuchsia-900/30 rounded-xl p-5 border border-purple-200 dark:border-purple-800">
-                        <h4 class="font-semibold text-purple-900 dark:text-purple-300 mb-3">Desafio: Projete um Sistema de Agente</h4>
-                        <p class="text-purple-800 dark:text-purple-200 text-sm">
+                        <h3 class="font-semibold text-purple-900 dark:text-purple-300 mb-3">Desafio: Projete um Sistema de Agente</h3>
+                        <p class="text-purple-800 dark:text-purple-200 text-sm" data-inema-block="m3-6-t6-p2">
                             Escolha um domínio e projete um agente completo aplicando todos os conceitos do nível avançado.
                             Este projeto será sua base para a Masterclass.
                         </p>
@@ -753,14 +984,14 @@ Nunca assuma:
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4 text-center">
                             <div class="text-3xl mb-2">🛒</div>
                             <div class="font-medium text-neutral-900 dark:text-white">E-commerce</div>
-                            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
+                            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1" data-inema-block="m3-6-t6-p3">
                                 Assistente de vendas com catálogo, pedidos, e suporte
                             </p>
                         </div>
                         <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4 text-center">
                             <div class="text-3xl mb-2">💻</div>
                             <div class="font-medium text-neutral-900 dark:text-white">Developer Tools</div>
-                            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">
+                            <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1" data-inema-block="m3-6-t6-p4">
                                 Code assistant, debug helper, doc generator
                             </p>
                         </div>
@@ -774,7 +1005,7 @@ Nunca assuma:
                     </div>
 
                     <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-4">Requisitos do Projeto</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Requisitos do Projeto</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
                                 <div class="w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center text-xs font-bold">1</div>
@@ -827,7 +1058,7 @@ Nunca assuma:
                     <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl p-5 border border-amber-200 dark:border-amber-800">
                         <div class="flex items-center gap-3 mb-3">
                             <span class="text-3xl">🎓</span>
-                            <h4 class="font-bold text-amber-900 dark:text-amber-300 text-lg">Próximo Passo: Masterclass</h4>
+                            <h3 class="font-bold text-amber-900 dark:text-amber-300 text-lg">Próximo Passo: Masterclass</h3>
                         </div>
                         <p class="text-amber-800 dark:text-amber-200 text-sm mb-4">
                             Na Masterclass você vai <strong>implementar</strong> seu projeto com:
@@ -866,13 +1097,13 @@ Nunca assuma:
                     </div>
                 </div>
                 <div class="flex gap-3">
-                    <a href="../../docs/pdf/avancado-modulo6-preparacao-masterclass.pdf" download class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors">
+                    <a href="../../docs/pdf/Curso_Completo_de_Engenharia_de_Prompt.pdf" download class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
                         PDF
                     </a>
-                    <a href="../../docs/md/avancado-modulo6-preparacao-masterclass.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
+                    <a href="../../docs/md/Curso Completo de Engenharia de Prompt.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
@@ -923,5 +1154,8 @@ Nunca assuma:
         }
         if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
     </script>
+  <script src="../../assets/v2.js"></script>
+  <script src="../../assets/learn.js"></script>
+  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

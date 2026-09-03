@@ -1,12 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="inema-course" content="fep">
+    <script data-inema-antifouc>
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+    <script type="application/json" data-inema-manifest>
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
     <script>
       if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     </script>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 5: Avaliação Sistêmica e Risco | Masterclass | FEP</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -61,7 +234,7 @@
         html:not(.dark) .text-neutral-100 { color: #111827; }
         html:not(.dark) .text-neutral-300 { color: #4b5563; }
         html:not(.dark) .text-neutral-400 { color: #6b7280; }
-        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
         html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
         html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 
@@ -88,11 +261,43 @@
         html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
         html:not(.dark) .bg-gray-950\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
+    <link rel="stylesheet" href="../../assets/learn.css">
+    <link rel="stylesheet" href="../../assets/v2.css">
 </head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen">
+<body class="bg-dark-900 text-neutral-100 min-h-screen" data-inema-v2="2">
+  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+  <nav class="inema-v2-nav" aria-label="Navegação principal">
+    <div class="inema-v2-nav__inner">
+      <div class="inema-v2-brand">
+        <a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
+        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+      </div>
+      <div class="inema-v2-links" aria-label="Trilhas"><a href="../../nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="../../nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="../../nivel-avancado.html" class="inema-v2-link"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="../../nivel-masterclass.html" class="inema-v2-link" aria-current="page"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+      <div class="inema-v2-actions">
+        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
+        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
+        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
+      </div>
+    </div>
+    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
+      </div></div>
+    </div>
+  </nav>
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20">
+    <header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20" data-v2-legacy-nav>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
@@ -116,7 +321,16 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-12 relative overflow-hidden">
+    <main id="conteudo" data-inema-module="4-5" data-inema-track="4">
+    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
+      <div><div class="inema-v2-page-tools__eyebrow">Trilha 4 · Módulo 5</div><div class="inema-v2-page-tools__title">Avaliação, Segurança e Observabilidade</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
+      <div class="inema-v2-meter" data-inema-meter="modulo:4-5" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Avaliação, Segurança e Observabilidade">
+      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
+      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
+    </div>
+    </aside>
+    <nav data-inema-toc aria-label="Índice do módulo" class="sr-only"><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
+<section class="pt-24 pb-12 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-orange-500/5"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="text-center">
@@ -161,27 +375,30 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
             <!-- Tópico 1 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-1" data-inema-topic="modulo-4-5#topico-1"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">1</div>
                     <h2 class="text-2xl font-bold text-white">Avaliação Sistêmica de Comportamento</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-5-t1-p1">
                         <strong class="text-amber-400">Avaliação sistêmica</strong> examina não apenas se prompts individuais
                         funcionam, mas se o sistema como um todo exibe comportamentos desejados de forma consistente
                         e previsível.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Dimensões de Avaliação Sistêmica</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Dimensões de Avaliação Sistêmica</h3>
                         <div class="space-y-4">
                             <div class="border-l-2 border-green-500 pl-4">
-                                <p class="font-medium text-green-400">Consistência</p>
-                                <p class="text-sm text-gray-400">O sistema produz outputs similares para inputs similares? Variância é aceitável?</p>
+                                <p class="font-medium text-green-400" data-inema-block="m4-5-t1-p2">Consistência</p>
+                                <p class="text-sm text-gray-400" data-inema-block="m4-5-t1-p3">O sistema produz outputs similares para inputs similares? Variância é aceitável?</p>
                             </div>
                             <div class="border-l-2 border-blue-500 pl-4">
-                                <p class="font-medium text-blue-400">Coerência</p>
+                                <p class="font-medium text-blue-400" data-inema-block="m4-5-t1-p4">Coerência</p>
                                 <p class="text-sm text-gray-400">Outputs de diferentes partes do sistema são compatíveis entre si?</p>
                             </div>
                             <div class="border-l-2 border-purple-500 pl-4">
@@ -196,7 +413,7 @@
                     </div>
 
                     <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Métodos de Avaliação em Escala</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Métodos de Avaliação em Escala</h3>
                         <ul class="text-gray-300 space-y-1 text-sm">
                             <li>• <strong>Eval sets automatizados</strong>: suites de testes que rodam continuamente</li>
                             <li>• <strong>Red teaming</strong>: tentativas deliberadas de quebrar o sistema</li>
@@ -208,20 +425,23 @@
             </div>
 
             <!-- Tópico 2 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-2" data-inema-topic="modulo-4-5#topico-2"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">2</div>
                     <h2 class="text-2xl font-bold text-white">Risco Operacional e Cognitivo</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-5-t2-p1">
                         Sistemas baseados em prompt introduzem categorias de risco que sistemas tradicionais não têm.
                         Distinguimos entre <strong class="text-amber-400">risco operacional</strong> (falhas técnicas) e
                         <strong class="text-amber-400">risco cognitivo</strong> (falhas de julgamento do modelo).
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Matriz de Riscos</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Matriz de Riscos</h3>
                         <table class="w-full text-sm">
                             <thead>
                                 <tr class="border-b border-gray-700">
@@ -257,7 +477,7 @@
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
-                            <h4 class="text-red-400 font-semibold mb-2">Riscos de Alta Severidade</h4>
+                            <h3 class="text-red-400 font-semibold mb-2">Riscos de Alta Severidade</h3>
                             <ul class="text-gray-300 space-y-1 text-sm">
                                 <li>• Decisões automatizadas irreversíveis</li>
                                 <li>• Acesso a dados sensíveis</li>
@@ -266,7 +486,7 @@
                             </ul>
                         </div>
                         <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
-                            <h4 class="text-green-400 font-semibold mb-2">Riscos de Baixa Severidade</h4>
+                            <h3 class="text-green-400 font-semibold mb-2">Riscos de Baixa Severidade</h3>
                             <ul class="text-gray-300 space-y-1 text-sm">
                                 <li>• Sugestões internas revisáveis</li>
                                 <li>• Análise de dados agregados</li>
@@ -279,27 +499,30 @@
             </div>
 
             <!-- Tópico 3 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-3" data-inema-topic="modulo-4-5#topico-3"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">3</div>
                     <h2 class="text-2xl font-bold text-white">Prompt Injection em Nível Arquitetural</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-5-t3-p1">
                         <strong class="text-amber-400">Prompt injection</strong> não é apenas um ataque pontual — é uma
                         classe de vulnerabilidade que afeta toda a arquitetura. O arquiteto precisa pensar em
                         superfícies de ataque em nível sistêmico.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Vetores de Ataque Arquiteturais</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Vetores de Ataque Arquiteturais</h3>
                         <div class="space-y-4">
                             <div class="border-l-2 border-red-500 pl-4">
-                                <p class="font-medium text-red-400">Direct Injection</p>
-                                <p class="text-sm text-gray-400">Input malicioso diretamente no prompt do usuário.</p>
+                                <p class="font-medium text-red-400" data-inema-block="m4-5-t3-p2">Direct Injection</p>
+                                <p class="text-sm text-gray-400" data-inema-block="m4-5-t3-p3">Input malicioso diretamente no prompt do usuário.</p>
                             </div>
                             <div class="border-l-2 border-orange-500 pl-4">
-                                <p class="font-medium text-orange-400">Indirect Injection</p>
+                                <p class="font-medium text-orange-400" data-inema-block="m4-5-t3-p4">Indirect Injection</p>
                                 <p class="text-sm text-gray-400">Payload escondido em dados que o sistema processa (documentos, emails, web).</p>
                             </div>
                             <div class="border-l-2 border-yellow-500 pl-4">
@@ -314,7 +537,7 @@
                     </div>
 
                     <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Defesas Arquiteturais</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Defesas Arquiteturais</h3>
                         <ul class="text-gray-300 space-y-1 text-sm">
                             <li>• <strong>Privilege separation</strong>: diferentes níveis de acesso para diferentes prompts</li>
                             <li>• <strong>Input sanitization</strong>: filtrar/escapar conteúdo antes de incluir no prompt</li>
@@ -325,7 +548,7 @@
                     </div>
 
                     <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 mt-6">
-                        <h4 class="text-red-400 font-semibold mb-2">⚠️ Realidade Incômoda</h4>
+                        <h3 class="text-red-400 font-semibold mb-2">⚠️ Realidade Incômoda</h3>
                         <p class="text-gray-300 text-sm">
                             <strong>Não existe defesa perfeita contra prompt injection.</strong> Todas as mitigações
                             reduzem risco mas não eliminam. O arquiteto deve assumir que injection pode acontecer
@@ -336,23 +559,26 @@
             </div>
 
             <!-- Tópico 4 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-4" data-inema-topic="modulo-4-5#topico-4"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">4</div>
                     <h2 class="text-2xl font-bold text-white">Auditoria de Decisões</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-5-t4-p1">
                         Quando um sistema baseado em LLM toma ou influencia decisões, é necessário poder
                         <strong class="text-amber-400">auditar a cadeia de raciocínio</strong>. Isso é essencial para
                         compliance, debugging e confiança.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Requisitos de Auditabilidade</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Requisitos de Auditabilidade</h3>
                         <div class="grid md:grid-cols-2 gap-4">
                             <div class="space-y-2">
-                                <p class="font-medium text-white">Para cada decisão, registrar:</p>
+                                <p class="font-medium text-white" data-inema-block="m4-5-t4-p2">Para cada decisão, registrar:</p>
                                 <ul class="text-sm text-gray-400 space-y-1">
                                     <li>• Input que disparou a decisão</li>
                                     <li>• Prompt/contexto usado</li>
@@ -362,7 +588,7 @@
                                 </ul>
                             </div>
                             <div class="space-y-2">
-                                <p class="font-medium text-white">Metadados essenciais:</p>
+                                <p class="font-medium text-white" data-inema-block="m4-5-t4-p3">Metadados essenciais:</p>
                                 <ul class="text-sm text-gray-400 space-y-1">
                                     <li>• Timestamp preciso</li>
                                     <li>• Versão do modelo</li>
@@ -374,13 +600,13 @@
                         </div>
                     </div>
 
-                    <p>
+                    <p data-inema-block="m4-5-t4-p4">
                         A auditoria não é apenas sobre <em>o que</em> aconteceu, mas <em>por que</em>. Chain-of-thought
                         prompts facilitam explicabilidade, mas também aumentam custo e latência.
                     </p>
 
                     <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Níveis de Audit Logging</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Níveis de Audit Logging</h3>
                         <table class="w-full text-sm mt-2">
                             <tbody class="text-gray-400">
                                 <tr class="border-b border-gray-800">
@@ -402,26 +628,29 @@
             </div>
 
             <!-- Tópico 5 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-5" data-inema-topic="modulo-4-5#topico-5"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">5</div>
                     <h2 class="text-2xl font-bold text-white">Observabilidade Estratégica</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-5-t5-p1">
                         <strong class="text-amber-400">Observabilidade</strong> em sistemas LLM vai além de métricas tradicionais.
                         É preciso monitorar comportamento semântico, não apenas performance técnica.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Pilares de Observabilidade LLM</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Pilares de Observabilidade LLM</h3>
                         <div class="space-y-4">
                             <div class="border-l-2 border-blue-500 pl-4">
-                                <p class="font-medium text-blue-400">Métricas Tradicionais</p>
-                                <p class="text-sm text-gray-400">Latência, throughput, error rate, custo por request</p>
+                                <p class="font-medium text-blue-400" data-inema-block="m4-5-t5-p2">Métricas Tradicionais</p>
+                                <p class="text-sm text-gray-400" data-inema-block="m4-5-t5-p3">Latência, throughput, error rate, custo por request</p>
                             </div>
                             <div class="border-l-2 border-green-500 pl-4">
-                                <p class="font-medium text-green-400">Métricas de Qualidade</p>
+                                <p class="font-medium text-green-400" data-inema-block="m4-5-t5-p4">Métricas de Qualidade</p>
                                 <p class="text-sm text-gray-400">Relevância, completude, precisão, tone match</p>
                             </div>
                             <div class="border-l-2 border-purple-500 pl-4">
@@ -436,7 +665,7 @@
                     </div>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Alertas Estratégicos</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Alertas Estratégicos</h3>
                         <div class="grid md:grid-cols-2 gap-4 text-sm">
                             <div class="space-y-2">
                                 <p class="font-medium text-white">Alertar imediatamente:</p>
@@ -460,7 +689,7 @@
                     </div>
 
                     <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Dashboard Executivo</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Dashboard Executivo</h3>
                         <p class="text-gray-300 text-sm">
                             O arquiteto deve projetar <strong>dashboards em múltiplos níveis</strong>: operacional
                             (para SREs), produto (para PMs), e executivo (para liderança). Cada nível precisa
@@ -471,27 +700,30 @@
             </div>
 
             <!-- Tópico 6 -->
-            <div class="space-y-6">
+            <div class="space-y-6" id="topico-6" data-inema-topic="modulo-4-5#topico-6"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">6</div>
                     <h2 class="text-2xl font-bold text-white">Incidentes e Resposta a Falhas</h2>
                 </div>
                 <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p>
+                    <p data-inema-block="m4-5-t6-p1">
                         Sistemas LLM vão falhar. A questão não é se, mas quando e como você responde.
                         <strong class="text-amber-400">Incident response</strong> para sistemas de prompt tem características
                         únicas que diferem de sistemas tradicionais.
                     </p>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Categorias de Incidentes LLM</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Categorias de Incidentes LLM</h3>
                         <div class="space-y-4">
                             <div class="border-l-2 border-red-500 pl-4">
-                                <p class="font-medium text-red-400">P1 - Crítico</p>
-                                <p class="text-sm text-gray-400">Safety violation, data breach, sistema offline</p>
+                                <p class="font-medium text-red-400" data-inema-block="m4-5-t6-p2">P1 - Crítico</p>
+                                <p class="text-sm text-gray-400" data-inema-block="m4-5-t6-p3">Safety violation, data breach, sistema offline</p>
                             </div>
                             <div class="border-l-2 border-orange-500 pl-4">
-                                <p class="font-medium text-orange-400">P2 - Alto</p>
+                                <p class="font-medium text-orange-400" data-inema-block="m4-5-t6-p4">P2 - Alto</p>
                                 <p class="text-sm text-gray-400">Degradação severa de qualidade, custo fora de controle</p>
                             </div>
                             <div class="border-l-2 border-yellow-500 pl-4">
@@ -506,7 +738,7 @@
                     </div>
 
                     <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h4 class="text-amber-400 font-semibold mb-4">Runbook de Resposta</h4>
+                        <h3 class="text-amber-400 font-semibold mb-4">Runbook de Resposta</h3>
                         <ol class="text-gray-300 space-y-2 text-sm list-decimal list-inside">
                             <li><strong>Detectar</strong>: Alertas disparam ou report manual é recebido</li>
                             <li><strong>Triagem</strong>: Classificar severidade e escopo do impacto</li>
@@ -519,7 +751,7 @@
                     </div>
 
                     <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6">
-                        <h4 class="text-red-400 font-semibold mb-2">⚠️ Erro Comum</h4>
+                        <h3 class="text-red-400 font-semibold mb-2">⚠️ Erro Comum</h3>
                         <p class="text-gray-300 text-sm">
                             Não trate incidentes LLM como bugs de software. A causa raiz pode ser <strong>mudança
                             no modelo do provider</strong>, <strong>shift na distribuição de inputs</strong> ou
@@ -528,7 +760,7 @@
                     </div>
 
                     <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6 mt-6">
-                        <h4 class="text-amber-400 font-semibold mb-2">Preparação Proativa</h4>
+                        <h3 class="text-amber-400 font-semibold mb-2">Preparação Proativa</h3>
                         <ul class="text-gray-300 space-y-1 text-sm">
                             <li>• <strong>Fallbacks prontos</strong>: versões simplificadas de prompts que sempre funcionam</li>
                             <li>• <strong>Feature flags</strong>: desabilitar features específicas sem deploy</li>
@@ -622,13 +854,13 @@
                         </div>
                     </div>
                     <div class="flex gap-3">
-                        <a href="../../docs/pdf/masterclass-modulo5-avaliacao-sistemica-risco.pdf" download class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors">
+                        <a href="../../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                             </svg>
                             PDF
                         </a>
-                        <a href="../../docs/md/masterclass-modulo5-avaliacao-sistemica-risco.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
+                        <a href="../../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                             </svg>
@@ -641,7 +873,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 border-t border-gray-800">
+    </main>
+<footer class="py-8 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
             <p>Fundamentos de Engenharia de Prompt © 2025 | Nível Masterclass</p>
         </div>
@@ -670,5 +903,8 @@
         });
       })();
     </script>
+  <script src="../../assets/v2.js"></script>
+  <script src="../../assets/learn.js"></script>
+  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

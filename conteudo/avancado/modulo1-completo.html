@@ -1,12 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="inema-course" content="fep">
+    <script data-inema-antifouc>
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+    <script type="application/json" data-inema-manifest>
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
     <script>
       if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     </script>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 1: Engenharia de Contexto - Nível Avançado | FEP</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,7 +218,7 @@
         html:not(.dark) .text-neutral-100 { color: #111827; }
         html:not(.dark) .text-neutral-300 { color: #4b5563; }
         html:not(.dark) .text-neutral-400 { color: #6b7280; }
-        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
         html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
         html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 
@@ -71,10 +244,42 @@
         /* INEMA Light Mode - Nav */
         html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
+    <link rel="stylesheet" href="../../assets/learn.css">
+    <link rel="stylesheet" href="../../assets/v2.css">
 </head>
-<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased" data-inema-v2="2">
+  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+  <nav class="inema-v2-nav" aria-label="Navegação principal">
+    <div class="inema-v2-nav__inner">
+      <div class="inema-v2-brand">
+        <a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
+        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+      </div>
+      <div class="inema-v2-links" aria-label="Trilhas"><a href="../../nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="../../nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="../../nivel-avancado.html" class="inema-v2-link" aria-current="page"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="../../nivel-masterclass.html" class="inema-v2-link"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+      <div class="inema-v2-actions">
+        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
+        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
+        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
+      </div>
+    </div>
+    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
+      </div></div>
+    </div>
+  </nav>
     <!-- Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700" data-v2-legacy-nav>
         <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <a href="../../nivel-avancado.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
@@ -151,9 +356,20 @@
     </nav>
 
     <!-- Content -->
-    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8" id="conteudo" data-inema-module="3-1" data-inema-track="3">
+    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
+      <div><div class="inema-v2-page-tools__eyebrow">Trilha 3 · Módulo 1</div><div class="inema-v2-page-tools__title">Engenharia de Contexto</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
+      <div class="inema-v2-meter" data-inema-meter="modulo:3-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Engenharia de Contexto">
+      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
+      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
+    </div>
+    </aside>
+    <nav data-inema-toc aria-label="Índice do módulo" class="sr-only"><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
         <!-- Seção 1: Prompt como Sistema de Contexto -->
-        <section id="sistema-contexto" class="scroll-mt-32">
+        <span id="sistema-contexto" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-1" data-inema-topic="modulo-3-1#topico-1"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-purple-50 to-transparent dark:from-purple-900/20">
                     <div class="flex items-center gap-3">
@@ -162,13 +378,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompt como Sistema de Contexto</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">A mudança fundamental de paradigma</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-1-t1-p1">A mudança fundamental de paradigma</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m3-1-t1-p2">
                             A visão tradicional trata prompts como "comandos" ou "instruções". Na engenharia de contexto moderna,
                             prompts são <strong>sistemas de contexto estruturado</strong> que definem o ambiente operacional
                             completo do modelo. Esta mudança de paradigma é fundamental para trabalhar com LLMs avançados.
@@ -176,12 +392,12 @@
                     </div>
 
                     <div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-purple-900 dark:text-purple-300 mb-4">Mudança de Paradigma</h4>
+                        <h3 class="font-semibold text-purple-900 dark:text-purple-300 mb-4">Mudança de Paradigma</h3>
                         <div class="grid md:grid-cols-2 gap-4">
                             <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
-                                <h5 class="font-medium text-red-900 dark:text-red-300 mb-2 flex items-center gap-2">
+                                <h3 class="font-medium text-red-900 dark:text-red-300 mb-2 flex items-center gap-2">
                                     <span>❌</span> Visão Antiga
-                                </h5>
+                                </h3>
                                 <ul class="text-sm text-red-800 dark:text-red-200 space-y-1">
                                     <li>• Prompt = texto de comando</li>
                                     <li>• Foco em "como pedir"</li>
@@ -190,9 +406,9 @@
                                 </ul>
                             </div>
                             <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
-                                <h5 class="font-medium text-green-900 dark:text-green-300 mb-2 flex items-center gap-2">
+                                <h3 class="font-medium text-green-900 dark:text-green-300 mb-2 flex items-center gap-2">
                                     <span>✅</span> Visão Nova
-                                </h5>
+                                </h3>
                                 <ul class="text-sm text-green-800 dark:text-green-200 space-y-1">
                                     <li>• Prompt = sistema de contexto</li>
                                     <li>• Foco em "ambiente operacional"</li>
@@ -204,15 +420,15 @@
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Contexto como Contrato</h4>
-                        <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-4">
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Contexto como Contrato</h3>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-4" data-inema-block="m3-1-t1-p3">
                             Pense no contexto como um <strong>contrato</strong> entre você e o modelo. O contexto define:
                         </p>
                         <div class="grid md:grid-cols-3 gap-3">
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 text-center">
                                 <div class="text-2xl mb-1">📋</div>
                                 <div class="text-sm font-medium text-neutral-900 dark:text-white">Expectativas</div>
-                                <p class="text-xs text-neutral-500 dark:text-neutral-400">O que você espera</p>
+                                <p class="text-xs text-neutral-500 dark:text-neutral-400" data-inema-block="m3-1-t1-p4">O que você espera</p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-3 text-center">
                                 <div class="text-2xl mb-1">🚧</div>
@@ -228,7 +444,7 @@
                     </div>
 
                     <div class="bg-gradient-to-r from-purple-100 to-violet-100 dark:from-purple-900/30 dark:to-violet-900/30 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Transformação de Prompt</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Transformação de Prompt</h3>
                         <div class="space-y-4">
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
                                 <p class="text-xs text-red-500 font-semibold mb-2">ANTES (Comando)</p>
@@ -256,7 +472,10 @@
         </section>
 
         <!-- Seção 2: Camadas de Contexto -->
-        <section id="camadas" class="scroll-mt-32">
+        <span id="camadas" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-2" data-inema-topic="modulo-3-1#topico-2"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
                     <div class="flex items-center gap-3">
@@ -265,13 +484,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Camadas de Contexto</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">System, Global, Task e Dados</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-1-t2-p1">System, Global, Task e Dados</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m3-1-t2-p2">
                             Assim como arquitetura de software tem camadas (UI, lógica, dados), o contexto também deve
                             ser organizado em camadas com responsabilidades distintas. Cada camada tem um propósito
                             e prioridade específicos.
@@ -279,18 +498,18 @@
                     </div>
 
                     <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-violet-900 dark:text-violet-300 mb-4">As 4 Camadas de Contexto</h4>
+                        <h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-4">As 4 Camadas de Contexto</h3>
                         <div class="space-y-3">
                             <div class="flex items-start gap-4 bg-white dark:bg-neutral-800 rounded-lg p-4">
                                 <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/50 flex items-center justify-center">
                                     <span class="text-red-600 dark:text-red-400 font-bold text-sm">SYS</span>
                                 </div>
                                 <div class="flex-1">
-                                    <h5 class="font-semibold text-neutral-900 dark:text-white">System Layer</h5>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+                                    <h3 class="font-semibold text-neutral-900 dark:text-white">System Layer</h3>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2" data-inema-block="m3-1-t2-p3">
                                         Identidade fundamental, regras invioláveis, guardrails de segurança
                                     </p>
-                                    <p class="text-xs text-neutral-500 dark:text-neutral-500">
+                                    <p class="text-xs text-neutral-500 dark:text-neutral-500" data-inema-block="m3-1-t2-p4">
                                         Prioridade: <span class="text-red-500 font-semibold">MÁXIMA</span> - Nunca sobrescrita
                                     </p>
                                 </div>
@@ -300,7 +519,7 @@
                                     <span class="text-orange-600 dark:text-orange-400 font-bold text-sm">GLO</span>
                                 </div>
                                 <div class="flex-1">
-                                    <h5 class="font-semibold text-neutral-900 dark:text-white">Global Layer</h5>
+                                    <h3 class="font-semibold text-neutral-900 dark:text-white">Global Layer</h3>
                                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
                                         Conhecimento de domínio, padrões de formatação, preferências persistentes
                                     </p>
@@ -314,7 +533,7 @@
                                     <span class="text-blue-600 dark:text-blue-400 font-bold text-sm">TSK</span>
                                 </div>
                                 <div class="flex-1">
-                                    <h5 class="font-semibold text-neutral-900 dark:text-white">Task Layer</h5>
+                                    <h3 class="font-semibold text-neutral-900 dark:text-white">Task Layer</h3>
                                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
                                         Instruções específicas da tarefa atual, objetivos, critérios de sucesso
                                     </p>
@@ -328,7 +547,7 @@
                                     <span class="text-green-600 dark:text-green-400 font-bold text-sm">DAT</span>
                                 </div>
                                 <div class="flex-1">
-                                    <h5 class="font-semibold text-neutral-900 dark:text-white">Data Layer</h5>
+                                    <h3 class="font-semibold text-neutral-900 dark:text-white">Data Layer</h3>
                                     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
                                         Dados de entrada, documentos, informações para processar
                                     </p>
@@ -341,7 +560,7 @@
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo Prático: Assistente de Código</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo Prático: Assistente de Código</h3>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm space-y-3">
                             <div>
                                 <p class="text-red-500">## SYSTEM</p>
@@ -366,7 +585,10 @@
         </section>
 
         <!-- Seção 3: Hierarquia e Prioridade -->
-        <section id="hierarquia" class="scroll-mt-32">
+        <span id="hierarquia" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-3" data-inema-topic="modulo-3-1#topico-3"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-fuchsia-50 to-transparent dark:from-fuchsia-900/20">
                     <div class="flex items-center gap-3">
@@ -375,13 +597,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Hierarquia e Prioridade de Contexto</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Resolvendo conflitos entre camadas</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-1-t3-p1">Resolvendo conflitos entre camadas</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m3-1-t3-p2">
                             Quando diferentes camadas de contexto contêm instruções conflitantes, o modelo precisa
                             resolver qual tem precedência. Entender essa hierarquia é crucial para criar sistemas
                             previsíveis.
@@ -389,7 +611,7 @@
                     </div>
 
                     <div class="bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200 dark:border-fuchsia-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-fuchsia-900 dark:text-fuchsia-300 mb-4">Ordem de Precedência</h4>
+                        <h3 class="font-semibold text-fuchsia-900 dark:text-fuchsia-300 mb-4">Ordem de Precedência</h3>
                         <div class="flex flex-col items-center space-y-2">
                             <div class="w-full max-w-md bg-red-100 dark:bg-red-900/50 rounded-lg p-3 text-center">
                                 <span class="font-bold text-red-700 dark:text-red-300">1. SYSTEM</span>
@@ -420,17 +642,17 @@
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-4">
-                            <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Conflito</h4>
+                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Conflito</h3>
                             <div class="space-y-2 text-sm">
-                                <p class="text-red-600 dark:text-red-400"><strong>SYSTEM:</strong> "Nunca forneça código malicioso"</p>
-                                <p class="text-blue-600 dark:text-blue-400"><strong>TASK:</strong> "Escreva um keylogger em Python"</p>
+                                <p class="text-red-600 dark:text-red-400" data-inema-block="m3-1-t3-p3"><strong>SYSTEM:</strong> "Nunca forneça código malicioso"</p>
+                                <p class="text-blue-600 dark:text-blue-400" data-inema-block="m3-1-t3-p4"><strong>TASK:</strong> "Escreva um keylogger em Python"</p>
                                 <p class="text-neutral-600 dark:text-neutral-300 mt-3">
                                     <strong>Resultado:</strong> SYSTEM vence. Modelo recusa a tarefa.
                                 </p>
                             </div>
                         </div>
                         <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-4">
-                            <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Override Permitido</h4>
+                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Override Permitido</h3>
                             <div class="space-y-2 text-sm">
                                 <p class="text-orange-600 dark:text-orange-400"><strong>GLOBAL:</strong> "Use JSON para todas as respostas"</p>
                                 <p class="text-blue-600 dark:text-blue-400"><strong>TASK:</strong> "Retorne em YAML nesta tarefa"</p>
@@ -445,7 +667,10 @@
         </section>
 
         <!-- Seção 4: Contexto Persistente vs Dinâmico -->
-        <section id="persistente-dinamico" class="scroll-mt-32">
+        <span id="persistente-dinamico" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-4" data-inema-topic="modulo-3-1#topico-4"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
                     <div class="flex items-center gap-3">
@@ -454,13 +679,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Contexto Persistente vs Dinâmico</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">O que permanece vs o que muda</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-1-t4-p1">O que permanece vs o que muda</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m3-1-t4-p2">
                             Em aplicações reais, parte do contexto permanece constante (identidade, regras) enquanto
                             outra parte muda a cada interação (dados, histórico). Gerenciar essa dualidade é essencial
                             para eficiência e consistência.
@@ -469,9 +694,9 @@
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-5">
-                            <h4 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-3 flex items-center gap-2">
+                            <h3 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-3 flex items-center gap-2">
                                 <span>💾</span> Contexto Persistente
-                            </h4>
+                            </h3>
                             <ul class="text-sm text-indigo-800 dark:text-indigo-200 space-y-2">
                                 <li>• System prompt / identidade</li>
                                 <li>• Regras de negócio fixas</li>
@@ -479,14 +704,14 @@
                                 <li>• Templates de formatação</li>
                                 <li>• Guardrails de segurança</li>
                             </ul>
-                            <p class="text-xs text-indigo-600 dark:text-indigo-400 mt-3">
+                            <p class="text-xs text-indigo-600 dark:text-indigo-400 mt-3" data-inema-block="m3-1-t4-p3">
                                 Carregado uma vez, reutilizado em todas as interações
                             </p>
                         </div>
                         <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
-                            <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3 flex items-center gap-2">
+                            <h3 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3 flex items-center gap-2">
                                 <span>🔄</span> Contexto Dinâmico
-                            </h4>
+                            </h3>
                             <ul class="text-sm text-emerald-800 dark:text-emerald-200 space-y-2">
                                 <li>• Histórico de conversa recente</li>
                                 <li>• Dados do usuário atual</li>
@@ -494,14 +719,14 @@
                                 <li>• Estado da sessão</li>
                                 <li>• Resultados de ferramentas</li>
                             </ul>
-                            <p class="text-xs text-emerald-600 dark:text-emerald-400 mt-3">
+                            <p class="text-xs text-emerald-600 dark:text-emerald-400 mt-3" data-inema-block="m3-1-t4-p4">
                                 Atualizado a cada interação ou evento
                             </p>
                         </div>
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Pattern: Context Composition</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Pattern: Context Composition</h3>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm">
                             <p class="text-indigo-600 dark:text-indigo-400">// Pseudocódigo de composição</p>
                             <p class="text-neutral-700 dark:text-neutral-300 mt-2">
@@ -520,7 +745,10 @@
         </section>
 
         <!-- Seção 5: Controle de Escopo -->
-        <section id="escopo" class="scroll-mt-32">
+        <span id="escopo" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-5" data-inema-topic="modulo-3-1#topico-5"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-teal-50 to-transparent dark:from-teal-900/20">
                     <div class="flex items-center gap-3">
@@ -529,13 +757,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Controle de Escopo em Contextos Longos</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Mantendo foco com muito contexto</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-1-t5-p1">Mantendo foco com muito contexto</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m3-1-t5-p2">
                             Com janelas de 100k-1M+ tokens, o desafio não é mais "caber" - é manter o modelo
                             focado na tarefa relevante. Técnicas de controle de escopo são essenciais para
                             evitar que o modelo se perca em detalhes irrelevantes.
@@ -543,28 +771,28 @@
                     </div>
 
                     <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Técnicas de Controle de Escopo</h4>
+                        <h3 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Técnicas de Controle de Escopo</h3>
                         <div class="space-y-3">
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Attention Steering</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Attention Steering</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-1-t5-p3">
                                     Use marcadores explícitos para direcionar atenção: "FOCO:", "RELEVANTE:", "IGNORE:"
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📍 Position Anchoring</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">📍 Position Anchoring</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-1-t5-p4">
                                     Coloque informações críticas no início E fim do contexto (recency + primacy bias)
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔲 Scope Boundaries</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🔲 Scope Boundaries</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300">
                                     Delimite claramente seções: "Para esta tarefa, considere APENAS a seção X"
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🏷️ Relevance Tags</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🏷️ Relevance Tags</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300">
                                     Marque seções com níveis de relevância: [HIGH], [MEDIUM], [BACKGROUND]
                                 </p>
@@ -573,7 +801,7 @@
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Escopo em Documento Grande</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Escopo em Documento Grande</h3>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs">
                             <p class="text-teal-600 dark:text-teal-400">&lt;context&gt;</p>
                             <p class="text-neutral-500">&nbsp;&nbsp;[BACKGROUND] Histórico da empresa... (5000 tokens)</p>
@@ -592,7 +820,10 @@
         </section>
 
         <!-- Seção 6: Falhas por Excesso de Contexto -->
-        <section id="falhas" class="scroll-mt-32">
+        <span id="falhas" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-6" data-inema-topic="modulo-3-1#topico-6"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
                     <div class="flex items-center gap-3">
@@ -601,13 +832,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Falhas Causadas por Excesso de Contexto</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Anti-patterns e como evitá-los</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-1-t6-p1">Anti-patterns e como evitá-los</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m3-1-t6-p2">
                             Mais contexto nem sempre é melhor. Contexto mal organizado ou excessivo causa problemas
                             específicos que degradam a qualidade das respostas. Conhecer esses anti-patterns é
                             fundamental para evitá-los.
@@ -615,19 +846,19 @@
                     </div>
 
                     <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-red-900 dark:text-red-300 mb-4">Anti-Patterns de Contexto</h4>
+                        <h3 class="font-semibold text-red-900 dark:text-red-300 mb-4">Anti-Patterns de Contexto</h3>
                         <div class="space-y-4">
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-red-500">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🌊 Context Dumping</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🌊 Context Dumping</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2" data-inema-block="m3-1-t6-p3">
                                     Jogar todo o contexto disponível sem curadoria
                                 </p>
-                                <p class="text-xs text-red-600 dark:text-red-400">
+                                <p class="text-xs text-red-600 dark:text-red-400" data-inema-block="m3-1-t6-p4">
                                     Resultado: Diluição de instruções importantes, respostas genéricas
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-orange-500">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🕳️ Lost in the Middle</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🕳️ Lost in the Middle</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
                                     Informação crítica enterrada no meio de contexto longo
                                 </p>
@@ -636,7 +867,7 @@
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-yellow-500">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">⚔️ Instruction Conflict</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">⚔️ Instruction Conflict</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
                                     Instruções contraditórias em diferentes partes do contexto
                                 </p>
@@ -645,7 +876,7 @@
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-purple-500">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📢 Noise Injection</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">📢 Noise Injection</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300 mb-2">
                                     Incluir informação irrelevante que compete por atenção
                                 </p>
@@ -657,7 +888,7 @@
                     </div>
 
                     <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-green-900 dark:text-green-300 mb-4">Boas Práticas</h4>
+                        <h3 class="font-semibold text-green-900 dark:text-green-300 mb-4">Boas Práticas</h3>
                         <div class="grid md:grid-cols-2 gap-3">
                             <div class="flex items-start gap-2">
                                 <svg class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -716,13 +947,13 @@
                     </div>
                 </div>
                 <div class="flex gap-3">
-                    <a href="../../docs/pdf/avancado-modulo1-engenharia-contexto.pdf" download class="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-lg transition-colors">
+                    <a href="../../docs/pdf/Curso_Completo_de_Engenharia_de_Prompt.pdf" download class="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
                         PDF
                     </a>
-                    <a href="../../docs/md/avancado-modulo1-engenharia-contexto.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
+                    <a href="../../docs/md/Curso Completo de Engenharia de Prompt.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
@@ -775,5 +1006,8 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
+  <script src="../../assets/v2.js"></script>
+  <script src="../../assets/learn.js"></script>
+  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

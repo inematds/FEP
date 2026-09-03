@@ -1,0 +1,1298 @@
+/* =============================================================================
+   INEMA · formato-curso-v2 · learn.css
+   Camada de aprendizagem + sistema de temas (DESIGN-SPEC §3).
+
+   ARQUITETURA DE COR EM 3 NÍVEIS (web.dev):
+     Nível 1 — PRIMITIVOS  : canais HSL crus (--c-*-h/-s/-l). Nunca consumidos direto.
+     Nível 2 — TOKENS/TEMA  : por .dark / [data-theme], traduzem primitivos -> papéis.
+     Nível 3 — SEMÂNTICOS   : --bg --surface --surface-2 --text --text-muted
+                              --border --primary --accent --accent-2.
+                              >>> A PÁGINA CONSOME SÓ ESTE NÍVEL. <<<
+
+   DOIS LAYERS ORTOGONAIS (decisão travada):
+     Layer 1 (claro/escuro) = classe .dark do Tailwind (NÃO migrar root p/ data-theme).
+     Layer 2 (variante leitura) = atributo data-theme no <html> (sepia/foco/contraste).
+
+   Este arquivo NÃO redefine utilitários Tailwind. Estiliza só:
+     - os tokens semânticos (nível 3),
+     - o wrapper de prosa .inema-prose (prefs de leitura),
+     - os componentes NOVOS da camada de aprendizagem.
+   ============================================================================= */
+
+/* =============================================================================
+   0. RESET MÍNIMO + ALVOS DE ÂNCORA (nav sticky obscurece foco — WCAG 2.4.11)
+   ============================================================================= */
+
+:where(html) {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* scroll-margin em TODO alvo de âncora: tópicos, blocos, headings, cards de
+   módulo e qualquer elemento com id. Usa a altura do nav como offset. */
+:where([id]),
+:where([data-inema-topic]),
+:where([data-inema-block]),
+:where([data-inema-module]) {
+  scroll-margin-top: var(--inema-nav-h, 5rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =============================================================================
+   1. NÍVEL 1 — PRIMITIVOS (canais HSL crus, neutros à marca)
+   Disponíveis a todos os temas; cada tema escolhe quais usar no nível 2.
+   ============================================================================= */
+
+:root {
+  /* Âmbar / marca (primary) — base FACC15 */
+  --c-amber-h: 48;
+  --c-amber-s: 96%;
+  --c-amber-l: 53%;
+
+  /* Ciano / acento-2 — base 38bdf8 */
+  --c-cyan-h: 199;
+  --c-cyan-s: 92%;
+  --c-cyan-l: 60%;
+
+  /* Sky — links externos INEMA.CLUB */
+  --c-sky-h: 204;
+  --c-sky-s: 94%;
+  --c-sky-l: 58%;
+
+  /* Famílias de trilha (slugs de --data-accent). HSL aproximando Tailwind. */
+  --c-emerald-h: 160; --c-emerald-s: 84%; --c-emerald-l: 39%; /* T1 */
+  --c-blue-h:    217; --c-blue-s:    91%; --c-blue-l:    60%; /* T2 */
+  --c-purple-h:  258; --c-purple-s:  90%; --c-purple-l:  66%; /* T3 */
+  --c-track-amber-h: 38; --c-track-amber-s: 92%; --c-track-amber-l: 50%; /* T4 */
+  --c-teal-h:    173; --c-teal-s:    80%; --c-teal-l:    40%; /* T5 */
+  --c-rose-h:    350; --c-rose-s:    89%; --c-rose-l:    60%; /* T6 */
+
+  /* Estados semânticos de anotação/feedback (independem de tema) */
+  --c-doubt-h: 25;  --c-doubt-s: 95%; --c-doubt-l: 53%;  /* dúvida (laranja) */
+  --c-ok-h:    142; --c-ok-s:    71%; --c-ok-l:    45%;  /* acerto */
+  --c-warn-h:  0;   --c-warn-s:   72%; --c-warn-l:   51%; /* erro/alerta */
+
+  /* === Variáveis de chassi (timing, raios) — neutras a tema === */
+  --inema-radius:    0.75rem;  /* 12px = rounded-xl da baseline */
+  --inema-radius-sm: 0.5rem;
+  --inema-radius-pill: 9999px;
+  --inema-nav-h: 5rem;
+
+  --inema-dur-fast: 120ms;
+  --inema-dur:      180ms;
+  --inema-dur-slow: 320ms;
+  --inema-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* === ACENTO POR TRILHA (data-accent) — default emerald (T1) ===
+     O acento alimenta os componentes NOVOS e o <style> à mão (nível 3 --accent).
+     Em claro/sépia, o degrau de TEXTO cai p/ -700/-800 (ver §6). */
+  --accent-h: var(--c-emerald-h);
+  --accent-s: var(--c-emerald-s);
+  --accent-l: var(--c-emerald-l);
+  /* offset de luminância aplicado em temas claros p/ texto de acento legível */
+  --accent-l-text: var(--accent-l);
+
+  /* tipografia de prosa — defaults (sobrescritos por [data-font] / .inema-prose) */
+  --fs-root: 100%;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-leitura: "Atkinson Hyperlegible", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-system: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* =============================================================================
+   2. NÍVEL 2 — TOKENS DE TEMA  ->  NÍVEL 3 — SEMÂNTICOS
+   ----------------------------------------------------------------------------
+   Layer 1: ESCURO = .dark (Tailwind)   ·   CLARO = .dark ausente.
+   Layer 2: data-theme (sepia/foco/contraste) sobrepõe pontualmente.
+   ============================================================================= */
+
+/* ---- TEMA CLARO (Layer 1 base, .dark AUSENTE) ----
+   Surfaces SÓLIDAS (regra de light-mode do baseline — nunca gradiente).
+   --text ~16:1 (AAA); --text-muted piso seguro 4.5:1+. */
+:root {
+  color-scheme: light;
+
+  --bg:        #ffffff;
+  --surface:   #f8fafc;   /* slate-50 */
+  --surface-2: #f3f4f6;   /* gray-100 */
+  --text:      #1a1a1a;   /* ~16:1 sobre #fff (AAA) */
+  --text-muted:#6e6e6e;   /* ~4.9:1 sobre #fff (piso AA, mira AAA p/ não-corpo) */
+  --border:    #e2e8f0;   /* slate-200 */
+  --border-strong: #cbd5e1;
+
+  /* PRIMARY (âmbar) — em claro NÃO serve de TEXTO (1.53:1). Só fill/borda. */
+  --primary:      hsl(var(--c-amber-h) var(--c-amber-s) var(--c-amber-l));
+  --primary-ink:  #92400e;  /* amber-800: âmbar quando precisa virar TEXTO em claro */
+  --on-primary:   #1a1a1a;  /* texto sobre fill âmbar (escuro, alto contraste) */
+
+  --accent-2:     hsl(var(--c-cyan-h) var(--c-cyan-s) 38%); /* ciano escurecido p/ texto em claro */
+
+  /* offset: texto de acento em claro usa luminância mais baixa (-700/-800) */
+  --accent-l-text: 26%;
+}
+
+/* ---- TEMA ESCURO = inema-dark (DEFAULT da marca, classe .dark) ----
+   Valores EXATOS da spec §3.4. Nunca #000/#fff puros. */
+.dark {
+  color-scheme: dark;
+
+  --bg:        #111827;   /* gray-900 */
+  --surface:   #1f2937;   /* gray-800 */
+  --surface-2: #374151;   /* gray-700 */
+  --text:      #e6e6e6;
+  --text-muted:#a8a8b3;
+  --border:    #374151;   /* gray-700 */
+  --border-strong: #4b5563;
+
+  --primary:      hsl(var(--c-amber-h) var(--c-amber-s) var(--c-amber-l)); /* #FACC15 */
+  --primary-ink:  var(--primary);  /* em dark o âmbar PODE ser texto */
+  --on-primary:   #111827;         /* texto sobre fill âmbar */
+
+  --accent-2:     hsl(var(--c-cyan-h) var(--c-cyan-s) var(--c-cyan-l)); /* #38bdf8 */
+
+  /* em dark o acento é claro o suficiente p/ texto — sem offset */
+  --accent-l-text: var(--accent-l);
+}
+
+/* O --accent (nível 3) deriva do acento de trilha. Em claro/sépia troca p/ texto. */
+:root,
+.dark {
+  --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
+  /* versão TEXTO do acento (respeita o offset de cada tema) */
+  --accent-text: hsl(var(--accent-h) var(--accent-s) var(--accent-l-text));
+}
+
+/* =============================================================================
+   3. LAYER 2 — data-theme (variantes de LEITURA, ortogonais ao claro/escuro)
+   ============================================================================= */
+
+/* ---- SÉPIA / leitura (claro morno) ----
+   --text 5F4B32 (7.31:1 AAA) · muted 7A6650. Âmbar saturado só fill/borda;
+   acento de TEXTO = marrom escurecido / amber-800. */
+[data-theme="sepia"] {
+  color-scheme: light;
+
+  --bg:        #fbf0d9;
+  --surface:   #f4e8ce;
+  --surface-2: #ecdfbf;
+  --text:      #5f4b32;   /* 7.31:1 sobre bg (AAA) */
+  --text-muted:#7a6650;   /* >=4.5:1 sobre bg */
+  --border:    #e0d2b0;
+  --border-strong: #cdb98a;
+
+  --primary:      hsl(var(--c-amber-h) var(--c-amber-s) var(--c-amber-l));
+  --primary-ink:  #7c4a12;  /* marrom-âmbar escuro p/ TEXTO no sépia */
+  --on-primary:   #3b2c18;
+
+  --accent-2:     hsl(var(--c-cyan-h) 70% 30%); /* ciano profundo p/ contraste no creme */
+
+  /* acento de texto bem escuro no sépia */
+  --accent-l-text: 24%;
+}
+
+/* ---- ALTO CONTRASTE (dark reforçado) — caminho a11y principal ----
+   --text F5F7FA sobre bg 0A0E14 (18.02:1) · âmbar 12.63:1 · ciano 9.03:1. */
+[data-theme="contraste"] {
+  color-scheme: dark;
+
+  --bg:        #0a0e14;
+  --surface:   #131a24;
+  --surface-2: #1e2733;
+  --text:      #f5f7fa;   /* 18.02:1 sobre bg */
+  --text-muted:#c7ced6;   /* alto p/ legenda (>=7:1) */
+  --border:    #3a4658;   /* bordas VISÍVEIS em todo card/toggle */
+  --border-strong: #5b6b82;
+
+  --primary:      hsl(var(--c-amber-h) var(--c-amber-s) var(--c-amber-l)); /* 12.63:1 */
+  --primary-ink:  var(--primary);
+  --on-primary:   #0a0e14;
+
+  --accent-2:     hsl(var(--c-cyan-h) var(--c-cyan-s) var(--c-cyan-l)); /* 9.03:1 */
+
+  --accent-l-text: max(var(--accent-l), 62%); /* garante acento claro o bastante */
+}
+
+/* contraste herda claro/escuro do .dark, mas o caminho principal é dark.
+   Se aplicado SEM .dark, ainda força os valores acima (são absolutos). */
+
+/* ---- FOCO — NÃO mexe na cor; só densidade/medida/visibilidade ----
+   Reduz a medida da prosa, aumenta entrelinha e esconde cromo lateral.
+   Herda as cores do tema ativo (claro/escuro/sépia/contraste). */
+[data-theme="foco"] {
+  --measure: 58ch;          /* coluna estreita */
+  --lh-body: 1.75;          /* entrelinha maior */
+}
+[data-theme="foco"] .inema-prose {
+  margin-inline: auto;
+}
+/* esconde cromo decorativo lateral no modo foco (degrada: só some o que existe) */
+[data-theme="foco"] [data-inema-decor],
+[data-theme="foco"] [data-inema-stats-decor],
+[data-theme="foco"] [data-inema-toc] {
+  display: none !important;
+}
+[data-theme="foco"] [data-inema-nav-minimal] {
+  /* nav minimal: encolhe paddings decorativos sem quebrar o markup */
+  --inema-nav-h: 3.5rem;
+}
+
+/* re-deriva o nível 3 quando data-theme define hue/escuro (mantém cascata) */
+[data-theme="sepia"],
+[data-theme="contraste"] {
+  --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
+  --accent-text: hsl(var(--accent-h) var(--accent-s) var(--accent-l-text));
+}
+
+/* =============================================================================
+   3b. BRIDGE DE CHROME — temas data-theme pintam a PÁGINA inteira
+   -----------------------------------------------------------------------------
+   As classes utilitárias v1 (bg-dark-*, text-neutral-*, border-dark-*) e o
+   override binário `html:not(.dark)` controlam o chrome (body/nav/cards) e NÃO
+   consomem as variáveis de tema. Sem isto, "sépia" e "contraste" só recolorem a
+   prosa e ficam idênticos a claro/escuro. Aqui mapeamos as classes-chave do
+   chrome para os tokens semânticos, para que a TROCA DE TEMA transforme a
+   página toda. `!important` para vencer o utilitário Tailwind e o override
+   binário (ambos com especificidade alta). Só para os temas de COR data-theme;
+   claro/inema-dark continuam pelo mecanismo v1 intacto (Erro Crítico #5).
+   ============================================================================= */
+html[data-theme="sepia"] body,
+html[data-theme="contraste"] body { background-color: var(--bg) !important; color: var(--text); }
+
+html[data-theme="sepia"] .bg-dark-900,
+html[data-theme="contraste"] .bg-dark-900,
+html[data-theme="sepia"] .bg-dark-900\/95,
+html[data-theme="contraste"] .bg-dark-900\/95 { background-color: var(--bg) !important; }
+
+html[data-theme="sepia"] .bg-dark-800,
+html[data-theme="contraste"] .bg-dark-800 { background-color: var(--surface) !important; }
+
+html[data-theme="sepia"] .bg-dark-700,
+html[data-theme="contraste"] .bg-dark-700,
+html[data-theme="sepia"] .bg-dark-600,
+html[data-theme="contraste"] .bg-dark-600 { background-color: var(--surface-2) !important; }
+
+html[data-theme="sepia"] .text-neutral-100,
+html[data-theme="contraste"] .text-neutral-100 { color: var(--text) !important; }
+
+html[data-theme="sepia"] .text-neutral-300,
+html[data-theme="contraste"] .text-neutral-300,
+html[data-theme="sepia"] .text-neutral-400,
+html[data-theme="contraste"] .text-neutral-400,
+html[data-theme="sepia"] .text-neutral-500,
+html[data-theme="contraste"] .text-neutral-500 { color: var(--text-muted) !important; }
+
+html[data-theme="sepia"] .border-dark-600,
+html[data-theme="contraste"] .border-dark-600,
+html[data-theme="sepia"] .border-dark-700,
+html[data-theme="contraste"] .border-dark-700 { border-color: var(--border) !important; }
+
+/* =============================================================================
+   4. .inema-prose — PREFERÊNCIAS DE LEITURA (unidades relativas; spec §3.5/3.6)
+   --measure clampa SÓ a prosa. Code/tabelas/grids NÃO recebem --measure.
+   ============================================================================= */
+
+/* fontScale -> :root font-size em % (resto em rem escala junto; NUNCA px no root) */
+html { font-size: var(--fs-root, 100%); }
+
+/* data-font no <html> escolhe a família do corpo */
+html[data-font="inter"]   { --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+html[data-font="system"]  { --font-body: var(--font-system); }
+html[data-font="leitura"] { --font-body: var(--font-leitura); }
+
+.inema-prose {
+  /* medida (largura de linha) — clampa SÓ a prosa */
+  --measure: 68ch;            /* default; 60 | 68 | 75 via [data-line-width] */
+  /* corpo: tamanho relativo ao root (sobrevive a zoom 200%) */
+  --fs-body: 1rem;
+  /* entrelinha: multiplicador SEM unidade (herda/sobrevive a override 1.4.12) */
+  --lh-body: 1.7;             /* confortável; compacto = 1.45 */
+
+  max-width: var(--measure);
+  margin-inline: auto;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text);
+
+  /* espaçamento tipográfico (espelha a baseline; §3.6) */
+  --space-para: 1.5em;
+  --space-section: 3rem;
+}
+
+/* preferências aplicadas via atributos no <html> (persistidas em inema.prefs) */
+html[data-line-width="60"] .inema-prose { --measure: 60ch; }
+html[data-line-width="68"] .inema-prose { --measure: 68ch; }
+html[data-line-width="75"] .inema-prose { --measure: 75ch; }
+
+html[data-leading="compacto"]    .inema-prose { --lh-body: 1.45; }
+html[data-leading="confortavel"] .inema-prose { --lh-body: 1.7; }
+
+/* parágrafos e ritmo vertical da prosa */
+.inema-prose > p,
+.inema-prose > ul,
+.inema-prose > ol,
+.inema-prose > blockquote {
+  margin-block: 0 var(--space-para);
+  max-width: var(--measure);
+}
+
+/* títulos: mais margem em cima que embaixo (§3.6) */
+.inema-prose > h2,
+.inema-prose > h3,
+.inema-prose > h4 {
+  line-height: 1.25;
+  margin-block: var(--space-section) 0.6em;
+  max-width: var(--measure);
+}
+.inema-prose > h2:first-child,
+.inema-prose > h3:first-child { margin-block-start: 0; }
+
+/* CÓDIGO / TABELAS / GRIDS / FIGURAS: NÃO recebem --measure (largura plena) */
+.inema-prose pre,
+.inema-prose table,
+.inema-prose figure,
+.inema-prose .inema-grid,
+.inema-prose [data-inema-fullbleed] {
+  max-width: none;
+  width: 100%;
+  /* line-height de código fica fixo, não herda o multiplicador de leitura */
+  line-height: 1.5;
+}
+.inema-prose pre,
+.inema-prose code {
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
+}
+
+/* links de prosa usam o ACENTO de TEXTO (degrau correto por tema) */
+.inema-prose a {
+  color: var(--accent-text);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* =============================================================================
+   5. TRANSIÇÃO DE TEMA (micro-interação contida; spec §3.9)
+   Transição curta SÓ nas cores; nada de scale/translate/bounce.
+   ============================================================================= */
+
+body,
+.inema-surface,
+[data-inema-card],
+[data-inema-read-toggle],
+[data-inema-doubt-toggle] {
+  transition:
+    background-color var(--inema-dur) var(--inema-ease),
+    border-color     var(--inema-dur) var(--inema-ease),
+    color            var(--inema-dur) var(--inema-ease);
+}
+
+/* superfície utilitária reutilizável (componentes novos) */
+.inema-surface {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius);
+  color: var(--text);
+}
+
+/* =============================================================================
+   6. data-accent — ACENTO POR TRILHA (slugs; spec §3.5/§4.2)
+   Ajusta --accent-h/-s/-l. Em claro/sépia o TEXTO usa -700/-800 (via -l-text).
+   ============================================================================= */
+
+[data-accent="emerald"] { --accent-h: var(--c-emerald-h);     --accent-s: var(--c-emerald-s);     --accent-l: var(--c-emerald-l); }
+[data-accent="blue"]    { --accent-h: var(--c-blue-h);        --accent-s: var(--c-blue-s);        --accent-l: var(--c-blue-l); }
+[data-accent="purple"]  { --accent-h: var(--c-purple-h);      --accent-s: var(--c-purple-s);      --accent-l: var(--c-purple-l); }
+[data-accent="amber"]   { --accent-h: var(--c-track-amber-h); --accent-s: var(--c-track-amber-s); --accent-l: var(--c-track-amber-l); }
+[data-accent="teal"]    { --accent-h: var(--c-teal-h);        --accent-s: var(--c-teal-s);        --accent-l: var(--c-teal-l); }
+[data-accent="rose"]    { --accent-h: var(--c-rose-h);        --accent-s: var(--c-rose-s);        --accent-l: var(--c-rose-l); }
+
+/* DEGRAU DE TEXTO em temas CLAROS: força luminância -700/-800 p/ passar contraste.
+   (Em dark o --accent-l-text já é o próprio --accent-l.) */
+:root:not(.dark)[data-accent],
+[data-theme="sepia"][data-accent] {
+  /* mantém hue/saturação da trilha, baixa a luminância p/ texto legível */
+  --accent-l-text: 30%;
+}
+/* âmbar é o caso mais crítico: em claro/sépia vira -800 (~28% L) */
+:root:not(.dark)[data-accent="amber"],
+[data-theme="sepia"][data-accent="amber"] {
+  --accent-l-text: 26%;
+}
+
+/* re-deriva nível 3 após data-accent mudar os canais */
+[data-accent] {
+  --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
+  --accent-text: hsl(var(--accent-h) var(--accent-s) var(--accent-l-text));
+}
+
+/* =============================================================================
+   7. FOCO DE TECLADO + a11y de movimento (spec §3.9 / §4.3)
+   ============================================================================= */
+
+:focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+/* nunca remover foco sem repor: garante anel mesmo em controles custom */
+[data-inema-read-toggle]:focus-visible,
+[data-inema-doubt-toggle]:focus-visible,
+[data-inema-journey-open]:focus-visible,
+.inema-appearance-trigger:focus-visible,
+.inema-swatch:focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+/* skip-link (primeiro focável) */
+.skip {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  z-index: 100;
+  padding: 0.5rem 0.9rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--inema-radius-sm);
+  transition: top var(--inema-dur) var(--inema-ease);
+}
+.skip:focus { top: 0.5rem; }
+
+/* TODO movimento sob reduce: encurta/zera, PRESERVA estado final */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto; }
+}
+/* override explícito do aluno (inema.prefs.reducedMotionOverride) */
+html[data-reduced-motion="reduce"] *,
+html[data-reduced-motion="reduce"] *::before,
+html[data-reduced-motion="reduce"] *::after {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* =============================================================================
+   8. BOTÃO "MARCAR LIDO"  (aria-pressed; estado por ÍCONE + TEXTO + COR)
+   NÃO pode virar justify-center (Erro Crítico #1) -> justify-start.
+   ============================================================================= */
+
+[data-inema-read-toggle] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;   /* #1: nunca center */
+  gap: 0.5rem;
+  width: auto;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.9rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-muted);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius-sm);
+  -webkit-user-select: none;
+  user-select: none;
+}
+[data-inema-read-toggle]:hover {
+  /* hover sutil: só cor de borda + bg levíssimo (anti-padrão: nada de scale) */
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+/* ícone: dois glifos, estado revelado por CSS (texto e cor acompanham) */
+[data-inema-read-toggle] .inema-ico-todo  { display: inline-flex; }
+[data-inema-read-toggle] .inema-ico-done  { display: none; }
+[data-inema-read-toggle] .inema-label-todo { display: inline; }
+[data-inema-read-toggle] .inema-label-done { display: none; }
+
+/* ESTADO LIDO: aria-pressed=true (ou .is-read fallback) */
+[data-inema-read-toggle][aria-pressed="true"],
+[data-inema-read-toggle].is-read {
+  color: var(--on-primary);
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+[data-inema-read-toggle][aria-pressed="true"] .inema-ico-todo,
+[data-inema-read-toggle].is-read .inema-ico-todo,
+[data-inema-read-toggle][aria-pressed="true"] .inema-label-todo,
+[data-inema-read-toggle].is-read .inema-label-todo { display: none; }
+
+[data-inema-read-toggle][aria-pressed="true"] .inema-ico-done,
+[data-inema-read-toggle].is-read .inema-ico-done { display: inline-flex; }
+[data-inema-read-toggle][aria-pressed="true"] .inema-label-done,
+[data-inema-read-toggle].is-read .inema-label-done { display: inline; }
+
+/* o "preencher" do check (micro-interação contida; cresce e some sob reduce) */
+[data-inema-read-toggle] .inema-ico-done svg path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 0;
+}
+[data-inema-read-toggle][aria-pressed="true"] .inema-ico-done svg path,
+[data-inema-read-toggle].is-read .inema-ico-done svg path {
+  animation: inema-check-draw var(--inema-dur-slow) var(--inema-ease) both;
+}
+@keyframes inema-check-draw {
+  from { stroke-dashoffset: 24; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* =============================================================================
+   9. FLAG DE DÚVIDA (botão rápido por tópico)
+   ============================================================================= */
+
+[data-inema-doubt-toggle] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  min-height: 2.25rem;
+  padding: 0.4rem 0.75rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-muted);
+  background-color: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius-pill);
+}
+[data-inema-doubt-toggle]:hover { border-color: var(--border-strong); color: var(--text); }
+
+[data-inema-doubt-toggle][aria-pressed="true"],
+[data-inema-doubt-toggle].is-doubt {
+  color: hsl(var(--c-doubt-h) var(--c-doubt-s) 30%);
+  background-color: hsl(var(--c-doubt-h) var(--c-doubt-s) var(--c-doubt-l) / 0.16);
+  border-color: hsl(var(--c-doubt-h) var(--c-doubt-s) var(--c-doubt-l) / 0.55);
+}
+.dark [data-inema-doubt-toggle][aria-pressed="true"],
+.dark [data-inema-doubt-toggle].is-doubt,
+[data-theme="contraste"] [data-inema-doubt-toggle][aria-pressed="true"] {
+  color: hsl(var(--c-doubt-h) 95% 70%);
+}
+/* "resolvido" rebaixa visualmente sem sumir */
+[data-inema-doubt-toggle][data-resolved="true"] {
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+/* =============================================================================
+   10. HIGHLIGHTS (mark) — cores yellow/green/blue/pink/doubt
+   Spans criados por TreeWalker. Devem ser legíveis em TODO tema.
+   ============================================================================= */
+
+.inema-hl {
+  border-radius: 0.2em;
+  padding: 0.02em 0.06em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: inherit;            /* mantém legibilidade do texto por baixo */
+  cursor: pointer;
+}
+/* nasce com crescimento sutil ao aplicar (animação some sob reduce) */
+.inema-hl { animation: inema-hl-grow var(--inema-dur) var(--inema-ease) both; }
+@keyframes inema-hl-grow {
+  from { background-size: 0% 100%; }
+  to   { background-size: 100% 100%; }
+}
+
+/* tintas — usam alpha sobre o texto p/ não derrubar contraste do glifo */
+.inema-hl[data-hl="yellow"] { background-color: hsl(48  100% 50% / 0.32); }
+.inema-hl[data-hl="green"]  { background-color: hsl(142 71%  45% / 0.28); }
+.inema-hl[data-hl="blue"]   { background-color: hsl(204 94%  58% / 0.26); }
+.inema-hl[data-hl="pink"]   { background-color: hsl(330 81%  60% / 0.26); }
+.inema-hl[data-hl="doubt"]  {
+  background-color: hsl(var(--c-doubt-h) var(--c-doubt-s) var(--c-doubt-l) / 0.24);
+  border-bottom: 2px solid hsl(var(--c-doubt-h) var(--c-doubt-s) var(--c-doubt-l) / 0.7);
+}
+/* em dark, sobe um pouco o alpha p/ visibilidade */
+.dark .inema-hl[data-hl="yellow"] { background-color: hsl(48  100% 55% / 0.30); }
+.dark .inema-hl[data-hl="green"]  { background-color: hsl(142 71%  55% / 0.30); }
+.dark .inema-hl[data-hl="blue"]   { background-color: hsl(204 94%  62% / 0.30); }
+.dark .inema-hl[data-hl="pink"]   { background-color: hsl(330 81%  66% / 0.30); }
+
+/* nota anexa: pequeno indicador depois do span (não vira seta perto de tópico, #2) */
+.inema-hl[data-has-note="true"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  margin-inline-start: 0.15em;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: super;
+  font-size: 0.7em;
+}
+
+/* =============================================================================
+   11. POPOVER DE SELEÇÃO (swatches + ações)
+   Posicionado via JS (getBoundingClientRect + scroll). Aqui só o visual.
+   ============================================================================= */
+
+.inema-selpop {
+  position: absolute;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.5rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--inema-radius-pill);
+  box-shadow: 0 6px 24px hsl(220 40% 4% / 0.28);
+  /* aparece sem deslocar layout; some sob reduce preservando estado */
+  opacity: 0;
+  transform: translateY(2px);
+  pointer-events: none;
+  transition: opacity var(--inema-dur-fast) var(--inema-ease),
+              transform var(--inema-dur-fast) var(--inema-ease);
+}
+.inema-selpop[data-open="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* swatch de cor */
+.inema-swatch {
+  inline-size: 1.4rem;
+  block-size: 1.4rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid hsl(0 0% 100% / 0.35);
+  cursor: pointer;
+}
+.inema-swatch[data-hl="yellow"] { background: hsl(48  100% 50%); }
+.inema-swatch[data-hl="green"]  { background: hsl(142 71%  45%); }
+.inema-swatch[data-hl="blue"]   { background: hsl(204 94%  52%); }
+.inema-swatch[data-hl="pink"]   { background: hsl(330 81%  58%); }
+.inema-swatch[data-hl="doubt"]  {
+  background: hsl(var(--c-doubt-h) var(--c-doubt-s) var(--c-doubt-l));
+  /* reservado p/ "dúvida": anel distinto p/ leitura não-só-por-cor (1.4.1) */
+  box-shadow: 0 0 0 2px var(--surface-2), 0 0 0 3px hsl(var(--c-doubt-h) var(--c-doubt-s) 40%);
+}
+.inema-swatch[aria-pressed="true"],
+.inema-swatch.is-active {
+  border-color: var(--text);
+  transform: scale(1.08);
+}
+
+/* separador e botões de ação do popover */
+.inema-selpop__sep {
+  inline-size: 1px;
+  block-size: 1.3rem;
+  background: var(--border-strong);
+}
+.inema-selpop__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.55rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  border-radius: var(--inema-radius-pill);
+  cursor: pointer;
+}
+.inema-selpop__action:hover { background: hsl(0 0% 50% / 0.18); }
+
+/* =============================================================================
+   12. PAINEL "MINHA JORNADA" (modal/drawer acessível)
+   role=dialog · foco preso (JS) · inert no resto (JS) · ESC fecha (JS).
+   ============================================================================= */
+
+/* backdrop */
+.inema-journey-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: hsl(220 40% 4% / 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--inema-dur) var(--inema-ease);
+}
+.inema-journey-backdrop[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* painel: drawer à direita no desktop, full-screen no mobile */
+.inema-journey {
+  position: fixed;
+  z-index: 81;
+  inset-block: 0;
+  inset-inline-end: 0;
+  inline-size: min(30rem, 100%);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border-inline-start: 1px solid var(--border);
+  box-shadow: -12px 0 40px hsl(220 40% 4% / 0.3);
+  color: var(--text);
+  transform: translateX(100%);
+  transition: transform var(--inema-dur-slow) var(--inema-ease);
+}
+.inema-journey[data-open="true"] { transform: translateX(0); }
+
+@media (max-width: 640px) {
+  .inema-journey { inline-size: 100%; border-inline-start: none; }
+}
+
+.inema-journey__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.inema-journey__title { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+.inema-journey__close {
+  display: inline-flex; align-items: center; justify-content: center;
+  inline-size: 2.25rem; block-size: 2.25rem;
+  border-radius: var(--inema-radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+.inema-journey__close:hover { border-color: var(--border-strong); }
+
+.inema-journey__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.inema-journey__section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-block-end: 0.6rem;
+}
+
+/* CTA "continuar de onde parei" */
+.inema-journey__resume {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  background: var(--accent);
+  color: var(--on-primary);
+  border: none;
+  border-radius: var(--inema-radius);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* lista de itens (dúvidas / notas) — link de volta via âncora */
+.inema-journey__list { display: flex; flex-direction: column; gap: 0.6rem; list-style: none; margin: 0; padding: 0; }
+.inema-journey__item {
+  padding: 0.75rem 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius-sm);
+}
+.inema-journey__item a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 2px; }
+.inema-journey__quote {
+  /* texto do aluno: SEMPRE via textContent no JS; aqui só estilo */
+  font-style: italic;
+  color: var(--text);
+  border-inline-start: 3px solid var(--accent);
+  padding-inline-start: 0.6rem;
+  margin-block: 0.3rem;
+}
+.inema-journey__note { color: var(--text-muted); font-size: 0.9rem; }
+.inema-journey__tag {
+  display: inline-block;
+  padding: 0.05rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: var(--inema-radius-pill);
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+.inema-journey__tag[data-tag="duvida"] {
+  color: hsl(var(--c-doubt-h) var(--c-doubt-s) 30%);
+  background: hsl(var(--c-doubt-h) var(--c-doubt-s) var(--c-doubt-l) / 0.16);
+}
+.dark .inema-journey__tag[data-tag="duvida"],
+[data-theme="contraste"] .inema-journey__tag[data-tag="duvida"] {
+  color: hsl(var(--c-doubt-h) 95% 70%);
+}
+
+/* filtros da jornada (chips toggláveis) */
+.inema-journey__filters { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.inema-filter-chip {
+  padding: 0.3rem 0.7rem;
+  font: inherit; font-size: 0.82rem; font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius-pill);
+  cursor: pointer;
+}
+.inema-filter-chip[aria-pressed="true"] {
+  color: var(--on-primary);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* rodapé com export/import/reset */
+.inema-journey__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.inema-journey__footer button,
+.inema-journey__footer label {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  font: inherit; font-size: 0.88rem; font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius-sm);
+  cursor: pointer;
+}
+.inema-journey__footer .inema-danger { color: hsl(var(--c-warn-h) var(--c-warn-s) 42%); }
+.dark .inema-journey__footer .inema-danger { color: hsl(var(--c-warn-h) 80% 66%); }
+
+/* badge de jornada na nav (reage aos CustomEvents) */
+.inema-journey-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 1.25rem;
+  block-size: 1.25rem;
+  padding: 0 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--on-primary);
+  background: var(--accent);
+  border-radius: var(--inema-radius-pill);
+}
+.inema-journey-badge[data-count="0"] { display: none; }
+
+/* =============================================================================
+   12b. BOTÕES BASE (.inema-btn) — usados por resume/footer/acoes do modulo JS
+   Aparência sóbria coerente com a marca; sem scale/translate no hover (#9).
+   ============================================================================= */
+.inema-btn {
+  display: inline-flex; align-items: center; justify-content: flex-start; gap: 0.5rem;
+  padding: 0.5rem 0.85rem; border-radius: 0.6rem;
+  border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+  font: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer;
+  transition: border-color var(--inema-dur, .18s) var(--inema-ease, ease),
+              background-color var(--inema-dur, .18s) var(--inema-ease, ease),
+              color var(--inema-dur, .18s) var(--inema-ease, ease);
+}
+.inema-btn:hover { border-color: var(--border-strong, var(--border)); }
+.inema-btn--primary { background: var(--primary); color: var(--on-primary, #0a0e14); border-color: transparent; }
+.inema-btn--primary:hover { filter: brightness(1.05); }
+.inema-btn--ghost { background: transparent; }
+.inema-btn--ghost:hover { background: var(--surface-2); }
+.inema-btn--danger { color: hsl(var(--c-warn-h) var(--c-warn-s) 42%); }
+.dark .inema-btn--danger { color: hsl(var(--c-warn-h) 80% 66%); }
+
+/* =============================================================================
+   13. PROGRESSO — ANÉIS / BARRAS (data-inema-meter; spec §2.2 / §5.7)
+   Derivado do DOM (JS escreve --inema-pct: 0..100). Exibe "N de M" + %.
+   ============================================================================= */
+
+/* BARRA */
+[data-inema-meter] { --inema-pct: 0; }
+
+.inema-bar {
+  display: block;
+  inline-size: 100%;
+  block-size: 0.5rem;
+  background: var(--surface-2);
+  border-radius: var(--inema-radius-pill);
+  overflow: hidden;
+}
+.inema-bar__fill {
+  display: block;
+  block-size: 100%;
+  inline-size: calc(var(--inema-pct, 0) * 1%);
+  background: var(--accent);
+  border-radius: inherit;
+  transition: inline-size var(--inema-dur-slow) var(--inema-ease);
+}
+
+/* texto "N de M" + % — par sempre visível (não só barra/cor) */
+.inema-meter-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.inema-meter-label strong { color: var(--text); }
+
+/* ANEL (conic-gradient dirigido por --inema-pct) */
+.inema-ring {
+  --ring-size: 3.5rem;
+  --ring-thick: 0.4rem;
+  position: relative;
+  inline-size: var(--ring-size);
+  block-size: var(--ring-size);
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      var(--accent) calc(var(--inema-pct, 0) * 1%),
+      var(--surface-2) 0
+    );
+  transition: background var(--inema-dur-slow) var(--inema-ease);
+}
+.inema-ring::after {
+  content: "";
+  position: absolute;
+  inset: var(--ring-thick);
+  border-radius: 50%;
+  background: var(--bg);
+}
+.inema-ring__value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* estado 100% — celebração CONTIDA (sem confete/streak) */
+[data-inema-meter][data-complete="true"] .inema-bar__fill,
+[data-inema-meter][data-complete="true"].inema-ring {
+  background: var(--primary);
+}
+[data-inema-meter][data-complete="true"] .inema-ring__value { color: var(--primary-ink); }
+
+/* toast discreto de conclusão (some sob reduce preservando posição final) */
+.inema-toast {
+  position: fixed;
+  inset-block-end: 1.25rem;
+  inset-inline: 0;
+  margin-inline: auto;
+  inline-size: max-content;
+  max-inline-size: calc(100% - 2rem);
+  z-index: 95;
+  padding: 0.75rem 1.1rem;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--inema-radius-pill);
+  box-shadow: 0 8px 30px hsl(220 40% 4% / 0.3);
+  opacity: 0;
+  transform: translateY(0.5rem);
+  pointer-events: none;
+  transition: opacity var(--inema-dur) var(--inema-ease),
+              transform var(--inema-dur) var(--inema-ease);
+}
+.inema-toast[data-open="true"] { opacity: 1; transform: translateY(0); }
+
+/* =============================================================================
+   14. TOC STICKY + SCROLLSPY (data-inema-toc; item ativo)
+   Colapsa p/ 1 coluna no mobile. Item ativo via .is-active (JS / IO).
+   ============================================================================= */
+
+[data-inema-toc] {
+  position: sticky;
+  top: var(--inema-nav-h);
+  align-self: start;
+  max-block-size: calc(100vh - var(--inema-nav-h) - 1rem);
+  overflow-y: auto;
+  padding: 0.5rem 0;
+}
+[data-inema-toc] ol,
+[data-inema-toc] ul { list-style: none; margin: 0; padding: 0; }
+
+[data-inema-toc] a {
+  display: block;
+  padding: 0.35rem 0.75rem;
+  border-inline-start: 2px solid transparent;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  border-radius: 0 var(--inema-radius-sm) var(--inema-radius-sm) 0;
+}
+[data-inema-toc] a:hover { color: var(--text); background: var(--surface); }
+
+/* item ATIVO do scrollspy — cor + barra lateral + peso (não só cor) */
+[data-inema-toc] a.is-active,
+[data-inema-toc] a[aria-current="true"] {
+  color: var(--accent-text);
+  border-inline-start-color: var(--accent);
+  background: var(--surface);
+  font-weight: 600;
+}
+/* item já lido no TOC (assistência visual) */
+[data-inema-toc] a[data-read="true"]::before {
+  content: "✓ ";
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+/* "Seção N de M" */
+.inema-toc-progress {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  /* mobile: TOC vira bloco normal acima do conteúdo (1 coluna) */
+  [data-inema-toc] {
+    position: static;
+    max-block-size: none;
+    margin-block-end: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--inema-radius);
+    padding: 0.5rem;
+  }
+}
+
+/* =============================================================================
+   15. SELETOR DE APARÊNCIA (<button>-based; absorve o toggle sol/lua)
+   Estado por ÍCONE + TEXTO, não só cor (1.4.1). Persistido em inema.prefs (JS).
+   ============================================================================= */
+
+.inema-appearance-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-inline-size: 2.5rem;
+  min-block-size: 2.5rem;
+  padding: 0.4rem 0.6rem;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius-sm);
+  cursor: pointer;
+}
+.inema-appearance-trigger:hover { border-color: var(--border-strong); }
+
+/* popover de aparência */
+.inema-appearance-pop {
+  position: absolute;
+  z-index: 85;
+  inline-size: min(20rem, calc(100vw - 1.5rem));
+  margin-block-start: 0.4rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--inema-radius);
+  box-shadow: 0 12px 40px hsl(220 40% 4% / 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity var(--inema-dur) var(--inema-ease),
+              transform var(--inema-dur) var(--inema-ease);
+}
+.inema-appearance-pop[data-open="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.inema-pref-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.inema-pref-group__label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* segmented control (tema / fonte / tamanho / entrelinha / medida) */
+.inema-segment {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  background: var(--surface-2);
+  border-radius: var(--inema-radius-sm);
+}
+.inema-segment > button {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  min-block-size: 2.1rem;
+  padding: 0.35rem 0.5rem;
+  font: inherit; font-size: 0.82rem; font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--inema-radius-sm) - 2px);
+  cursor: pointer;
+}
+.inema-segment > button[aria-pressed="true"],
+.inema-segment > button.is-active {
+  color: var(--text);
+  background: var(--bg);
+  box-shadow: 0 1px 2px hsl(220 40% 4% / 0.15);
+}
+
+/* paleta de acento — 6 cores de trilha INEMA (travada na família) */
+.inema-accent-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+}
+.inema-accent-grid > button {
+  aspect-ratio: 1;
+  inline-size: 100%;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+.inema-accent-grid > button[data-accent="emerald"] { background: hsl(var(--c-emerald-h) var(--c-emerald-s) var(--c-emerald-l)); }
+.inema-accent-grid > button[data-accent="blue"]    { background: hsl(var(--c-blue-h) var(--c-blue-s) var(--c-blue-l)); }
+.inema-accent-grid > button[data-accent="purple"]  { background: hsl(var(--c-purple-h) var(--c-purple-s) var(--c-purple-l)); }
+.inema-accent-grid > button[data-accent="amber"]   { background: hsl(var(--c-track-amber-h) var(--c-track-amber-s) var(--c-track-amber-l)); }
+.inema-accent-grid > button[data-accent="teal"]    { background: hsl(var(--c-teal-h) var(--c-teal-s) var(--c-teal-l)); }
+.inema-accent-grid > button[data-accent="rose"]    { background: hsl(var(--c-rose-h) var(--c-rose-s) var(--c-rose-l)); }
+.inema-accent-grid > button[aria-pressed="true"],
+.inema-accent-grid > button.is-active {
+  border-color: var(--text);
+  box-shadow: 0 0 0 2px var(--surface);
+}
+
+/* =============================================================================
+   16. CHECAGEM LEVE OPCIONAL (data-inema-check) — feedback NÃO-bloqueante
+   ============================================================================= */
+
+[data-inema-check] {
+  margin-block: 1.5rem 0;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius);
+}
+.inema-check__q { font-weight: 600; color: var(--text); margin-block-end: 0.75rem; }
+.inema-check__options { display: flex; flex-direction: column; gap: 0.5rem; }
+.inema-check__option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  font: inherit; font-size: 0.92rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius-sm);
+  cursor: pointer;
+}
+.inema-check__option:hover { border-color: var(--border-strong); }
+/* acerto */
+.inema-check__option[data-state="correct"] {
+  border-color: hsl(var(--c-ok-h) var(--c-ok-s) 40%);
+  background: hsl(var(--c-ok-h) var(--c-ok-s) var(--c-ok-l) / 0.12);
+}
+/* erro escolhido */
+.inema-check__option[data-state="wrong"] {
+  border-color: hsl(var(--c-warn-h) var(--c-warn-s) 45%);
+  background: hsl(var(--c-warn-h) var(--c-warn-s) var(--c-warn-l) / 0.10);
+}
+/* feedback explicativo por opção (revelado após escolha) */
+.inema-check__feedback {
+  margin-block-start: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+.inema-check__feedback[data-tone="correct"] { color: hsl(var(--c-ok-h) var(--c-ok-s) 32%); }
+.dark .inema-check__feedback[data-tone="correct"] { color: hsl(var(--c-ok-h) 60% 60%); }
+
+/* =============================================================================
+   17. "Indo mais fundo (opcional)" — divulgação progressiva (<details>)
+   ============================================================================= */
+
+.inema-prose details {
+  margin-block: var(--space-para);
+  border: 1px solid var(--border);
+  border-radius: var(--inema-radius);
+  background: var(--surface);
+}
+.inema-prose details > summary {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+}
+.inema-prose details > summary::-webkit-details-marker { display: none; }
+.inema-prose details > summary::after {
+  content: " +";
+  color: var(--accent-text);
+  font-weight: 700;
+}
+.inema-prose details[open] > summary::after { content: " −"; }
+.inema-prose details > :not(summary) {
+  padding-inline: 1rem;
+}
+.inema-prose details > :last-child { padding-block-end: 1rem; }
+
+/* =============================================================================
+   18. forced-colors (polish a11y — bordas sólidas no modo de alto contraste do SO)
+   ============================================================================= */
+
+@media (forced-colors: active) {
+  [data-inema-read-toggle],
+  [data-inema-doubt-toggle],
+  .inema-surface,
+  .inema-journey,
+  .inema-selpop,
+  .inema-appearance-pop,
+  [data-inema-toc] a.is-active {
+    border: 1px solid CanvasText;
+  }
+  :focus-visible { outline: 3px solid Highlight; }
+  .inema-bar__fill,
+  .inema-ring { forced-color-adjust: none; }
+}
+
+/* =============================================================================
+   FIM — learn.css
+   Página consome SÓ o nível 3 semântico (--bg/--surface/--text/--accent/…).
+   Layer 1 = .dark (Tailwind). Layer 2 = data-theme (sepia/foco/contraste).
+   Acento por trilha = data-accent. Prefs de leitura = .inema-prose + data-* no html.
+   ============================================================================= */

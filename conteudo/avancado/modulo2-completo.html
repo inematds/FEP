@@ -1,12 +1,185 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="inema-course" content="fep">
+    <script data-inema-antifouc>
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+    <script type="application/json" data-inema-manifest>
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
     <script>
       if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     </script>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 2: Gestão de Long Context - Nível Avançado | FEP</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,7 +218,7 @@
         html:not(.dark) .text-neutral-100 { color: #111827; }
         html:not(.dark) .text-neutral-300 { color: #4b5563; }
         html:not(.dark) .text-neutral-400 { color: #6b7280; }
-        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
         html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
         html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 
@@ -71,10 +244,42 @@
         /* INEMA Light Mode - Nav */
         html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
+    <link rel="stylesheet" href="../../assets/learn.css">
+    <link rel="stylesheet" href="../../assets/v2.css">
 </head>
-<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased">
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased" data-inema-v2="2">
+  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+  <nav class="inema-v2-nav" aria-label="Navegação principal">
+    <div class="inema-v2-nav__inner">
+      <div class="inema-v2-brand">
+        <a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
+        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+      </div>
+      <div class="inema-v2-links" aria-label="Trilhas"><a href="../../nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="../../nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="../../nivel-avancado.html" class="inema-v2-link" aria-current="page"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="../../nivel-masterclass.html" class="inema-v2-link"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+      <div class="inema-v2-actions">
+        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
+        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
+        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
+      </div>
+    </div>
+    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
+      </div></div>
+      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
+      </div></div>
+    </div>
+  </nav>
     <!-- Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700">
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700" data-v2-legacy-nav>
         <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <a href="../../nivel-avancado.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
@@ -131,9 +336,20 @@
     </nav>
 
     <!-- Content -->
-    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8" id="conteudo" data-inema-module="3-2" data-inema-track="3">
+    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
+      <div><div class="inema-v2-page-tools__eyebrow">Trilha 3 · Módulo 2</div><div class="inema-v2-page-tools__title">Gestão de Long Context</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
+      <div class="inema-v2-meter" data-inema-meter="modulo:3-2" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Gestão de Long Context">
+      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
+      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
+    </div>
+    </aside>
+    <nav data-inema-toc aria-label="Índice do módulo" class="sr-only"><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
         <!-- Seção 1 -->
-        <section id="interpretacao" class="scroll-mt-32">
+        <span id="interpretacao" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-1" data-inema-topic="modulo-3-2#topico-1"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
                     <div class="flex items-center gap-3">
@@ -142,41 +358,41 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Como Modelos Interpretam Long Context</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Mecanismos internos e limitações</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-2-t1-p1">Mecanismos internos e limitações</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m3-2-t1-p2">
                             Modelos com janelas de 100k-2M tokens não processam todo o texto igualmente. Entender os
                             mecanismos de atenção e seus vieses é fundamental para otimizar o uso de contextos extensos.
                         </p>
                     </div>
 
                     <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-violet-900 dark:text-violet-300 mb-4">Vieses de Atenção</h4>
+                        <h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-4">Vieses de Atenção</h3>
                         <div class="grid md:grid-cols-3 gap-4">
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 text-center">
                                 <div class="text-3xl mb-2">📍</div>
-                                <h5 class="font-medium text-neutral-900 dark:text-white">Primacy Bias</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-400">Início do contexto tem maior peso</p>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">Primacy Bias</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-2-t1-p3">Início do contexto tem maior peso</p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 text-center">
                                 <div class="text-3xl mb-2">🕳️</div>
-                                <h5 class="font-medium text-neutral-900 dark:text-white">Lost in Middle</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-400">Centro tende a ser ignorado</p>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">Lost in Middle</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-2-t1-p4">Centro tende a ser ignorado</p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 text-center">
                                 <div class="text-3xl mb-2">⏱️</div>
-                                <h5 class="font-medium text-neutral-900 dark:text-white">Recency Bias</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">Recency Bias</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-400">Final do contexto tem alta prioridade</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Implicações Práticas</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Implicações Práticas</h3>
                         <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
                             <li class="flex items-start gap-2">
                                 <span class="text-violet-500">→</span>
@@ -201,7 +417,10 @@
         </section>
 
         <!-- Seção 2 -->
-        <section id="janelas-vs-rag" class="scroll-mt-32">
+        <span id="janelas-vs-rag" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-2" data-inema-topic="modulo-3-2#topico-2"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20">
                     <div class="flex items-center gap-3">
@@ -210,13 +429,13 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Janelas Grandes vs RAG Tradicional</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Quando usar cada abordagem</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-2-t2-p1">Quando usar cada abordagem</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m3-2-t2-p2">
                             Com 1-2M tokens disponíveis, você pode carregar documentos inteiros na janela de contexto.
                             Isso muda fundamentalmente a necessidade de RAG - mas não elimina.
                         </p>
@@ -224,8 +443,8 @@
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
-                            <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-3">📚 Full Context Loading</h4>
-                            <p class="text-sm text-blue-800 dark:text-blue-200 mb-3">Quando usar:</p>
+                            <h3 class="font-semibold text-blue-900 dark:text-blue-300 mb-3">📚 Full Context Loading</h3>
+                            <p class="text-sm text-blue-800 dark:text-blue-200 mb-3" data-inema-block="m3-2-t2-p3">Quando usar:</p>
                             <ul class="text-sm text-blue-700 dark:text-blue-300 space-y-1">
                                 <li>• Corpus cabe na janela (&lt;1M tokens)</li>
                                 <li>• Precisa de visão holística</li>
@@ -234,8 +453,8 @@
                             </ul>
                         </div>
                         <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
-                            <h4 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">🔍 RAG Seletivo</h4>
-                            <p class="text-sm text-emerald-800 dark:text-emerald-200 mb-3">Quando usar:</p>
+                            <h3 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">🔍 RAG Seletivo</h3>
+                            <p class="text-sm text-emerald-800 dark:text-emerald-200 mb-3" data-inema-block="m3-2-t2-p4">Quando usar:</p>
                             <ul class="text-sm text-emerald-700 dark:text-emerald-300 space-y-1">
                                 <li>• Corpus é muito grande (TB de dados)</li>
                                 <li>• Dados mudam frequentemente</li>
@@ -246,7 +465,7 @@
                     </div>
 
                     <div class="bg-gradient-to-r from-blue-100 to-emerald-100 dark:from-blue-900/30 dark:to-emerald-900/30 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Decisão Matrix</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Decisão Matrix</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-sm">
                                 <thead>
@@ -286,7 +505,10 @@
         </section>
 
         <!-- Seção 3 -->
-        <section id="organizacao" class="scroll-mt-32">
+        <span id="organizacao" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-3" data-inema-topic="modulo-3-2#topico-3"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
                     <div class="flex items-center gap-3">
@@ -295,34 +517,34 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Estratégias de Organização de Contexto Extenso</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Estruturando 100k-1M tokens</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-2-t3-p1">Estruturando 100k-1M tokens</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-4">Técnicas de Organização</h4>
+                        <h3 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-4">Técnicas de Organização</h3>
                         <div class="space-y-3">
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📑 Table of Contents</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">📑 Table of Contents</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-2-t3-p2">
                                     Inclua um índice no início listando seções e suas posições. Modelo usa como mapa de navegação.
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🏷️ Section Headers</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🏷️ Section Headers</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-2-t3-p3">
                                     Use delimitadores claros e consistentes: === SEÇÃO: Nome ===
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Relevance Ordering</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Relevance Ordering</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-2-t3-p4">
                                     Ordene documentos por relevância esperada, mais relevantes primeiro e último.
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📋 Metadata Enrichment</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">📋 Metadata Enrichment</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300">
                                     Adicione metadados: [SOURCE: doc1.pdf] [DATE: 2024-01] [RELEVANCE: HIGH]
                                 </p>
@@ -331,7 +553,7 @@
                     </div>
 
                     <div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
-                        <h4 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Estrutura para Análise de Codebase</h4>
+                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo: Estrutura para Análise de Codebase</h3>
                         <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs">
                             <p class="text-indigo-600">=== TABLE OF CONTENTS ===</p>
                             <p class="text-neutral-500">1. Architecture Overview (line 50)</p>
@@ -348,7 +570,10 @@
         </section>
 
         <!-- Seção 4 -->
-        <section id="compressao" class="scroll-mt-32">
+        <span id="compressao" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-4" data-inema-topic="modulo-3-2#topico-4"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-teal-50 to-transparent dark:from-teal-900/20">
                     <div class="flex items-center gap-3">
@@ -357,41 +582,41 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Resumo Progressivo e Compressão Semântica</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Preservando informação com menos tokens</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-2-t4-p1">Preservando informação com menos tokens</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="prose dark:prose-invert max-w-none">
-                        <p>
+                        <p data-inema-block="m3-2-t4-p2">
                             Mesmo com janelas grandes, às vezes o contexto excede o limite. Técnicas de compressão
                             permitem manter informação essencial enquanto reduz tokens.
                         </p>
                     </div>
 
                     <div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Técnicas de Compressão</h4>
+                        <h3 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Técnicas de Compressão</h3>
                         <div class="grid md:grid-cols-2 gap-4">
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🔄 Hierarchical Summarization</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🔄 Hierarchical Summarization</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-2-t4-p3">
                                     Resuma em níveis: documento → seção → parágrafo. Carregue nível apropriado.
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Entity Extraction</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🎯 Entity Extraction</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-2-t4-p4">
                                     Extraia entidades e relações chave, descarte texto narrativo.
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">📊 Structured Conversion</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">📊 Structured Conversion</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300">
                                     Converta prosa em JSON/tabelas - mais denso semanticamente.
                                 </p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h5 class="font-medium text-neutral-900 dark:text-white mb-2">🗜️ Progressive Compression</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">🗜️ Progressive Compression</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300">
                                     Conteúdo antigo = mais comprimido. Recente = detalhado.
                                 </p>
@@ -403,7 +628,10 @@
         </section>
 
         <!-- Seção 5 -->
-        <section id="priorizacao" class="scroll-mt-32">
+        <span id="priorizacao" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-5" data-inema-topic="modulo-3-2#topico-5"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
                     <div class="flex items-center gap-3">
@@ -412,33 +640,33 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Priorização e Descarte de Contexto</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Decidindo o que manter</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-2-t5-p1">Decidindo o que manter</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-amber-900 dark:text-amber-300 mb-4">Critérios de Priorização</h4>
+                        <h3 class="font-semibold text-amber-900 dark:text-amber-300 mb-4">Critérios de Priorização</h3>
                         <div class="space-y-3">
                             <div class="flex items-center gap-3">
                                 <span class="text-2xl">🎯</span>
                                 <div>
                                     <span class="font-medium text-neutral-900 dark:text-white">Relevância para tarefa</span>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Score de similaridade semântica com a query</p>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-2-t5-p2">Score de similaridade semântica com a query</p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="text-2xl">⏰</span>
                                 <div>
                                     <span class="font-medium text-neutral-900 dark:text-white">Recência</span>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Informação mais recente geralmente mais relevante</p>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-2-t5-p3">Informação mais recente geralmente mais relevante</p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="text-2xl">⭐</span>
                                 <div>
                                     <span class="font-medium text-neutral-900 dark:text-white">Importance markers</span>
-                                    <p class="text-sm text-neutral-600 dark:text-neutral-400">Tags explícitas: [CRITICAL], [REQUIRED], [OPTIONAL]</p>
+                                    <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-2-t5-p4">Tags explícitas: [CRITICAL], [REQUIRED], [OPTIONAL]</p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-3">
@@ -455,7 +683,10 @@
         </section>
 
         <!-- Seção 6 -->
-        <section id="anti-patterns" class="scroll-mt-32">
+        <span id="anti-patterns" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-6" data-inema-topic="modulo-3-2#topico-6"><div class="inema-v2-topic-controls">
+      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+    </div>
             <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                 <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
                     <div class="flex items-center gap-3">
@@ -464,28 +695,28 @@
                         </div>
                         <div>
                             <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Anti-Patterns em Long Context</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400">Erros comuns e como evitar</p>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-2-t6-p1">Erros comuns e como evitar</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-6 space-y-6">
                     <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
-                        <h4 class="font-semibold text-red-900 dark:text-red-300 mb-4">Anti-Patterns Comuns</h4>
+                        <h3 class="font-semibold text-red-900 dark:text-red-300 mb-4">Anti-Patterns Comuns</h3>
                         <div class="space-y-3">
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-red-500">
-                                <h5 class="font-medium text-neutral-900 dark:text-white">❌ "More is Better" Fallacy</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Adicionar todo contexto disponível sem curadoria.</p>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">❌ "More is Better" Fallacy</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-2-t6-p2">Adicionar todo contexto disponível sem curadoria.</p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-orange-500">
-                                <h5 class="font-medium text-neutral-900 dark:text-white">❌ Flat Context</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Nenhuma estrutura ou hierarquia - tudo no mesmo nível.</p>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">❌ Flat Context</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-2-t6-p3">Nenhuma estrutura ou hierarquia - tudo no mesmo nível.</p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-yellow-500">
-                                <h5 class="font-medium text-neutral-900 dark:text-white">❌ Instructions Burial</h5>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-300">Colocar instruções importantes no meio do contexto.</p>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">❌ Instructions Burial</h3>
+                                <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-2-t6-p4">Colocar instruções importantes no meio do contexto.</p>
                             </div>
                             <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 border-l-4 border-purple-500">
-                                <h5 class="font-medium text-neutral-900 dark:text-white">❌ Stale Context</h5>
+                                <h3 class="font-medium text-neutral-900 dark:text-white">❌ Stale Context</h3>
                                 <p class="text-sm text-neutral-600 dark:text-neutral-300">Manter contexto desatualizado ou contraditório.</p>
                             </div>
                         </div>
@@ -509,13 +740,13 @@
                     </div>
                 </div>
                 <div class="flex gap-3">
-                    <a href="../../docs/pdf/avancado-modulo2-long-context.pdf" download class="flex items-center gap-2 px-4 py-2 bg-violet-500 hover:bg-violet-600 text-white font-semibold rounded-lg transition-colors">
+                    <a href="../../docs/pdf/Curso_Completo_de_Engenharia_de_Prompt.pdf" download class="flex items-center gap-2 px-4 py-2 bg-violet-500 hover:bg-violet-600 text-white font-semibold rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
                         PDF
                     </a>
-                    <a href="../../docs/md/avancado-modulo2-long-context.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
+                    <a href="../../docs/md/Curso Completo de Engenharia de Prompt.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                         </svg>
@@ -557,5 +788,8 @@
         }
         if (localStorage.getItem('theme') === 'light') { document.documentElement.classList.remove('dark'); }
     </script>
+  <script src="../../assets/v2.js"></script>
+  <script src="../../assets/learn.js"></script>
+  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>
