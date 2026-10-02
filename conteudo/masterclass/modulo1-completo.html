@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="inema-course" content="fep">
-    <script data-inema-antifouc>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
     (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
     </script>
-    <script type="application/json" data-inema-manifest>
+<script data-inema-manifest="" type="application/json">
 {
   "course": "fep",
   "tracks": [
@@ -175,16 +176,16 @@
   ]
 }
     </script>
-    <script>
+<script>
       if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 1: Arquitetura de Sistemas Baseados em Prompt | Masterclass FEP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 1: Arquitetura de Sistemas Baseados em Prompt | Masterclass FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
@@ -201,7 +202,7 @@
         }
       }
     </script>
-    <style>
+<style>
         html.dark body { background-color: #0a0a0a; }
         .gold-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%); }
         .gold-text { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -241,147 +242,142 @@
         /* INEMA Light Mode - Nav */
         html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
-    <link rel="stylesheet" href="../../assets/learn.css">
-    <link rel="stylesheet" href="../../assets/v2.css">
-</head>
-<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased" data-inema-v2="2">
-  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
-  <nav class="inema-v2-nav" aria-label="Navegação principal">
-    <div class="inema-v2-nav__inner">
-      <div class="inema-v2-brand">
-        <a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
-        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
-        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
-      </div>
-      <div class="inema-v2-links" aria-label="Trilhas"><a href="../../nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="../../nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="../../nivel-avancado.html" class="inema-v2-link"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="../../nivel-masterclass.html" class="inema-v2-link" aria-current="page"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
-      <div class="inema-v2-actions">
-        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
-        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
-        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
-      </div>
-    </div>
-    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
-        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
-        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
-        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
-        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
-      </div></div>
-    </div>
-  </nav>
-    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700" data-v2-legacy-nav>
-        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <a href="../../nivel-masterclass.html" class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                    <span class="text-sm font-medium">Voltar ao Masterclass</span>
-                </a>
-                <span class="text-neutral-600 mx-2">|</span>
-                <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-            </div>
-            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700">
-                <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
-                <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-            </button>
-        </div>
-    </header>
-
-    <section class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-amber-900/30 to-neutral-800 dark:from-amber-900/20 dark:to-neutral-900"></div>
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.05)\"%3E%3C/path%3E%3C/svg%3E')] opacity-40"></div>
-        <div class="relative max-w-4xl mx-auto px-4 py-16">
-            <div class="flex items-center gap-2 mb-4">
-                <span class="px-3 py-1 text-xs font-semibold gold-gradient text-white rounded-full">MÓDULO 1</span>
-                <span class="px-3 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30">ARQUITETURA</span>
-            </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+<link href="../../assets/learn.css" rel="stylesheet"/>
+<link href="../../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/conteudo/masterclass/modulo1-completo.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/conteudo/masterclass/modulo1-completo.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/conteudo/masterclass/modulo1-completo.html" hreflang="es" rel="alternate"/></head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="modulo1-completo.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../../en/conteudo/masterclass/modulo1-completo.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../../es/conteudo/masterclass/modulo1-completo.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+<nav aria-label="Navegação principal" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Trilhas" class="inema-v2-links"><a class="inema-v2-link" href="../../nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a class="inema-v2-link" href="../../nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Técnico</span></a><a class="inema-v2-link" href="../../nivel-avancado.html"><span class="short">T3</span><span class="full"> · Avançado</span></a><a aria-current="page" class="inema-v2-link" href="../../nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Aparência</span></button>
+<button aria-label="Alternar tema" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Tema</span></button>
+</div>
+</div>
+<div aria-label="Preferências de aparência" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Escuro</button><button data-inema-set-theme="claro" type="button">Claro</button><button data-inema-set-theme="sepia" type="button">Sépia</button><button data-inema-set-theme="foco" type="button">Foco</button><button data-inema-set-theme="contraste" type="button">Contraste</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">Sistema</button><button data-inema-set-font="leitura" type="button">Leitura</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Estreita</button><button data-inema-set-linewidth="68" type="button">Média</button><button data-inema-set-linewidth="75" type="button">Larga</button><button data-inema-set-leading="1.45" type="button">Compacta</button><button data-inema-set-leading="1.7" type="button">Confortável</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Azul" data-inema-set-accent="blue" type="button"></button><button aria-label="Roxo" data-inema-set-accent="purple" type="button"></button><button aria-label="Âmbar" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Rosa" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700" data-v2-legacy-nav="">
+<div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors" href="../../nivel-masterclass.html">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-sm font-medium">Voltar ao Masterclass</span>
+</a>
+<span class="text-neutral-600 mx-2">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<button class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700" onclick="toggleTheme()">
+<svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewbox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+<svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+</button>
+</div>
+</header>
+<section class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/30 to-neutral-800 dark:from-amber-900/20 dark:to-neutral-900"></div>
+<div 0="" 0.539773="" 0c1.91374="" 0z\"="" 1.22676="" 1.22676c0="" 1.22676c2.45351="" 1.91374="" 2.45351="" 2.45351c0.539773="" 30="" 30\"="" class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\" d='\"M1.22676' fill="\&quot;rgba(255,255,255,0.05)\&quot;%3E%3C/path%3E%3C/svg%3E')]" height='\"30\"' opacity-40"="" viewbox='\"0' xmlns='\"http://www.w3.org/2000/svg\"%3E%3Cpath'></div>
+<div class="relative max-w-4xl mx-auto px-4 py-16">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-3 py-1 text-xs font-semibold gold-gradient text-white rounded-full">MÓDULO 1</span>
+<span class="px-3 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30">ARQUITETURA</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
                 Arquitetura de Sistemas Baseados em Prompt
             </h1>
-            <p class="text-lg text-neutral-300 max-w-2xl">
+<p class="text-lg text-neutral-300 max-w-2xl">
                 Não é "como fazer prompt" — é <strong>como desenhar sistemas de prompt</strong>.
                 Pense como arquiteto, não como executor.
             </p>
-        </div>
-    </section>
-
-    <nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="flex gap-1 overflow-x-auto py-2">
-                <a href="#prompt-unidade" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Unidade</a>
-                <a href="#mono-multi" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Mono vs Multi</a>
-                <a href="#camadas" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Camadas</a>
-                <a href="#contratos" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Contratos</a>
-                <a href="#padroes" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Padrões</a>
-                <a href="#analise-real" class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20">Casos Reais</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8" id="conteudo" data-inema-module="4-1" data-inema-track="4">
-    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
-      <div><div class="inema-v2-page-tools__eyebrow">Trilha 4 · Módulo 1</div><div class="inema-v2-page-tools__title">Arquitetura de Sistemas Baseados em Prompt</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
-      <div class="inema-v2-meter" data-inema-meter="modulo:4-1" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Arquitetura de Sistemas Baseados em Prompt">
-      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
-      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
-    </div>
-    </aside>
-    <nav data-inema-toc aria-label="Índice do módulo" class="sr-only"><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
-        <!-- Seção 1 -->
-        <span id="prompt-unidade" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-1" data-inema-topic="modulo-4-1#topico-1"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
-                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center">
-                            <span class="text-white font-bold">1</span>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompt como Unidade Arquitetural</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t1-p1">Pensando em blocos de construção</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 space-y-6">
-                    <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
-                        <h3 class="font-semibold text-amber-900 dark:text-amber-300 mb-3">Mudança de Paradigma</h3>
-                        <p class="text-amber-800 dark:text-amber-200 text-sm" data-inema-block="m4-1-t1-p2">
+</div>
+</section>
+<nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+<div class="max-w-4xl mx-auto px-4">
+<div class="flex gap-1 overflow-x-auto py-2">
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20" href="#prompt-unidade">Unidade</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20" href="#mono-multi">Mono vs Multi</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20" href="#camadas">Camadas</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20" href="#contratos">Contratos</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20" href="#padroes">Padrões</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-amber-600 whitespace-nowrap rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20" href="#analise-real">Casos Reais</a>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-8" data-inema-module="4-1" data-inema-track="4" id="conteudo">
+<aside aria-label="Progresso desta página" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Trilha 4 · Módulo 1</div><div class="inema-v2-page-tools__title">Arquitetura de Sistemas Baseados em Prompt</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progresso: Arquitetura de Sistemas Baseados em Prompt" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="modulo:4-1" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 de 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<nav aria-label="Índice do módulo" class="sr-only" data-inema-toc=""><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
+<!-- Seção 1 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="prompt-unidade"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-1#topico-1" id="topico-1"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center">
+<span class="text-white font-bold">1</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Prompt como Unidade Arquitetural</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t1-p1">Pensando em blocos de construção</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+<h3 class="font-semibold text-amber-900 dark:text-amber-300 mb-3">Mudança de Paradigma</h3>
+<p class="text-amber-800 dark:text-amber-200 text-sm" data-inema-block="m4-1-t1-p2">
                             Um prompt não é texto — é uma <strong>unidade arquitetural</strong> com interface,
                             contrato de comportamento, dependências e responsabilidades definidas.
                         </p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
-                            <h3 class="font-semibold text-red-900 dark:text-red-300 mb-2">Visão Tradicional</h3>
-                            <ul class="text-sm text-red-800 dark:text-red-200 space-y-1">
-                                <li>• Prompt = texto que gera resposta</li>
-                                <li>• Sucesso = resposta "boa"</li>
-                                <li>• Iteração = ajustar palavras</li>
-                                <li>• Escala = copiar e colar</li>
-                            </ul>
-                        </div>
-                        <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
-                            <h3 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-2">Visão Arquitetural</h3>
-                            <ul class="text-sm text-emerald-800 dark:text-emerald-200 space-y-1">
-                                <li>• Prompt = componente com contrato</li>
-                                <li>• Sucesso = comportamento previsível</li>
-                                <li>• Iteração = refinar interface</li>
-                                <li>• Escala = composição e reuso</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Anatomia de um Prompt como Componente</h3>
-                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+</div>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
+<h3 class="font-semibold text-red-900 dark:text-red-300 mb-2">Visão Tradicional</h3>
+<ul class="text-sm text-red-800 dark:text-red-200 space-y-1">
+<li>• Prompt = texto que gera resposta</li>
+<li>• Sucesso = resposta "boa"</li>
+<li>• Iteração = ajustar palavras</li>
+<li>• Escala = copiar e colar</li>
+</ul>
+</div>
+<div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
+<h3 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-2">Visão Arquitetural</h3>
+<ul class="text-sm text-emerald-800 dark:text-emerald-200 space-y-1">
+<li>• Prompt = componente com contrato</li>
+<li>• Sucesso = comportamento previsível</li>
+<li>• Iteração = refinar interface</li>
+<li>• Escala = composição e reuso</li>
+</ul>
+</div>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Anatomia de um Prompt como Componente</h3>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
 <pre class="text-neutral-700 dark:text-neutral-300">
 ┌─────────────────────────────────────────────────────┐
 │  PROMPT COMPONENT: "order_analyzer"                 │
@@ -393,7 +389,7 @@
 ├─────────────────────────────────────────────────────┤
 │  CONTRACT                                           │
 │  ├─ Preconditions: order.status == "pending"        │
-│  ├─ Postconditions: result.confidence > 0.8         │
+│  ├─ Postconditions: result.confidence &gt; 0.8         │
 │  └─ Invariants: no side effects                     │
 ├─────────────────────────────────────────────────────┤
 │  DEPENDENCIES                                       │
@@ -405,164 +401,159 @@
 │  └─ [prompt template with slots]                    │
 └─────────────────────────────────────────────────────┘
 </pre>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl p-5">
-                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Benefícios da Visão Arquitetural</h3>
-                        <div class="grid md:grid-cols-3 gap-3">
-                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
-                                <div class="text-2xl mb-2">🔄</div>
-                                <div class="text-sm font-medium">Reusabilidade</div>
-                            </div>
-                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
-                                <div class="text-2xl mb-2">🧪</div>
-                                <div class="text-sm font-medium">Testabilidade</div>
-                            </div>
-                            <div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
-                                <div class="text-2xl mb-2">📈</div>
-                                <div class="text-sm font-medium">Escalabilidade</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção 2 -->
-        <span id="mono-multi" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-2" data-inema-topic="modulo-4-1#topico-2"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
-                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-orange-50 to-transparent dark:from-orange-900/20">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
-                            <span class="text-white font-bold">2</span>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Arquiteturas Mono-Prompt vs Multi-Prompt</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t2-p1">Decidindo a estrutura do sistema</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
-                            <h3 class="font-semibold text-blue-900 dark:text-blue-300 mb-3">Mono-Prompt</h3>
-                            <p class="text-sm text-blue-800 dark:text-blue-200 mb-4" data-inema-block="m4-1-t2-p2">
+</div>
+</div>
+<div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Benefícios da Visão Arquitetural</h3>
+<div class="grid md:grid-cols-3 gap-3">
+<div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<div class="text-2xl mb-2">🔄</div>
+<div class="text-sm font-medium">Reusabilidade</div>
+</div>
+<div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<div class="text-2xl mb-2">🧪</div>
+<div class="text-sm font-medium">Testabilidade</div>
+</div>
+<div class="text-center p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<div class="text-2xl mb-2">📈</div>
+<div class="text-sm font-medium">Escalabilidade</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 2 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="mono-multi"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-1#topico-2" id="topico-2"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-orange-50 to-transparent dark:from-orange-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+<span class="text-white font-bold">2</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Arquiteturas Mono-Prompt vs Multi-Prompt</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t2-p1">Decidindo a estrutura do sistema</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
+<h3 class="font-semibold text-blue-900 dark:text-blue-300 mb-3">Mono-Prompt</h3>
+<p class="text-sm text-blue-800 dark:text-blue-200 mb-4" data-inema-block="m4-1-t2-p2">
                                 Um único prompt que lida com toda a complexidade. Contexto completo em uma chamada.
                             </p>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
-                                    <span>✓</span> Simplicidade de implementação
+<div class="space-y-2 text-sm">
+<div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+<span>✓</span> Simplicidade de implementação
                                 </div>
-                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
-                                    <span>✓</span> Latência baixa (1 chamada)
+<div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+<span>✓</span> Latência baixa (1 chamada)
                                 </div>
-                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
-                                    <span>✓</span> Contexto unificado
+<div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+<span>✓</span> Contexto unificado
                                 </div>
-                                <div class="flex items-center gap-2 text-red-700 dark:text-red-400">
-                                    <span>✗</span> Limite de complexidade
+<div class="flex items-center gap-2 text-red-700 dark:text-red-400">
+<span>✗</span> Limite de complexidade
                                 </div>
-                                <div class="flex items-center gap-2 text-red-700 dark:text-red-400">
-                                    <span>✗</span> Difícil de testar partes
+<div class="flex items-center gap-2 text-red-700 dark:text-red-400">
+<span>✗</span> Difícil de testar partes
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-5">
-                            <h3 class="font-semibold text-purple-900 dark:text-purple-300 mb-3">Multi-Prompt</h3>
-                            <p class="text-sm text-purple-800 dark:text-purple-200 mb-4" data-inema-block="m4-1-t2-p3">
+</div>
+</div>
+<div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-5">
+<h3 class="font-semibold text-purple-900 dark:text-purple-300 mb-3">Multi-Prompt</h3>
+<p class="text-sm text-purple-800 dark:text-purple-200 mb-4" data-inema-block="m4-1-t2-p3">
                                 Múltiplos prompts especializados que se comunicam. Decomposição de responsabilidades.
                             </p>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
-                                    <span>✓</span> Modularidade
+<div class="space-y-2 text-sm">
+<div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+<span>✓</span> Modularidade
                                 </div>
-                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
-                                    <span>✓</span> Testabilidade por componente
+<div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+<span>✓</span> Testabilidade por componente
                                 </div>
-                                <div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
-                                    <span>✓</span> Escalabilidade de complexidade
+<div class="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
+<span>✓</span> Escalabilidade de complexidade
                                 </div>
-                                <div class="flex items-center gap-2 text-red-700 dark:text-red-400">
-                                    <span>✗</span> Latência maior
+<div class="flex items-center gap-2 text-red-700 dark:text-red-400">
+<span>✗</span> Latência maior
                                 </div>
-                                <div class="flex items-center gap-2 text-red-700 dark:text-red-400">
-                                    <span>✗</span> Perda de contexto entre chamadas
+<div class="flex items-center gap-2 text-red-700 dark:text-red-400">
+<span>✗</span> Perda de contexto entre chamadas
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Matriz de Decisão</h3>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm">
-                                <thead>
-                                    <tr class="border-b border-neutral-300 dark:border-neutral-600">
-                                        <th class="text-left py-2 text-neutral-600 dark:text-neutral-300">Critério</th>
-                                        <th class="text-center py-2 text-neutral-600 dark:text-neutral-300">Mono</th>
-                                        <th class="text-center py-2 text-neutral-600 dark:text-neutral-300">Multi</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-neutral-700 dark:text-neutral-200">
-                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
-                                        <td class="py-2">Tarefa simples e bem definida</td>
-                                        <td class="text-center text-emerald-600">✓</td>
-                                        <td class="text-center text-neutral-400">—</td>
-                                    </tr>
-                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
-                                        <td class="py-2">Múltiplas etapas dependentes</td>
-                                        <td class="text-center text-neutral-400">—</td>
-                                        <td class="text-center text-emerald-600">✓</td>
-                                    </tr>
-                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
-                                        <td class="py-2">Latência crítica</td>
-                                        <td class="text-center text-emerald-600">✓</td>
-                                        <td class="text-center text-neutral-400">—</td>
-                                    </tr>
-                                    <tr class="border-b border-neutral-200 dark:border-neutral-600">
-                                        <td class="py-2">Reuso de componentes</td>
-                                        <td class="text-center text-neutral-400">—</td>
-                                        <td class="text-center text-emerald-600">✓</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-2">Rastreabilidade de decisões</td>
-                                        <td class="text-center text-neutral-400">—</td>
-                                        <td class="text-center text-emerald-600">✓</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção 3 -->
-        <span id="camadas" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-3" data-inema-topic="modulo-4-1#topico-3"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
-                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
-                            <span class="text-white font-bold">3</span>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Camadas Arquiteturais de Sistemas LLM</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t3-p1">Separação de responsabilidades</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 space-y-6">
-                    <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-5">
-                        <h3 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-4">Arquitetura em Camadas</h3>
-                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+</div>
+</div>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Matriz de Decisão</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-neutral-300 dark:border-neutral-600">
+<th class="text-left py-2 text-neutral-600 dark:text-neutral-300">Critério</th>
+<th class="text-center py-2 text-neutral-600 dark:text-neutral-300">Mono</th>
+<th class="text-center py-2 text-neutral-600 dark:text-neutral-300">Multi</th>
+</tr>
+</thead>
+<tbody class="text-neutral-700 dark:text-neutral-200">
+<tr class="border-b border-neutral-200 dark:border-neutral-600">
+<td class="py-2">Tarefa simples e bem definida</td>
+<td class="text-center text-emerald-600">✓</td>
+<td class="text-center text-neutral-400">—</td>
+</tr>
+<tr class="border-b border-neutral-200 dark:border-neutral-600">
+<td class="py-2">Múltiplas etapas dependentes</td>
+<td class="text-center text-neutral-400">—</td>
+<td class="text-center text-emerald-600">✓</td>
+</tr>
+<tr class="border-b border-neutral-200 dark:border-neutral-600">
+<td class="py-2">Latência crítica</td>
+<td class="text-center text-emerald-600">✓</td>
+<td class="text-center text-neutral-400">—</td>
+</tr>
+<tr class="border-b border-neutral-200 dark:border-neutral-600">
+<td class="py-2">Reuso de componentes</td>
+<td class="text-center text-neutral-400">—</td>
+<td class="text-center text-emerald-600">✓</td>
+</tr>
+<tr>
+<td class="py-2">Rastreabilidade de decisões</td>
+<td class="text-center text-neutral-400">—</td>
+<td class="text-center text-emerald-600">✓</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 3 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="camadas"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-1#topico-3" id="topico-3"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+<span class="text-white font-bold">3</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Camadas Arquiteturais de Sistemas LLM</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t3-p1">Separação de responsabilidades</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-5">
+<h3 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-4">Arquitetura em Camadas</h3>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-sm overflow-x-auto">
 <pre class="text-neutral-700 dark:text-neutral-300">
 ┌─────────────────────────────────────────────────────┐
 │  PRESENTATION LAYER                                 │
@@ -591,228 +582,218 @@
 │  • Rate limiting                                    │
 └─────────────────────────────────────────────────────┘
 </pre>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4">
-                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Princípio: Separation of Concerns</h3>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m4-1-t3-p2">
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Princípio: Separation of Concerns</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m4-1-t3-p2">
                                 Cada camada tem responsabilidade única. Mudanças em uma camada não afetam outras.
                                 Permite evolução independente.
                             </p>
-                        </div>
-                        <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4">
-                            <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Princípio: Dependency Inversion</h3>
-                            <p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m4-1-t3-p3">
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Princípio: Dependency Inversion</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m4-1-t3-p3">
                                 Camadas superiores não dependem de implementações específicas.
                                 Abstrações permitem trocar LLMs ou fontes de dados.
                             </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção 4 -->
-        <span id="contratos" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-4" data-inema-topic="modulo-4-1#topico-4"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
-                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                            <span class="text-white font-bold">4</span>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Contratos de Comportamento entre Prompts</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t4-p1">Garantias e expectativas</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 space-y-6">
-                    <p class="text-neutral-600 dark:text-neutral-300" data-inema-block="m4-1-t4-p2">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 4 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="contratos"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-1#topico-4" id="topico-4"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+<span class="text-white font-bold">4</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Contratos de Comportamento entre Prompts</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t4-p1">Garantias e expectativas</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<p class="text-neutral-600 dark:text-neutral-300" data-inema-block="m4-1-t4-p2">
                         Contratos definem o que um prompt <strong>garante fazer</strong> e o que ele
                         <strong>espera receber</strong>. Sem contratos, sistemas de prompt são frágeis.
                     </p>
-
-                    <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
-                        <h3 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">Elementos de um Contrato</h3>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">Preconditions</h3>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m4-1-t4-p3">
+<div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5">
+<h3 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-3">Elementos de um Contrato</h3>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+<h3 class="font-medium text-neutral-900 dark:text-white mb-2">Preconditions</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m4-1-t4-p3">
                                     O que deve ser verdade ANTES de chamar o prompt.
                                 </p>
-                                <code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
+<code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
                                     input.length &lt; 10000
                                 </code>
-                            </div>
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">Postconditions</h3>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m4-1-t4-p4">
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+<h3 class="font-medium text-neutral-900 dark:text-white mb-2">Postconditions</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m4-1-t4-p4">
                                     O que será verdade DEPOIS da execução.
                                 </p>
-                                <code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
+<code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
                                     output.format == "json"
                                 </code>
-                            </div>
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">Invariants</h3>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+<h3 class="font-medium text-neutral-900 dark:text-white mb-2">Invariants</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-400">
                                     O que NUNCA muda durante a execução.
                                 </p>
-                                <code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
+<code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
                                     no_external_calls
                                 </code>
-                            </div>
-                            <div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
-                                <h3 class="font-medium text-neutral-900 dark:text-white mb-2">Error Conditions</h3>
-                                <p class="text-sm text-neutral-600 dark:text-neutral-400">
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+<h3 class="font-medium text-neutral-900 dark:text-white mb-2">Error Conditions</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-400">
                                     Como falhas são sinalizadas.
                                 </p>
-                                <code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
+<code class="text-xs bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded mt-2 inline-block">
                                     throws: AmbiguousInput
                                 </code>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Contrato Documentado</h3>
-                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+</div>
+</div>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exemplo de Contrato Documentado</h3>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
 <pre class="text-neutral-700 dark:text-neutral-300">
 /**
  * @contract SentimentAnalyzer
  *
- * @precondition text.length > 0 && text.length < 5000
+ * @precondition text.length &gt; 0 &amp;&amp; text.length &lt; 5000
  * @precondition language in ["pt", "en", "es"]
  *
  * @postcondition result.sentiment in ["positive", "negative", "neutral"]
- * @postcondition result.confidence >= 0.0 && result.confidence <= 1.0
- * @postcondition result.reasoning.length > 0
+ * @postcondition result.confidence &gt;= 0.0 &amp;&amp; result.confidence &lt;= 1.0
+ * @postcondition result.reasoning.length &gt; 0
  *
  * @invariant deterministic for same input (temperature=0)
  * @invariant no PII in output
  *
  * @throws EmptyInputError if text is empty
  * @throws UnsupportedLanguageError if language not supported
- * @throws LowConfidenceError if confidence < 0.5
+ * @throws LowConfidenceError if confidence &lt; 0.5
  */
 </pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção 5 -->
-        <span id="padroes" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-5" data-inema-topic="modulo-4-1#topico-5"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
-                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
-                            <span class="text-white font-bold">5</span>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Padrões Arquiteturais Recorrentes</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t5-p1">Soluções comprovadas</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 space-y-6">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
-                            <h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Chain of Responsibility</h3>
-                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2" data-inema-block="m4-1-t5-p2">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 5 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="padroes"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-1#topico-5" id="topico-5"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+<span class="text-white font-bold">5</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Padrões Arquiteturais Recorrentes</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t5-p1">Soluções comprovadas</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
+<h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Chain of Responsibility</h3>
+<p class="text-sm text-violet-800 dark:text-violet-200 mb-2" data-inema-block="m4-1-t5-p2">
                                 Prompts em cadeia onde cada um pode resolver ou passar adiante.
                             </p>
-                            <div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
+<div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
                                 intent → router → specialist → fallback
                             </div>
-                        </div>
-
-                        <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
-                            <h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Pipeline</h3>
-                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2" data-inema-block="m4-1-t5-p3">
+</div>
+<div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
+<h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Pipeline</h3>
+<p class="text-sm text-violet-800 dark:text-violet-200 mb-2" data-inema-block="m4-1-t5-p3">
                                 Transformações sequenciais onde output de um é input do próximo.
                             </p>
-                            <div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
+<div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
                                 extract → transform → validate → format
                             </div>
-                        </div>
-
-                        <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
-                            <h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Supervisor</h3>
-                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2" data-inema-block="m4-1-t5-p4">
+</div>
+<div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
+<h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Supervisor</h3>
+<p class="text-sm text-violet-800 dark:text-violet-200 mb-2" data-inema-block="m4-1-t5-p4">
                                 Um prompt coordena e valida trabalho de outros prompts.
                             </p>
-                            <div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
+<div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
                                 supervisor → [workers] → aggregator
                             </div>
-                        </div>
-
-                        <div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
-                            <h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Reflection</h3>
-                            <p class="text-sm text-violet-800 dark:text-violet-200 mb-2">
+</div>
+<div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-4">
+<h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-2">Reflection</h3>
+<p class="text-sm text-violet-800 dark:text-violet-200 mb-2">
                                 Prompt analisa e melhora seu próprio output iterativamente.
                             </p>
-                            <div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
+<div class="text-xs bg-white dark:bg-neutral-800 rounded p-2 font-mono">
                                 generate → critique → refine → validate
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Quando Usar Cada Padrão</h3>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
-                                <span class="font-medium text-violet-600 dark:text-violet-400 w-32">Chain</span>
-                                <span class="text-neutral-600 dark:text-neutral-300">Roteamento dinâmico, fallbacks, escalação</span>
-                            </div>
-                            <div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
-                                <span class="font-medium text-violet-600 dark:text-violet-400 w-32">Pipeline</span>
-                                <span class="text-neutral-600 dark:text-neutral-300">ETL de dados, processamento em etapas</span>
-                            </div>
-                            <div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
-                                <span class="font-medium text-violet-600 dark:text-violet-400 w-32">Supervisor</span>
-                                <span class="text-neutral-600 dark:text-neutral-300">Tarefas paralelas, agregação, validação cruzada</span>
-                            </div>
-                            <div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
-                                <span class="font-medium text-violet-600 dark:text-violet-400 w-32">Reflection</span>
-                                <span class="text-neutral-600 dark:text-neutral-300">Qualidade crítica, auto-correção, refinamento</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção 6 -->
-        <span id="analise-real" class="inema-anchor-alias" aria-hidden="true"></span><section class="scroll-mt-32" id="topico-6" data-inema-topic="modulo-4-1#topico-6"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-            <div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
-                <div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-rose-50 to-transparent dark:from-rose-900/20">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center">
-                            <span class="text-white font-bold">6</span>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-bold text-neutral-900 dark:text-white">Análise de Arquiteturas Reais</h2>
-                            <p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t6-p1">Estudos de caso de produção</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-6 space-y-6">
-                    <div class="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 rounded-xl p-5">
-                        <h3 class="font-semibold text-rose-900 dark:text-rose-300 mb-3">Case: Assistente de Suporte Técnico</h3>
-                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+</div>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Quando Usar Cada Padrão</h3>
+<div class="space-y-2 text-sm">
+<div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
+<span class="font-medium text-violet-600 dark:text-violet-400 w-32">Chain</span>
+<span class="text-neutral-600 dark:text-neutral-300">Roteamento dinâmico, fallbacks, escalação</span>
+</div>
+<div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
+<span class="font-medium text-violet-600 dark:text-violet-400 w-32">Pipeline</span>
+<span class="text-neutral-600 dark:text-neutral-300">ETL de dados, processamento em etapas</span>
+</div>
+<div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
+<span class="font-medium text-violet-600 dark:text-violet-400 w-32">Supervisor</span>
+<span class="text-neutral-600 dark:text-neutral-300">Tarefas paralelas, agregação, validação cruzada</span>
+</div>
+<div class="flex items-start gap-3 p-2 bg-white dark:bg-neutral-800 rounded">
+<span class="font-medium text-violet-600 dark:text-violet-400 w-32">Reflection</span>
+<span class="text-neutral-600 dark:text-neutral-300">Qualidade crítica, auto-correção, refinamento</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 6 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="analise-real"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-1#topico-6" id="topico-6"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-rose-50 to-transparent dark:from-rose-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center">
+<span class="text-white font-bold">6</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Análise de Arquiteturas Reais</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-1-t6-p1">Estudos de caso de produção</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 rounded-xl p-5">
+<h3 class="font-semibold text-rose-900 dark:text-rose-300 mb-3">Case: Assistente de Suporte Técnico</h3>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
 <pre class="text-neutral-700 dark:text-neutral-300">
 USER QUERY
     │
@@ -838,12 +819,11 @@ USER QUERY
 │  SAFETY CHECK   │ ← Valida antes de enviar
 └─────────────────┘
 </pre>
-                        </div>
-                    </div>
-
-                    <div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
-                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Case: Sistema de Code Review</h3>
-                        <div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+</div>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Case: Sistema de Code Review</h3>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
 <pre class="text-neutral-700 dark:text-neutral-300">
 PR DIFF
     │
@@ -872,113 +852,108 @@ PR DIFF
 │  "Format as GitHub PR comment"      │
 └─────────────────────────────────────┘
 </pre>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl p-5">
-                        <h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exercício: Analise a Arquitetura</h3>
-                        <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-4" data-inema-block="m4-1-t6-p2">
+</div>
+</div>
+<div class="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Exercício: Analise a Arquitetura</h3>
+<p class="text-sm text-neutral-700 dark:text-neutral-300 mb-4" data-inema-block="m4-1-t6-p2">
                             Para cada case study, identifique:
                         </p>
-                        <ul class="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
-                            <li class="flex items-start gap-2">
-                                <span class="text-amber-600 dark:text-amber-400">1.</span>
+<ul class="space-y-2 text-sm text-neutral-600 dark:text-neutral-300">
+<li class="flex items-start gap-2">
+<span class="text-amber-600 dark:text-amber-400">1.</span>
                                 Qual padrão arquitetural foi usado?
                             </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-amber-600 dark:text-amber-400">2.</span>
+<li class="flex items-start gap-2">
+<span class="text-amber-600 dark:text-amber-400">2.</span>
                                 Quais são os contratos entre componentes?
                             </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-amber-600 dark:text-amber-400">3.</span>
+<li class="flex items-start gap-2">
+<span class="text-amber-600 dark:text-amber-400">3.</span>
                                 Onde estão os pontos de falha?
                             </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-amber-600 dark:text-amber-400">4.</span>
+<li class="flex items-start gap-2">
+<span class="text-amber-600 dark:text-amber-400">4.</span>
                                 Como você melhoraria a arquitetura?
                             </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Navegação -->
-        <div class="flex flex-col sm:flex-row gap-4 pt-8">
-            <a href="../../nivel-masterclass.html" class="flex-1 group flex items-center gap-3 p-4 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-300 dark:hover:border-amber-600 transition-colors">
-                <svg class="w-5 h-5 text-neutral-400 group-hover:text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                <div>
-                    <div class="text-sm text-neutral-500 dark:text-neutral-400">Voltar</div>
-                    <div class="font-medium text-neutral-900 dark:text-white">Masterclass Home</div>
-                </div>
-            </a>
-            <a href="modulo2-completo.html" class="flex-1 group flex items-center justify-end gap-3 p-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 rounded-xl text-white text-right transition-colors">
-                <div>
-                    <div class="text-sm text-amber-100">Próximo</div>
-                    <div class="font-medium">Módulo 2: Design de Contexto</div>
-                </div>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
-        </div>
-    </main>
-
-    <!-- Download Section -->
-    <div class="max-w-4xl mx-auto px-4 mb-8">
-        <div class="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border border-amber-500/30 rounded-2xl p-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
-                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-white">Baixar este módulo</h3>
-                        <p class="text-sm text-neutral-400">Salve para estudar offline</p>
-                    </div>
-                </div>
-                <div class="flex gap-3">
-                    <a href="../../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                        </svg>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Navegação -->
+<div class="flex flex-col sm:flex-row gap-4 pt-8">
+<a class="flex-1 group flex items-center gap-3 p-4 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-300 dark:hover:border-amber-600 transition-colors" href="../../nivel-masterclass.html">
+<svg class="w-5 h-5 text-neutral-400 group-hover:text-amber-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>
+<div class="text-sm text-neutral-500 dark:text-neutral-400">Voltar</div>
+<div class="font-medium text-neutral-900 dark:text-white">Masterclass Home</div>
+</div>
+</a>
+<a class="flex-1 group flex items-center justify-end gap-3 p-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 rounded-xl text-white text-right transition-colors" href="modulo2-completo.html">
+<div>
+<div class="text-sm text-amber-100">Próximo</div>
+<div class="font-medium">Módulo 2: Design de Contexto</div>
+</div>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</main>
+<!-- Download Section -->
+<div class="max-w-4xl mx-auto px-4 mb-8">
+<div class="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border border-amber-500/30 rounded-2xl p-6">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
+<svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-white">Baixar este módulo</h3>
+<p class="text-sm text-neutral-400">Salve para estudar offline</p>
+</div>
+</div>
+<div class="flex gap-3">
+<a class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
                         PDF
                     </a>
-                    <a href="../../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                        </svg>
+<a class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
                         MD
                     </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="border-t border-neutral-200 dark:border-neutral-800 mt-16">
-        <div class="max-w-4xl mx-auto px-4 py-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-2">
-                    <span class="text-xl font-bold gold-text">FEP</span>
-                    <span class="text-neutral-400">|</span>
-                    <span class="text-neutral-600 dark:text-neutral-400">Masterclass</span>
-                </div>
-                <a href="../../nivel-masterclass.html" class="text-amber-600 dark:text-amber-400 hover:underline">
+</div>
+</div>
+</div>
+</div>
+<footer class="border-t border-neutral-200 dark:border-neutral-800 mt-16">
+<div class="max-w-4xl mx-auto px-4 py-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold gold-text">FEP</span>
+<span class="text-neutral-400">|</span>
+<span class="text-neutral-600 dark:text-neutral-400">Masterclass</span>
+</div>
+<a class="text-amber-600 dark:text-amber-400 hover:underline" href="../../nivel-masterclass.html">
                     Voltar para o Masterclass
                 </a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
+</div>
+</div>
+</footer>
+<script>
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
             localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
         }
         if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
     </script>
-  <script src="../../assets/v2.js"></script>
-  <script src="../../assets/learn.js"></script>
-  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+<script src="../../assets/v2.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

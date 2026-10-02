@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="inema-course" content="fep">
-    <script data-inema-antifouc>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
     (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
     </script>
-    <script type="application/json" data-inema-manifest>
+<script data-inema-manifest="" type="application/json">
 {
   "course": "fep",
   "tracks": [
@@ -175,15 +176,15 @@
   ]
 }
     </script>
-    <script>
+<script>
       if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 4: Arquiteturas de Agentes Baseadas em Prompt | Masterclass | FEP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 4: Arquiteturas de Agentes Baseadas em Prompt | Masterclass | FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
@@ -200,10 +201,10 @@
         }
       }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
         * { font-family: 'Inter', system-ui, sans-serif; }
         html { scroll-behavior: smooth; }
         .gold-glow { box-shadow: 0 0 40px rgba(251, 191, 36, 0.15); }
@@ -261,622 +262,590 @@
         html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
         html:not(.dark) .bg-gray-950\/95 { background-color: rgba(255, 255, 255, 0.95); }
     </style>
-    <link rel="stylesheet" href="../../assets/learn.css">
-    <link rel="stylesheet" href="../../assets/v2.css">
-</head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen" data-inema-v2="2">
-  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
-  <nav class="inema-v2-nav" aria-label="Navegação principal">
-    <div class="inema-v2-nav__inner">
-      <div class="inema-v2-brand">
-        <a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
-        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
-        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
-      </div>
-      <div class="inema-v2-links" aria-label="Trilhas"><a href="../../nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="../../nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="../../nivel-avancado.html" class="inema-v2-link"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="../../nivel-masterclass.html" class="inema-v2-link" aria-current="page"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
-      <div class="inema-v2-actions">
-        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
-        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
-        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
-      </div>
-    </div>
-    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
-        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
-        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
-        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
-        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
-      </div></div>
-    </div>
-  </nav>
-
-    <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20" data-v2-legacy-nav>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-3">
-                    <a href="../../index.html" class="text-xl font-bold text-gradient-gold">FEP</a>
-                    <span class="text-neutral-600 mx-2">|</span>
-                    <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-                </div>
-                <nav class="flex items-center space-x-6">
-                    <a href="../../nivel-masterclass.html" class="text-gray-300 hover:text-amber-400 transition-colors text-sm">← Voltar ao Curso</a>
-                    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors">
-                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                        </svg>
-                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
-                        </svg>
-                    </button>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <main id="conteudo" data-inema-module="4-4" data-inema-track="4">
-    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
-      <div><div class="inema-v2-page-tools__eyebrow">Trilha 4 · Módulo 4</div><div class="inema-v2-page-tools__title">Arquiteturas Multiagente</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
-      <div class="inema-v2-meter" data-inema-meter="modulo:4-4" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Arquiteturas Multiagente">
-      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
-      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
-    </div>
-    </aside>
-    <nav data-inema-toc aria-label="Índice do módulo" class="sr-only"><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
+<link href="../../assets/learn.css" rel="stylesheet"/>
+<link href="../../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/conteudo/masterclass/modulo4-completo.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/conteudo/masterclass/modulo4-completo.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/conteudo/masterclass/modulo4-completo.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="modulo4-completo.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../../en/conteudo/masterclass/modulo4-completo.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../../es/conteudo/masterclass/modulo4-completo.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+<nav aria-label="Navegação principal" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Trilhas" class="inema-v2-links"><a class="inema-v2-link" href="../../nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a class="inema-v2-link" href="../../nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Técnico</span></a><a class="inema-v2-link" href="../../nivel-avancado.html"><span class="short">T3</span><span class="full"> · Avançado</span></a><a aria-current="page" class="inema-v2-link" href="../../nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Aparência</span></button>
+<button aria-label="Alternar tema" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Tema</span></button>
+</div>
+</div>
+<div aria-label="Preferências de aparência" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Escuro</button><button data-inema-set-theme="claro" type="button">Claro</button><button data-inema-set-theme="sepia" type="button">Sépia</button><button data-inema-set-theme="foco" type="button">Foco</button><button data-inema-set-theme="contraste" type="button">Contraste</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">Sistema</button><button data-inema-set-font="leitura" type="button">Leitura</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Estreita</button><button data-inema-set-linewidth="68" type="button">Média</button><button data-inema-set-linewidth="75" type="button">Larga</button><button data-inema-set-leading="1.45" type="button">Compacta</button><button data-inema-set-leading="1.7" type="button">Confortável</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Azul" data-inema-set-accent="blue" type="button"></button><button aria-label="Roxo" data-inema-set-accent="purple" type="button"></button><button aria-label="Âmbar" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Rosa" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20" data-v2-legacy-nav="">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-3">
+<a class="text-xl font-bold text-gradient-gold" href="../../index.html">FEP</a>
+<span class="text-neutral-600 mx-2">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<nav class="flex items-center space-x-6">
+<a class="text-gray-300 hover:text-amber-400 transition-colors text-sm" href="../../nivel-masterclass.html">← Voltar ao Curso</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20">
+<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+</svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<main data-inema-module="4-4" data-inema-track="4" id="conteudo">
+<aside aria-label="Progresso desta página" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Trilha 4 · Módulo 4</div><div class="inema-v2-page-tools__title">Arquiteturas Multiagente</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progresso: Arquiteturas Multiagente" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="modulo:4-4" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 de 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<nav aria-label="Índice do módulo" class="sr-only" data-inema-toc=""><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
 <section class="pt-24 pb-12 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-orange-500/5"></div>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="text-center">
-                <span class="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-400 text-sm font-medium mb-6">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-orange-500/5"></div>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+<div class="text-center">
+<span class="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-400 text-sm font-medium mb-6">
                     Módulo 4 • Masterclass
                 </span>
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-gradient-gold">Arquiteturas de Agentes Baseadas em Prompt</span>
-                </h1>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+<h1 class="text-4xl md:text-5xl font-bold mb-6">
+<span class="text-gradient-gold">Arquiteturas de Agentes Baseadas em Prompt</span>
+</h1>
+<p class="text-xl text-gray-400 max-w-2xl mx-auto">
                     De construtor de agentes para <strong class="text-amber-400">arquiteto de sistemas autônomos</strong>.
                     Aprenda a projetar arquiteturas que definem os limites da autonomia.
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Intro Box -->
-    <section class="py-8">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/30 rounded-2xl p-8 gold-glow">
-                <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <span class="text-2xl">🤖</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-amber-400 mb-3">A Diferença do Nível Masterclass</h3>
-                        <p class="text-gray-300 leading-relaxed">
+</div>
+</div>
+</section>
+<!-- Intro Box -->
+<section class="py-8">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/30 rounded-2xl p-8 gold-glow">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+<span class="text-2xl">🤖</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-amber-400 mb-3">A Diferença do Nível Masterclass</h3>
+<p class="text-gray-300 leading-relaxed">
                             Na <strong>Trilha 3</strong>, você aprendeu a <em>implementar agentes</em>. Aqui, você aprende
                             a <strong class="text-amber-400">desenhar arquiteturas de agentes</strong> — decidir entre
                             single-agent e multi-agent, definir limites de autonomia, projetar coordenação e assumir
                             <strong>responsabilidade técnica</strong> por sistemas autônomos em produção.
                         </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Content Sections -->
-    <section class="py-12">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-
-            <!-- Tópico 1 -->
-            <div class="space-y-6" id="topico-1" data-inema-topic="modulo-4-4#topico-1"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">1</div>
-                    <h2 class="text-2xl font-bold text-white">Tipos de Arquiteturas de Agentes</h2>
-                </div>
-                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p data-inema-block="m4-4-t1-p1">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Sections -->
+<section class="py-12">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+<!-- Tópico 1 -->
+<div class="space-y-6" data-inema-topic="modulo-4-4#topico-1" id="topico-1"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">1</div>
+<h2 class="text-2xl font-bold text-white">Tipos de Arquiteturas de Agentes</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-4-t1-p1">
                         Arquiteturas de agentes variam em <strong class="text-amber-400">complexidade, autonomia e estrutura de controle</strong>.
                         Entender os tipos fundamentais permite escolher a arquitetura certa para cada problema.
                     </p>
-
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h3 class="text-amber-400 font-semibold mb-4">Taxonomia de Arquiteturas</h3>
-                        <div class="space-y-4">
-                            <div class="border-l-2 border-green-500 pl-4">
-                                <p class="font-medium text-green-400" data-inema-block="m4-4-t1-p2">Agente Reativo Simples</p>
-                                <p class="text-sm text-gray-400" data-inema-block="m4-4-t1-p3">Responde a estímulos com ações predefinidas. Sem memória, sem planejamento.</p>
-                            </div>
-                            <div class="border-l-2 border-blue-500 pl-4">
-                                <p class="font-medium text-blue-400" data-inema-block="m4-4-t1-p4">Agente com Estado</p>
-                                <p class="text-sm text-gray-400">Mantém memória de interações anteriores. Pode adaptar comportamento ao contexto histórico.</p>
-                            </div>
-                            <div class="border-l-2 border-purple-500 pl-4">
-                                <p class="font-medium text-purple-400">Agente Baseado em Objetivos</p>
-                                <p class="text-sm text-gray-400">Planeja sequência de ações para atingir um objetivo. Decompõe tarefas complexas.</p>
-                            </div>
-                            <div class="border-l-2 border-amber-500 pl-4">
-                                <p class="font-medium text-amber-400">Agente com Utilidade</p>
-                                <p class="text-sm text-gray-400">Avalia trade-offs entre múltiplos objetivos. Otimiza função de utilidade.</p>
-                            </div>
-                            <div class="border-l-2 border-red-500 pl-4">
-                                <p class="font-medium text-red-400">Agente de Aprendizado</p>
-                                <p class="text-sm text-gray-400">Melhora performance ao longo do tempo. Aprende com feedback e resultados.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h3 class="text-amber-400 font-semibold mb-2">Decisão Arquitetural</h3>
-                        <p class="text-gray-300">
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Taxonomia de Arquiteturas</h3>
+<div class="space-y-4">
+<div class="border-l-2 border-green-500 pl-4">
+<p class="font-medium text-green-400" data-inema-block="m4-4-t1-p2">Agente Reativo Simples</p>
+<p class="text-sm text-gray-400" data-inema-block="m4-4-t1-p3">Responde a estímulos com ações predefinidas. Sem memória, sem planejamento.</p>
+</div>
+<div class="border-l-2 border-blue-500 pl-4">
+<p class="font-medium text-blue-400" data-inema-block="m4-4-t1-p4">Agente com Estado</p>
+<p class="text-sm text-gray-400">Mantém memória de interações anteriores. Pode adaptar comportamento ao contexto histórico.</p>
+</div>
+<div class="border-l-2 border-purple-500 pl-4">
+<p class="font-medium text-purple-400">Agente Baseado em Objetivos</p>
+<p class="text-sm text-gray-400">Planeja sequência de ações para atingir um objetivo. Decompõe tarefas complexas.</p>
+</div>
+<div class="border-l-2 border-amber-500 pl-4">
+<p class="font-medium text-amber-400">Agente com Utilidade</p>
+<p class="text-sm text-gray-400">Avalia trade-offs entre múltiplos objetivos. Otimiza função de utilidade.</p>
+</div>
+<div class="border-l-2 border-red-500 pl-4">
+<p class="font-medium text-red-400">Agente de Aprendizado</p>
+<p class="text-sm text-gray-400">Melhora performance ao longo do tempo. Aprende com feedback e resultados.</p>
+</div>
+</div>
+</div>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+<h3 class="text-amber-400 font-semibold mb-2">Decisão Arquitetural</h3>
+<p class="text-gray-300">
                             A complexidade da arquitetura deve ser <strong>proporcional ao problema</strong>.
                             Um agente reativo é suficiente para chatbots simples; um agente com planejamento
                             é necessário para automação de workflows complexos. Over-engineering é tão
                             problemático quanto under-engineering.
                         </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tópico 2 -->
-            <div class="space-y-6" id="topico-2" data-inema-topic="modulo-4-4#topico-2"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">2</div>
-                    <h2 class="text-2xl font-bold text-white">Decisão entre Agente Único e Multiagente</h2>
-                </div>
-                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p data-inema-block="m4-4-t2-p1">
+</div>
+</div>
+</div>
+<!-- Tópico 2 -->
+<div class="space-y-6" data-inema-topic="modulo-4-4#topico-2" id="topico-2"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">2</div>
+<h2 class="text-2xl font-bold text-white">Decisão entre Agente Único e Multiagente</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-4-t2-p1">
                         Uma das decisões arquiteturais mais importantes é escolher entre um <strong class="text-amber-400">sistema
                         de agente único</strong> ou uma <strong class="text-amber-400">arquitetura multiagente</strong>.
                     </p>
-
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h3 class="text-amber-400 font-semibold mb-4">Comparativo de Abordagens</h3>
-                        <table class="w-full text-sm">
-                            <thead>
-                                <tr class="border-b border-gray-700">
-                                    <th class="text-left py-2 text-white">Aspecto</th>
-                                    <th class="text-left py-2 text-white">Agente Único</th>
-                                    <th class="text-left py-2 text-white">Multiagente</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-400">
-                                <tr class="border-b border-gray-800">
-                                    <td class="py-2">Complexidade</td>
-                                    <td class="py-2">Menor</td>
-                                    <td class="py-2">Maior</td>
-                                </tr>
-                                <tr class="border-b border-gray-800">
-                                    <td class="py-2">Especialização</td>
-                                    <td class="py-2">Generalista</td>
-                                    <td class="py-2">Especialistas coordenados</td>
-                                </tr>
-                                <tr class="border-b border-gray-800">
-                                    <td class="py-2">Escalabilidade</td>
-                                    <td class="py-2">Limitada</td>
-                                    <td class="py-2">Alta</td>
-                                </tr>
-                                <tr class="border-b border-gray-800">
-                                    <td class="py-2">Debugging</td>
-                                    <td class="py-2">Direto</td>
-                                    <td class="py-2">Complexo</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2">Custo</td>
-                                    <td class="py-2">Previsível</td>
-                                    <td class="py-2">Variável</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
-                            <h3 class="text-green-400 font-semibold mb-2">Use Agente Único quando:</h3>
-                            <ul class="text-gray-300 space-y-1 text-sm">
-                                <li>• Domínio bem definido e limitado</li>
-                                <li>• Latência crítica</li>
-                                <li>• Custo precisa ser previsível</li>
-                                <li>• Equipe tem experiência limitada</li>
-                            </ul>
-                        </div>
-                        <div class="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4">
-                            <h3 class="text-purple-400 font-semibold mb-2">Use Multiagente quando:</h3>
-                            <ul class="text-gray-300 space-y-1 text-sm">
-                                <li>• Problema requer múltiplas especialidades</li>
-                                <li>• Tarefas podem ser paralelizadas</li>
-                                <li>• Qualidade supera velocidade</li>
-                                <li>• Sistema precisa evoluir modularmente</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tópico 3 -->
-            <div class="space-y-6" id="topico-3" data-inema-topic="modulo-4-4#topico-3"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">3</div>
-                    <h2 class="text-2xl font-bold text-white">Coordenação, Supervisão e Delegação</h2>
-                </div>
-                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p data-inema-block="m4-4-t3-p1">
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Comparativo de Abordagens</h3>
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-gray-700">
+<th class="text-left py-2 text-white">Aspecto</th>
+<th class="text-left py-2 text-white">Agente Único</th>
+<th class="text-left py-2 text-white">Multiagente</th>
+</tr>
+</thead>
+<tbody class="text-gray-400">
+<tr class="border-b border-gray-800">
+<td class="py-2">Complexidade</td>
+<td class="py-2">Menor</td>
+<td class="py-2">Maior</td>
+</tr>
+<tr class="border-b border-gray-800">
+<td class="py-2">Especialização</td>
+<td class="py-2">Generalista</td>
+<td class="py-2">Especialistas coordenados</td>
+</tr>
+<tr class="border-b border-gray-800">
+<td class="py-2">Escalabilidade</td>
+<td class="py-2">Limitada</td>
+<td class="py-2">Alta</td>
+</tr>
+<tr class="border-b border-gray-800">
+<td class="py-2">Debugging</td>
+<td class="py-2">Direto</td>
+<td class="py-2">Complexo</td>
+</tr>
+<tr>
+<td class="py-2">Custo</td>
+<td class="py-2">Previsível</td>
+<td class="py-2">Variável</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
+<h3 class="text-green-400 font-semibold mb-2">Use Agente Único quando:</h3>
+<ul class="text-gray-300 space-y-1 text-sm">
+<li>• Domínio bem definido e limitado</li>
+<li>• Latência crítica</li>
+<li>• Custo precisa ser previsível</li>
+<li>• Equipe tem experiência limitada</li>
+</ul>
+</div>
+<div class="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4">
+<h3 class="text-purple-400 font-semibold mb-2">Use Multiagente quando:</h3>
+<ul class="text-gray-300 space-y-1 text-sm">
+<li>• Problema requer múltiplas especialidades</li>
+<li>• Tarefas podem ser paralelizadas</li>
+<li>• Qualidade supera velocidade</li>
+<li>• Sistema precisa evoluir modularmente</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Tópico 3 -->
+<div class="space-y-6" data-inema-topic="modulo-4-4#topico-3" id="topico-3"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">3</div>
+<h2 class="text-2xl font-bold text-white">Coordenação, Supervisão e Delegação</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-4-t3-p1">
                         Em arquiteturas multiagente, o <strong class="text-amber-400">mecanismo de coordenação</strong> é
                         crítico. Define como agentes se comunicam, quem decide conflitos e como o trabalho é distribuído.
                     </p>
-
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h3 class="text-amber-400 font-semibold mb-4">Padrões de Coordenação</h3>
-                        <div class="space-y-4">
-                            <div class="border-l-2 border-blue-500 pl-4">
-                                <p class="font-medium text-blue-400" data-inema-block="m4-4-t3-p2">Orquestração Centralizada</p>
-                                <p class="text-sm text-gray-400" data-inema-block="m4-4-t3-p3">Um agente "maestro" coordena todos os outros. Controle total, ponto único de falha.</p>
-                            </div>
-                            <div class="border-l-2 border-green-500 pl-4">
-                                <p class="font-medium text-green-400" data-inema-block="m4-4-t3-p4">Coreografia Descentralizada</p>
-                                <p class="text-sm text-gray-400">Agentes se coordenam por eventos/mensagens. Resiliente, mas difícil de debugar.</p>
-                            </div>
-                            <div class="border-l-2 border-purple-500 pl-4">
-                                <p class="font-medium text-purple-400">Hierarquia de Supervisão</p>
-                                <p class="text-sm text-gray-400">Agentes organizados em árvore. Supervisor delega e agrega resultados dos subordinados.</p>
-                            </div>
-                            <div class="border-l-2 border-amber-500 pl-4">
-                                <p class="font-medium text-amber-400">Blackboard Compartilhado</p>
-                                <p class="text-sm text-gray-400">Agentes leem e escrevem em espaço compartilhado. Colaboração implícita via estado.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Padrões de Coordenação</h3>
+<div class="space-y-4">
+<div class="border-l-2 border-blue-500 pl-4">
+<p class="font-medium text-blue-400" data-inema-block="m4-4-t3-p2">Orquestração Centralizada</p>
+<p class="text-sm text-gray-400" data-inema-block="m4-4-t3-p3">Um agente "maestro" coordena todos os outros. Controle total, ponto único de falha.</p>
+</div>
+<div class="border-l-2 border-green-500 pl-4">
+<p class="font-medium text-green-400" data-inema-block="m4-4-t3-p4">Coreografia Descentralizada</p>
+<p class="text-sm text-gray-400">Agentes se coordenam por eventos/mensagens. Resiliente, mas difícil de debugar.</p>
+</div>
+<div class="border-l-2 border-purple-500 pl-4">
+<p class="font-medium text-purple-400">Hierarquia de Supervisão</p>
+<p class="text-sm text-gray-400">Agentes organizados em árvore. Supervisor delega e agrega resultados dos subordinados.</p>
+</div>
+<div class="border-l-2 border-amber-500 pl-4">
+<p class="font-medium text-amber-400">Blackboard Compartilhado</p>
+<p class="text-sm text-gray-400">Agentes leem e escrevem em espaço compartilhado. Colaboração implícita via estado.</p>
+</div>
+</div>
+</div>
+<p>
                         A <strong>delegação</strong> deve ter escopo claro. O agente supervisor precisa saber
                         exatamente o que está delegando, quais são os critérios de sucesso e quando intervir.
                     </p>
-
-                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h3 class="text-amber-400 font-semibold mb-2">Contrato de Delegação</h3>
-                        <ul class="text-gray-300 space-y-1 text-sm">
-                            <li>• <strong>Objetivo</strong>: o que o agente subordinado deve alcançar</li>
-                            <li>• <strong>Contexto</strong>: informações necessárias para executar</li>
-                            <li>• <strong>Constraints</strong>: limites de atuação e recursos</li>
-                            <li>• <strong>Callback</strong>: como e quando reportar resultado</li>
-                            <li>• <strong>Escalação</strong>: quando pedir ajuda ao supervisor</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tópico 4 -->
-            <div class="space-y-6" id="topico-4" data-inema-topic="modulo-4-4#topico-4"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">4</div>
-                    <h2 class="text-2xl font-bold text-white">Limites de Autonomia</h2>
-                </div>
-                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p data-inema-block="m4-4-t4-p1">
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+<h3 class="text-amber-400 font-semibold mb-2">Contrato de Delegação</h3>
+<ul class="text-gray-300 space-y-1 text-sm">
+<li>• <strong>Objetivo</strong>: o que o agente subordinado deve alcançar</li>
+<li>• <strong>Contexto</strong>: informações necessárias para executar</li>
+<li>• <strong>Constraints</strong>: limites de atuação e recursos</li>
+<li>• <strong>Callback</strong>: como e quando reportar resultado</li>
+<li>• <strong>Escalação</strong>: quando pedir ajuda ao supervisor</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Tópico 4 -->
+<div class="space-y-6" data-inema-topic="modulo-4-4#topico-4" id="topico-4"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">4</div>
+<h2 class="text-2xl font-bold text-white">Limites de Autonomia</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-4-t4-p1">
                         Definir <strong class="text-amber-400">limites de autonomia</strong> é uma das decisões
                         arquiteturais mais importantes e mais negligenciadas. Autonomia demais cria risco;
                         de menos, elimina o valor do agente.
                     </p>
-
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h3 class="text-amber-400 font-semibold mb-4">Espectro de Autonomia</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-4">
-                                <div class="w-24 text-sm text-gray-400">Nenhuma</div>
-                                <div class="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 w-full"></div>
-                                </div>
-                                <div class="w-24 text-sm text-gray-400 text-right">Total</div>
-                            </div>
-                            <div class="grid grid-cols-5 gap-2 text-xs text-center">
-                                <div class="text-green-400">Sugestão</div>
-                                <div class="text-green-300">Rascunho</div>
-                                <div class="text-yellow-400">Execução supervisionada</div>
-                                <div class="text-orange-400">Execução autônoma</div>
-                                <div class="text-red-400">Auto-modificação</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h3 class="text-amber-400 font-semibold mb-4">Critérios para Definir Autonomia</h3>
-                        <div class="grid md:grid-cols-2 gap-4 text-sm">
-                            <div class="space-y-2">
-                                <p class="font-medium text-white" data-inema-block="m4-4-t4-p2">Aumentar autonomia quando:</p>
-                                <ul class="text-gray-400 space-y-1">
-                                    <li>• Ação é reversível</li>
-                                    <li>• Domínio é bem definido</li>
-                                    <li>• Feedback é rápido</li>
-                                    <li>• Custo de erro é baixo</li>
-                                </ul>
-                            </div>
-                            <div class="space-y-2">
-                                <p class="font-medium text-white" data-inema-block="m4-4-t4-p3">Reduzir autonomia quando:</p>
-                                <ul class="text-gray-400 space-y-1">
-                                    <li>• Ação é irreversível</li>
-                                    <li>• Domínio é ambíguo</li>
-                                    <li>• Impacto em outros sistemas</li>
-                                    <li>• Compliance/segurança envolvidos</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6">
-                        <h3 class="text-red-400 font-semibold mb-2">⚠️ Guardrails Obrigatórios</h3>
-                        <p class="text-gray-300 text-sm" data-inema-block="m4-4-t4-p4">
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Espectro de Autonomia</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4">
+<div class="w-24 text-sm text-gray-400">Nenhuma</div>
+<div class="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 w-full"></div>
+</div>
+<div class="w-24 text-sm text-gray-400 text-right">Total</div>
+</div>
+<div class="grid grid-cols-5 gap-2 text-xs text-center">
+<div class="text-green-400">Sugestão</div>
+<div class="text-green-300">Rascunho</div>
+<div class="text-yellow-400">Execução supervisionada</div>
+<div class="text-orange-400">Execução autônoma</div>
+<div class="text-red-400">Auto-modificação</div>
+</div>
+</div>
+</div>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Critérios para Definir Autonomia</h3>
+<div class="grid md:grid-cols-2 gap-4 text-sm">
+<div class="space-y-2">
+<p class="font-medium text-white" data-inema-block="m4-4-t4-p2">Aumentar autonomia quando:</p>
+<ul class="text-gray-400 space-y-1">
+<li>• Ação é reversível</li>
+<li>• Domínio é bem definido</li>
+<li>• Feedback é rápido</li>
+<li>• Custo de erro é baixo</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p class="font-medium text-white" data-inema-block="m4-4-t4-p3">Reduzir autonomia quando:</p>
+<ul class="text-gray-400 space-y-1">
+<li>• Ação é irreversível</li>
+<li>• Domínio é ambíguo</li>
+<li>• Impacto em outros sistemas</li>
+<li>• Compliance/segurança envolvidos</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-2">⚠️ Guardrails Obrigatórios</h3>
+<p class="text-gray-300 text-sm" data-inema-block="m4-4-t4-p4">
                             Independente do nível de autonomia, todo agente precisa de: <strong>rate limiting</strong>
                             (máximo de ações por período), <strong>budget caps</strong> (limite de custo),
                             <strong>scope boundaries</strong> (recursos que pode acessar) e <strong>kill switch</strong>
                             (forma de parar imediatamente).
                         </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tópico 5 -->
-            <div class="space-y-6" id="topico-5" data-inema-topic="modulo-4-4#topico-5"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">5</div>
-                    <h2 class="text-2xl font-bold text-white">Falhas Emergentes em Sistemas de Agentes</h2>
-                </div>
-                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p data-inema-block="m4-4-t5-p1">
+</div>
+</div>
+</div>
+<!-- Tópico 5 -->
+<div class="space-y-6" data-inema-topic="modulo-4-4#topico-5" id="topico-5"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">5</div>
+<h2 class="text-2xl font-bold text-white">Falhas Emergentes em Sistemas de Agentes</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-4-t5-p1">
                         Sistemas multiagente exibem <strong class="text-amber-400">comportamentos emergentes</strong> —
                         propriedades do sistema que não existem em nenhum agente individual. Algumas emergências são
                         desejáveis; outras são falhas catastróficas.
                     </p>
-
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h3 class="text-amber-400 font-semibold mb-4">Padrões de Falha Emergente</h3>
-                        <div class="space-y-4">
-                            <div class="border-l-2 border-red-500 pl-4">
-                                <p class="font-medium text-red-400" data-inema-block="m4-4-t5-p2">Loop Infinito de Delegação</p>
-                                <p class="text-sm text-gray-400" data-inema-block="m4-4-t5-p3">Agente A delega para B que delega para C que delega de volta para A.</p>
-                            </div>
-                            <div class="border-l-2 border-orange-500 pl-4">
-                                <p class="font-medium text-orange-400" data-inema-block="m4-4-t5-p4">Amplificação de Erro</p>
-                                <p class="text-sm text-gray-400">Erro pequeno em um agente é amplificado ao passar por outros agentes.</p>
-                            </div>
-                            <div class="border-l-2 border-yellow-500 pl-4">
-                                <p class="font-medium text-yellow-400">Deadlock de Recursos</p>
-                                <p class="text-sm text-gray-400">Agentes aguardam recursos que outros agentes estão segurando.</p>
-                            </div>
-                            <div class="border-l-2 border-purple-500 pl-4">
-                                <p class="font-medium text-purple-400">Consensus Failure</p>
-                                <p class="text-sm text-gray-400">Agentes não conseguem concordar sobre estado ou próxima ação.</p>
-                            </div>
-                            <div class="border-l-2 border-blue-500 pl-4">
-                                <p class="font-medium text-blue-400">Runaway Costs</p>
-                                <p class="text-sm text-gray-400">Agentes geram tokens/chamadas exponencialmente, explodindo custos.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h3 class="text-amber-400 font-semibold mb-2">Mitigações Arquiteturais</h3>
-                        <ul class="text-gray-300 space-y-1 text-sm">
-                            <li>• <strong>Circuit breakers</strong>: para quando taxa de erro excede threshold</li>
-                            <li>• <strong>Timeout global</strong>: limite máximo de tempo para qualquer operação</li>
-                            <li>• <strong>Depth limits</strong>: máximo de níveis de delegação</li>
-                            <li>• <strong>Idempotência</strong>: ações podem ser repetidas sem efeito colateral</li>
-                            <li>• <strong>Observabilidade</strong>: trace completo de todas as interações</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tópico 6 -->
-            <div class="space-y-6" id="topico-6" data-inema-topic="modulo-4-4#topico-6"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">6</div>
-                    <h2 class="text-2xl font-bold text-white">Estudos de Caso Reais</h2>
-                </div>
-                <div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
-                    <p data-inema-block="m4-4-t6-p1">
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Padrões de Falha Emergente</h3>
+<div class="space-y-4">
+<div class="border-l-2 border-red-500 pl-4">
+<p class="font-medium text-red-400" data-inema-block="m4-4-t5-p2">Loop Infinito de Delegação</p>
+<p class="text-sm text-gray-400" data-inema-block="m4-4-t5-p3">Agente A delega para B que delega para C que delega de volta para A.</p>
+</div>
+<div class="border-l-2 border-orange-500 pl-4">
+<p class="font-medium text-orange-400" data-inema-block="m4-4-t5-p4">Amplificação de Erro</p>
+<p class="text-sm text-gray-400">Erro pequeno em um agente é amplificado ao passar por outros agentes.</p>
+</div>
+<div class="border-l-2 border-yellow-500 pl-4">
+<p class="font-medium text-yellow-400">Deadlock de Recursos</p>
+<p class="text-sm text-gray-400">Agentes aguardam recursos que outros agentes estão segurando.</p>
+</div>
+<div class="border-l-2 border-purple-500 pl-4">
+<p class="font-medium text-purple-400">Consensus Failure</p>
+<p class="text-sm text-gray-400">Agentes não conseguem concordar sobre estado ou próxima ação.</p>
+</div>
+<div class="border-l-2 border-blue-500 pl-4">
+<p class="font-medium text-blue-400">Runaway Costs</p>
+<p class="text-sm text-gray-400">Agentes geram tokens/chamadas exponencialmente, explodindo custos.</p>
+</div>
+</div>
+</div>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+<h3 class="text-amber-400 font-semibold mb-2">Mitigações Arquiteturais</h3>
+<ul class="text-gray-300 space-y-1 text-sm">
+<li>• <strong>Circuit breakers</strong>: para quando taxa de erro excede threshold</li>
+<li>• <strong>Timeout global</strong>: limite máximo de tempo para qualquer operação</li>
+<li>• <strong>Depth limits</strong>: máximo de níveis de delegação</li>
+<li>• <strong>Idempotência</strong>: ações podem ser repetidas sem efeito colateral</li>
+<li>• <strong>Observabilidade</strong>: trace completo de todas as interações</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Tópico 6 -->
+<div class="space-y-6" data-inema-topic="modulo-4-4#topico-6" id="topico-6"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">6</div>
+<h2 class="text-2xl font-bold text-white">Estudos de Caso Reais</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-4-t6-p1">
                         Analisar arquiteturas de agentes em produção fornece insights práticos que teoria não captura.
                         Vamos examinar padrões arquiteturais de sistemas conhecidos.
                     </p>
-
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h3 class="text-amber-400 font-semibold mb-4">Caso 1: Coding Assistants (Copilot, Cursor)</h3>
-                        <div class="space-y-3 text-sm">
-                            <div class="flex gap-2">
-                                <span class="text-gray-500 w-28">Arquitetura:</span>
-                                <span class="text-gray-300">Agente único com ferramentas especializadas</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-gray-500 w-28">Autonomia:</span>
-                                <span class="text-gray-300">Sugestão (autocomplete) até execução supervisionada (edits)</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-gray-500 w-28">Trade-off:</span>
-                                <span class="text-gray-300">Latência vs completude. Prioriza velocidade sobre profundidade.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h3 class="text-amber-400 font-semibold mb-4">Caso 2: Customer Support Automation</h3>
-                        <div class="space-y-3 text-sm">
-                            <div class="flex gap-2">
-                                <span class="text-gray-500 w-28">Arquitetura:</span>
-                                <span class="text-gray-300">Hierarquia com roteador + agentes especializados</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-gray-500 w-28">Autonomia:</span>
-                                <span class="text-gray-300">Execução autônoma para queries simples, escalação para complexos</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-gray-500 w-28">Trade-off:</span>
-                                <span class="text-gray-300">Resolução vs satisfação. Balance entre eficiência e experiência humana.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
-                        <h3 class="text-amber-400 font-semibold mb-4">Caso 3: Data Pipeline Orchestration</h3>
-                        <div class="space-y-3 text-sm">
-                            <div class="flex gap-2">
-                                <span class="text-gray-500 w-28">Arquitetura:</span>
-                                <span class="text-gray-300">Multiagente com coreografia baseada em eventos</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-gray-500 w-28">Autonomia:</span>
-                                <span class="text-gray-300">Alta autonomia com guardrails de qualidade de dados</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-gray-500 w-28">Trade-off:</span>
-                                <span class="text-gray-300">Throughput vs qualidade. Prioriza completude sobre perfeição.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                        <h3 class="text-amber-400 font-semibold mb-2">Lição dos Casos</h3>
-                        <p class="text-gray-300" data-inema-block="m4-4-t6-p2">
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Caso 1: Coding Assistants (Copilot, Cursor)</h3>
+<div class="space-y-3 text-sm">
+<div class="flex gap-2">
+<span class="text-gray-500 w-28">Arquitetura:</span>
+<span class="text-gray-300">Agente único com ferramentas especializadas</span>
+</div>
+<div class="flex gap-2">
+<span class="text-gray-500 w-28">Autonomia:</span>
+<span class="text-gray-300">Sugestão (autocomplete) até execução supervisionada (edits)</span>
+</div>
+<div class="flex gap-2">
+<span class="text-gray-500 w-28">Trade-off:</span>
+<span class="text-gray-300">Latência vs completude. Prioriza velocidade sobre profundidade.</span>
+</div>
+</div>
+</div>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Caso 2: Customer Support Automation</h3>
+<div class="space-y-3 text-sm">
+<div class="flex gap-2">
+<span class="text-gray-500 w-28">Arquitetura:</span>
+<span class="text-gray-300">Hierarquia com roteador + agentes especializados</span>
+</div>
+<div class="flex gap-2">
+<span class="text-gray-500 w-28">Autonomia:</span>
+<span class="text-gray-300">Execução autônoma para queries simples, escalação para complexos</span>
+</div>
+<div class="flex gap-2">
+<span class="text-gray-500 w-28">Trade-off:</span>
+<span class="text-gray-300">Resolução vs satisfação. Balance entre eficiência e experiência humana.</span>
+</div>
+</div>
+</div>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Caso 3: Data Pipeline Orchestration</h3>
+<div class="space-y-3 text-sm">
+<div class="flex gap-2">
+<span class="text-gray-500 w-28">Arquitetura:</span>
+<span class="text-gray-300">Multiagente com coreografia baseada em eventos</span>
+</div>
+<div class="flex gap-2">
+<span class="text-gray-500 w-28">Autonomia:</span>
+<span class="text-gray-300">Alta autonomia com guardrails de qualidade de dados</span>
+</div>
+<div class="flex gap-2">
+<span class="text-gray-500 w-28">Trade-off:</span>
+<span class="text-gray-300">Throughput vs qualidade. Prioriza completude sobre perfeição.</span>
+</div>
+</div>
+</div>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+<h3 class="text-amber-400 font-semibold mb-2">Lição dos Casos</h3>
+<p class="text-gray-300" data-inema-block="m4-4-t6-p2">
                             Não existe arquitetura "certa". Cada sistema faz trade-offs baseados em seus requisitos
                             específicos. O papel do arquiteto é <strong>entender os trade-offs e fazer escolhas
                             conscientes</strong>, documentando as razões para futura referência.
                         </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Key Takeaways -->
-    <section class="py-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-gray-900 to-gray-900/50 border border-amber-500/30 rounded-2xl p-8 gold-glow">
-                <h3 class="text-2xl font-bold text-amber-400 mb-6">Pontos-Chave do Módulo</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span class="text-amber-400 text-sm">✓</span>
-                        </div>
-                        <p class="text-gray-300" data-inema-block="m4-4-t6-p3">Arquiteturas variam de reativo simples a agentes de aprendizado</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span class="text-amber-400 text-sm">✓</span>
-                        </div>
-                        <p class="text-gray-300" data-inema-block="m4-4-t6-p4">Decisão single vs multiagente depende de especialização e escalabilidade</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span class="text-amber-400 text-sm">✓</span>
-                        </div>
-                        <p class="text-gray-300">Coordenação pode ser orquestrada, coreografada ou híbrida</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span class="text-amber-400 text-sm">✓</span>
-                        </div>
-                        <p class="text-gray-300">Limites de autonomia devem ser proporcionais ao risco</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span class="text-amber-400 text-sm">✓</span>
-                        </div>
-                        <p class="text-gray-300">Falhas emergentes requerem mitigações arquiteturais proativas</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                            <span class="text-amber-400 text-sm">✓</span>
-                        </div>
-                        <p class="text-gray-300">Casos reais mostram que trade-offs são inevitáveis e contextuais</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Navigation -->
-    <section class="py-12 border-t border-gray-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-                <a href="modulo3-completo.html" class="flex items-center gap-2 text-gray-400 hover:text-amber-400 transition-colors">
-                    <span>←</span>
-                    <span>Módulo 3: Governança de Skills</span>
-                </a>
-                <a href="modulo5-completo.html" class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity">
-                    <span>Módulo 5: Avaliação e Risco</span>
-                    <span>→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Download Section -->
-    <section class="py-8">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border border-amber-500/30 rounded-2xl p-6">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
-                            <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-white">Baixar este módulo</h3>
-                            <p class="text-sm text-gray-400">Salve para estudar offline</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-3">
-                        <a href="../../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf" download class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                            </svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Takeaways -->
+<section class="py-16">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-br from-gray-900 to-gray-900/50 border border-amber-500/30 rounded-2xl p-8 gold-glow">
+<h3 class="text-2xl font-bold text-amber-400 mb-6">Pontos-Chave do Módulo</h3>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300" data-inema-block="m4-4-t6-p3">Arquiteturas variam de reativo simples a agentes de aprendizado</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300" data-inema-block="m4-4-t6-p4">Decisão single vs multiagente depende de especialização e escalabilidade</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">Coordenação pode ser orquestrada, coreografada ou híbrida</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">Limites de autonomia devem ser proporcionais ao risco</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">Falhas emergentes requerem mitigações arquiteturais proativas</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">Casos reais mostram que trade-offs são inevitáveis e contextuais</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation -->
+<section class="py-12 border-t border-gray-800">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+<a class="flex items-center gap-2 text-gray-400 hover:text-amber-400 transition-colors" href="modulo3-completo.html">
+<span>←</span>
+<span>Módulo 3: Governança de Skills</span>
+</a>
+<a class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity" href="modulo5-completo.html">
+<span>Módulo 5: Avaliação e Risco</span>
+<span>→</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Download Section -->
+<section class="py-8">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border border-amber-500/30 rounded-2xl p-6">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
+<svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-white">Baixar este módulo</h3>
+<p class="text-sm text-gray-400">Salve para estudar offline</p>
+</div>
+</div>
+<div class="flex gap-3">
+<a class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
                             PDF
                         </a>
-                        <a href="../../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md" download class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                            </svg>
+<a class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
                             MD
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    </main>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+</main>
 <footer class="py-8 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-            <p>Fundamentos de Engenharia de Prompt © 2025 | Nível Masterclass</p>
-        </div>
-    </footer>
-
-    <script>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+<p>Fundamentos de Engenharia de Prompt © 2025 | Nível Masterclass</p>
+</div>
+</footer>
+<script>
       (function() {
         const themeToggle = document.getElementById('theme-toggle');
         if (!themeToggle) return;
@@ -899,8 +868,8 @@
         });
       })();
     </script>
-  <script src="../../assets/v2.js"></script>
-  <script src="../../assets/learn.js"></script>
-  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+<script src="../../assets/v2.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

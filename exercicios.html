@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="inema-course" content="fep">
-    <script data-inema-antifouc>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
     (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
     </script>
-    <script type="application/json" data-inema-manifest>
+<script data-inema-manifest="" type="application/json">
 {
   "course": "fep",
   "tracks": [
@@ -175,170 +176,166 @@
   ]
 }
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercícios | FEP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="assets/learn.css">
-    <link rel="stylesheet" href="assets/v2.css">
-</head>
-<body class="font-['Inter'] bg-gray-50" data-inema-v2="2">
-  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
-  <nav class="inema-v2-nav" aria-label="Navegação principal">
-    <div class="inema-v2-nav__inner">
-      <div class="inema-v2-brand">
-        <a class="inema-v2-brand__home" href="index.html">🎓 FEP</a>
-        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
-        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
-      </div>
-      <div class="inema-v2-links" aria-label="Trilhas"><a href="nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="nivel-avancado.html" class="inema-v2-link"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="nivel-masterclass.html" class="inema-v2-link"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
-      <div class="inema-v2-actions">
-        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
-        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
-        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
-      </div>
-    </div>
-    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
-        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
-        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
-        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
-        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
-      </div></div>
-    </div>
-  </nav>
-    <nav class="sticky top-0 z-50 bg-white shadow-sm" data-v2-legacy-nav>
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <span class="text-2xl font-bold text-blue-600">FEP</span>
-                </a>
-                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar</a>
-            </div>
-        </div>
-    </nav>
-    <main class="container mx-auto px-4 py-12" id="conteudo">
-    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
-      <div><div class="inema-v2-page-tools__eyebrow">Curso FEP</div><div class="inema-v2-page-tools__title">Sua jornada de Engenharia de Prompt</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
-      <div class="inema-v2-meter" data-inema-meter="curso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Sua jornada de Engenharia de Prompt">
-      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
-      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
-    </div>
-    </aside>
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl p-8 text-white mb-12">
-                <div class="text-6xl mb-4">🎯</div>
-                <h1 class="text-4xl font-bold mb-4">Exercícios Práticos</h1>
-                <p class="text-lg">Pratique os conceitos aprendidos com exercícios hands-on e projetos reais</p>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-                <h2 class="text-2xl font-bold mb-4 text-gray-900">Como Usar os Exercícios</h2>
-                <ul class="space-y-3 text-gray-700">
-                    <li class="flex items-start">
-                        <span class="text-green-500 mr-3 text-xl">✓</span>
-                        <span>Leia o enunciado com atenção e entenda o objetivo</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-green-500 mr-3 text-xl">✓</span>
-                        <span>Tente resolver o exercício antes de ver a solução</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-green-500 mr-3 text-xl">✓</span>
-                        <span>Compare sua resposta com a solução proposta</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-green-500 mr-3 text-xl">✓</span>
-                        <span>Pratique variações do exercício para fixar o aprendizado</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-green-500 mr-3 text-xl">✓</span>
-                        <span>Teste diferentes abordagens e parâmetros</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="grid gap-6">
-                <div class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-all border-2 border-gray-200 hover:border-blue-400">
-                    <div class="flex items-center mb-4">
-                        <div class="text-4xl mr-4">📚</div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900">Exercícios Completos</h3>
-                            <p class="text-gray-600">Todos os módulos com soluções detalhadas</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 mb-6">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exercícios | FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="assets/learn.css" rel="stylesheet"/>
+<link href="assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/exercicios.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/exercicios.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/exercicios.html" hreflang="es" rel="alternate"/></head>
+<body class="font-['Inter'] bg-gray-50" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="exercicios.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="en/exercicios.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="es/exercicios.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+<nav aria-label="Navegação principal" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Trilhas" class="inema-v2-links"><a class="inema-v2-link" href="nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a class="inema-v2-link" href="nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Técnico</span></a><a class="inema-v2-link" href="nivel-avancado.html"><span class="short">T3</span><span class="full"> · Avançado</span></a><a class="inema-v2-link" href="nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Aparência</span></button>
+<button aria-label="Alternar tema" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Tema</span></button>
+</div>
+</div>
+<div aria-label="Preferências de aparência" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Escuro</button><button data-inema-set-theme="claro" type="button">Claro</button><button data-inema-set-theme="sepia" type="button">Sépia</button><button data-inema-set-theme="foco" type="button">Foco</button><button data-inema-set-theme="contraste" type="button">Contraste</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">Sistema</button><button data-inema-set-font="leitura" type="button">Leitura</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Estreita</button><button data-inema-set-linewidth="68" type="button">Média</button><button data-inema-set-linewidth="75" type="button">Larga</button><button data-inema-set-leading="1.45" type="button">Compacta</button><button data-inema-set-leading="1.7" type="button">Confortável</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Azul" data-inema-set-accent="blue" type="button"></button><button aria-label="Roxo" data-inema-set-accent="purple" type="button"></button><button aria-label="Âmbar" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Rosa" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<nav class="sticky top-0 z-50 bg-white shadow-sm" data-v2-legacy-nav="">
+<div class="container mx-auto px-4 py-4">
+<div class="flex justify-between items-center">
+<a class="flex items-center space-x-2" href="index.html">
+<span class="text-2xl font-bold text-blue-600">FEP</span>
+</a>
+<a class="text-blue-600 hover:text-blue-700" href="index.html">← Voltar</a>
+</div>
+</div>
+</nav>
+<main class="container mx-auto px-4 py-12" id="conteudo">
+<aside aria-label="Progresso desta página" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Curso FEP</div><div class="inema-v2-page-tools__title">Sua jornada de Engenharia de Prompt</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progresso: Sua jornada de Engenharia de Prompt" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="curso" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 de 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<div class="max-w-5xl mx-auto">
+<div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl p-8 text-white mb-12">
+<div class="text-6xl mb-4">🎯</div>
+<h1 class="text-4xl font-bold mb-4">Exercícios Práticos</h1>
+<p class="text-lg">Pratique os conceitos aprendidos com exercícios hands-on e projetos reais</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-8 mb-8">
+<h2 class="text-2xl font-bold mb-4 text-gray-900">Como Usar os Exercícios</h2>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<span class="text-green-500 mr-3 text-xl">✓</span>
+<span>Leia o enunciado com atenção e entenda o objetivo</span>
+</li>
+<li class="flex items-start">
+<span class="text-green-500 mr-3 text-xl">✓</span>
+<span>Tente resolver o exercício antes de ver a solução</span>
+</li>
+<li class="flex items-start">
+<span class="text-green-500 mr-3 text-xl">✓</span>
+<span>Compare sua resposta com a solução proposta</span>
+</li>
+<li class="flex items-start">
+<span class="text-green-500 mr-3 text-xl">✓</span>
+<span>Pratique variações do exercício para fixar o aprendizado</span>
+</li>
+<li class="flex items-start">
+<span class="text-green-500 mr-3 text-xl">✓</span>
+<span>Teste diferentes abordagens e parâmetros</span>
+</li>
+</ul>
+</div>
+<div class="grid gap-6">
+<div class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-all border-2 border-gray-200 hover:border-blue-400">
+<div class="flex items-center mb-4">
+<div class="text-4xl mr-4">📚</div>
+<div>
+<h3 class="text-2xl font-bold text-gray-900">Exercícios Completos</h3>
+<p class="text-gray-600">Todos os módulos com soluções detalhadas</p>
+</div>
+</div>
+<p class="text-gray-700 mb-6">
                         Coleção completa de exercícios práticos cobrindo todos os 8 módulos do curso,
                         desde fundamentos até agentes avançados. Inclui problemas, soluções explicadas,
                         projetos práticos e frameworks de avaliação.
                     </p>
-                    <div class="flex gap-3">
-                        <a href="docs/md/Exercícios Práticos e Projetos.md" class="flex-1 px-6 py-3 border-2 border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 text-center font-semibold transition-colors">
+<div class="flex gap-3">
+<a class="flex-1 px-6 py-3 border-2 border-blue-500 text-blue-600 rounded-lg hover:bg-blue-50 text-center font-semibold transition-colors" href="docs/md/Exercícios Práticos e Projetos.md">
                             📖 Ver Exercícios
                         </a>
-                        <a href="docs/pdf/Exercícios_Práticos_e_Projetos.pdf" class="flex-1 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-center font-semibold transition-colors">
+<a class="flex-1 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-center font-semibold transition-colors" href="docs/pdf/Exercícios_Práticos_e_Projetos.pdf">
                             📄 Download PDF
                         </a>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                    <div class="bg-emerald-50 rounded-lg p-6 border-2 border-emerald-200">
-                        <div class="text-3xl mb-2">🌟</div>
-                        <h4 class="font-bold text-gray-900 mb-2">Nível Iniciante</h4>
-                        <p class="text-sm text-gray-600">Exercícios básicos de fundamentos e técnicas simples</p>
-                    </div>
-                    <div class="bg-blue-50 rounded-lg p-6 border-2 border-blue-200">
-                        <div class="text-3xl mb-2">⚡</div>
-                        <h4 class="font-bold text-gray-900 mb-2">Nível Técnico</h4>
-                        <p class="text-sm text-gray-600">Casos práticos profissionais e implementação RAG</p>
-                    </div>
-                    <div class="bg-purple-50 rounded-lg p-6 border-2 border-purple-200">
-                        <div class="text-3xl mb-2">👑</div>
-                        <h4 class="font-bold text-gray-900 mb-2">Masterclass</h4>
-                        <p class="text-sm text-gray-600">Projetos complexos de agentes e sistemas</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12 bg-blue-50 rounded-lg p-8 border-2 border-blue-200">
-                <h3 class="text-2xl font-bold mb-4 text-gray-900">💡 Dicas para Máximo Aprendizado</h3>
-                <div class="grid md:grid-cols-2 gap-4 text-gray-700">
-                    <div>
-                        <h4 class="font-semibold mb-2">Pratique Regularmente</h4>
-                        <p class="text-sm">Reserve tempo diário para praticar exercícios</p>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold mb-2">Experimente Variações</h4>
-                        <p class="text-sm">Teste diferentes approaches para o mesmo problema</p>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold mb-2">Documente Suas Soluções</h4>
-                        <p class="text-sm">Mantenha um registro do que funcionou e por quê</p>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold mb-2">Compartilhe e Discuta</h4>
-                        <p class="text-sm">Troque ideias com outros estudantes</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer class="bg-gray-900 text-white py-8 mt-16">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 FEP - Engenharia de Prompt</p>
-        </div>
-    </footer>
-    <script src="script.js"></script>
-  <script src="assets/v2.js"></script>
-  <script src="assets/learn.js"></script>
-  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+<div class="bg-emerald-50 rounded-lg p-6 border-2 border-emerald-200">
+<div class="text-3xl mb-2">🌟</div>
+<h4 class="font-bold text-gray-900 mb-2">Nível Iniciante</h4>
+<p class="text-sm text-gray-600">Exercícios básicos de fundamentos e técnicas simples</p>
+</div>
+<div class="bg-blue-50 rounded-lg p-6 border-2 border-blue-200">
+<div class="text-3xl mb-2">⚡</div>
+<h4 class="font-bold text-gray-900 mb-2">Nível Técnico</h4>
+<p class="text-sm text-gray-600">Casos práticos profissionais e implementação RAG</p>
+</div>
+<div class="bg-purple-50 rounded-lg p-6 border-2 border-purple-200">
+<div class="text-3xl mb-2">👑</div>
+<h4 class="font-bold text-gray-900 mb-2">Masterclass</h4>
+<p class="text-sm text-gray-600">Projetos complexos de agentes e sistemas</p>
+</div>
+</div>
+</div>
+<div class="mt-12 bg-blue-50 rounded-lg p-8 border-2 border-blue-200">
+<h3 class="text-2xl font-bold mb-4 text-gray-900">💡 Dicas para Máximo Aprendizado</h3>
+<div class="grid md:grid-cols-2 gap-4 text-gray-700">
+<div>
+<h4 class="font-semibold mb-2">Pratique Regularmente</h4>
+<p class="text-sm">Reserve tempo diário para praticar exercícios</p>
+</div>
+<div>
+<h4 class="font-semibold mb-2">Experimente Variações</h4>
+<p class="text-sm">Teste diferentes approaches para o mesmo problema</p>
+</div>
+<div>
+<h4 class="font-semibold mb-2">Documente Suas Soluções</h4>
+<p class="text-sm">Mantenha um registro do que funcionou e por quê</p>
+</div>
+<div>
+<h4 class="font-semibold mb-2">Compartilhe e Discuta</h4>
+<p class="text-sm">Troque ideias com outros estudantes</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-gray-900 text-white py-8 mt-16">
+<div class="container mx-auto px-4 text-center">
+<p>© 2025 FEP - Engenharia de Prompt</p>
+</div>
+</footer>
+<script src="script.js"></script>
+<script src="assets/v2.js"></script>
+<script src="assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+<script data-inema-manifest="" type="application/json">
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+<title>Beginner Level | FEP - Prompt Engineering</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FACC15',
+              dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+            },
+            fontFamily: {
+              'inter': ['Inter', 'system-ui', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        * { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal-content { background-color: white; margin: auto; width: 90%; max-width: 900px; max-height: 90vh; border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 25px rgba(0,0,0,0.3); }
+        .dark .modal-content { background-color: #1f2937; }
+        .modal-header { padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; }
+        .dark .modal-header { border-bottom-color: #374151; }
+        .modal-body { padding: 1.5rem; overflow-y: auto; max-height: calc(90vh - 60px); }
+        .close-modal { color: #9ca3af; font-size: 1.75rem; font-weight: 700; cursor: pointer; line-height: 1; }
+        .close-modal:hover { color: #ef4444; }
+
+        /* Topic Item Compacto */
+        .topic-item { border-bottom: 1px solid #e5e7eb; }
+        .dark .topic-item { border-bottom-color: #374151; }
+        .topic-item:last-child { border-bottom: none; }
+        .topic-button { display: flex; align-items: center; gap: 0.5rem; width: 100%; text-align: left; padding: 0.5rem 0.75rem; border-radius: 0.375rem; transition: all 0.2s; font-weight: 500; }
+        .topic-button:hover { background-color: #f5f5f5; }
+        .dark .topic-button:hover { background-color: #374151; }
+
+        /* Topic Explanation */
+        .topic-explanation { padding: 0.75rem; margin: 0.25rem 0 0.5rem 0; background: #ecfdf5; border-radius: 0.5rem; border-left: 3px solid #10b981; }
+        .dark .topic-explanation { background: #064e3b; }
+
+        /* Module Card */
+        .module-card { transition: all 0.3s ease; }
+        .module-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+        /* Theme Toggle */
+        .theme-toggle { position: fixed; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 50; }
+
+        /* INEMA Light Mode Overrides - Base */
+        html:not(.dark) body { background-color: #f8fafc; }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+        /* INEMA Light Mode - Trilha accent (emerald) */
+        html:not(.dark) .text-emerald-400 { color: #059669; }
+        html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+        html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+        html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+        html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5, 150, 105, 0.18); }
+
+        /* INEMA Light Mode - Remove gradients */
+        html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+        /* INEMA Light Mode - Special colors */
+        html:not(.dark) .text-primary { color: #a16207; }
+        html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+        html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+        html:not(.dark) .text-sky-400 { color: #0369a1; }
+        html:not(.dark) .text-yellow-400 { color: #a16207; }
+        html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+        html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+        /* INEMA Light Mode - Nav */
+        html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    </style>
+<link href="../assets/learn.css" rel="stylesheet"/>
+<link href="../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/nivel-iniciante.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/nivel-iniciante.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/nivel-iniciante.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen transition-colors" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../nivel-iniciante.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="nivel-iniciante.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../es/nivel-iniciante.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="inema-skip" href="#conteudo">Skip to content</a>
+<nav aria-label="Main navigation" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Paths" class="inema-v2-links"><a aria-current="page" class="inema-v2-link" href="nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Beginner</span></a><a class="inema-v2-link" href="nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Technical</span></a><a class="inema-v2-link" href="nivel-avancado.html"><span class="short">T3</span><span class="full"> · Advanced</span></a><a class="inema-v2-link" href="nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">My journey</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Appearance</span></button>
+<button aria-label="Toggle theme" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Theme</span></button>
+</div>
+</div>
+<div aria-label="Appearance Preferences" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Theme</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Dark</button><button data-inema-set-theme="claro" type="button">Clear</button><button data-inema-set-theme="sepia" type="button">Sepia</button><button data-inema-set-theme="foco" type="button">Focus</button><button data-inema-set-theme="contraste" type="button">Contrast</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Source and size</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">System</button><button data-inema-set-font="leitura" type="button">Reading</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Reading</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Narrow</button><button data-inema-set-linewidth="68" type="button">Medium</button><button data-inema-set-linewidth="75" type="button">Broad</button><button data-inema-set-leading="1.45" type="button">Compact</button><button data-inema-set-leading="1.7" type="button">Comfortable</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Accent</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Blue" data-inema-set-accent="blue" type="button"></button><button aria-label="Purple" data-inema-set-accent="purple" type="button"></button><button aria-label="Amber" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Pink" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<!-- Theme Toggle -->
+<button class="theme-toggle bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-700" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20">
+<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+</svg>
+<svg class="hidden w-5 h-5 text-yellow-400" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<!-- Header -->
+<header class="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 sticky top-0 z-40" data-v2-legacy-nav="">
+<div class="max-w-4xl mx-auto px-4 py-3">
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 font-semibold transition-colors" href="index.html">
+<span>←</span>
+<span class="text-lg">FEP</span>
+<span class="text-neutral-400">|</span>
+<span class="text-neutral-600 dark:text-neutral-400 text-sm">Prompt Engineering</span>
+</a>
+<span class="text-neutral-600 mx-2">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-4xl mx-auto px-4 py-6" data-inema-track="1" id="conteudo">
+<aside aria-label="This page's progress" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Path 1</div><div class="inema-v2-page-tools__title">Beginner</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progress: Beginner" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="trilha:1" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 of 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<!-- Hero Section -->
+<section class="text-center mb-6">
+<div class="text-4xl mb-2">🌟</div>
+<h1 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">Beginner Level</h1>
+<p class="text-sm text-neutral-600 dark:text-neutral-400 mb-3">Your first steps in Prompt Engineering</p>
+<div class="flex justify-center gap-2 flex-wrap">
+<span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-xs font-semibold">⏱️ 12-15h</span>
+<span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-xs font-semibold">📚 5 Modules</span>
+<span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-xs font-semibold">🎯 30+ Topics</span>
+</div>
+</section>
+<!-- Módulo 1 -->
+<section aria-labelledby="mapa-trilha-1" class="inema-v2-map"><div class="inema-v2-hero-svg"><svg aria-label="Beginner track visual map: foundations progress through modules toward applied practice" font-family="Inter,sans-serif" role="img" viewbox="0 0 1000 220">
+<defs><lineargradient id="t1-grad" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#34d399"></stop><stop offset="1" stop-color="#38bdf8"></stop></lineargradient><filter height="160%" id="t1-glow" width="160%" x="-30%" y="-30%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><pattern height="32" id="t1-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#34d399" opacity=".12" r="1.3"></circle></pattern></defs>
+<rect fill="url(#t1-grid)" height="220" rx="16" width="1000"></rect><path d="M135 110 H865" opacity=".55" stroke="#34d399" stroke-dasharray="9 9" stroke-width="1.8"></path>
+<g><rect fill="#111827" height="76" rx="14" stroke="#34d399" stroke-width="2" width="116" x="22" y="72"></rect><text fill="#34d399" font-size="15" font-weight="600" text-anchor="middle" x="80" y="104">1-1</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="80" y="127">Module 1</text></g><g><rect fill="#111827" height="76" rx="14" stroke="#34d399" stroke-width="2" width="116" x="232" y="72"></rect><text fill="#34d399" font-size="15" font-weight="600" text-anchor="middle" x="290" y="104">1-2</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="290" y="127">Module 2</text></g><g><rect fill="#111827" height="76" rx="14" stroke="#34d399" stroke-width="2" width="116" x="442" y="72"></rect><text fill="#34d399" font-size="15" font-weight="600" text-anchor="middle" x="500" y="104">1-3</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="500" y="127">Module 3</text></g><g><rect fill="#111827" height="76" rx="14" stroke="#34d399" stroke-width="2" width="116" x="652" y="72"></rect><text fill="#34d399" font-size="15" font-weight="600" text-anchor="middle" x="710" y="104">1-4</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="710" y="127">Module 4</text></g><g filter="url(#t1-glow)"><rect fill="#111827" height="76" rx="14" stroke="url(#t1-grad)" stroke-width="2" width="116" x="862" y="72"></rect><text fill="#34d399" font-size="15" font-weight="600" text-anchor="middle" x="920" y="104">1-5</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="920" y="127">Module 5</text></g>
+</svg></div><h2 id="mapa-trilha-1">Course Map</h2><div class="inema-v2-map__grid"><a class="inema-v2-map__card" href="#modulo-1-1"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">1-1</span><span>~30 min</span></div><div class="inema-v2-map__title">🎯 Foundations of AI and LLMs</div><div class="inema-v2-map__sub">Understand the basics</div></a><a class="inema-v2-map__card" href="#modulo-1-2"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">1-2</span><span>~35 min</span></div><div class="inema-v2-map__title">🧠 Fundamental Techniques</div><div class="inema-v2-map__sub">Practice with a Method</div></a><a class="inema-v2-map__card" href="#modulo-1-3"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">1-3</span><span>~40 min</span></div><div class="inema-v2-map__title">⚙️ Practical Applications</div><div class="inema-v2-map__sub">Connect the steps</div></a><a class="inema-v2-map__card" href="#modulo-1-4"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">1-4</span><span>~45 min</span></div><div class="inema-v2-map__title">🧩 Output Formatting</div><div class="inema-v2-map__sub">Control the Outcome</div></a><a class="inema-v2-map__card" href="#modulo-1-5"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">1-5</span><span>~50 min</span></div><div class="inema-v2-map__title">🔎 Best Practices</div><div class="inema-v2-map__sub">Validate rigorously</div></a></div></section><h2 class="text-2xl font-bold mb-6">Detailed content</h2>
+<section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4" data-inema-module="1-1" data-inema-track="1" id="modulo-1-1">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="text-xl">🧠</span>
+<h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Module 1: AI and LLM Fundamentals</h2>
+</div>
+<span class="px-2 py-0.5 bg-emerald-500 text-white text-xs font-semibold rounded-full">Foundation</span>
+</div>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-1" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🤖 LLM Basics and How They Work
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-1">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Large Language Models are neural networks trained on billions of texts to understand and generate language.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Understanding how the model "thinks" lets you create effective prompts.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Token prediction, attention, temperature, hallucinations.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('llm-basics')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo1-llm-basics.html">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../conteudo/modulo1-llm-basics.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-2" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🔤 Tokens and Context Window
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-2">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Tokens are pieces of text that the model processes. The context window is the total limit.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Knowing how to count tokens helps you optimize prompts and avoid truncation.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> ~4 characters = 1 token, context windows from 4K to 200K+, cost per token.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('tokens')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo1-tokens.html">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../conteudo/modulo1-tokens.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-3" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📐 Prompt Anatomy
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-3">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Ideal structure: context/role, instructions, input data, output format.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Well-structured prompts produce more consistent responses.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> System vs. user, delimiters, examples, constraints.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('anatomia')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo1-anatomia.html">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../conteudo/modulo1-anatomia.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-4" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ✨ Clarity and Specificity
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-4">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Be specific and direct, eliminating ambiguity.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> The clearer your request, the better the response.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Avoid vague pronouns, specify the format, define the length.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('clareza')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo1-clareza.html">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../conteudo/modulo1-clareza.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+</ul>
+<div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+<button class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModuleModal(1)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo1-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/🌟_Curso_Iniciante_Completo_Fundamentos_de_Engenharia_de_Prompt.pdf">⬇️ PDF</a>
+</div>
+</section>
+<!-- Módulo 2 -->
+<section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4" data-inema-module="1-2" data-inema-track="1" id="modulo-1-2">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="text-xl">🎯</span>
+<h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Module 2: Core Techniques</h2>
+</div>
+<span class="px-2 py-0.5 bg-blue-500 text-white text-xs font-semibold rounded-full">Technique</span>
+</div>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-5" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎯 Zero-Shot Prompting
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-5">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Ask the model to perform a task without providing examples—just clear instructions.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> The simplest and fastest technique. Works for familiar tasks.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Direct instructions on when to use and when to avoid.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('zero-shot')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo2-zero-shot.html">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../conteudo/modulo2-zero-shot.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-6" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📚 Few-Shot Prompting
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-6">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Provide 2-5 examples before asking for the response. The model learns the pattern.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Dramatically improves quality for specific tasks.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Representative examples, consistency, ideal quantity (3–5).</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('few-shot')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo2-few-shot.html">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../conteudo/modulo2-few-shot.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-7" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🧠 Chain of Thought (CoT)
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-7">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Ask the model to "think aloud," showing each step of its reasoning.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Dramatically improves responses in logic, math, and decision-making.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> "Think step by step," reasoning validation.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('cot')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo2-cot.html">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../conteudo/modulo2-cot.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-8" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🎭 Role Prompting and Personas
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-8">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Give the model a role: "You are an expert in...".</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Automatically adjusts tone, vocabulary, and technical depth.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Defining expertise, tone of voice, and role limitations.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('role')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo2-role.html">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../conteudo/modulo2-role.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-9" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ✍️ Text Humanization
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-9">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Techniques for making text sound human-written.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Increases authenticity and engagement. Avoids an “AI tone.”</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Contractions, personal opinions, structural variation.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('humanizacao')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo2-humanizacao.html">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../conteudo/modulo2-humanizacao.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+</ul>
+<div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+<button class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModuleModal(2)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo2-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/✨_Jornada_Iniciante_Seus_Primeiros_Passos_na_Engenharia_de_Prompt.pdf">⬇️ PDF</a>
+</div>
+</section>
+<!-- Módulo 3 -->
+<section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4" data-inema-module="1-3" data-inema-track="1" id="modulo-1-3">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="text-xl">💼</span>
+<h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Module 3: Practical Applications</h2>
+</div>
+<span class="px-2 py-0.5 bg-purple-500 text-white text-xs font-semibold rounded-full">Practical</span>
+</div>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-10" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ✍️ AI Writing and Composition
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-10">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Use AI to create drafts, check grammar, and adjust tone.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Speeds up content production by 5–10x while maintaining quality.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Tone of voice, target audience, iterative review.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('escrita')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo3-completo.html#escrita">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-11" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📧 Perfect Professional Emails
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-11">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Prompts for emails: follow-ups, negotiations, requests.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Email is 40% of the work. The right prompts save hours.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> BLUF structure, formal/informal tone, call to action.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('emails')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo3-completo.html#emails">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-12" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📋 Content Summary and Synthesis
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-12">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Summarize documents, articles, and meetings. Extract key points.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Processing information is the bottleneck of the 21st century.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Summary levels (executive, detailed), insight extraction.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('resumo')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo3-completo.html#resumo">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-13" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        💡 Brainstorming and Idea Generation
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-13">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Use AI as a brainstorming partner: generate ideas and explore angles.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> AI doesn't have creative block. An infinite idea generator.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Divergence/convergence, SCAMPER, "what if...".</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('brainstorm')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo3-completo.html#brainstorm">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+</ul>
+<div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+<button class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModuleModal(3)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo3-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/🌟_Curso_Iniciante_Completo_Fundamentos_de_Engenharia_de_Prompt.pdf">⬇️ PDF</a>
+</div>
+</section>
+<!-- Módulo 4 -->
+<section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4" data-inema-module="1-4" data-inema-track="1" id="modulo-1-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="text-xl">📝</span>
+<h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Module 4: Output Formatting</h2>
+</div>
+<span class="px-2 py-0.5 bg-orange-500 text-white text-xs font-semibold rounded-full">Structure</span>
+</div>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-14" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📄 Markdown and Rich Formatting
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-14">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Instructions for AI to format with headings, bullets, tables, and code.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Well-formatted answers are easier to read and use.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Headers (#), lists (-), tables (|), code (```).</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('markdown')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo4-completo.html#markdown">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-15" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📊 Tables and Comparisons
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-15">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Ask for responses in a table to compare options.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Tables make decisions easier. Side-by-side visualization is powerful.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Relevant columns, sorting, CSV/Markdown format.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('tabelas')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo4-completo.html#tabelas">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-16" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        📋 Reusable Templates
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-16">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Use AI to create templates: emails, reports, proposals.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Templates save time. Create once, use infinitely.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> [FIELD] placeholders, variations, personalization.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('templates')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo4-completo.html#templates">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+</ul>
+<div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+<button class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModuleModal(4)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo4-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/🌟_Curso_Iniciante_Completo_Fundamentos_de_Engenharia_de_Prompt.pdf">⬇️ PDF</a>
+</div>
+</section>
+<!-- Módulo 5 -->
+<section class="module-card bg-white dark:bg-neutral-800 rounded-xl shadow-md p-4 mb-4" data-inema-module="1-5" data-inema-track="1" id="modulo-1-5">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="text-xl">⚡</span>
+<h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">Module 5: Best Practices</h2>
+</div>
+<span class="px-2 py-0.5 bg-red-500 text-white text-xs font-semibold rounded-full">Essential</span>
+</div>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-17" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        ❌ 10 Common Beginner Mistakes
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-17">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> List of the most frequent errors: vague prompts, no context, too long.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Learning from other people’s mistakes accelerates your learning curve.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Ambiguity, lack of examples, failure to iterate.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('erros')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo5-completo.html#erros">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-18" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🚧 AI Limitations
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-18">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> Know the limits: hallucinations, cutoff date, mathematical reasoning.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Realistic expectations prevent frustration.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> Hallucinations, bias, fact-checking.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('limitacoes')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo5-completo.html#limitacoes">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+<li class="topic-item">
+<button aria-controls="painel-trilha-1-19" aria-expanded="false" class="topic-button text-neutral-800 dark:text-neutral-200" onclick="toggleTopic(this)">
+                        🏆 Expert Tips
+                        <span class="ml-auto text-neutral-400 text-xs">▼</span>
+</button>
+<div class="topic-explanation hidden" id="painel-trilha-1-19">
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">What it is:</strong> A compilation of tips from experienced prompt engineers.</p>
+<p class="text-xs mb-1 text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Why:</strong> Years of experience in immediately actionable tips.</p>
+<p class="text-xs text-neutral-700 dark:text-neutral-300"><strong class="text-emerald-600 dark:text-emerald-400">Concepts:</strong> "Take a deep breath," ideal temperature, when to restart.</p>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModal('dicas')">📖 Modal</button>
+<a class="px-3 py-1 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo5-completo.html#dicas">View Full</a>
+<a class="px-3 py-1 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/🌟 Curso Iniciante Completo_ Fundamentos de Engenharia de Prompt.md">⬇️ MD</a>
+</div>
+</div>
+</li>
+</ul>
+<div class="mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700 flex gap-2">
+<button class="px-3 py-1.5 bg-emerald-500 text-white text-xs rounded font-semibold hover:bg-emerald-600" onclick="openModuleModal(5)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/iniciante/modulo5-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/🌟_Curso_Iniciante_Completo_Fundamentos_de_Engenharia_de_Prompt.pdf">⬇️ PDF</a>
+</div>
+</section>
+<!-- Next Level CTA -->
+<section class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-5 text-center text-white mt-6">
+<h3 class="text-lg font-bold mb-2">🚀 Ready for the Next Level?</h3>
+<p class="text-blue-100 text-sm mb-3">Continue your journey with advanced techniques and professional applications.</p>
+<a class="inline-block bg-white text-blue-600 font-semibold py-2 px-6 rounded-lg hover:bg-neutral-100 transition-colors text-sm" href="nivel-tecnico.html">
+                Go to Technical Level ⚡
+            </a>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-neutral-900 text-neutral-400 py-4 mt-8">
+<div class="max-w-4xl mx-auto px-4 text-center text-xs">
+<p>© 2025 FEP - Prompt Engineering Fundamentals</p>
+</div>
+</footer>
+<!-- Modal de Tópico -->
+<div class="modal" id="topicoModal">
+<div class="modal-content">
+<div class="modal-header bg-gradient-to-r from-emerald-500 to-emerald-600 text-white">
+<div class="flex items-center gap-2">
+<span class="text-2xl" id="modalIcon">📖</span>
+<div>
+<h2 class="text-lg font-bold" id="modalTitulo">Title</h2>
+<p class="text-emerald-100 text-xs" id="modalSubtitulo">Beginner • Module 1</p>
+</div>
+</div>
+<span class="close-modal">×</span>
+</div>
+<div class="modal-body" id="modalBody">
+<!-- Conteúdo dinâmico -->
+</div>
+</div>
+</div>
+<!-- Scripts -->
+<script src="topicos-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (document.documentElement.classList.contains('dark')) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Toggle Topic
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const arrow = button.querySelector('span:last-child');
+
+            // Close others in same module
+            const moduleCard = button.closest('.module-card');
+            moduleCard.querySelectorAll('.topic-explanation').forEach(exp => {
+                if (exp !== explanation) {
+                    exp.classList.add('hidden');
+                    exp.closest('.topic-item').querySelector('.topic-button span:last-child').textContent = '▼';
+                }
+            });
+
+            explanation.classList.toggle('hidden');
+            arrow.textContent = explanation.classList.contains('hidden') ? '▼' : '▲';
+        }
+
+        // Open Topic Modal
+        function openModal(topicoId) {
+            const topico = window.topicosData ? window.topicosData[topicoId] : null;
+
+            document.getElementById('modalIcon').textContent = topico?.icon || '📖';
+            document.getElementById('modalTitulo').textContent = topico?.titulo || topicoId;
+            document.getElementById('modalSubtitulo').textContent = `${topico?.nivel || 'Iniciante'} • Módulo ${topico?.modulo || 1}`;
+
+            let bodyHTML = '';
+
+            // Intro
+            if (topico?.introducao) {
+                bodyHTML += `<div class="bg-emerald-50 dark:bg-emerald-900/20 p-3 rounded-lg border-l-4 border-emerald-500 mb-4">
+                    <p class="text-sm text-neutral-700 dark:text-neutral-300">${topico.introducao}</p>
+                </div>`;
+            }
+
+            // Conteúdo completo
+            if (topico?.conteudoCompleto) {
+                bodyHTML += `<div class="prose prose-sm dark:prose-invert max-w-none mb-4">${marked.parse(topico.conteudoCompleto)}</div>`;
+            }
+
+            // Dicas
+            if (topico?.dicasPraticas?.length) {
+                bodyHTML += `<div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border-l-4 border-blue-400 mb-4">
+                    <p class="font-bold text-blue-900 dark:text-blue-300 text-sm mb-2">💡 Dicas Práticas</p>
+                    <ul class="space-y-1 text-xs text-neutral-700 dark:text-neutral-300">
+                        ${topico.dicasPraticas.map(d => `<li>${d}</li>`).join('')}
+                    </ul>
+                </div>`;
+            }
+
+            // Erros comuns
+            if (topico?.errosComuns?.length) {
+                bodyHTML += `<div class="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg border-l-4 border-red-400 mb-4">
+                    <p class="font-bold text-red-900 dark:text-red-300 text-sm mb-2">⚠️ Erros Comuns</p>
+                    <ul class="space-y-1 text-xs text-neutral-700 dark:text-neutral-300">
+                        ${topico.errosComuns.map(e => `<li>❌ ${e.erro || e}</li>`).join('')}
+                    </ul>
+                </div>`;
+            }
+
+            // CTA
+            bodyHTML += `<div class="bg-gradient-to-r from-emerald-600 to-blue-600 text-white rounded-lg p-4 text-center mt-4">
+                <p class="text-sm font-semibold mb-2">🎯 Próximo Passo</p>
+                <p class="text-xs text-emerald-100">Pratique com os exemplos acima e experimente variações!</p>
+            </div>`;
+
+            document.getElementById('modalBody').innerHTML = bodyHTML;
+            document.getElementById('topicoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Open Module Modal
+        function openModuleModal(modulo) {
+            const modulos = {
+                1: { icon: '🧠', titulo: 'Módulo 1: Fundamentos de IA e LLMs', desc: 'Entenda como funcionam os modelos de linguagem.' },
+                2: { icon: '🎯', titulo: 'Módulo 2: Técnicas Fundamentais', desc: 'Domine as técnicas essenciais de prompting.' },
+                3: { icon: '💼', titulo: 'Módulo 3: Aplicações Práticas', desc: 'Use IA para tarefas reais do dia a dia.' },
+                4: { icon: '📝', titulo: 'Módulo 4: Formatação de Outputs', desc: 'Controle como a IA formata respostas.' },
+                5: { icon: '⚡', titulo: 'Módulo 5: Melhores Práticas', desc: 'Evite erros e acelere seu aprendizado.' }
+            };
+
+            const m = modulos[modulo];
+            document.getElementById('modalIcon').textContent = m.icon;
+            document.getElementById('modalTitulo').textContent = m.titulo;
+            document.getElementById('modalSubtitulo').textContent = 'Nível Iniciante';
+
+            document.getElementById('modalBody').innerHTML = `
+                <div class="mb-4">
+                    <p class="text-sm text-neutral-700 dark:text-neutral-300 mb-3">${m.desc}</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full text-xs font-semibold">⏱️ 2-3 horas</span>
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-xs font-semibold">📚 4-6 tópicos</span>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg p-4 mb-4 border border-indigo-200 dark:border-indigo-800">
+                    <div class="flex items-center mb-3">
+                        <span class="text-2xl mr-2">📌</span>
+                        <h3 class="text-base font-bold text-indigo-900 dark:text-indigo-300">O que você vai aprender</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+                        <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Conceitos fundamentais e aplicação prática</li>
+                        <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Técnicas comprovadas por especialistas</li>
+                        <li class="flex items-start"><span class="text-emerald-500 mr-2">✓</span> Exercícios práticos para fixação</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-r from-emerald-600 to-blue-600 text-white rounded-lg p-4 text-center">
+                    <p class="text-sm font-semibold mb-2">🚀 Comece Agora</p>
+                    <p class="text-xs text-emerald-100 mb-3">Clique nos tópicos para expandir e aprender!</p>
+                </div>
+            `;
+
+            document.getElementById('topicoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            if (e.target.classList.contains('close-modal')) {
+                e.target.closest('.modal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+    </script>
+<script src="../assets/v2.js"></script>
+<script src="assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+</body>
+</html>

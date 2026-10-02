@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+<script data-inema-manifest="" type="application/json">
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+<script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 2: Diseño de contexto a escala | Masterclass FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FACC15',
+              dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+            },
+            fontFamily: {
+              'inter': ['Inter', 'system-ui', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        html.dark body { background-color: #0a0a0a; }
+        .gold-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%); }
+
+        /* INEMA Light Mode Overrides - Base */
+        html:not(.dark) body { background-color: #f8fafc; }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+        /* INEMA Light Mode - Trilha accent (amber) */
+        html:not(.dark) .text-amber-400 { color: #92400e; }
+        html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+        html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+        html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+        html:not(.dark) .hover\:bg-amber-500\/30:hover { background-color: rgba(217, 119, 6, 0.18); }
+
+        /* INEMA Light Mode - Remove gradients */
+        html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+        /* INEMA Light Mode - Special colors */
+        html:not(.dark) .text-primary { color: #a16207; }
+        html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+        html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+        html:not(.dark) .text-sky-400 { color: #0369a1; }
+        html:not(.dark) .text-yellow-400 { color: #a16207; }
+        html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+        html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+        /* INEMA Light Mode - Nav */
+        html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    </style>
+<link href="../../../assets/learn.css" rel="stylesheet"/>
+<link href="../../../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/conteudo/masterclass/modulo2-completo.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/conteudo/masterclass/modulo2-completo.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/conteudo/masterclass/modulo2-completo.html" hreflang="es" rel="alternate"/></head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../conteudo/masterclass/modulo2-completo.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/conteudo/masterclass/modulo2-completo.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo2-completo.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="inema-skip" href="#conteudo">Ir al contenido</a>
+<nav aria-label="Navegación principal" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Rutas" class="inema-v2-links"><a class="inema-v2-link" href="../../nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Principiante</span></a><a class="inema-v2-link" href="../../nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Técnico</span></a><a class="inema-v2-link" href="../../nivel-avancado.html"><span class="short">T3</span><span class="full"> · Avanzado</span></a><a aria-current="page" class="inema-v2-link" href="../../nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">Mi recorrido</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Apariencia</span></button>
+<button aria-label="Cambiar tema" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Tema</span></button>
+</div>
+</div>
+<div aria-label="Preferencias de apariencia" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Oscuro</button><button data-inema-set-theme="claro" type="button">Claro</button><button data-inema-set-theme="sepia" type="button">Sepia</button><button data-inema-set-theme="foco" type="button">Enfoque</button><button data-inema-set-theme="contraste" type="button">Contraste</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fuente y tamaño</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">Sistema</button><button data-inema-set-font="leitura" type="button">Lectura</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Lectura</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Estrecha</button><button data-inema-set-linewidth="68" type="button">Media</button><button data-inema-set-linewidth="75" type="button">Amplia</button><button data-inema-set-leading="1.45" type="button">Compacta</button><button data-inema-set-leading="1.7" type="button">Cómodo</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Azul" data-inema-set-accent="blue" type="button"></button><button aria-label="Morado" data-inema-set-accent="purple" type="button"></button><button aria-label="Ámbar" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Rosa" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700" data-v2-legacy-nav="">
+<div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors" href="../../nivel-masterclass.html">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-sm font-medium">Volver a la Masterclass</span>
+</a>
+<span class="text-neutral-600 mx-2">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<button class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700" onclick="toggleTheme()">
+<svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewbox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+<svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+</button>
+</div>
+</header>
+<section class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-orange-900/30 to-neutral-800 dark:from-orange-900/20 dark:to-neutral-900"></div>
+<div class="relative max-w-4xl mx-auto px-4 py-16">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-3 py-1 text-xs font-semibold bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full">MÓDULO 2</span>
+<span class="px-3 py-1 text-xs font-semibold bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30">DECISIÓN</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Diseño de contexto a escala</h1>
+<p class="text-lg text-neutral-300 max-w-2xl">
+                Aquí es <strong>decisión estratégica</strong>, no para uso operativo.
+                Aprende cuándo NO usar contexto.
+            </p>
+</div>
+</section>
+<nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+<div class="max-w-4xl mx-auto px-4">
+<div class="flex gap-1 overflow-x-auto py-2">
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-orange-600 whitespace-nowrap rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/20" href="#estrategias-escala">Estrategias</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-orange-600 whitespace-nowrap rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/20" href="#decisao-long-rag">Long vs RAG</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-orange-600 whitespace-nowrap rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/20" href="#custos">Costos</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-orange-600 whitespace-nowrap rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/20" href="#governanca">Gobernanza</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-orange-600 whitespace-nowrap rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/20" href="#persistencia">Persistencia</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-orange-600 whitespace-nowrap rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/20" href="#falhas-sistemicas">Fallos</a>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-8" data-inema-module="4-2" data-inema-track="4" id="conteudo">
+<aside aria-label="Progreso de esta página" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Ruta 4 · Módulo 2</div><div class="inema-v2-page-tools__title">Contexto a escala</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progreso: Contexto a escala" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="modulo:4-2" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 de 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<nav aria-label="Índice del módulo" class="sr-only" data-inema-toc=""><a href="#topico-1">Tema 1</a><a href="#topico-2">Tema 2</a><a href="#topico-3">Tema 3</a><a href="#topico-4">Tema 4</a><a href="#topico-5">Tema 5</a><a href="#topico-6">Tema 6</a></nav>
+<!-- Seção 1 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="estrategias-escala"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-2#topico-1" id="topico-1"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-orange-50 to-transparent dark:from-orange-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+<span class="text-white font-bold">1</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Estrategias de contexto a gran escala</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-2-t1-p1">Decisiones arquitectónicas</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl p-5">
+<h3 class="font-semibold text-orange-900 dark:text-orange-300 mb-3">El Desafío de la Escala</h3>
+<p class="text-orange-800 dark:text-orange-200 text-sm" data-inema-block="m4-2-t1-p2">
+                            En sistemas de producción con miles de usuarios, cada decisión sobre el contexto impacta
+                            <strong>costo, latencia y calidad</strong>. El arquitecto define políticas, no prompts.
+                        </p>
+</div>
+<div class="grid md:grid-cols-3 gap-4">
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4 text-center">
+<div class="text-3xl mb-2">💰</div>
+<div class="font-semibold text-neutral-900 dark:text-white">Costo por token</div>
+<p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1" data-inema-block="m4-2-t1-p3">100K tokens/req = $$$$</p>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4 text-center">
+<div class="text-3xl mb-2">⏱️</div>
+<div class="font-semibold text-neutral-900 dark:text-white">Latencia</div>
+<p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1" data-inema-block="m4-2-t1-p4">Más contexto = más lento</p>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-4 text-center">
+<div class="text-3xl mb-2">🎯</div>
+<div class="font-semibold text-neutral-900 dark:text-white">Relevancia</div>
+<p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1">Más ≠ mejor</p>
+</div>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Estrategias de asignación</h3>
+<div class="space-y-3">
+<div class="flex items-start gap-3 p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<span class="font-bold text-orange-600 dark:text-orange-400">1</span>
+<div>
+<div class="font-medium text-neutral-900 dark:text-white">Asignación estática</div>
+<p class="text-sm text-neutral-600 dark:text-neutral-400">Contexto fijo por tipo de solicitud. Predecible, pero inflexible.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<span class="font-bold text-orange-600 dark:text-orange-400">2</span>
+<div>
+<div class="font-medium text-neutral-900 dark:text-white">Dynamic Allocation</div>
+<p class="text-sm text-neutral-600 dark:text-neutral-400">Contexto basado en la complejidad de la consulta. Eficiente, pero complejo.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<span class="font-bold text-orange-600 dark:text-orange-400">3</span>
+<div>
+<div class="font-medium text-neutral-900 dark:text-white">Asignación por niveles</div>
+<p class="text-sm text-neutral-600 dark:text-neutral-400">Niveles de contexto (basic, standard, premium). Equilibrado.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 2 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="decisao-long-rag"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-2#topico-2" id="topico-2"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center">
+<span class="text-white font-bold">2</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Decidir: contexto largo, RAG o híbrido</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-2-t2-p1">Framework de decisión</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-4">Árbol de decisión</h3>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs overflow-x-auto">
+<pre class="text-neutral-700 dark:text-neutral-300">
+Dados mudam frequentemente?
+├─ SIM → Dados &gt; 1M tokens?
+│        ├─ SIM → RAG obrigatório
+│        └─ NÃO → RAG ou cache curto
+│
+└─ NÃO → Dados cabem no contexto?
+         ├─ SIM → Análise relacional necessária?
+         │        ├─ SIM → LONG CONTEXT
+         │        └─ NÃO → Qualquer abordagem
+         │
+         └─ NÃO → Precisão máxima necessária?
+                  ├─ SIM → HÍBRIDO (long + RAG seletivo)
+                  └─ NÃO → RAG puro
+</pre>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-4">
+<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+<h3 class="font-semibold text-blue-900 dark:text-blue-300 mb-2">Long Context</h3>
+<ul class="text-xs text-blue-800 dark:text-blue-200 space-y-1">
+<li>• Datos estáticos</li>
+<li>• Análisis profundo</li>
+<li>• Relaciones complejas</li>
+<li>• El alto costo por consulta está bien</li>
+</ul>
+</div>
+<div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
+<h3 class="font-semibold text-emerald-900 dark:text-emerald-300 mb-2">RAG</h3>
+<ul class="text-xs text-emerald-800 dark:text-emerald-200 space-y-1">
+<li>• Datos dinámicos</li>
+<li>• Base muy grande</li>
+<li>• Multi-tenant</li>
+<li>• El costo por consulta es crítico</li>
+</ul>
+</div>
+<div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-4">
+<h3 class="font-semibold text-purple-900 dark:text-purple-300 mb-2">Híbrido</h3>
+<ul class="text-xs text-purple-800 dark:text-purple-200 space-y-1">
+<li>• Base fija + datos dinámicos</li>
+<li>• Máxima precisión</li>
+<li>• Costo equilibrado</li>
+<li>• Complejidad OK</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 3 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="custos"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-2#topico-3" id="topico-3"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-amber-50 to-transparent dark:from-amber-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center">
+<span class="text-white font-bold">3</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Costos cognitivos y técnicos del contexto</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-2-t3-p1">El precio oculto</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
+<h3 class="font-semibold text-amber-900 dark:text-amber-300 mb-3">Costos técnicos</h3>
+<ul class="space-y-2 text-sm text-amber-800 dark:text-amber-200">
+<li class="flex items-start gap-2"><span>💵</span> Costo financiero ($/1K tokens)</li>
+<li class="flex items-start gap-2"><span>⏱️</span> Latencia aumentada</li>
+<li class="flex items-start gap-2"><span>📊</span> Throughput reducido</li>
+<li class="flex items-start gap-2"><span>🔧</span> Complejidad operativa</li>
+</ul>
+</div>
+<div class="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 rounded-xl p-5">
+<h3 class="font-semibold text-rose-900 dark:text-rose-300 mb-3">Costos cognitivos</h3>
+<ul class="space-y-2 text-sm text-rose-800 dark:text-rose-200">
+<li class="flex items-start gap-2"><span>🧠</span> Efecto "Lost in the middle"</li>
+<li class="flex items-start gap-2"><span>🎯</span> Dilución de la atención</li>
+<li class="flex items-start gap-2"><span>⚡</span> Conflictos de información</li>
+<li class="flex items-start gap-2"><span>🔀</span> Inconsistencias emergentes</li>
+</ul>
+</div>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Calculadora de trade-offs</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-neutral-300 dark:border-neutral-600">
+<th class="text-left py-2">Contexto</th>
+<th class="text-center py-2">Costo/req</th>
+<th class="text-center py-2">Latencia</th>
+<th class="text-center py-2">Precisión</th>
+</tr>
+</thead>
+<tbody class="text-neutral-700 dark:text-neutral-200">
+<tr class="border-b border-neutral-200 dark:border-neutral-600">
+<td class="py-2">10K tokens</td>
+<td class="text-center">~$0.03</td>
+<td class="text-center text-emerald-600">~1s</td>
+<td class="text-center">Base</td>
+</tr>
+<tr class="border-b border-neutral-200 dark:border-neutral-600">
+<td class="py-2">50K tokens</td>
+<td class="text-center">~$0.15</td>
+<td class="text-center text-amber-600">~3s</td>
+<td class="text-center">+15%</td>
+</tr>
+<tr class="border-b border-neutral-200 dark:border-neutral-600">
+<td class="py-2">100K tokens</td>
+<td class="text-center">~$0.30</td>
+<td class="text-center text-orange-600">~6s</td>
+<td class="text-center">+20%</td>
+</tr>
+<tr>
+<td class="py-2">200K tokens</td>
+<td class="text-center">~$0.60</td>
+<td class="text-center text-red-600">~12s</td>
+<td class="text-center">+22%*</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="text-xs text-neutral-500 mt-2" data-inema-block="m4-2-t3-p2">* Rendimientos marginales decrecientes después de ~100K</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 4 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="governanca"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-2#topico-4" id="topico-4"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+<span class="text-white font-bold">4</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Gobernanza del contexto</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-2-t4-p1">Políticas organizacionales</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<p class="text-neutral-600 dark:text-neutral-300" data-inema-block="m4-2-t4-p2">
+                        La gobernanza define <strong>quién decide qué</strong> sobre contexto. Sin gobernanza,
+                        cada desarrollador toma decisiones inconsistentes.
+                    </p>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-4">
+<h3 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-2">Políticas de acceso</h3>
+<ul class="text-sm text-indigo-800 dark:text-indigo-200 space-y-1">
+<li>• ¿Quién puede agregar contexto?</li>
+<li>• Niveles de sensibilidad</li>
+<li>• Registro de auditoría obligatorio</li>
+</ul>
+</div>
+<div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-4">
+<h3 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-2">Políticas de calidad</h3>
+<ul class="text-sm text-indigo-800 dark:text-indigo-200 space-y-1">
+<li>• Validación antes de la inyección</li>
+<li>• Requisitos de actualidad</li>
+<li>• Formato y estructura</li>
+</ul>
+</div>
+<div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-4">
+<h3 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-2">Políticas de presupuesto</h3>
+<ul class="text-sm text-indigo-800 dark:text-indigo-200 space-y-1">
+<li>• Límites por capa</li>
+<li>• Cuotas por equipo/proyecto</li>
+<li>• Alertas de exceso</li>
+</ul>
+</div>
+<div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-4">
+<h3 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-2">Políticas de conflicto</h3>
+<ul class="text-sm text-indigo-800 dark:text-indigo-200 space-y-1">
+<li>• Prioridad entre fuentes</li>
+<li>• Resolución automática vs. manual</li>
+<li>• Escalamiento</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 5 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="persistencia"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-2#topico-5" id="topico-5"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-teal-50 to-transparent dark:from-teal-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center">
+<span class="text-white font-bold">5</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Políticas de persistencia y descarte</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-2-t5-p1">Ciclo de vida del contexto</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-xl p-5">
+<h3 class="font-semibold text-teal-900 dark:text-teal-300 mb-4">Estrategias de ciclo de vida</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-4">
+<div class="w-24 text-right text-sm font-medium text-teal-700 dark:text-teal-300">Ephemeral</div>
+<div class="flex-1 h-4 bg-gradient-to-r from-teal-500 to-teal-300 rounded" style="width: 20%"></div>
+<div class="text-xs text-neutral-500">Request-scoped</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-24 text-right text-sm font-medium text-teal-700 dark:text-teal-300">Session</div>
+<div class="flex-1 h-4 bg-gradient-to-r from-cyan-500 to-cyan-300 rounded" style="width: 40%"></div>
+<div class="text-xs text-neutral-500">Conversation-scoped</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-24 text-right text-sm font-medium text-teal-700 dark:text-teal-300">Persistente</div>
+<div class="flex-1 h-4 bg-gradient-to-r from-blue-500 to-blue-300 rounded" style="width: 70%"></div>
+<div class="text-xs text-neutral-500">Con alcance por usuario/tenant</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-24 text-right text-sm font-medium text-teal-700 dark:text-teal-300">Global</div>
+<div class="flex-1 h-4 bg-gradient-to-r from-indigo-500 to-indigo-300 rounded" style="width: 100%"></div>
+<div class="text-xs text-neutral-500">System-wide</div>
+</div>
+</div>
+</div>
+<div class="bg-neutral-100 dark:bg-neutral-700 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Políticas de descarte (eviction)</h3>
+<div class="grid md:grid-cols-2 gap-3">
+<div class="p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<div class="font-medium text-neutral-900 dark:text-white">LRU (Least Recently Used)</div>
+<p class="text-xs text-neutral-600 dark:text-neutral-400" data-inema-block="m4-2-t5-p2">Elimina el contexto al que no se haya accedido durante más tiempo</p>
+</div>
+<div class="p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<div class="font-medium text-neutral-900 dark:text-white">Priority-based</div>
+<p class="text-xs text-neutral-600 dark:text-neutral-400" data-inema-block="m4-2-t5-p3">Elimina según la prioridad definida</p>
+</div>
+<div class="p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<div class="font-medium text-neutral-900 dark:text-white">TTL (Time-to-Live)</div>
+<p class="text-xs text-neutral-600 dark:text-neutral-400" data-inema-block="m4-2-t5-p4">Elimina después de un tiempo definido</p>
+</div>
+<div class="p-3 bg-white dark:bg-neutral-800 rounded-lg">
+<div class="font-medium text-neutral-900 dark:text-white">Summarization</div>
+<p class="text-xs text-neutral-600 dark:text-neutral-400">Comprime en lugar de eliminar</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 6 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="falhas-sistemicas"></span><section class="scroll-mt-32" data-inema-topic="modulo-4-2#topico-6" id="topico-6"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center">
+<span class="text-white font-bold">6</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Fallos sistémicos causados por el contexto</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m4-2-t6-p1">Modos de falla</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="space-y-4">
+<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
+<div class="flex items-start gap-3">
+<span class="text-2xl">💥</span>
+<div>
+<h3 class="font-semibold text-red-900 dark:text-red-300">Context Overflow</h3>
+<p class="text-sm text-red-800 dark:text-red-200" data-inema-block="m4-2-t6-p2">El sistema intenta inyectar más contexto del que permite el límite.</p>
+<p class="text-xs text-emerald-700 dark:text-emerald-400 mt-1" data-inema-block="m4-2-t6-p3">Mitigación: control del presupuesto + degradación gradual</p>
+</div>
+</div>
+</div>
+<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
+<div class="flex items-start gap-3">
+<span class="text-2xl">🔀</span>
+<div>
+<h3 class="font-semibold text-red-900 dark:text-red-300">Context Contamination</h3>
+<p class="text-sm text-red-800 dark:text-red-200" data-inema-block="m4-2-t6-p4">Los datos de un usuario se filtran al contexto de otro.</p>
+<p class="text-xs text-emerald-700 dark:text-emerald-400 mt-1">Mitigación: aislamiento estricto + límites entre inquilinos</p>
+</div>
+</div>
+</div>
+<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
+<div class="flex items-start gap-3">
+<span class="text-2xl">⚡</span>
+<div>
+<h3 class="font-semibold text-red-900 dark:text-red-300">Context Conflict</h3>
+<p class="text-sm text-red-800 dark:text-red-200">Información contradictoria de múltiples fuentes.</p>
+<p class="text-xs text-emerald-700 dark:text-emerald-400 mt-1">Mitigación: reglas de resolución de conflictos + prioridad de las fuentes</p>
+</div>
+</div>
+</div>
+<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
+<div class="flex items-start gap-3">
+<span class="text-2xl">📉</span>
+<div>
+<h3 class="font-semibold text-red-900 dark:text-red-300">Context Staleness</h3>
+<p class="text-sm text-red-800 dark:text-red-200">Un contexto desactualizado lleva a respuestas incorrectas.</p>
+<p class="text-xs text-emerald-700 dark:text-emerald-400 mt-1">Mitigación: políticas de TTL + validación de vigencia</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Navegação -->
+<div class="flex flex-col sm:flex-row gap-4 pt-8">
+<a class="flex-1 group flex items-center gap-3 p-4 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-300 dark:hover:border-amber-600 transition-colors" href="modulo1-completo.html">
+<svg class="w-5 h-5 text-neutral-400 group-hover:text-amber-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>
+<div class="text-sm text-neutral-500 dark:text-neutral-400">Anterior</div>
+<div class="font-medium text-neutral-900 dark:text-white">Módulo 1: Arquitectura</div>
+</div>
+</a>
+<a class="flex-1 group flex items-center justify-end gap-3 p-4 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 rounded-xl text-white text-right transition-colors" href="modulo3-completo.html">
+<div>
+<div class="text-sm text-orange-100">Siguiente</div>
+<div class="font-medium">Módulo 3: Gobernanza de Skills</div>
+</div>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</main>
+<!-- Download Section -->
+<div class="max-w-4xl mx-auto px-4 mb-8">
+<div class="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border border-amber-500/30 rounded-2xl p-6">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
+<svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-white">Descargar este módulo</h3>
+<p class="text-sm text-neutral-400">Guarda para estudiar sin conexión</p>
+</div>
+</div>
+<div class="flex gap-3">
+<a class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                        PDF
+                    </a>
+<a class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                        MD
+                    </a>
+</div>
+</div>
+</div>
+</div>
+<footer class="border-t border-neutral-200 dark:border-neutral-800 mt-16">
+<div class="max-w-4xl mx-auto px-4 py-8 text-center">
+<a class="text-orange-600 dark:text-orange-400 hover:underline" href="../../nivel-masterclass.html">Volver a la Masterclass</a>
+</div>
+</footer>
+<script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
+    </script>
+<script src="../../../assets/v2.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+</body>
+</html>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="inema-course" content="fep">
-    <script data-inema-antifouc>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
     (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
     </script>
-    <script type="application/json" data-inema-manifest>
+<script data-inema-manifest="" type="application/json">
 {
   "course": "fep",
   "tracks": [
@@ -175,15 +176,15 @@
   ]
 }
     </script>
-  <script>
+<script>
     if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
     }
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 2: Técnicas Fundamentais | FEP</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 2: Técnicas Fundamentais | FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -200,8 +201,8 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #0a0a0a; }
     html:not(.dark) body { background-color: #fafafa; }
@@ -244,406 +245,374 @@
     /* INEMA Light Mode - Nav */
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
   </style>
-    <link rel="stylesheet" href="../../assets/learn.css">
-    <link rel="stylesheet" href="../../assets/v2.css">
-</head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen" data-inema-v2="2">
-  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
-  <nav class="inema-v2-nav" aria-label="Navegação principal">
-    <div class="inema-v2-nav__inner">
-      <div class="inema-v2-brand">
-        <a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
-        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
-        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
-      </div>
-      <div class="inema-v2-links" aria-label="Trilhas"><a href="../../nivel-iniciante.html" class="inema-v2-link" aria-current="page"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="../../nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="../../nivel-avancado.html" class="inema-v2-link"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="../../nivel-masterclass.html" class="inema-v2-link"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
-      <div class="inema-v2-actions">
-        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
-        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
-        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
-      </div>
-    </div>
-    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
-        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
-        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
-        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
-        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
-      </div></div>
-    </div>
-  </nav>
-
-  <button id="theme-toggle" class="fixed top-4 right-4 z-50 p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors">
-    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-    </svg>
-    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
-    </svg>
-  </button>
-
-  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-700" data-v2-legacy-nav>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <div class="flex items-center">
-          <a href="../../nivel-iniciante.html" class="flex items-center space-x-2 text-neutral-400 hover:text-emerald-400 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-            <span>Voltar para Iniciante</span>
-          </a>
-          <span class="text-neutral-600 mx-2">|</span>
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
-        </div>
-        <span class="text-emerald-400 font-semibold">Módulo Completo</span>
-      </div>
-    </div>
-  </nav>
-
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="conteudo" data-inema-module="1-2" data-inema-track="1">
-    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
-      <div><div class="inema-v2-page-tools__eyebrow">Trilha 1 · Módulo 2</div><div class="inema-v2-page-tools__title">Técnicas Fundamentais</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
-      <div class="inema-v2-meter" data-inema-meter="modulo:1-2" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Técnicas Fundamentais">
-      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
-      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
-    </div>
-    </aside>
-    <nav data-inema-toc aria-label="Índice do módulo" class="sr-only"><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
-
-    <!-- Header -->
-    <div class="text-center mb-12">
-      <span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold mb-4">
+<link href="../../assets/learn.css" rel="stylesheet"/>
+<link href="../../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/conteudo/iniciante/modulo2-completo.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/conteudo/iniciante/modulo2-completo.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/conteudo/iniciante/modulo2-completo.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="modulo2-completo.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../../en/conteudo/iniciante/modulo2-completo.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../../es/conteudo/iniciante/modulo2-completo.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+<nav aria-label="Navegação principal" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Trilhas" class="inema-v2-links"><a aria-current="page" class="inema-v2-link" href="../../nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a class="inema-v2-link" href="../../nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Técnico</span></a><a class="inema-v2-link" href="../../nivel-avancado.html"><span class="short">T3</span><span class="full"> · Avançado</span></a><a class="inema-v2-link" href="../../nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Aparência</span></button>
+<button aria-label="Alternar tema" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Tema</span></button>
+</div>
+</div>
+<div aria-label="Preferências de aparência" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Escuro</button><button data-inema-set-theme="claro" type="button">Claro</button><button data-inema-set-theme="sepia" type="button">Sépia</button><button data-inema-set-theme="foco" type="button">Foco</button><button data-inema-set-theme="contraste" type="button">Contraste</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">Sistema</button><button data-inema-set-font="leitura" type="button">Leitura</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Estreita</button><button data-inema-set-linewidth="68" type="button">Média</button><button data-inema-set-linewidth="75" type="button">Larga</button><button data-inema-set-leading="1.45" type="button">Compacta</button><button data-inema-set-leading="1.7" type="button">Confortável</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Azul" data-inema-set-accent="blue" type="button"></button><button aria-label="Roxo" data-inema-set-accent="purple" type="button"></button><button aria-label="Âmbar" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Rosa" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<button class="fixed top-4 right-4 z-50 p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20">
+<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+</svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-700" data-v2-legacy-nav="">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<a class="flex items-center space-x-2 text-neutral-400 hover:text-emerald-400 transition-colors" href="../../nivel-iniciante.html">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Voltar para Iniciante</span>
+</a>
+<span class="text-neutral-600 mx-2">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<span class="text-emerald-400 font-semibold">Módulo Completo</span>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" data-inema-module="1-2" data-inema-track="1" id="conteudo">
+<aside aria-label="Progresso desta página" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Trilha 1 · Módulo 2</div><div class="inema-v2-page-tools__title">Técnicas Fundamentais</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progresso: Técnicas Fundamentais" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="modulo:1-2" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 de 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<nav aria-label="Índice do módulo" class="sr-only" data-inema-toc=""><a href="#topico-1">Tópico 1</a><a href="#topico-2">Tópico 2</a><a href="#topico-3">Tópico 3</a><a href="#topico-4">Tópico 4</a><a href="#topico-5">Tópico 5</a><a href="#topico-6">Tópico 6</a></nav>
+<!-- Header -->
+<div class="text-center mb-12">
+<span class="inline-block px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-semibold mb-4">
         MÓDULO 2 COMPLETO
       </span>
-      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🎯 Técnicas Fundamentais</h1>
-      <p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+<h1 class="text-4xl sm:text-5xl font-bold mb-4">🎯 Técnicas Fundamentais</h1>
+<p class="text-xl text-neutral-400 max-w-2xl mx-auto">
         Domine as técnicas essenciais: Zero-Shot, Few-Shot, Chain of Thought, Role Prompting e Humanização.
         O arsenal básico de todo engenheiro de prompt.
       </p>
-    </div>
-
-    <!-- Stats -->
-    <div class="grid grid-cols-4 gap-4 mb-12">
-      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
-        <div class="text-2xl font-bold text-accent">5</div>
-        <div class="text-xs text-neutral-400">Técnicas</div>
-      </div>
-      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
-        <div class="text-2xl font-bold text-emerald-400">3-4h</div>
-        <div class="text-xs text-neutral-400">Duração</div>
-      </div>
-      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
-        <div class="text-2xl font-bold text-purple-400">Core</div>
-        <div class="text-xs text-neutral-400">Importância</div>
-      </div>
-      <div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
-        <div class="text-2xl font-bold text-yellow-400">∞</div>
-        <div class="text-xs text-neutral-400">Aplicações</div>
-      </div>
-    </div>
-
-    <!-- Índice -->
-    <section class="mb-12">
-      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
-        <h2 class="text-2xl font-bold text-neutral-100 mb-6">📑 Conteúdo do Módulo</h2>
-        <div class="space-y-4">
-          <a href="#zero-shot" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
-            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">1</span>
-            <div>
-              <p class="font-semibold text-neutral-100">🎯 Zero-Shot Prompting</p>
-              <p class="text-sm text-neutral-400">Instruções diretas sem exemplos</p>
-            </div>
-          </a>
-          <a href="#few-shot" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
-            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">2</span>
-            <div>
-              <p class="font-semibold text-neutral-100">📚 Few-Shot Prompting</p>
-              <p class="text-sm text-neutral-400">Aprendizado com exemplos</p>
-            </div>
-          </a>
-          <a href="#cot" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
-            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">3</span>
-            <div>
-              <p class="font-semibold text-neutral-100">🧠 Chain of Thought (CoT)</p>
-              <p class="text-sm text-neutral-400">Raciocínio passo a passo</p>
-            </div>
-          </a>
-          <a href="#role" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
-            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">4</span>
-            <div>
-              <p class="font-semibold text-neutral-100">🎭 Role Prompting</p>
-              <p class="text-sm text-neutral-400">Definir personas e papéis</p>
-            </div>
-          </a>
-          <a href="#humanizacao" class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors">
-            <span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">5</span>
-            <div>
-              <p class="font-semibold text-neutral-100">✍️ Humanização de Texto</p>
-              <p class="text-sm text-neutral-400">Evitar tom de IA</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 1: Zero-Shot -->
-    <span id="zero-shot" class="inema-anchor-alias" aria-hidden="true"></span><section class="mb-16" id="topico-1" data-inema-topic="modulo-1-2#topico-1"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-      <div class="bg-gradient-to-br from-blue-900/30 to-neutral-800 rounded-2xl p-8 border border-blue-500/30">
-        <div class="flex items-center mb-6">
-          <span class="text-4xl mr-4">🎯</span>
-          <div>
-            <h2 class="text-2xl font-bold text-blue-400">1. Zero-Shot Prompting</h2>
-            <p class="text-neutral-400" data-inema-block="m1-2-t1-p1">Instrução direta, sem exemplos</p>
-          </div>
-        </div>
-
-        <p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t1-p2">
-          <strong class="text-blue-400">Zero-Shot</strong> = pedir algo sem dar exemplos. Funciona para tarefas comuns que o modelo viu no treinamento.
+</div>
+<!-- Stats -->
+<div class="grid grid-cols-4 gap-4 mb-12">
+<div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+<div class="text-2xl font-bold text-accent">5</div>
+<div class="text-xs text-neutral-400">Técnicas</div>
+</div>
+<div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+<div class="text-2xl font-bold text-emerald-400">3-4h</div>
+<div class="text-xs text-neutral-400">Duração</div>
+</div>
+<div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+<div class="text-2xl font-bold text-purple-400">Core</div>
+<div class="text-xs text-neutral-400">Importância</div>
+</div>
+<div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+<div class="text-2xl font-bold text-yellow-400">∞</div>
+<div class="text-xs text-neutral-400">Aplicações</div>
+</div>
+</div>
+<!-- Índice -->
+<section class="mb-12">
+<div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">📑 Conteúdo do Módulo</h2>
+<div class="space-y-4">
+<a class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors" href="#zero-shot">
+<span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">1</span>
+<div>
+<p class="font-semibold text-neutral-100">🎯 Zero-Shot Prompting</p>
+<p class="text-sm text-neutral-400">Instruções diretas sem exemplos</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors" href="#few-shot">
+<span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">2</span>
+<div>
+<p class="font-semibold text-neutral-100">📚 Few-Shot Prompting</p>
+<p class="text-sm text-neutral-400">Aprendizado com exemplos</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors" href="#cot">
+<span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">3</span>
+<div>
+<p class="font-semibold text-neutral-100">🧠 Chain of Thought (CoT)</p>
+<p class="text-sm text-neutral-400">Raciocínio passo a passo</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors" href="#role">
+<span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">4</span>
+<div>
+<p class="font-semibold text-neutral-100">🎭 Role Prompting</p>
+<p class="text-sm text-neutral-400">Definir personas e papéis</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors" href="#humanizacao">
+<span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">5</span>
+<div>
+<p class="font-semibold text-neutral-100">✍️ Humanização de Texto</p>
+<p class="text-sm text-neutral-400">Evitar tom de IA</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- TÓPICO 1: Zero-Shot -->
+<span aria-hidden="true" class="inema-anchor-alias" id="zero-shot"></span><section class="mb-16" data-inema-topic="modulo-1-2#topico-1" id="topico-1"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-gradient-to-br from-blue-900/30 to-neutral-800 rounded-2xl p-8 border border-blue-500/30">
+<div class="flex items-center mb-6">
+<span class="text-4xl mr-4">🎯</span>
+<div>
+<h2 class="text-2xl font-bold text-blue-400">1. Zero-Shot Prompting</h2>
+<p class="text-neutral-400" data-inema-block="m1-2-t1-p1">Instrução direta, sem exemplos</p>
+</div>
+</div>
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t1-p2">
+<strong class="text-blue-400">Zero-Shot</strong> = pedir algo sem dar exemplos. Funciona para tarefas comuns que o modelo viu no treinamento.
         </p>
-
-        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
-          <p class="text-blue-400" data-inema-block="m1-2-t1-p3">"Classifique o sentimento como Positivo, Negativo ou Neutro:</p>
-          <p class="text-neutral-300" data-inema-block="m1-2-t1-p4">'Adorei o produto!'"</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
-            <p class="text-emerald-400 font-semibold">✅ Quando usar</p>
-            <p class="text-sm text-neutral-300">Tarefas simples, formato óbvio</p>
-          </div>
-          <div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/30">
-            <p class="text-yellow-400 font-semibold">⚠️ Limitação</p>
-            <p class="text-sm text-neutral-300">Pode não capturar estilo específico</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 2: Few-Shot -->
-    <span id="few-shot" class="inema-anchor-alias" aria-hidden="true"></span><section class="mb-16" id="topico-2" data-inema-topic="modulo-1-2#topico-2"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
-        <div class="flex items-center mb-6">
-          <span class="text-4xl mr-4">📚</span>
-          <div>
-            <h2 class="text-2xl font-bold text-purple-400">2. Few-Shot Prompting</h2>
-            <p class="text-neutral-400" data-inema-block="m1-2-t2-p1">2-5 exemplos para guiar o padrão</p>
-          </div>
-        </div>
-
-        <p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t2-p2">
+<div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+<p class="text-blue-400" data-inema-block="m1-2-t1-p3">"Classifique o sentimento como Positivo, Negativo ou Neutro:</p>
+<p class="text-neutral-300" data-inema-block="m1-2-t1-p4">'Adorei o produto!'"</p>
+</div>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<p class="text-emerald-400 font-semibold">✅ Quando usar</p>
+<p class="text-sm text-neutral-300">Tarefas simples, formato óbvio</p>
+</div>
+<div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/30">
+<p class="text-yellow-400 font-semibold">⚠️ Limitação</p>
+<p class="text-sm text-neutral-300">Pode não capturar estilo específico</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 2: Few-Shot -->
+<span aria-hidden="true" class="inema-anchor-alias" id="few-shot"></span><section class="mb-16" data-inema-topic="modulo-1-2#topico-2" id="topico-2"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+<div class="flex items-center mb-6">
+<span class="text-4xl mr-4">📚</span>
+<div>
+<h2 class="text-2xl font-bold text-purple-400">2. Few-Shot Prompting</h2>
+<p class="text-neutral-400" data-inema-block="m1-2-t2-p1">2-5 exemplos para guiar o padrão</p>
+</div>
+</div>
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t2-p2">
           Mostre <strong class="text-purple-400">exemplos de entrada → saída</strong> antes da sua tarefa. O modelo identifica o padrão e replica.
         </p>
-
-        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
-          <p class="text-neutral-400" data-inema-block="m1-2-t2-p3">// Exemplos</p>
-          <p class="text-purple-400" data-inema-block="m1-2-t2-p4">Texto: "João Silva é diretor." → Nome: João Silva | Cargo: Diretor</p>
-          <p class="text-purple-400">Texto: "Maria Santos, CEO." → Nome: Maria Santos | Cargo: CEO</p>
-          <p class="text-neutral-400 mt-2">// Sua tarefa</p>
-          <p class="text-purple-400">Texto: "Pedro Lima, coordenador." → ?</p>
-        </div>
-
-        <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
-          <p class="text-emerald-400 font-semibold">💡 Dica</p>
-          <p class="text-sm text-neutral-300">Use 3-5 exemplos representativos e mantenha formato consistente</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 3: CoT -->
-    <span id="cot" class="inema-anchor-alias" aria-hidden="true"></span><section class="mb-16" id="topico-3" data-inema-topic="modulo-1-2#topico-3"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-      <div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
-        <div class="flex items-center mb-6">
-          <span class="text-4xl mr-4">🧠</span>
-          <div>
-            <h2 class="text-2xl font-bold text-purple-400">3. Chain of Thought (CoT)</h2>
-            <p class="text-neutral-400" data-inema-block="m1-2-t3-p1">"Pense em voz alta"</p>
-          </div>
-        </div>
-
-        <p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t3-p2">
+<div class="bg-neutral-900 p-4 rounded-lg font-mono text-sm mb-4">
+<p class="text-neutral-400" data-inema-block="m1-2-t2-p3">// Exemplos</p>
+<p class="text-purple-400" data-inema-block="m1-2-t2-p4">Texto: "João Silva é diretor." → Nome: João Silva | Cargo: Diretor</p>
+<p class="text-purple-400">Texto: "Maria Santos, CEO." → Nome: Maria Santos | Cargo: CEO</p>
+<p class="text-neutral-400 mt-2">// Sua tarefa</p>
+<p class="text-purple-400">Texto: "Pedro Lima, coordenador." → ?</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<p class="text-emerald-400 font-semibold">💡 Dica</p>
+<p class="text-sm text-neutral-300">Use 3-5 exemplos representativos e mantenha formato consistente</p>
+</div>
+</div>
+</section>
+<!-- TÓPICO 3: CoT -->
+<span aria-hidden="true" class="inema-anchor-alias" id="cot"></span><section class="mb-16" data-inema-topic="modulo-1-2#topico-3" id="topico-3"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+<div class="flex items-center mb-6">
+<span class="text-4xl mr-4">🧠</span>
+<div>
+<h2 class="text-2xl font-bold text-purple-400">3. Chain of Thought (CoT)</h2>
+<p class="text-neutral-400" data-inema-block="m1-2-t3-p1">"Pense em voz alta"</p>
+</div>
+</div>
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t3-p2">
           Pedir ao modelo <strong class="text-purple-400">explicar seu raciocínio passo a passo</strong>. Melhora dramaticamente resultados em lógica e matemática.
         </p>
-
-        <div class="bg-neutral-900 p-4 rounded-lg font-mono text-lg text-center mb-4">
-          <span class="text-purple-400">"Pense passo a passo antes de responder."</span>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
-            <p class="text-red-400 font-semibold" data-inema-block="m1-2-t3-p3">❌ Sem CoT</p>
-            <p class="text-sm text-neutral-300" data-inema-block="m1-2-t3-p4">Modelo pode pular para resposta errada</p>
-          </div>
-          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
-            <p class="text-emerald-400 font-semibold">✅ Com CoT</p>
-            <p class="text-sm text-neutral-300">Raciocínio explícito, +40% precisão</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 4: Role -->
-    <span id="role" class="inema-anchor-alias" aria-hidden="true"></span><section class="mb-16" id="topico-4" data-inema-topic="modulo-1-2#topico-4"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
-        <div class="flex items-center mb-6">
-          <span class="text-4xl mr-4">🎭</span>
-          <div>
-            <h2 class="text-2xl font-bold text-pink-400">4. Role Prompting</h2>
-            <p class="text-neutral-400" data-inema-block="m1-2-t4-p1">"Você é um especialista em..."</p>
-          </div>
-        </div>
-
-        <p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t4-p2">
+<div class="bg-neutral-900 p-4 rounded-lg font-mono text-lg text-center mb-4">
+<span class="text-purple-400">"Pense passo a passo antes de responder."</span>
+</div>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+<p class="text-red-400 font-semibold" data-inema-block="m1-2-t3-p3">❌ Sem CoT</p>
+<p class="text-sm text-neutral-300" data-inema-block="m1-2-t3-p4">Modelo pode pular para resposta errada</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<p class="text-emerald-400 font-semibold">✅ Com CoT</p>
+<p class="text-sm text-neutral-300">Raciocínio explícito, +40% precisão</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 4: Role -->
+<span aria-hidden="true" class="inema-anchor-alias" id="role"></span><section class="mb-16" data-inema-topic="modulo-1-2#topico-4" id="topico-4"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+<div class="flex items-center mb-6">
+<span class="text-4xl mr-4">🎭</span>
+<div>
+<h2 class="text-2xl font-bold text-pink-400">4. Role Prompting</h2>
+<p class="text-neutral-400" data-inema-block="m1-2-t4-p1">"Você é um especialista em..."</p>
+</div>
+</div>
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t4-p2">
           Definir um papel ajusta <strong class="text-pink-400">vocabulário, tom, profundidade e perspectiva</strong> automaticamente.
         </p>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
-            <p class="font-bold text-blue-400 mb-1" data-inema-block="m1-2-t4-p3">👨‍💼 Consultor</p>
-            <p class="text-xs text-neutral-300" data-inema-block="m1-2-t4-p4">"Você é um consultor com 20 anos de experiência..."</p>
-          </div>
-          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
-            <p class="font-bold text-emerald-400 mb-1">👨‍🏫 Professor</p>
-            <p class="text-xs text-neutral-300">"Você é um professor explicando para iniciantes..."</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TÓPICO 5: Humanização -->
-    <span id="humanizacao" class="inema-anchor-alias" aria-hidden="true"></span><section class="mb-16" id="topico-5" data-inema-topic="modulo-1-2#topico-5"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-      <div class="bg-gradient-to-br from-emerald-900/30 to-neutral-800 rounded-2xl p-8 border border-emerald-500/30">
-        <div class="flex items-center mb-6">
-          <span class="text-4xl mr-4">✍️</span>
-          <div>
-            <h2 class="text-2xl font-bold text-emerald-400">5. Humanização de Texto</h2>
-            <p class="text-neutral-400" data-inema-block="m1-2-t5-p1">Evitar "tom de IA"</p>
-          </div>
-        </div>
-
-        <p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t5-p2">
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<p class="font-bold text-blue-400 mb-1" data-inema-block="m1-2-t4-p3">👨‍💼 Consultor</p>
+<p class="text-xs text-neutral-300" data-inema-block="m1-2-t4-p4">"Você é um consultor com 20 anos de experiência..."</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<p class="font-bold text-emerald-400 mb-1">👨‍🏫 Professor</p>
+<p class="text-xs text-neutral-300">"Você é um professor explicando para iniciantes..."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 5: Humanização -->
+<span aria-hidden="true" class="inema-anchor-alias" id="humanizacao"></span><section class="mb-16" data-inema-topic="modulo-1-2#topico-5" id="topico-5"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-gradient-to-br from-emerald-900/30 to-neutral-800 rounded-2xl p-8 border border-emerald-500/30">
+<div class="flex items-center mb-6">
+<span class="text-4xl mr-4">✍️</span>
+<div>
+<h2 class="text-2xl font-bold text-emerald-400">5. Humanização de Texto</h2>
+<p class="text-neutral-400" data-inema-block="m1-2-t5-p1">Evitar "tom de IA"</p>
+</div>
+</div>
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t5-p2">
           Técnicas para texto parecer mais natural: <strong class="text-emerald-400">contrações, opiniões, variação estrutural, expressões coloquiais</strong>.
         </p>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
-            <p class="text-red-400 font-semibold" data-inema-block="m1-2-t5-p3">❌ Tom de IA</p>
-            <p class="text-sm text-neutral-300" data-inema-block="m1-2-t5-p4">"É indubitavelmente importante considerar..."</p>
-          </div>
-          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
-            <p class="text-emerald-400 font-semibold">✅ Humanizado</p>
-            <p class="text-sm text-neutral-300">"Na minha experiência, vale muito a pena..."</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- TÓPICO 6: Prática guiada -->
-    <span id="pratica-guiada" class="inema-anchor-alias" aria-hidden="true"></span><section class="mb-16" id="topico-6" data-inema-topic="modulo-1-2#topico-6"><div class="inema-v2-topic-controls">
-      <button type="button" data-inema-read-toggle aria-pressed="false"><span class="inema-ico-todo" aria-hidden="true">○</span><span class="inema-ico-done" aria-hidden="true">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
-      <button type="button" data-inema-doubt-toggle aria-pressed="false"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
-    </div>
-      <div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
-        <div class="flex items-center mb-6">
-          <span class="text-4xl mr-4" aria-hidden="true">↻</span>
-          <div>
-            <h2 class="text-2xl font-bold text-blue-400">6. Itere com intenção</h2>
-            <p class="text-neutral-400" data-inema-block="m1-2-t6-p1">Transforme a primeira resposta em um resultado melhor</p>
-          </div>
-        </div>
-        <p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t6-p2">Escolha uma técnica deste módulo, teste o prompt e faça uma segunda versão mudando apenas uma variável: exemplos, papel, formato ou tom.</p>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
-            <h3 class="font-bold text-blue-300 mb-2">Antes de enviar</h3>
-            <p class="text-sm text-neutral-300" data-inema-block="m1-2-t6-p3">Defina o resultado esperado e o critério que permitirá avaliar a resposta.</p>
-          </div>
-          <div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
-            <h3 class="font-bold text-emerald-300 mb-2">Depois da resposta</h3>
-            <p class="text-sm text-neutral-300" data-inema-block="m1-2-t6-p4">Registre o que melhorou, o que piorou e qual será a próxima alteração isolada.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resumo -->
-    <section class="mb-12">
-      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl p-8">
-        <h2 class="text-2xl font-bold mb-6 text-center">📋 Resumo do Módulo 2</h2>
-
-        <div class="grid md:grid-cols-5 gap-4 mb-8">
-          <div class="text-center">
-            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-              <span class="text-xl">🎯</span>
-            </div>
-            <p class="text-sm font-bold">Zero-Shot</p>
-          </div>
-          <div class="text-center">
-            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-              <span class="text-xl">📚</span>
-            </div>
-            <p class="text-sm font-bold">Few-Shot</p>
-          </div>
-          <div class="text-center">
-            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-              <span class="text-xl">🧠</span>
-            </div>
-            <p class="text-sm font-bold">CoT</p>
-          </div>
-          <div class="text-center">
-            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-              <span class="text-xl">🎭</span>
-            </div>
-            <p class="text-sm font-bold">Role</p>
-          </div>
-          <div class="text-center">
-            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-              <span class="text-xl">✍️</span>
-            </div>
-            <p class="text-sm font-bold">Human</p>
-          </div>
-        </div>
-
-        <div class="text-center">
-          <a href="../../nivel-iniciante.html" class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors">
-            <span>Continuar para Módulo 3</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="bg-neutral-900 border-t border-neutral-700 py-8">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="text-neutral-500 text-sm">FEP - Módulo 2 Completo: Técnicas Fundamentais</p>
-    </div>
-  </footer>
-
-  <script>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+<p class="text-red-400 font-semibold" data-inema-block="m1-2-t5-p3">❌ Tom de IA</p>
+<p class="text-sm text-neutral-300" data-inema-block="m1-2-t5-p4">"É indubitavelmente importante considerar..."</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<p class="text-emerald-400 font-semibold">✅ Humanizado</p>
+<p class="text-sm text-neutral-300">"Na minha experiência, vale muito a pena..."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 6: Prática guiada -->
+<span aria-hidden="true" class="inema-anchor-alias" id="pratica-guiada"></span><section class="mb-16" data-inema-topic="modulo-1-2#topico-6" id="topico-6"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como lido</span><span class="inema-label-done">Lido</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tenho dúvida</span></button>
+</div>
+<div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+<div class="flex items-center mb-6">
+<span aria-hidden="true" class="text-4xl mr-4">↻</span>
+<div>
+<h2 class="text-2xl font-bold text-blue-400">6. Itere com intenção</h2>
+<p class="text-neutral-400" data-inema-block="m1-2-t6-p1">Transforme a primeira resposta em um resultado melhor</p>
+</div>
+</div>
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-2-t6-p2">Escolha uma técnica deste módulo, teste o prompt e faça uma segunda versão mudando apenas uma variável: exemplos, papel, formato ou tom.</p>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h3 class="font-bold text-blue-300 mb-2">Antes de enviar</h3>
+<p class="text-sm text-neutral-300" data-inema-block="m1-2-t6-p3">Defina o resultado esperado e o critério que permitirá avaliar a resposta.</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<h3 class="font-bold text-emerald-300 mb-2">Depois da resposta</h3>
+<p class="text-sm text-neutral-300" data-inema-block="m1-2-t6-p4">Registre o que melhorou, o que piorou e qual será a próxima alteração isolada.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Resumo -->
+<section class="mb-12">
+<div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl p-8">
+<h2 class="text-2xl font-bold mb-6 text-center">📋 Resumo do Módulo 2</h2>
+<div class="grid md:grid-cols-5 gap-4 mb-8">
+<div class="text-center">
+<div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+<span class="text-xl">🎯</span>
+</div>
+<p class="text-sm font-bold">Zero-Shot</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+<span class="text-xl">📚</span>
+</div>
+<p class="text-sm font-bold">Few-Shot</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+<span class="text-xl">🧠</span>
+</div>
+<p class="text-sm font-bold">CoT</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+<span class="text-xl">🎭</span>
+</div>
+<p class="text-sm font-bold">Role</p>
+</div>
+<div class="text-center">
+<div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+<span class="text-xl">✍️</span>
+</div>
+<p class="text-sm font-bold">Human</p>
+</div>
+</div>
+<div class="text-center">
+<a class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-blue-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors" href="../../nivel-iniciante.html">
+<span>Continuar para Módulo 3</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+<div class="max-w-4xl mx-auto px-4 text-center">
+<p class="text-neutral-500 text-sm">FEP - Módulo 2 Completo: Técnicas Fundamentais</p>
+</div>
+</footer>
+<script>
     (function() {
       const themeToggle = document.getElementById('theme-toggle');
       if (!themeToggle) return;
@@ -666,9 +635,8 @@
       });
     })();
   </script>
-
-  <script src="../../assets/v2.js"></script>
-  <script src="../../assets/learn.js"></script>
-  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+<script src="../../assets/v2.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

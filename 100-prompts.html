@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="inema-course" content="fep">
-    <script data-inema-antifouc>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
     (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
     </script>
-    <script type="application/json" data-inema-manifest>
+<script data-inema-manifest="" type="application/json">
 {
   "course": "fep",
   "tracks": [
@@ -175,12 +176,12 @@
   ]
 }
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100 Prompts Essenciais | FEP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>100 Prompts Essenciais | FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<style>
         .prompt-card {
             transition: all 0.3s ease;
             cursor: pointer;
@@ -219,181 +220,163 @@
             border-radius: 9999px;
         }
     </style>
-    <link rel="stylesheet" href="assets/learn.css">
-    <link rel="stylesheet" href="assets/v2.css">
-</head>
-<body class="font-['Inter'] bg-gray-50" data-inema-v2="2">
-  <a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
-  <nav class="inema-v2-nav" aria-label="Navegação principal">
-    <div class="inema-v2-nav__inner">
-      <div class="inema-v2-brand">
-        <a class="inema-v2-brand__home" href="index.html">🎓 FEP</a>
-        <span class="inema-v2-brand__sep" aria-hidden="true">|</span>
-        <a class="inema-v2-brand__club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
-      </div>
-      <div class="inema-v2-links" aria-label="Trilhas"><a href="nivel-iniciante.html" class="inema-v2-link"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a href="nivel-tecnico.html" class="inema-v2-link"><span class="short">T2</span><span class="full"> · Técnico</span></a><a href="nivel-avancado.html" class="inema-v2-link"><span class="short">T3</span><span class="full"> · Avançado</span></a><a href="nivel-masterclass.html" class="inema-v2-link"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
-      <div class="inema-v2-actions">
-        <button type="button" class="inema-v2-action" data-inema-journey-open><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-inema-journey-badge data-count="0"></span></button>
-        <button type="button" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" aria-expanded="false"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg><span class="label">Aparência</span></button>
-        <button type="button" class="inema-v2-action" data-inema-cycle="theme" aria-label="Alternar tema"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"/></svg><span class="label">Tema</span></button>
-      </div>
-    </div>
-    <div data-inema-appearance class="inema-appearance-pop inema-v2-appearance" data-open="false" aria-label="Preferências de aparência">
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
-        <button type="button" data-inema-set-theme="inema-dark">Escuro</button><button type="button" data-inema-set-theme="claro">Claro</button><button type="button" data-inema-set-theme="sepia">Sépia</button><button type="button" data-inema-set-theme="foco">Foco</button><button type="button" data-inema-set-theme="contraste">Contraste</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
-        <button type="button" data-inema-set-font="inter">Inter</button><button type="button" data-inema-set-font="system">Sistema</button><button type="button" data-inema-set-font="leitura">Leitura</button><button type="button" data-inema-set-fontscale="100">A</button><button type="button" data-inema-set-fontscale="112">A+</button><button type="button" data-inema-set-fontscale="125">A++</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
-        <button type="button" data-inema-set-linewidth="60">Estreita</button><button type="button" data-inema-set-linewidth="68">Média</button><button type="button" data-inema-set-linewidth="75">Larga</button><button type="button" data-inema-set-leading="1.45">Compacta</button><button type="button" data-inema-set-leading="1.7">Confortável</button>
-      </div></div>
-      <div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
-        <button type="button" aria-label="Emerald" data-inema-set-accent="emerald"></button><button type="button" aria-label="Azul" data-inema-set-accent="blue"></button><button type="button" aria-label="Roxo" data-inema-set-accent="purple"></button><button type="button" aria-label="Âmbar" data-inema-set-accent="amber"></button><button type="button" aria-label="Teal" data-inema-set-accent="teal"></button><button type="button" aria-label="Rosa" data-inema-set-accent="rose"></button>
-      </div></div>
-    </div>
-  </nav>
-    <nav class="sticky top-0 z-50 bg-white shadow-sm" data-v2-legacy-nav>
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <span class="text-2xl font-bold text-blue-600">FEP</span>
-                    <span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
-                </a>
-                <a href="index.html" class="text-blue-600 hover:text-blue-700">← Voltar ao Início</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container mx-auto px-4 py-12" id="conteudo">
-    <aside class="inema-v2-page-tools" aria-label="Progresso desta página">
-      <div><div class="inema-v2-page-tools__eyebrow">Curso FEP</div><div class="inema-v2-page-tools__title">Sua jornada de Engenharia de Prompt</div><div class="inema-v2-page-tools__counter" data-inema-section-counter></div></div>
-      <div class="inema-v2-meter" data-inema-meter="curso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso: Sua jornada de Engenharia de Prompt">
-      <div class="inema-v2-meter__row"><span data-inema-meter-frac>0 de 0</span><strong data-inema-meter-pct>0%</strong></div>
-      <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
-    </div>
-    </aside>
-        <div class="breadcrumb mb-8">
-            <a href="index.html">Início</a>
-            <span class="breadcrumb-separator">/</span>
-            <a href="recursos.html">Recursos</a>
-            <span class="breadcrumb-separator">/</span>
-            <span>100 Prompts Essenciais</span>
-        </div>
-
-        <div class="max-w-7xl mx-auto">
-            <!-- Header -->
-            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl p-8 text-white mb-12">
-                <div class="text-6xl mb-4">📚</div>
-                <h1 class="text-4xl font-bold mb-4">100 Prompts Essenciais</h1>
-                <p class="text-xl text-indigo-100 mb-4">Biblioteca Interativa Completa</p>
-                <p class="text-lg">159 tópicos analisados • 1.576.042 caracteres processados • Classificados em 8 categorias</p>
-                <blockquote class="mt-6 italic text-indigo-100 border-l-4 border-indigo-300 pl-4">
+<link href="assets/learn.css" rel="stylesheet"/>
+<link href="assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/100-prompts.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/100-prompts.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/100-prompts.html" hreflang="es" rel="alternate"/></head>
+<body class="font-['Inter'] bg-gray-50" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="100-prompts.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="en/100-prompts.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="es/100-prompts.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="inema-skip" href="#conteudo">Pular para o conteúdo</a>
+<nav aria-label="Navegação principal" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Trilhas" class="inema-v2-links"><a class="inema-v2-link" href="nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Iniciante</span></a><a class="inema-v2-link" href="nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Técnico</span></a><a class="inema-v2-link" href="nivel-avancado.html"><span class="short">T3</span><span class="full"> · Avançado</span></a><a class="inema-v2-link" href="nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">Minha jornada</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Aparência</span></button>
+<button aria-label="Alternar tema" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Tema</span></button>
+</div>
+</div>
+<div aria-label="Preferências de aparência" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Escuro</button><button data-inema-set-theme="claro" type="button">Claro</button><button data-inema-set-theme="sepia" type="button">Sépia</button><button data-inema-set-theme="foco" type="button">Foco</button><button data-inema-set-theme="contraste" type="button">Contraste</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fonte e tamanho</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">Sistema</button><button data-inema-set-font="leitura" type="button">Leitura</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Leitura</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Estreita</button><button data-inema-set-linewidth="68" type="button">Média</button><button data-inema-set-linewidth="75" type="button">Larga</button><button data-inema-set-leading="1.45" type="button">Compacta</button><button data-inema-set-leading="1.7" type="button">Confortável</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Azul" data-inema-set-accent="blue" type="button"></button><button aria-label="Roxo" data-inema-set-accent="purple" type="button"></button><button aria-label="Âmbar" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Rosa" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<nav class="sticky top-0 z-50 bg-white shadow-sm" data-v2-legacy-nav="">
+<div class="container mx-auto px-4 py-4">
+<div class="flex justify-between items-center">
+<a class="flex items-center space-x-2" href="index.html">
+<span class="text-2xl font-bold text-blue-600">FEP</span>
+<span class="text-sm text-gray-600 hidden md:inline">Engenharia de Prompt</span>
+</a>
+<a class="text-blue-600 hover:text-blue-700" href="index.html">← Voltar ao Início</a>
+</div>
+</div>
+</nav>
+<main class="container mx-auto px-4 py-12" id="conteudo">
+<aside aria-label="Progresso desta página" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Curso FEP</div><div class="inema-v2-page-tools__title">Sua jornada de Engenharia de Prompt</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progresso: Sua jornada de Engenharia de Prompt" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="curso" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 de 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<div class="breadcrumb mb-8">
+<a href="index.html">Início</a>
+<span class="breadcrumb-separator">/</span>
+<a href="recursos.html">Recursos</a>
+<span class="breadcrumb-separator">/</span>
+<span>100 Prompts Essenciais</span>
+</div>
+<div class="max-w-7xl mx-auto">
+<!-- Header -->
+<div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl p-8 text-white mb-12">
+<div class="text-6xl mb-4">📚</div>
+<h1 class="text-4xl font-bold mb-4">100 Prompts Essenciais</h1>
+<p class="text-xl text-indigo-100 mb-4">Biblioteca Interativa Completa</p>
+<p class="text-lg">159 tópicos analisados • 1.576.042 caracteres processados • Classificados em 8 categorias</p>
+<blockquote class="mt-6 italic text-indigo-100 border-l-4 border-indigo-300 pl-4">
                     "Um prompt bem construído é a diferença entre resultados mediocres e resultados extraordinários."
                 </blockquote>
-            </div>
-
-            <!-- Controls -->
-            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-                <div class="grid md:grid-cols-2 gap-4 mb-4">
-                    <!-- Search -->
-                    <div class="relative">
-                        <input
-                            type="text"
-                            id="searchInput"
-                            placeholder="🔍 Buscar prompts por palavra-chave..."
-                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:outline-none"
-                        >
-                    </div>
-
-                    <!-- View Toggle -->
-                    <div class="flex gap-2">
-                        <button id="showAll" class="flex-1 px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+</div>
+<!-- Controls -->
+<div class="bg-white rounded-lg shadow-md p-6 mb-8">
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<!-- Search -->
+<div class="relative">
+<input class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:outline-none" id="searchInput" placeholder="🔍 Buscar prompts por palavra-chave..." type="text"/>
+</div>
+<!-- View Toggle -->
+<div class="flex gap-2">
+<button class="flex-1 px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors" id="showAll">
                             Todos (100)
                         </button>
-                        <button id="showFavorites" class="flex-1 px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors">
+<button class="flex-1 px-4 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors" id="showFavorites">
                             ⭐ Favoritos (<span id="favCount">0</span>)
                         </button>
-                    </div>
-                </div>
-
-                <!-- Category Filters -->
-                <div class="flex flex-wrap gap-2">
-                    <button class="category-filter active" data-category="all">
+</div>
+</div>
+<!-- Category Filters -->
+<div class="flex flex-wrap gap-2">
+<button class="category-filter active" data-category="all">
                         Todas Categorias
                     </button>
-                    <button class="category-filter" data-category="fundamentais">
+<button class="category-filter" data-category="fundamentais">
                         🎯 Fundamentais (1-15)
                     </button>
-                    <button class="category-filter" data-category="conteudo">
+<button class="category-filter" data-category="conteudo">
                         ✍️ Conteúdo (16-30)
                     </button>
-                    <button class="category-filter" data-category="marketing">
+<button class="category-filter" data-category="marketing">
                         📈 Marketing (31-45)
                     </button>
-                    <button class="category-filter" data-category="analise">
+<button class="category-filter" data-category="analise">
                         🔍 Análise (46-55)
                     </button>
-                    <button class="category-filter" data-category="comunicacao">
+<button class="category-filter" data-category="comunicacao">
                         💬 Comunicação (56-65)
                     </button>
-                    <button class="category-filter" data-category="educacao">
+<button class="category-filter" data-category="educacao">
                         🎓 Educação (66-75)
                     </button>
-                    <button class="category-filter" data-category="criatividade">
+<button class="category-filter" data-category="criatividade">
                         💡 Criatividade (76-85)
                     </button>
-                    <button class="category-filter" data-category="avancadas">
+<button class="category-filter" data-category="avancadas">
                         🚀 Avançadas (86-100)
                     </button>
-                </div>
-            </div>
-
-            <!-- Download Links -->
-            <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
-                <h2 class="text-lg font-bold text-gray-900 mb-4">📥 Baixar Guia Completo</h2>
-                <div class="flex gap-4 flex-wrap">
-                    <a href="docs/100prompts/📚 Os 100 Prompts Mais Importantes_ Guia Completo Classificado.md"
-                       class="inline-flex items-center px-6 py-3 border-2 border-indigo-500 text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50">
+</div>
+</div>
+<!-- Download Links -->
+<div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
+<h2 class="text-lg font-bold text-gray-900 mb-4">📥 Baixar Guia Completo</h2>
+<div class="flex gap-4 flex-wrap">
+<a class="inline-flex items-center px-6 py-3 border-2 border-indigo-500 text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50" href="docs/100prompts/📚 Os 100 Prompts Mais Importantes_ Guia Completo Classificado.md">
                         📖 Ver Markdown Completo
                     </a>
-                    <a href="docs/100prompts/📚_Os_100_Prompts_Mais_Importantes_Guia_Completo_Classificado.pdf"
-                       class="inline-flex items-center px-6 py-3 bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-600">
+<a class="inline-flex items-center px-6 py-3 bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-600" href="docs/100prompts/📚_Os_100_Prompts_Mais_Importantes_Guia_Completo_Classificado.pdf">
                         📄 Baixar PDF (826 KB)
                     </a>
-                </div>
-            </div>
-
-            <!-- Prompts Grid -->
-            <div id="promptsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Prompts will be injected here by JavaScript -->
-            </div>
-
-            <!-- No results message -->
-            <div id="noResults" class="hidden text-center py-12">
-                <div class="text-6xl mb-4">🔍</div>
-                <h2 class="text-2xl font-bold text-gray-700 mb-2">Nenhum prompt encontrado</h2>
-                <p class="text-gray-600">Tente ajustar sua busca ou filtros</p>
-            </div>
-        </div>
-    </main>
-
-    <!-- Copy Notification -->
-    <div id="copyNotification" class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden">
+</div>
+</div>
+<!-- Prompts Grid -->
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="promptsContainer">
+<!-- Prompts will be injected here by JavaScript -->
+</div>
+<!-- No results message -->
+<div class="hidden text-center py-12" id="noResults">
+<div class="text-6xl mb-4">🔍</div>
+<h2 class="text-2xl font-bold text-gray-700 mb-2">Nenhum prompt encontrado</h2>
+<p class="text-gray-600">Tente ajustar sua busca ou filtros</p>
+</div>
+</div>
+</main>
+<!-- Copy Notification -->
+<div class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden" id="copyNotification">
         ✓ Prompt copiado!
     </div>
-
-    <footer class="bg-gray-900 text-white py-8 mt-16">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 FEP - Engenharia de Prompt</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script src="prompts-data.js"></script>
-    <script src="prompts-app.js"></script>
-  <script src="assets/v2.js"></script>
-  <script src="assets/learn.js"></script>
-  <script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+<footer class="bg-gray-900 text-white py-8 mt-16">
+<div class="container mx-auto px-4 text-center">
+<p>© 2025 FEP - Engenharia de Prompt</p>
+</div>
+</footer>
+<script src="script.js"></script>
+<script src="prompts-data.js"></script>
+<script src="prompts-app.js"></script>
+<script src="assets/v2.js"></script>
+<script src="assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
 </body>
 </html>

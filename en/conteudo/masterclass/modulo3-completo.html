@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+<script data-inema-manifest="" type="application/json">
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+<script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 3: Skills Design and Governance | Masterclass | FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FACC15',
+              dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+            },
+            fontFamily: {
+              'inter': ['Inter', 'system-ui', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        * { font-family: 'Inter', system-ui, sans-serif; }
+        html { scroll-behavior: smooth; }
+        .gold-glow { box-shadow: 0 0 40px rgba(251, 191, 36, 0.15); }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* INEMA Light Mode Overrides - Base */
+        html:not(.dark) body { background-color: #f8fafc; color: #111827; }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .bg-gray-950 { background-color: #f8fafc; }
+        html:not(.dark) .bg-gray-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-gray-800 { background-color: #f3f4f6; }
+        html:not(.dark) .text-gray-100 { color: #111827; }
+        html:not(.dark) .text-gray-200 { color: #1f2937; }
+        html:not(.dark) .text-gray-300 { color: #4b5563; }
+        html:not(.dark) .text-gray-400 { color: #6b7280; }
+        html:not(.dark) .text-gray-500 { color: #9ca3af; }
+        html:not(.dark) .text-white { color: #111827; }
+        html:not(.dark) .border-gray-700 { border-color: #e5e7eb; }
+        html:not(.dark) .border-gray-800 { border-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+        /* INEMA Light Mode - Trilha accent (amber) */
+        html:not(.dark) .text-amber-400 { color: #92400e; }
+        html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+        html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+        html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+        html:not(.dark) .hover\:bg-amber-500\/30:hover { background-color: rgba(217, 119, 6, 0.18); }
+
+        /* INEMA Light Mode - Remove gradients */
+        html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+        /* INEMA Light Mode - Special colors */
+        html:not(.dark) .text-primary { color: #a16207; }
+        html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+        html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+        html:not(.dark) .text-sky-400 { color: #0369a1; }
+        html:not(.dark) .text-yellow-400 { color: #a16207; }
+        html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+        html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+        /* INEMA Light Mode - Nav */
+        html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+        html:not(.dark) .bg-gray-950\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    </style>
+<link href="../../../assets/learn.css" rel="stylesheet"/>
+<link href="../../../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/conteudo/masterclass/modulo3-completo.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/conteudo/masterclass/modulo3-completo.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/conteudo/masterclass/modulo3-completo.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../conteudo/masterclass/modulo3-completo.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="modulo3-completo.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/conteudo/masterclass/modulo3-completo.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="inema-skip" href="#conteudo">Skip to content</a>
+<nav aria-label="Main navigation" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Paths" class="inema-v2-links"><a class="inema-v2-link" href="../../nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Beginner</span></a><a class="inema-v2-link" href="../../nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Technical</span></a><a class="inema-v2-link" href="../../nivel-avancado.html"><span class="short">T3</span><span class="full"> · Advanced</span></a><a aria-current="page" class="inema-v2-link" href="../../nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">My journey</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Appearance</span></button>
+<button aria-label="Toggle theme" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Theme</span></button>
+</div>
+</div>
+<div aria-label="Appearance Preferences" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Theme</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Dark</button><button data-inema-set-theme="claro" type="button">Clear</button><button data-inema-set-theme="sepia" type="button">Sepia</button><button data-inema-set-theme="foco" type="button">Focus</button><button data-inema-set-theme="contraste" type="button">Contrast</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Source and size</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">System</button><button data-inema-set-font="leitura" type="button">Reading</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Reading</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Narrow</button><button data-inema-set-linewidth="68" type="button">Medium</button><button data-inema-set-linewidth="75" type="button">Broad</button><button data-inema-set-leading="1.45" type="button">Compact</button><button data-inema-set-leading="1.7" type="button">Comfortable</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Accent</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Blue" data-inema-set-accent="blue" type="button"></button><button aria-label="Purple" data-inema-set-accent="purple" type="button"></button><button aria-label="Amber" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Pink" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-gray-950/95 backdrop-blur-md border-b border-amber-500/20" data-v2-legacy-nav="">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-3">
+<a class="text-xl font-bold text-gradient-gold" href="../../index.html">FEP</a>
+<span class="text-neutral-600 mx-2">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<nav class="flex items-center space-x-6">
+<a class="text-gray-300 hover:text-amber-400 transition-colors text-sm" href="../../nivel-masterclass.html">← Back to Course</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20">
+<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+</svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<main data-inema-module="4-3" data-inema-track="4" id="conteudo">
+<aside aria-label="This page's progress" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Path 4 · Module 3</div><div class="inema-v2-page-tools__title">Skills Design and Governance</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progress: Skills Design and Governance" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="modulo:4-3" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 of 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<nav aria-label="Module Index" class="sr-only" data-inema-toc=""><a href="#topico-1">Topic 1</a><a href="#topico-2">Topic 2</a><a href="#topico-3">Topic 3</a><a href="#topico-4">Topic 4</a><a href="#topico-5">Topic 5</a><a href="#topico-6">Topic 6</a></nav>
+<section class="pt-24 pb-12 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-orange-500/5"></div>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+<div class="text-center">
+<span class="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-400 text-sm font-medium mb-6">
+                    Module 3 • Masterclass
+                </span>
+<h1 class="text-4xl md:text-5xl font-bold mb-6">
+<span class="text-gradient-gold">Skills Design and Governance</span>
+</h1>
+<p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    From skill creator to <strong class="text-amber-400">ecosystem architect</strong>.
+                    Learn to manage skills as strategic organizational assets.
+                </p>
+</div>
+</div>
+</section>
+<!-- Intro Box -->
+<section class="py-8">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/30 rounded-2xl p-8 gold-glow">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+<span class="text-2xl">🛠️</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-amber-400 mb-3">The Masterclass-Level Difference</h3>
+<p class="text-gray-300 leading-relaxed">
+                            In the <strong>Path 3</strong>, you learned to <em>create individual skills</em>. Here, you learn
+                            to <strong class="text-amber-400">define complete skill ecosystems</strong> — taxonomies,
+                            reuse policies, governance, versioning, and evolution. This is <strong>organizational engineering</strong>,
+                            not an isolated technique.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Sections -->
+<section class="py-12">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+<!-- Tópico 1 -->
+<div class="space-y-6" data-inema-topic="modulo-4-3#topico-1" id="topico-1"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">1</div>
+<h2 class="text-2xl font-bold text-white">Skills Taxonomy</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-3-t1-p1">
+                        A <strong class="text-amber-400">skills taxonomy</strong> is a classification system that organizes
+                        all of the organization’s prompt capabilities into logical, hierarchical categories.
+                    </p>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Classification Dimensions</h3>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="space-y-2">
+<p class="font-medium text-white" data-inema-block="m4-3-t1-p2">By Domain:</p>
+<ul class="text-sm text-gray-400 space-y-1">
+<li>• Analysis skills</li>
+<li>• Generation skills</li>
+<li>• Transformation skills</li>
+<li>• Validation skills</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p class="font-medium text-white" data-inema-block="m4-3-t1-p3">By Scope:</p>
+<ul class="text-sm text-gray-400 space-y-1">
+<li>• Universal skills (cross-domain)</li>
+<li>• Departmental skills</li>
+<li>• Project-specific skills</li>
+<li>• Experimental skills</li>
+</ul>
+</div>
+</div>
+</div>
+<p data-inema-block="m4-3-t1-p4">
+                        The taxonomy serves as <strong>capability map</strong>: makes it possible to identify redundancies,
+                        coverage gaps, and consolidation opportunities. A well-designed taxonomy reduces
+                        duplication and makes existing skills easier to discover.
+                    </p>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+<h3 class="text-amber-400 font-semibold mb-2">Design Principle</h3>
+<p class="text-gray-300">
+                            The taxonomy should be <strong>mutually exclusive and collectively exhaustive</strong> (MECE).
+                            Each skill should have a single correct place in the taxonomy, and the taxonomy should accommodate
+                            any conceivable skill.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Tópico 2 -->
+<div class="space-y-6" data-inema-topic="modulo-4-3#topico-2" id="topico-2"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">2</div>
+<h2 class="text-2xl font-bold text-white">Skills as Organizational Assets</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-3-t2-p1">
+                        Skills are not just code or text — they are <strong class="text-amber-400">strategic assets</strong>
+                        that represent encoded institutional knowledge, engineering investment, and competitive capability.
+                    </p>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Portfolio Perspective</h3>
+<table class="w-full text-sm">
+<thead>
+<tr class="border-b border-gray-700">
+<th class="text-left py-2 text-white">Category</th>
+<th class="text-left py-2 text-white">Investment</th>
+<th class="text-left py-2 text-white">Strategy</th>
+</tr>
+</thead>
+<tbody class="text-gray-400">
+<tr class="border-b border-gray-800">
+<td class="py-2">Core Skills</td>
+<td class="py-2">High</td>
+<td class="py-2">Maintain and Optimize</td>
+</tr>
+<tr class="border-b border-gray-800">
+<td class="py-2">Support Skills</td>
+<td class="py-2">Medium</td>
+<td class="py-2">Standardize</td>
+</tr>
+<tr class="border-b border-gray-800">
+<td class="py-2">Experimental Skills</td>
+<td class="py-2">Low</td>
+<td class="py-2">Iterate or discard</td>
+</tr>
+<tr>
+<td class="py-2">Legacy Skills</td>
+<td class="py-2">Minimum</td>
+<td class="py-2">Migrate or sunset</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p data-inema-block="m4-3-t2-p2">
+                        As an architect, you need to treat skills with the same level of care as APIs or
+                        microservices. That means documentation, testing, usage metrics, quality SLAs,
+                        and lifecycle management processes.
+                    </p>
+<div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6">
+<h3 class="text-orange-400 font-semibold mb-2">Skills Value Metrics</h3>
+<ul class="text-gray-300 space-y-1 text-sm">
+<li>• <strong>Usage Frequency</strong>: how many times the skill is invoked</li>
+<li>• <strong>Coverage</strong>: how many use cases it serves</li>
+<li>• <strong>Satisfaction</strong>: perceived quality of outputs</li>
+<li>• <strong>Maintenance Cost</strong>: effort required to keep it up to date</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Tópico 3 -->
+<div class="space-y-6" data-inema-topic="modulo-4-3#topico-3" id="topico-3"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">3</div>
+<h2 class="text-2xl font-bold text-white">Reuse, Coupling, and Dependencies</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-3-t3-p1">
+                        O <strong class="text-amber-400">reuse design</strong> of skills follows the same principles as software
+                        architecture: high cohesion, low coupling, and explicit dependency management.
+                    </p>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Composition Patterns</h3>
+<div class="space-y-4">
+<div class="border-l-2 border-green-500 pl-4">
+<p class="font-medium text-green-400" data-inema-block="m4-3-t3-p2">Horizontal Composition</p>
+<p class="text-sm text-gray-400" data-inema-block="m4-3-t3-p3">Skills at the same level that can be combined: Skill A + Skill B → Combined output</p>
+</div>
+<div class="border-l-2 border-blue-500 pl-4">
+<p class="font-medium text-blue-400" data-inema-block="m4-3-t3-p4">Vertical Composition</p>
+<p class="text-sm text-gray-400">Skills in a dependency chain: Skill A → output → Skill B → final output</p>
+</div>
+<div class="border-l-2 border-purple-500 pl-4">
+<p class="font-medium text-purple-400">Composition with a Wrapper</p>
+<p class="text-sm text-gray-400">Skill envelope that orchestrates internal skills: Meta-skill(A, B, C) → Integrated output</p>
+</div>
+</div>
+</div>
+<p>
+                        O <strong>coupling</strong> between skills should be minimized. Tightly coupled skills create
+                        failure cascades and make independent evolution harder. Prefer clear input/output
+                        contracts over implicit dependencies.
+                    </p>
+<div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-2">⚠️ Dependency Anti-Patterns</h3>
+<ul class="text-gray-300 space-y-1 text-sm">
+<li>• <strong>Circular dependency</strong>: A depends on B, which depends on A</li>
+<li>• <strong>Implicit dependency</strong>: assumes undocumented external state</li>
+<li>• <strong>Deep inheritance</strong>: long chains of derived skills</li>
+<li>• <strong>God-skill</strong>: one skill that does everything and everything depends on</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Tópico 4 -->
+<div class="space-y-6" data-inema-topic="modulo-4-3#topico-4" id="topico-4"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">4</div>
+<h2 class="text-2xl font-bold text-white">Versioning and Compatibility</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-3-t4-p1">
+                        Skills in production need <strong class="text-amber-400">semantic versioning</strong> and clear compatibility
+                        policies. Changes to skills can break downstream systems.
+                    </p>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Version Semantics for Skills</h3>
+<div class="font-mono text-lg text-center mb-4 text-white">MAJOR.MINOR.PATCH</div>
+<div class="space-y-3 text-sm">
+<div class="flex gap-4">
+<span class="text-red-400 font-medium w-20">MAJOR</span>
+<span class="text-gray-400">Breaking changes: change to the input/output contract</span>
+</div>
+<div class="flex gap-4">
+<span class="text-yellow-400 font-medium w-20">MINOR</span>
+<span class="text-gray-400">New backward-compatible capabilities</span>
+</div>
+<div class="flex gap-4">
+<span class="text-green-400 font-medium w-20">PATCH</span>
+<span class="text-gray-400">Bug fixes and quality improvements</span>
+</div>
+</div>
+</div>
+<p data-inema-block="m4-3-t4-p2">
+                        A <strong>backward compatibility</strong> is crucial. When a skill is updated,
+                        systems that depend on it must not break. This requires discipline in contract changes
+                        and deprecation periods.
+                    </p>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+<h3 class="text-amber-400 font-semibold mb-2">Deprecation Process</h3>
+<ol class="text-gray-300 space-y-1 text-sm list-decimal list-inside">
+<li>Announce deprecation with a timeline (e.g., 3 months)</li>
+<li>Keep the old version working during the transition</li>
+<li>Provide a migration guide for the new version</li>
+<li>Monitor usage of the old version</li>
+<li>Remove the old version only when usage reaches zero</li>
+</ol>
+</div>
+</div>
+</div>
+<!-- Tópico 5 -->
+<div class="space-y-6" data-inema-topic="modulo-4-3#topico-5" id="topico-5"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">5</div>
+<h2 class="text-2xl font-bold text-white">Skills Governance and Ownership</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-3-t5-p1">
+<strong class="text-amber-400">Skills governance</strong> defines who can create, modify,
+                        approve, and deprecate skills. Without clear governance, the ecosystem becomes chaotic and
+                        inconsistent.
+                    </p>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Ownership Model</h3>
+<div class="space-y-4">
+<div class="border-l-2 border-amber-500 pl-4">
+<p class="font-medium text-amber-400" data-inema-block="m4-3-t5-p2">Technical Owner</p>
+<p class="text-sm text-gray-400" data-inema-block="m4-3-t5-p3">Responsible for implementation, maintenance, and technical quality</p>
+</div>
+<div class="border-l-2 border-blue-500 pl-4">
+<p class="font-medium text-blue-400" data-inema-block="m4-3-t5-p4">Business Owner</p>
+<p class="text-sm text-gray-400">Responsible for requirements, prioritization, and strategic alignment</p>
+</div>
+<div class="border-l-2 border-green-500 pl-4">
+<p class="font-medium text-green-400">Steward</p>
+<p class="text-sm text-gray-400">Responsible for standards, consistency, and ecosystem quality</p>
+</div>
+</div>
+</div>
+<p>
+                        The governance model must define <strong>approval processes</strong> for new
+                        skills and significant changes. Core skills should require mandatory review; experimental skills
+                        can have a lighter process.
+                    </p>
+<div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6">
+<h3 class="text-orange-400 font-semibold mb-2">RACI Matrix for Skills</h3>
+<table class="w-full text-sm mt-2">
+<thead>
+<tr class="border-b border-gray-700">
+<th class="text-left py-2 text-white">Activity</th>
+<th class="text-center py-2 text-white">R</th>
+<th class="text-center py-2 text-white">A</th>
+<th class="text-center py-2 text-white">C</th>
+<th class="text-center py-2 text-white">I</th>
+</tr>
+</thead>
+<tbody class="text-gray-400">
+<tr class="border-b border-gray-800">
+<td class="py-2">Create a skill</td>
+<td class="text-center">Dev</td>
+<td class="text-center">Owner</td>
+<td class="text-center">Steward</td>
+<td class="text-center">Users</td>
+</tr>
+<tr class="border-b border-gray-800">
+<td class="py-2">Approve for production</td>
+<td class="text-center">Steward</td>
+<td class="text-center">Owner</td>
+<td class="text-center">Security</td>
+<td class="text-center">Dev</td>
+</tr>
+<tr>
+<td class="py-2">Deprecate</td>
+<td class="text-center">Owner</td>
+<td class="text-center">Steward</td>
+<td class="text-center">Users</td>
+<td class="text-center">All</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Tópico 6 -->
+<div class="space-y-6" data-inema-topic="modulo-4-3#topico-6" id="topico-6"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white font-bold">6</div>
+<h2 class="text-2xl font-bold text-white">Evolution of Skills Over Time</h2>
+</div>
+<div class="pl-14 space-y-4 text-gray-300 leading-relaxed">
+<p data-inema-block="m4-3-t6-p1">
+                        Skills have <strong class="text-amber-400">lifecycle</strong>. They start as experiments,
+                        mature, reach stability, and eventually become legacy and are deprecated.
+                        Managing this evolution is the architect's responsibility.
+                    </p>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Skills Lifecycle</h3>
+<div class="flex flex-wrap justify-center gap-2 text-sm">
+<span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full">Experimental</span>
+<span class="text-gray-600">→</span>
+<span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">Beta</span>
+<span class="text-gray-600">→</span>
+<span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full">Stable</span>
+<span class="text-gray-600">→</span>
+<span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full">Matura</span>
+<span class="text-gray-600">→</span>
+<span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full">Legacy</span>
+<span class="text-gray-600">→</span>
+<span class="px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full">Deprecated</span>
+</div>
+</div>
+<p data-inema-block="m4-3-t6-p2">
+                        Evolution isn't just technical — it's functional too. Skills should evolve to
+                        serve new use cases, incorporate user feedback, and take advantage of
+                        new models' capabilities.
+                    </p>
+<div class="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
+<h3 class="text-amber-400 font-semibold mb-4">Evolution Drivers</h3>
+<div class="grid md:grid-cols-2 gap-4 text-sm">
+<div class="space-y-2">
+<p class="font-medium text-white" data-inema-block="m4-3-t6-p3">Internal:</p>
+<ul class="text-gray-400 space-y-1">
+<li>• Quality feedback</li>
+<li>• New business requirements</li>
+<li>• Changes to internal standards</li>
+<li>• Consolidation with other skills</li>
+</ul>
+</div>
+<div class="space-y-2">
+<p class="font-medium text-white" data-inema-block="m4-3-t6-p4">External:</p>
+<ul class="text-gray-400 space-y-1">
+<li>• New LLM models</li>
+<li>• Provider API changes</li>
+<li>• Newly discovered techniques</li>
+<li>• Regulatory changes</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
+<h3 class="text-amber-400 font-semibold mb-2">Periodic Review</h3>
+<p class="text-gray-300">
+                            Establish <strong>quarterly reviews</strong> of the skills portfolio:
+                            usage metrics, output quality, maintenance costs, and strategic alignment.
+                            Skills that don't justify their cost should be candidates for sunset.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Takeaways -->
+<section class="py-16">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-br from-gray-900 to-gray-900/50 border border-amber-500/30 rounded-2xl p-8 gold-glow">
+<h3 class="text-2xl font-bold text-amber-400 mb-6">Module Key Takeaways</h3>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">MECE taxonomy organizes skills into clear, non-overlapping categories</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">Skills are organizational assets that require portfolio management</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">Composition should have loose coupling and explicit contracts</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">Semantic versioning and gradual deprecation protect downstream systems</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">Governance establishes clear ownership with approval processes</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+<span class="text-amber-400 text-sm">✓</span>
+</div>
+<p class="text-gray-300">The skills lifecycle requires periodic review and proactive sunsetting</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation -->
+<section class="py-12 border-t border-gray-800">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+<a class="flex items-center gap-2 text-gray-400 hover:text-amber-400 transition-colors" href="modulo2-completo.html">
+<span>←</span>
+<span>Module 2: Context Design</span>
+</a>
+<a class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity" href="modulo4-completo.html">
+<span>Module 4: Agent Architectures</span>
+<span>→</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Download Section -->
+<section class="py-8">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border border-amber-500/30 rounded-2xl p-6">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
+<svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-white">Download this module</h3>
+<p class="text-sm text-gray-400">Save for offline study</p>
+</div>
+</div>
+<div class="flex gap-3">
+<a class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                            PDF
+                        </a>
+<a class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                            MD
+                        </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+</main>
+<footer class="py-8 border-t border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+<p>Prompt Engineering Fundamentals © 2025 | Masterclass Level</p>
+</div>
+</footer>
+<script>
+      (function() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return;
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+
+        if (html.classList.contains('dark')) {
+          lightIcon && lightIcon.classList.remove('hidden');
+        } else {
+          darkIcon && darkIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', () => {
+          html.classList.toggle('dark');
+          const isDark = html.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          darkIcon && darkIcon.classList.toggle('hidden');
+          lightIcon && lightIcon.classList.toggle('hidden');
+        });
+      })();
+    </script>
+<script src="../../../assets/v2.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+</body>
+</html>

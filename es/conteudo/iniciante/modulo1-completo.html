@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+<script data-inema-manifest="" type="application/json">
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+<script>
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 1: Fundamentos de IA y LLM | FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          },
+          fontFamily: {
+            'inter': ['Inter', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #0a0a0a; }
+    html:not(.dark) body { background-color: #fafafa; }
+    html:not(.dark) .bg-neutral-900 { background-color: #fafafa !important; }
+    html:not(.dark) .bg-neutral-800 { background-color: #ffffff !important; }
+    html:not(.dark) .bg-neutral-700 { background-color: #f5f5f5 !important; }
+    html:not(.dark) .border-neutral-700 { border-color: #e5e5e5 !important; }
+    html:not(.dark) .text-neutral-100 { color: #171717 !important; }
+    html:not(.dark) .text-neutral-300 { color: #404040 !important; }
+    html:not(.dark) .text-neutral-400 { color: #525252 !important; }
+
+    /* INEMA Light Mode Overrides - Base */
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-500 { color: #59616c; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* INEMA Light Mode - Trilha accent (emerald) */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/30:hover { background-color: rgba(5, 150, 105, 0.18); }
+
+    /* INEMA Light Mode - Remove gradients */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    /* INEMA Light Mode - Special colors */
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    /* INEMA Light Mode - Nav */
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+<link href="../../../assets/learn.css" rel="stylesheet"/>
+<link href="../../../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/conteudo/iniciante/modulo1-completo.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/conteudo/iniciante/modulo1-completo.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/conteudo/iniciante/modulo1-completo.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../conteudo/iniciante/modulo1-completo.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/conteudo/iniciante/modulo1-completo.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo1-completo.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="inema-skip" href="#conteudo">Ir al contenido</a>
+<nav aria-label="Navegación principal" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Rutas" class="inema-v2-links"><a aria-current="page" class="inema-v2-link" href="../../nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Principiante</span></a><a class="inema-v2-link" href="../../nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Técnico</span></a><a class="inema-v2-link" href="../../nivel-avancado.html"><span class="short">T3</span><span class="full"> · Avanzado</span></a><a class="inema-v2-link" href="../../nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">Mi recorrido</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Apariencia</span></button>
+<button aria-label="Cambiar tema" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Tema</span></button>
+</div>
+</div>
+<div aria-label="Preferencias de apariencia" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Oscuro</button><button data-inema-set-theme="claro" type="button">Claro</button><button data-inema-set-theme="sepia" type="button">Sepia</button><button data-inema-set-theme="foco" type="button">Enfoque</button><button data-inema-set-theme="contraste" type="button">Contraste</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fuente y tamaño</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">Sistema</button><button data-inema-set-font="leitura" type="button">Lectura</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Lectura</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Estrecha</button><button data-inema-set-linewidth="68" type="button">Media</button><button data-inema-set-linewidth="75" type="button">Amplia</button><button data-inema-set-leading="1.45" type="button">Compacta</button><button data-inema-set-leading="1.7" type="button">Cómodo</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Azul" data-inema-set-accent="blue" type="button"></button><button aria-label="Morado" data-inema-set-accent="purple" type="button"></button><button aria-label="Ámbar" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Rosa" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<button class="fixed top-4 right-4 z-50 p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20">
+<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+</svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-700" data-v2-legacy-nav="">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<a class="flex items-center space-x-2 text-neutral-400 hover:text-emerald-400 transition-colors" href="../../nivel-iniciante.html">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Volver a principiante</span>
+</a>
+<span class="text-neutral-600 mx-2">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<span class="text-emerald-400 font-semibold">Módulo completo</span>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12" data-inema-module="1-1" data-inema-track="1" id="conteudo">
+<aside aria-label="Progreso de esta página" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Ruta 1 · Módulo 1</div><div class="inema-v2-page-tools__title">Fundamentos de IA y LLM</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progreso: Fundamentos de IA y LLMs" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="modulo:1-1" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 de 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<nav aria-label="Índice del módulo" class="sr-only" data-inema-toc=""><a href="#topico-1">Tema 1</a><a href="#topico-2">Tema 2</a><a href="#topico-3">Tema 3</a><a href="#topico-4">Tema 4</a><a href="#topico-5">Tema 5</a><a href="#topico-6">Tema 6</a></nav>
+<!-- Header -->
+<div class="text-center mb-12">
+<span class="inline-block px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-semibold mb-4">
+        MÓDULO 1 COMPLETO
+      </span>
+<h1 class="text-4xl sm:text-5xl font-bold mb-4">🧠 Fundamentos de IA y LLM</h1>
+<p class="text-xl text-neutral-400 max-w-2xl mx-auto">
+        Todo lo que necesitas saber sobre cómo funcionan los LLM, los tokens, la anatomía de los prompts y la claridad.
+        La base esencial para dominar la Ingeniería de Prompts.
+      </p>
+</div>
+<!-- Stats Banner -->
+<div class="grid grid-cols-4 gap-4 mb-12">
+<div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+<div class="text-2xl font-bold text-primary">4</div>
+<div class="text-xs text-neutral-400">Temas</div>
+</div>
+<div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+<div class="text-2xl font-bold text-accent">2-3h</div>
+<div class="text-xs text-neutral-400">Duración</div>
+</div>
+<div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+<div class="text-2xl font-bold text-yellow-400">Base</div>
+<div class="text-xs text-neutral-400">Nivel</div>
+</div>
+<div class="bg-neutral-800 rounded-xl p-4 text-center border border-neutral-700">
+<div class="text-2xl font-bold text-emerald-400">100%</div>
+<div class="text-xs text-neutral-400">Esencial</div>
+</div>
+</div>
+<!-- Índice -->
+<section class="mb-12">
+<div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">📑 Contenido del Módulo</h2>
+<div class="space-y-4">
+<a class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors" href="#llm-basics">
+<span class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 font-bold">1</span>
+<div>
+<p class="font-semibold text-neutral-100">🤖 Fundamentos de LLM y funcionamiento</p>
+<p class="text-sm text-neutral-400">Qué son los LLMs y cómo funcionan</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors" href="#tokens">
+<span class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 font-bold">2</span>
+<div>
+<p class="font-semibold text-neutral-100">🔤 Tokens y ventana de contexto</p>
+<p class="text-sm text-neutral-400">Comprende los límites y el conteo</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors" href="#anatomia">
+<span class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 font-bold">3</span>
+<div>
+<p class="font-semibold text-neutral-100">📐 Anatomía de Prompts</p>
+<p class="text-sm text-neutral-400">Los 5 componentes esenciales</p>
+</div>
+</a>
+<a class="flex items-center gap-4 p-4 bg-neutral-700/30 rounded-lg hover:bg-neutral-700/50 transition-colors" href="#clareza">
+<span class="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 font-bold">4</span>
+<div>
+<p class="font-semibold text-neutral-100">✨ Claridad y especificidad</p>
+<p class="text-sm text-neutral-400">El principio más importante</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- TÓPICO 1: LLM Basics -->
+<span aria-hidden="true" class="inema-anchor-alias" id="llm-basics"></span><section class="mb-16" data-inema-topic="modulo-1-1#topico-1" id="topico-1"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-gradient-to-br from-emerald-900/30 to-neutral-800 rounded-2xl p-8 border border-emerald-500/30">
+<div class="flex items-center mb-6">
+<span class="text-4xl mr-4">🤖</span>
+<div>
+<h2 class="text-2xl font-bold text-emerald-400">1. Conceptos básicos de LLM y funcionamiento</h2>
+<p class="text-neutral-400" data-inema-block="m1-1-t1-p1">La tecnología detrás de la IA generativa</p>
+</div>
+</div>
+<div class="prose prose-invert max-w-none">
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-1-t1-p2">
+            Uno <strong class="text-emerald-400">Large Language Model (LLM)</strong> es un modelo de IA entrenado con miles de millones de palabras de texto.
+            Mediante este entrenamiento masivo, aprende patrones del lenguaje, conocimiento factual y capacidades de razonamiento.
+          </p>
+<!-- Como Funciona -->
+<div class="bg-neutral-700/50 rounded-xl p-6 mb-6">
+<h3 class="text-xl font-bold text-emerald-400 mb-4">⚙️ El proceso de generación</h3>
+<div class="grid md:grid-cols-4 gap-4">
+<div class="text-center p-4 bg-neutral-800/50 rounded-lg">
+<div class="text-2xl mb-2">📚</div>
+<p class="font-semibold text-emerald-400" data-inema-block="m1-1-t1-p3">1. Entrenamiento</p>
+<p class="text-xs text-neutral-300" data-inema-block="m1-1-t1-p4">Miles de millones de textos</p>
+</div>
+<div class="text-center p-4 bg-neutral-800/50 rounded-lg">
+<div class="text-2xl mb-2">🔍</div>
+<p class="font-semibold text-emerald-400">2. Patrones</p>
+<p class="text-xs text-neutral-300">Identifica reglas</p>
+</div>
+<div class="text-center p-4 bg-neutral-800/50 rounded-lg">
+<div class="text-2xl mb-2">💬</div>
+<p class="font-semibold text-emerald-400">3. Prompt</p>
+<p class="text-xs text-neutral-300">Tú preguntas</p>
+</div>
+<div class="text-center p-4 bg-neutral-800/50 rounded-lg">
+<div class="text-2xl mb-2">✨</div>
+<p class="font-semibold text-emerald-400">4. Generación</p>
+<p class="text-xs text-neutral-300">Token por token</p>
+</div>
+</div>
+</div>
+<!-- Características -->
+<div class="bg-blue-900/20 p-6 rounded-xl border border-blue-500/30 mb-6">
+<h3 class="font-bold text-blue-400 mb-3">📊 Características Importantes</h3>
+<ul class="space-y-2 text-neutral-300">
+<li>• <strong>No tiene conciencia</strong> - Es una sofisticada herramienta matemática</li>
+<li>• <strong>Basado en probabilidades</strong> - Elige las palabras más probables</li>
+<li>• <strong>Sin memoria persistente</strong> - Cada conversación está aislada</li>
+<li>• <strong>Fecha de corte</strong> - No conoce los eventos posteriores a su entrenamiento</li>
+</ul>
+</div>
+<!-- Modelos -->
+<div class="grid md:grid-cols-3 gap-4">
+<div class="bg-orange-900/20 p-4 rounded-lg border border-orange-500/30">
+<h3 class="font-bold text-orange-400 mb-2">Claude</h3>
+<p class="text-xs text-neutral-300">Fuerte en razonamiento, 200K tokens</p>
+</div>
+<div class="bg-green-900/20 p-4 rounded-lg border border-green-500/30">
+<h3 class="font-bold text-green-400 mb-2">GPT-4</h3>
+<p class="text-xs text-neutral-300">Versátil, creativo</p>
+</div>
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+<h3 class="font-bold text-blue-400 mb-2">Gemini</h3>
+<p class="text-xs text-neutral-300">Integrado con Google, 1M tokens</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 2: Tokens -->
+<span aria-hidden="true" class="inema-anchor-alias" id="tokens"></span><section class="mb-16" data-inema-topic="modulo-1-1#topico-2" id="topico-2"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+<div class="flex items-center mb-6">
+<span class="text-4xl mr-4">🔤</span>
+<div>
+<h2 class="text-2xl font-bold text-accent">2. Tokens y ventana de contexto</h2>
+<p class="text-neutral-400" data-inema-block="m1-1-t2-p1">Las unidades básicas de procesamiento</p>
+</div>
+</div>
+<div class="prose prose-invert max-w-none">
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-1-t2-p2">
+<strong class="text-accent">Tokens</strong> son la forma en que el LLM «lee» el texto. Una palabra puede ser 1 token o varios tokens.
+            <strong>~4 caracteres = 1 token</strong> en portugués.
+          </p>
+<!-- Exemplos de Tokenização -->
+<div class="bg-neutral-700/50 rounded-xl p-6 mb-6">
+<h3 class="text-xl font-bold text-accent mb-4">📝 Ejemplos</h3>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-neutral-800/50 p-4 rounded-lg">
+<p class="font-mono text-accent" data-inema-block="m1-1-t2-p3">"Hola"</p>
+<p class="text-sm text-neutral-300" data-inema-block="m1-1-t2-p4">= 1 token</p>
+</div>
+<div class="bg-neutral-800/50 p-4 rounded-lg">
+<p class="font-mono text-accent">"Brasilia"</p>
+<p class="text-sm text-neutral-300">= 2 tokens (Bras + ília)</p>
+</div>
+</div>
+</div>
+<!-- Context Window -->
+<div class="bg-purple-900/20 p-6 rounded-xl border border-purple-500/30 mb-6">
+<h3 class="font-bold text-purple-400 mb-3">📦 Ventana de contexto por modelo</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-3 bg-neutral-800/50 rounded-lg">
+<span class="text-neutral-300">Claude 3.5 Sonnet</span>
+<span class="text-purple-400 font-bold">200K tokens</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-neutral-800/50 rounded-lg">
+<span class="text-neutral-300">GPT-4 Turbo</span>
+<span class="text-purple-400 font-bold">128K tokens</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-neutral-800/50 rounded-lg">
+<span class="text-neutral-300">Gemini 1.5 Pro</span>
+<span class="text-purple-400 font-bold">1M tokens</span>
+</div>
+</div>
+</div>
+<!-- O que conta -->
+<div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/30">
+<p class="text-yellow-400 font-semibold mb-2">⚠️ Qué cuenta en la ventana de contexto:</p>
+<p class="text-neutral-300 text-sm">Tu prompt + historial de la conversación + respuesta del modelo + ejemplos proporcionados</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 3: Anatomia -->
+<span aria-hidden="true" class="inema-anchor-alias" id="anatomia"></span><section class="mb-16" data-inema-topic="modulo-1-1#topico-3" id="topico-3"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-gradient-to-br from-purple-900/30 to-neutral-800 rounded-2xl p-8 border border-purple-500/30">
+<div class="flex items-center mb-6">
+<span class="text-4xl mr-4">📐</span>
+<div>
+<h2 class="text-2xl font-bold text-purple-400">3. Anatomía de los prompts</h2>
+<p class="text-neutral-400" data-inema-block="m1-1-t3-p1">Los 5 componentes esenciales</p>
+</div>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-emerald-500">
+<span class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">1</span>
+<div>
+<p class="font-bold text-emerald-400" data-inema-block="m1-1-t3-p2">Contexto</p>
+<p class="text-sm text-neutral-300" data-inema-block="m1-1-t3-p3">"Eres un profesor de física..."</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-blue-500">
+<span class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">2</span>
+<div>
+<p class="font-bold text-blue-400" data-inema-block="m1-1-t3-p4">Tarea</p>
+<p class="text-sm text-neutral-300">"Explica el concepto de gravedad"</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-purple-500">
+<span class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">3</span>
+<div>
+<p class="font-bold text-purple-400">Especificaciones</p>
+<p class="text-sm text-neutral-300">"Usa analogías de la vida cotidiana. Máximo 3 párrafos"</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-yellow-500">
+<span class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">4</span>
+<div>
+<p class="font-bold text-yellow-400">Ejemplos (opcional)</p>
+<p class="text-sm text-neutral-300">Muestra el formato que quieres</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-lg border-l-4 border-red-500">
+<span class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-neutral-900 font-bold">5</span>
+<div>
+<p class="font-bold text-red-400">Restricciones</p>
+<p class="text-sm text-neutral-300">"No uses ecuaciones matemáticas complejas"</p>
+</div>
+</div>
+</div>
+<!-- Template -->
+<div class="bg-neutral-900 p-6 rounded-xl font-mono text-sm">
+<p class="text-emerald-400">[CONTEXTO] Eres un [papel].</p>
+<p class="text-blue-400 mt-2">[TAREA] [Acción clara].</p>
+<p class="text-purple-400 mt-2">[SPECS] Formato, tono, extensión.</p>
+<p class="text-red-400 mt-2">[RESTRICCIONES] NO hagas X, Y.</p>
+</div>
+</div>
+</section>
+<!-- TÓPICO 4: Clareza -->
+<span aria-hidden="true" class="inema-anchor-alias" id="clareza"></span><section class="mb-16" data-inema-topic="modulo-1-1#topico-4" id="topico-4"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+<div class="flex items-center mb-6">
+<span class="text-4xl mr-4">✨</span>
+<div>
+<h2 class="text-2xl font-bold text-yellow-400">4. Claridad y especificidad</h2>
+<p class="text-neutral-400" data-inema-block="m1-1-t4-p1">El principio más importante</p>
+</div>
+</div>
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-1-t4-p2">
+          LLMs <strong class="text-yellow-400">interpretan literalmente</strong> lo que escribes.
+          Cuanto más específico, mejores serán los resultados.
+        </p>
+<!-- 4 Princípios -->
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+<div class="bg-neutral-700/30 p-4 rounded-lg border-l-4 border-emerald-500">
+<p class="font-semibold text-emerald-400" data-inema-block="m1-1-t4-p3">1. Sé específico</p>
+<p class="text-sm text-neutral-300" data-inema-block="m1-1-t4-p4">Detalles &gt; Generalidades</p>
+</div>
+<div class="bg-neutral-700/30 p-4 rounded-lg border-l-4 border-blue-500">
+<p class="font-semibold text-blue-400">2. Sé directo</p>
+<p class="text-sm text-neutral-300">Ve directo al grano</p>
+</div>
+<div class="bg-neutral-700/30 p-4 rounded-lg border-l-4 border-purple-500">
+<p class="font-semibold text-purple-400">3. Sé explícito</p>
+<p class="text-sm text-neutral-300">No des nada por sentado</p>
+</div>
+<div class="bg-neutral-700/30 p-4 rounded-lg border-l-4 border-yellow-500">
+<p class="font-semibold text-yellow-400">4. Sé estructurado</p>
+<p class="text-sm text-neutral-300">Usa formato</p>
+</div>
+</div>
+<!-- Exemplo -->
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30">
+<p class="text-red-400 font-semibold mb-2">❌ Vago</p>
+<p class="text-neutral-300 font-mono text-sm">"Habla sobre SEO"</p>
+</div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30">
+<p class="text-emerald-400 font-semibold mb-2">✅ Claro</p>
+<p class="text-neutral-300 font-mono text-sm">"Enumera 5 técnicas de SEO on-page con ejemplos prácticos"</p>
+</div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 5: Escolha consciente -->
+<span aria-hidden="true" class="inema-anchor-alias" id="escolha-consciente"></span><section class="mb-16" data-inema-topic="modulo-1-1#topico-5" id="topico-5"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+<div class="flex items-center mb-6"><span aria-hidden="true" class="text-4xl mr-4">◇</span><div><h2 class="text-2xl font-bold text-blue-400">5. Elección consciente del modelo</h2><p class="text-neutral-400" data-inema-block="m1-1-t5-p1">La capacidad, el contexto y el costo deben ajustarse a la tarea</p></div></div>
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-1-t5-p2">Antes de escribir el prompt, identifica si la tarea requiere razonamiento, generación creativa, análisis de archivos o una ventana de contexto extensa.</p>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30"><h3 class="font-bold text-blue-300 mb-2">Pregunta de decisión</h3><p class="text-sm text-neutral-100" data-inema-block="m1-1-t5-p3">¿Qué capacidad es indispensable para esta entrega y cuál sería solo conveniente?</p></div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30"><h3 class="font-bold text-emerald-300 mb-2">Prueba rápida</h3><p class="text-sm text-neutral-100" data-inema-block="m1-1-t5-p4">Compara la misma tarea en dos modelos y registra la calidad, el tiempo y la necesidad de correcciones.</p></div>
+</div>
+</div>
+</section>
+<!-- TÓPICO 6: Laboratório -->
+<span aria-hidden="true" class="inema-anchor-alias" id="laboratorio-clareza"></span><section class="mb-16" data-inema-topic="modulo-1-1#topico-6" id="topico-6"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Marcar como leído</span><span class="inema-label-done">Leído</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>Tengo una duda</span></button>
+</div>
+<div class="bg-neutral-800 rounded-2xl p-8 border border-neutral-700">
+<div class="flex items-center mb-6"><span aria-hidden="true" class="text-4xl mr-4">◎</span><div><h2 class="text-2xl font-bold text-emerald-400">6. Laboratorio de claridad</h2><p class="text-neutral-400" data-inema-block="m1-1-t6-p1">Aplica los fundamentos en dos versiones del mismo prompt</p></div></div>
+<p class="text-neutral-300 text-lg mb-6" data-inema-block="m1-1-t6-p2">Escribe una solicitud breve. Luego, reescríbela incluyendo contexto, tarea, formato esperado y una restricción medible.</p>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-red-900/20 p-4 rounded-lg border border-red-500/30"><h3 class="font-bold text-red-300 mb-2">Versión inicial</h3><p class="text-sm text-neutral-100" data-inema-block="m1-1-t6-p3">Mantén la solicitud tal como la harías espontáneamente y guarda la respuesta.</p></div>
+<div class="bg-emerald-900/20 p-4 rounded-lg border border-emerald-500/30"><h3 class="font-bold text-emerald-300 mb-2">Versión estructurada</h3><p class="text-sm text-neutral-100" data-inema-block="m1-1-t6-p4">Compara la precisión, la adecuación al formato y la cantidad de retrabajo necesario.</p></div>
+</div>
+</div>
+</section>
+<!-- Resumo Final -->
+<section class="mb-12">
+<div class="bg-gradient-to-r from-emerald-600 to-primary text-white rounded-2xl p-8">
+<h2 class="text-2xl font-bold mb-6 text-center">📋 Resumen del Módulo 1</h2>
+<div class="grid md:grid-cols-4 gap-4 mb-8">
+<div class="text-center">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+<span class="text-2xl">🤖</span>
+</div>
+<p class="font-bold">LLMs</p>
+<p class="text-xs text-emerald-100">Patrones, no conocimiento</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+<span class="text-2xl">🔤</span>
+</div>
+<p class="font-bold">Tokens</p>
+<p class="text-xs text-emerald-100">~4 chars = 1 token</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+<span class="text-2xl">📐</span>
+</div>
+<p class="font-bold">Anatomía</p>
+<p class="text-xs text-emerald-100">5 componentes</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+<span class="text-2xl">✨</span>
+</div>
+<p class="font-bold">Claridad</p>
+<p class="text-xs text-emerald-100">Específico &gt; Vago</p>
+</div>
+</div>
+<div class="text-center">
+<a class="inline-flex items-center space-x-2 px-6 py-3 bg-white text-emerald-600 rounded-lg font-bold hover:bg-neutral-100 transition-colors" href="../../nivel-iniciante.html">
+<span>Continuar al Módulo 2</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-neutral-900 border-t border-neutral-700 py-8">
+<div class="max-w-4xl mx-auto px-4 text-center">
+<p class="text-neutral-500 text-sm">FEP - Fundamentos de Ingeniería de Prompts | Módulo 1 completo</p>
+</div>
+</footer>
+<script>
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      if (!themeToggle) return;
+      const darkIcon = document.getElementById('theme-toggle-dark-icon');
+      const lightIcon = document.getElementById('theme-toggle-light-icon');
+      const html = document.documentElement;
+
+      if (html.classList.contains('dark')) {
+        lightIcon && lightIcon.classList.remove('hidden');
+      } else {
+        darkIcon && darkIcon.classList.remove('hidden');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        const isDark = html.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        darkIcon && darkIcon.classList.toggle('hidden');
+        lightIcon && lightIcon.classList.toggle('hidden');
+      });
+    })();
+  </script>
+<script src="../../../assets/v2.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+</body>
+</html>

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+<script data-inema-manifest="" type="application/json">
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+<script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Masterclass Level - Prompt Architecture | FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FACC15',
+              dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+            },
+            fontFamily: {
+              'inter': ['Inter', 'system-ui', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        html.dark body { background-color: #0a0a0a; }
+        .gold-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%); }
+        .gold-text { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* INEMA Light Mode Overrides - Base */
+        html:not(.dark) body { background-color: #f8fafc; }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+        /* INEMA Light Mode - Trilha accent (amber) */
+        html:not(.dark) .text-amber-400 { color: #92400e; }
+        html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+        html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+        html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+        html:not(.dark) .hover\:bg-amber-500\/30:hover { background-color: rgba(217, 119, 6, 0.18); }
+
+        /* INEMA Light Mode - Remove gradients */
+        html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+        /* INEMA Light Mode - Special colors */
+        html:not(.dark) .text-primary { color: #a16207; }
+        html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+        html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+        html:not(.dark) .text-sky-400 { color: #0369a1; }
+        html:not(.dark) .text-yellow-400 { color: #a16207; }
+        html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+        html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+        /* INEMA Light Mode - Nav */
+        html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    </style>
+<link href="../assets/learn.css" rel="stylesheet"/>
+<link href="../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/nivel-masterclass.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/nivel-masterclass.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/nivel-masterclass.html" hreflang="es" rel="alternate"/></head>
+<body class="font-sans bg-dark-900 text-neutral-100 min-h-screen antialiased" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../nivel-masterclass.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="nivel-masterclass.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../es/nivel-masterclass.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="inema-skip" href="#conteudo">Skip to content</a>
+<nav aria-label="Main navigation" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Paths" class="inema-v2-links"><a class="inema-v2-link" href="nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Beginner</span></a><a class="inema-v2-link" href="nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Technical</span></a><a class="inema-v2-link" href="nivel-avancado.html"><span class="short">T3</span><span class="full"> · Advanced</span></a><a aria-current="page" class="inema-v2-link" href="nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">My journey</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Appearance</span></button>
+<button aria-label="Toggle theme" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Theme</span></button>
+</div>
+</div>
+<div aria-label="Appearance Preferences" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Theme</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Dark</button><button data-inema-set-theme="claro" type="button">Clear</button><button data-inema-set-theme="sepia" type="button">Sepia</button><button data-inema-set-theme="foco" type="button">Focus</button><button data-inema-set-theme="contraste" type="button">Contrast</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Source and size</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">System</button><button data-inema-set-font="leitura" type="button">Reading</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Reading</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Narrow</button><button data-inema-set-linewidth="68" type="button">Medium</button><button data-inema-set-linewidth="75" type="button">Broad</button><button data-inema-set-leading="1.45" type="button">Compact</button><button data-inema-set-leading="1.7" type="button">Comfortable</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Accent</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Blue" data-inema-set-accent="blue" type="button"></button><button aria-label="Purple" data-inema-set-accent="purple" type="button"></button><button aria-label="Amber" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Pink" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<!-- Header -->
+<header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700" data-v2-legacy-nav="">
+<div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<a class="flex items-center gap-2" href="index.html">
+<span class="text-xl font-bold gold-text">FEP</span>
+<span class="text-neutral-400 dark:text-neutral-500">|</span>
+<span class="text-sm text-neutral-600 dark:text-neutral-400">Masterclass</span>
+</a>
+<span class="text-neutral-600 mx-2">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center gap-4">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400" href="nivel-iniciante.html">Beginner</a>
+<a class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400" href="nivel-tecnico.html">Technical</a>
+<a class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400" href="nivel-avancado.html">Advanced</a>
+<a class="text-sm font-medium text-amber-600 dark:text-amber-400" href="nivel-masterclass.html">Masterclass</a>
+</nav>
+<button class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors" onclick="toggleTheme()">
+<svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewbox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+<svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero -->
+<main data-inema-track="4" id="conteudo">
+<aside aria-label="This page's progress" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Path 4</div><div class="inema-v2-page-tools__title">Masterclass</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progress: Masterclass" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="trilha:4" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 of 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<aside aria-label="This page's progress" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Path 4</div><div class="inema-v2-page-tools__title">Masterclass</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progress: Masterclass" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="trilha:4" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 of 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<section class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-amber-900/40 via-orange-900/30 to-neutral-900 dark:from-amber-900/30 dark:via-orange-900/20 dark:to-neutral-950"></div>
+<div %3e%3c="" 0="" 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30v0h-2v4h-4v2h4v4h2v6h4v4h-4zm6="" 34v-4h4v4h0v2h4v4h2v-4h4v-2h6zm6="" 4v0h4v4h0v2h4v4h2v6h4v4h6z\"="" 60="" 60\"="" class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\" d='\"M36' fill='\"%23fbbf24\"' fill-opacity='\"0.05\"%3E%3Cpath' fill-rule='\"evenodd\"%3E%3Cg' g%3e%3c="" height='\"60\"' svg%3e')]"="" viewbox='\"0' xmlns='\"http://www.w3.org/2000/svg\"%3E%3Cg'></div>
+<div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
+<div class="max-w-3xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="px-4 py-1.5 text-sm font-bold gold-gradient text-white rounded-full shadow-lg shadow-amber-500/25">TRACK 4</span>
+<span class="px-3 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30">ARCHITECT</span>
+</div>
+<h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                    Masterclass<br/>
+<span class="gold-text">Prompt Architecture</span>
+</h1>
+<p class="text-xl text-neutral-300 mb-8 leading-relaxed max-w-2xl">
+                    You will no longer <em>write prompts</em> — will <strong>design systems</strong>.
+                    Architect level, technical decision-making, and leadership in prompt engineering.
+                </p>
+<div class="flex flex-wrap gap-4 mb-8">
+<div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur rounded-lg">
+<svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-white font-medium">6 Modules</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur rounded-lg">
+<svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-white font-medium">36 Topics</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur rounded-lg">
+<svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-white font-medium">Architect Level</span>
+</div>
+</div>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 max-w-xl">
+<p class="text-amber-200 text-sm">
+<strong class="text-amber-100">Prerequisite:</strong> Completion of the Advanced Level (Track 3) or equivalent experience in context engineering and skills.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Diferença Fundamental -->
+<section class="py-16 border-b border-neutral-200 dark:border-neutral-800">
+<div class="max-w-6xl mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-4">The Fundamental Difference</h2>
+<p class="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+                    Masterclass doesn’t teach technique—it teaches <strong>design, decision-making, and accountability</strong>.
+                </p>
+</div>
+<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<div class="bg-neutral-100 dark:bg-neutral-800 rounded-2xl p-6">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
+<span class="text-purple-600 dark:text-purple-400 font-bold">3</span>
+</div>
+<h3 class="font-bold text-neutral-900 dark:text-white">Advanced Level</h3>
+</div>
+<ul class="space-y-3 text-sm text-neutral-600 dark:text-neutral-300">
+<li class="flex items-start gap-2"><span class="text-purple-500">•</span>Uses context</li>
+<li class="flex items-start gap-2"><span class="text-purple-500">•</span>Creates skills</li>
+<li class="flex items-start gap-2"><span class="text-purple-500">•</span>Orchestrates prompts</li>
+<li class="flex items-start gap-2"><span class="text-purple-500">•</span>Implements agents</li>
+<li class="flex items-start gap-2"><span class="text-purple-500">•</span>Test prompts</li>
+</ul>
+<div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
+<span class="text-sm font-medium text-purple-600 dark:text-purple-400">Advanced Technical</span>
+</div>
+</div>
+<div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-6 border-2 border-amber-300 dark:border-amber-700">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full gold-gradient flex items-center justify-center">
+<span class="text-white font-bold">4</span>
+</div>
+<h3 class="font-bold text-neutral-900 dark:text-white">Masterclass</h3>
+</div>
+<ul class="space-y-3 text-sm text-neutral-700 dark:text-neutral-200">
+<li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Defines</strong> context strategies</li>
+<li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Governs</strong> skill ecosystems</li>
+<li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Draws</strong> architectures</li>
+<li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Decides</strong> agent architectures</li>
+<li class="flex items-start gap-2"><span class="text-amber-500">•</span><strong>Evaluates</strong> systemic risk</li>
+</ul>
+<div class="mt-4 pt-4 border-t border-amber-200 dark:border-amber-800">
+<span class="text-sm font-bold text-amber-600 dark:text-amber-400">Architect / Technical Lead</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Módulos -->
+<section class="py-16">
+<div class="max-w-6xl mx-auto px-4">
+<section aria-labelledby="mapa-trilha-4" class="inema-v2-map"><div class="inema-v2-hero-svg"><svg aria-label="Masterclass track visual map: foundations progress through modules toward applied practice" font-family="Inter,sans-serif" role="img" viewbox="0 0 1000 220">
+<defs><lineargradient id="t4-grad" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fbbf24"></stop><stop offset="1" stop-color="#38bdf8"></stop></lineargradient><filter height="160%" id="t4-glow" width="160%" x="-30%" y="-30%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><pattern height="32" id="t4-grid" patternunits="userSpaceOnUse" width="32"><circle cx="1.3" cy="1.3" fill="#fbbf24" opacity=".12" r="1.3"></circle></pattern></defs>
+<rect fill="url(#t4-grid)" height="220" rx="16" width="1000"></rect><path d="M135 110 H865" opacity=".55" stroke="#fbbf24" stroke-dasharray="9 9" stroke-width="1.8"></path>
+<g><rect fill="#111827" height="76" rx="14" stroke="#fbbf24" stroke-width="2" width="116" x="22" y="72"></rect><text fill="#fbbf24" font-size="15" font-weight="600" text-anchor="middle" x="80" y="104">4-1</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="80" y="127">Module 1</text></g><g><rect fill="#111827" height="76" rx="14" stroke="#fbbf24" stroke-width="2" width="116" x="190" y="72"></rect><text fill="#fbbf24" font-size="15" font-weight="600" text-anchor="middle" x="248" y="104">4-2</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="248" y="127">Module 2</text></g><g><rect fill="#111827" height="76" rx="14" stroke="#fbbf24" stroke-width="2" width="116" x="358" y="72"></rect><text fill="#fbbf24" font-size="15" font-weight="600" text-anchor="middle" x="416" y="104">4-3</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="416" y="127">Module 3</text></g><g><rect fill="#111827" height="76" rx="14" stroke="#fbbf24" stroke-width="2" width="116" x="526" y="72"></rect><text fill="#fbbf24" font-size="15" font-weight="600" text-anchor="middle" x="584" y="104">4-4</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="584" y="127">Module 4</text></g><g><rect fill="#111827" height="76" rx="14" stroke="#fbbf24" stroke-width="2" width="116" x="694" y="72"></rect><text fill="#fbbf24" font-size="15" font-weight="600" text-anchor="middle" x="752" y="104">4-5</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="752" y="127">Module 5</text></g><g filter="url(#t4-glow)"><rect fill="#111827" height="76" rx="14" stroke="url(#t4-grad)" stroke-width="2" width="116" x="862" y="72"></rect><text fill="#fbbf24" font-size="15" font-weight="600" text-anchor="middle" x="920" y="104">4-6</text><text fill="#cbd5e1" font-size="12" text-anchor="middle" x="920" y="127">Module 6</text></g>
+</svg></div><h2 id="mapa-trilha-4">Course Map</h2><div class="inema-v2-map__grid"><a class="inema-v2-map__card" href="#modulo-4-1"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">4-1</span><span>~30 min</span></div><div class="inema-v2-map__title">🎯 Architecture of Prompt-Based Systems</div><div class="inema-v2-map__sub">Understand the basics</div></a><a class="inema-v2-map__card" href="#modulo-4-2"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">4-2</span><span>~35 min</span></div><div class="inema-v2-map__title">🧠 Context at Scale</div><div class="inema-v2-map__sub">Practice with a Method</div></a><a class="inema-v2-map__card" href="#modulo-4-3"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">4-3</span><span>~40 min</span></div><div class="inema-v2-map__title">⚙️ Skill Design and Governance</div><div class="inema-v2-map__sub">Connect the steps</div></a><a class="inema-v2-map__card" href="#modulo-4-4"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">4-4</span><span>~45 min</span></div><div class="inema-v2-map__title">🧩 Multi-Agent Architectures</div><div class="inema-v2-map__sub">Control the Outcome</div></a><a class="inema-v2-map__card" href="#modulo-4-5"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">4-5</span><span>~50 min</span></div><div class="inema-v2-map__title">🔎 Evaluation, Security, and Observability</div><div class="inema-v2-map__sub">Validate rigorously</div></a><a class="inema-v2-map__card" href="#modulo-4-6"><div class="inema-v2-map__meta"><span class="inema-v2-map__num">4-6</span><span>~55 min</span></div><div class="inema-v2-map__title">🚀 Engineering Patterns and Final Project</div><div class="inema-v2-map__sub">Integrate into production</div></a></div></section><h2 class="text-2xl font-bold mb-6">Detailed content</h2>
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-4">Architect’s Journey</h2>
+<p class="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+                    6 modules that will make you a technical authority in prompt engineering.
+                </p>
+</div>
+<div class="space-y-6">
+<!-- Módulo 1 -->
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden" data-inema-module="4-1" data-inema-track="4" id="modulo-4-1">
+<div class="p-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/20">
+<span class="text-2xl">🧠</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 text-xs font-bold bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 rounded">MODULE 1</span>
+</div>
+<h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Prompt-Based Systems Architecture</h3>
+<p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    It’s not “how to write prompts”—it’s <strong>how to design prompt systems</strong>.
+                                </p>
+<div class="grid md:grid-cols-2 gap-2">
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo1-completo.html#prompt-unidade">
+<span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">1</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Prompt as an architectural unit</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo1-completo.html#mono-multi">
+<span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">2</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Mono- vs. multi-prompt architectures</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo1-completo.html#camadas">
+<span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">3</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Architectural layers of LLM systems</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo1-completo.html#contratos">
+<span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">4</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Behavior contracts</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo1-completo.html#padroes">
+<span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">5</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Recurring architectural patterns</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo1-completo.html#analise-real">
+<span class="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold">6</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">Analysis of real architectures</span>
+</a>
+</div>
+<div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
+<button class="px-3 py-1.5 bg-amber-500 text-white text-xs rounded font-semibold hover:bg-amber-600" onclick="openModuleModal(1)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/masterclass/modulo1-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">⬇️ PDF</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">⬇️ MD</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 2 -->
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden" data-inema-module="4-2" data-inema-track="4" id="modulo-4-2">
+<div class="p-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/20">
+<span class="text-2xl">🧩</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 text-xs font-bold bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 rounded">MODULE 2</span>
+</div>
+<h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Context Design at Scale</h3>
+<p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    Different from Track 3: here, it's <strong>strategic decision</strong>, not for operational use.
+                                </p>
+<div class="grid md:grid-cols-2 gap-2">
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo2-completo.html#estrategias-escala">
+<span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">1</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Large-Scale Strategies</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo2-completo.html#decisao-long-rag">
+<span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">2</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Deciding: long context, RAG, or hybrid</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo2-completo.html#custos">
+<span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">3</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Cognitive and Technical Costs</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo2-completo.html#governanca">
+<span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">4</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Context governance</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo2-completo.html#persistencia">
+<span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">5</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Persistence and Eviction Policies</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo2-completo.html#falhas-sistemicas">
+<span class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold">6</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-orange-600 dark:group-hover:text-orange-400">Systemic Context Failures</span>
+</a>
+</div>
+<div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
+<button class="px-3 py-1.5 bg-orange-500 text-white text-xs rounded font-semibold hover:bg-orange-600" onclick="openModuleModal(2)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/masterclass/modulo2-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">⬇️ PDF</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">⬇️ MD</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 3 -->
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden" data-inema-module="4-3" data-inema-track="4" id="modulo-4-3">
+<div class="p-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-rose-500/20">
+<span class="text-2xl">🛠️</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 text-xs font-bold bg-rose-100 dark:bg-rose-900/50 text-rose-700 dark:text-rose-300 rounded">MODULE 3</span>
+</div>
+<h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Skills Design and Governance</h3>
+<p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    In Track 3, you <em>creates</em> skills. Here you <strong>defines skill ecosystems</strong>.
+                                </p>
+<div class="grid md:grid-cols-2 gap-2">
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo3-completo.html#taxonomia">
+<span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">1</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Skills taxonomy</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo3-completo.html#ativos">
+<span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">2</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Skills as organizational assets</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo3-completo.html#acoplamento">
+<span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">3</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Reuse, coupling, and dependencies</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo3-completo.html#versionamento">
+<span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">4</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Versioning and compatibility</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo3-completo.html#ownership">
+<span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">5</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Governance and ownership</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo3-completo.html#evolucao">
+<span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold">6</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-rose-600 dark:group-hover:text-rose-400">Evolution over time</span>
+</a>
+</div>
+<div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
+<button class="px-3 py-1.5 bg-rose-500 text-white text-xs rounded font-semibold hover:bg-rose-600" onclick="openModuleModal(3)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/masterclass/modulo3-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">⬇️ PDF</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">⬇️ MD</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 4 -->
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden" data-inema-module="4-4" data-inema-track="4" id="modulo-4-4">
+<div class="p-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-indigo-500/20">
+<span class="text-2xl">🤖</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 text-xs font-bold bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded">MODULE 4</span>
+</div>
+<h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Prompt-Based Agent Architectures</h3>
+<p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    It’s not “building agents”—it’s <strong>design architectures with technical accountability</strong>.
+                                </p>
+<div class="grid md:grid-cols-2 gap-2">
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo4-completo.html#tipos-arquitetura">
+<span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">1</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Types of agent architectures</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo4-completo.html#unico-multi">
+<span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">2</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Single-agent vs. multi-agent</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo4-completo.html#coordenacao">
+<span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">3</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Coordination, Supervision, Delegation</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo4-completo.html#autonomia">
+<span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">4</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Autonomy Limits</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo4-completo.html#falhas-emergentes">
+<span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">5</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Emergent Failures in Multi-Agent Systems</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo4-completo.html#estudos-caso">
+<span class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">6</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Real-world case studies</span>
+</a>
+</div>
+<div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
+<button class="px-3 py-1.5 bg-indigo-500 text-white text-xs rounded font-semibold hover:bg-indigo-600" onclick="openModuleModal(4)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/masterclass/modulo4-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">⬇️ PDF</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">⬇️ MD</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 5 -->
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden" data-inema-module="4-5" data-inema-track="4" id="modulo-4-5">
+<div class="p-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-red-500/20">
+<span class="text-2xl">🧪</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 text-xs font-bold bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded">MODULE 5</span>
+</div>
+<h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Systemic Evaluation and Risk</h3>
+<p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+                                    In Track 3, you test prompts. Here, you <strong>evaluates entire systems as a risk surface</strong>.
+                                </p>
+<div class="grid md:grid-cols-2 gap-2">
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo5-completo.html#avaliacao-sistemica">
+<span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">1</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Systemic behavior evaluation</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo5-completo.html#risco-operacional">
+<span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">2</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Operational and cognitive risk</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo5-completo.html#prompt-injection">
+<span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">3</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Architectural prompt injection</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo5-completo.html#auditoria">
+<span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">4</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Decision auditing</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo5-completo.html#observabilidade">
+<span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">5</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Strategic observability</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors group" href="conteudo/masterclass/modulo5-completo.html#incidentes">
+<span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-xs font-bold">6</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-red-600 dark:group-hover:text-red-400">Incidents and failure response</span>
+</a>
+</div>
+<div class="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700 flex gap-2 flex-wrap justify-start">
+<button class="px-3 py-1.5 bg-red-500 text-white text-xs rounded font-semibold hover:bg-red-600" onclick="openModuleModal(5)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/masterclass/modulo5-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">⬇️ PDF</a>
+<a class="px-3 py-1.5 border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-300 text-xs rounded font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700" download="" href="../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">⬇️ MD</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Módulo 6 -->
+<div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl shadow-lg border-2 border-amber-300 dark:border-amber-700 overflow-hidden" data-inema-module="4-6" data-inema-track="4" id="modulo-4-6">
+<div class="p-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/30">
+<span class="text-2xl">🚀</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 text-xs font-bold gold-gradient text-white rounded">MODULE 6</span>
+<span class="px-2 py-0.5 text-xs font-bold bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 rounded">EXCLUSIVE</span>
+</div>
+<h3 class="text-xl font-bold text-neutral-900 dark:text-white mb-2">Authorship, Standards, and Technical Leadership</h3>
+<p class="text-neutral-700 dark:text-neutral-300 text-sm mb-4">
+                                    The student <strong>becomes a reference</strong>, not an executor. This module is only available in the Masterclass.
+                                </p>
+<div class="grid md:grid-cols-2 gap-2">
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group" href="conteudo/masterclass/modulo6-completo.html#padroes-engenharia">
+<span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">1</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Defining Engineering Standards</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group" href="conteudo/masterclass/modulo6-completo.html#guidelines">
+<span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">2</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Internal guidelines and frameworks</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group" href="conteudo/masterclass/modulo6-completo.html#documentacao">
+<span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">3</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Documentation for scale</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group" href="conteudo/masterclass/modulo6-completo.html#decisao-tecnica">
+<span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">4</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Technical decisions and trade-offs</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group" href="conteudo/masterclass/modulo6-completo.html#comunicacao">
+<span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">5</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Stakeholder communication</span>
+</a>
+<a class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-neutral-800/50 transition-colors group" href="conteudo/masterclass/modulo6-completo.html#projeto-final">
+<span class="w-6 h-6 rounded-full gold-gradient text-white flex items-center justify-center text-xs font-bold">6</span>
+<span class="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-amber-700 dark:group-hover:text-amber-400">Final project: complete architecture</span>
+</a>
+</div>
+<div class="mt-4 pt-4 border-t border-amber-200 dark:border-amber-800 flex gap-2 flex-wrap justify-start">
+<button class="px-3 py-1.5 gold-gradient text-white text-xs rounded font-semibold hover:opacity-90" onclick="openModuleModal(6)">📖 View Modal</button>
+<a class="px-3 py-1.5 bg-blue-500 text-white text-xs rounded font-semibold hover:bg-blue-600" href="conteudo/masterclass/modulo6-completo.html">View Full</a>
+<a class="px-3 py-1.5 border border-amber-300 dark:border-amber-600 text-amber-700 dark:text-amber-300 text-xs rounded font-semibold hover:bg-amber-50 dark:hover:bg-amber-900/30" download="" href="../docs/pdf/👑_Masterclass_Engenharia_de_Agentes_e_Contexto_Avançado.pdf">⬇️ PDF</a>
+<a class="px-3 py-1.5 border border-amber-300 dark:border-amber-600 text-amber-700 dark:text-amber-300 text-xs rounded font-semibold hover:bg-amber-50 dark:hover:bg-amber-900/30" download="" href="../docs/md/👑 Masterclass_ Engenharia de Agentes e Contexto Avançado.md">⬇️ MD</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Final -->
+<section class="py-16 bg-gradient-to-br from-amber-900/20 via-orange-900/10 to-neutral-900 dark:from-amber-900/30 dark:via-orange-900/20 dark:to-neutral-950">
+<div class="max-w-4xl mx-auto px-4 text-center">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 rounded-full mb-6">
+<span class="text-2xl">🏆</span>
+<span class="text-amber-300 font-medium">Maximum Journey Level</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Become an Authority in<br/>
+<span class="gold-text">Prompt Engineering</span>
+</h2>
+<p class="text-neutral-300 mb-8 max-w-2xl mx-auto">
+                After completing the Masterclass, you’ll be able to design prompt systems, define organizational standards, and lead AI initiatives.
+            </p>
+<a class="inline-flex items-center gap-2 px-8 py-4 gold-gradient text-white font-bold rounded-xl shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-shadow" href="conteudo/masterclass/modulo1-completo.html">
+                Start Module 1
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 7l5 5m0 0l-5 5m5-5H6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</section>
+<!-- Footer -->
+</main>
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+<div class="max-w-6xl mx-auto px-4 py-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold gold-text">FEP</span>
+<span class="text-neutral-400">|</span>
+<span class="text-neutral-600 dark:text-neutral-400">Prompt Engineering Fundamentals</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm" href="nivel-iniciante.html">Beginner</a>
+<a class="text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm" href="nivel-tecnico.html">Technical</a>
+<a class="text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-400 text-sm" href="nivel-avancado.html">Advanced</a>
+<a class="text-amber-600 dark:text-amber-400 font-medium text-sm" href="nivel-masterclass.html">Masterclass</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+<script src="../assets/v2.js"></script>
+<script src="assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+</body>
+</html>

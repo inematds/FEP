@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+<script data-inema-manifest="" type="application/json">
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+<script>
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recursos adicionales | FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FACC15',
+                        dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+
+        /* INEMA Light Mode Overrides - Base */
+        html:not(.dark) body { background-color: #f8fafc; }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+        /* INEMA Light Mode - All trilha accents (this page references all 4) */
+        html:not(.dark) .text-emerald-400 { color: #059669; }
+        html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+        html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+        html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+        html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+
+        html:not(.dark) .text-blue-400 { color: #2563eb; }
+        html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+        html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+        html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+        html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+
+        html:not(.dark) .text-purple-400 { color: #7c3aed; }
+        html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+        html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+        html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+        html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+
+        html:not(.dark) .text-amber-400 { color: #92400e; }
+        html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+        html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+        html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+        html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+
+        html:not(.dark) .text-pink-400 { color: #db2777; }
+        html:not(.dark) .text-indigo-400 { color: #4f46e5; }
+
+        /* INEMA Light Mode - Remove gradients */
+        html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+        /* INEMA Light Mode - Special colors */
+        html:not(.dark) .text-primary { color: #a16207; }
+        html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+        html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+        html:not(.dark) .text-sky-400 { color: #0369a1; }
+        html:not(.dark) .text-yellow-400 { color: #a16207; }
+        html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+        html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+        /* INEMA Light Mode - Nav */
+        html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    </style>
+<link href="../assets/learn.css" rel="stylesheet"/>
+<link href="../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/recursos.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/recursos.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/recursos.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../recursos.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../en/recursos.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="recursos.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<a class="inema-skip" href="#conteudo">Ir al contenido</a>
+<nav aria-label="Navegación principal" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Rutas" class="inema-v2-links"><a class="inema-v2-link" href="nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Principiante</span></a><a class="inema-v2-link" href="nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Técnico</span></a><a class="inema-v2-link" href="nivel-avancado.html"><span class="short">T3</span><span class="full"> · Avanzado</span></a><a class="inema-v2-link" href="nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">Mi recorrido</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Apariencia</span></button>
+<button aria-label="Cambiar tema" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Tema</span></button>
+</div>
+</div>
+<div aria-label="Preferencias de apariencia" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Tema</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Oscuro</button><button data-inema-set-theme="claro" type="button">Claro</button><button data-inema-set-theme="sepia" type="button">Sepia</button><button data-inema-set-theme="foco" type="button">Enfoque</button><button data-inema-set-theme="contraste" type="button">Contraste</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Fuente y tamaño</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">Sistema</button><button data-inema-set-font="leitura" type="button">Lectura</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Lectura</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Estrecha</button><button data-inema-set-linewidth="68" type="button">Media</button><button data-inema-set-linewidth="75" type="button">Amplia</button><button data-inema-set-leading="1.45" type="button">Compacta</button><button data-inema-set-leading="1.7" type="button">Cómodo</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Acento</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Azul" data-inema-set-accent="blue" type="button"></button><button aria-label="Morado" data-inema-set-accent="purple" type="button"></button><button aria-label="Ámbar" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Rosa" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<!-- NAVIGATION -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600" data-v2-legacy-nav="">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-3">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="index.html">
+<span class="text-2xl">🎯</span>
+<span class="font-bold text-lg hidden sm:inline">FEP</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-2">
+<a class="text-sm text-neutral-400 hover:text-yellow-300 transition-colors" href="index.html">← Inicio</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20">
+<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+</svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="conteudo">
+<aside aria-label="Progreso de esta página" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Curso FEP</div><div class="inema-v2-page-tools__title">Tu recorrido por la Ingeniería de Prompts</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progreso: Tu recorrido por la ingeniería de prompts" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="curso" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 de 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<!-- Breadcrumb -->
+<nav class="mb-6 text-sm text-neutral-400">
+<a class="hover:text-yellow-300" href="index.html">Inicio</a>
+<span class="mx-2">/</span>
+<span class="text-neutral-300">Recursos adicionales</span>
+</nav>
+<!-- Header -->
+<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 rounded-2xl border border-dark-600 p-8 mb-12 text-center">
+<div class="text-6xl mb-4">🎁</div>
+<span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">RECURSOS</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-3">Recursos adicionales</h1>
+<p class="text-lg text-neutral-400 max-w-2xl mx-auto">Materiales adicionales para potenciar tu aprendizaje en Ingeniería de Prompts</p>
+</header>
+<!-- Resources Grid -->
+<div class="grid md:grid-cols-2 gap-6 mb-12">
+<!-- 100 Prompts Essenciais -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden hover:border-purple-500/30 transition-colors">
+<div class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 p-6 border-b border-dark-600">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-3">BIBLIOTECA</span>
+<div class="text-5xl mb-3">📚</div>
+<h2 class="text-2xl font-bold mb-2">100 Prompts Esenciales</h2>
+<p class="text-neutral-400 text-sm">Biblioteca interactiva con los prompts más importantes</p>
+</div>
+<div class="p-6">
+<h3 class="font-semibold text-neutral-100 mb-3">Qué encontrarás:</h3>
+<ul class="space-y-2 text-sm text-neutral-300 mb-6">
+<li class="flex items-start"><span class="text-purple-400 mr-2">✓</span><span>100 prompts en 8 categorías</span></li>
+<li class="flex items-start"><span class="text-purple-400 mr-2">✓</span><span>Sistema de búsqueda y filtros</span></li>
+<li class="flex items-start"><span class="text-purple-400 mr-2">✓</span><span>Copiar plantillas con 1 clic</span></li>
+<li class="flex items-start"><span class="text-purple-400 mr-2">✓</span><span>Sistema de favoritos</span></li>
+<li class="flex items-start"><span class="text-purple-400 mr-2">✓</span><span>Ejemplos prácticos por prompt</span></li>
+</ul>
+<div class="bg-purple-500/10 border border-purple-500/30 rounded-lg p-3 mb-4">
+<div class="text-xs text-purple-400">
+<strong>159 temas analizados</strong> • 1.576.042 caracteres procesados
+                        </div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="block w-full text-center px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold rounded-lg transition-colors" href="100-prompts.html">
+                            Acceder a la biblioteca →
+                        </a>
+<div class="grid grid-cols-2 gap-2">
+<a class="text-center px-3 py-2 border border-purple-500/30 text-purple-400 text-xs font-semibold rounded-lg hover:bg-purple-500/10" href="../docs/100prompts/📚 Os 100 Prompts Mais Importantes_ Guia Completo Classificado.md">
+                                📖 Markdown
+                            </a>
+<a class="text-center px-3 py-2 border border-purple-500/30 text-purple-400 text-xs font-semibold rounded-lg hover:bg-purple-500/10" href="../docs/100prompts/📚_Os_100_Prompts_Mais_Importantes_Guia_Completo_Classificado.pdf">
+                                📄 PDF
+                            </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Guia GPT-5.5 (NOVO) -->
+<div class="bg-dark-800 rounded-xl border border-amber-500/40 overflow-hidden hover:border-amber-500/60 transition-colors relative" id="gpt55">
+<div class="absolute top-3 right-3 z-10 bg-primary text-dark-900 text-xs font-bold px-3 py-1 rounded-full">
+                    NUEVO • Abr/2026
+                </div>
+<div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 p-6 border-b border-dark-600">
+<span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-3">GUÍA OFICIAL</span>
+<div class="text-5xl mb-3">🚀</div>
+<h2 class="text-2xl font-bold mb-2">Guía de prompting de GPT-5.5</h2>
+<p class="text-neutral-400 text-sm">Outcome-first: la nueva filosofía de prompts de OpenAI</p>
+</div>
+<div class="p-6">
+<h3 class="font-semibold text-neutral-100 mb-3">Qué encontrarás:</h3>
+<ul class="space-y-2 text-sm text-neutral-300 mb-6">
+<li class="flex items-start"><span class="text-amber-400 mr-2">✓</span><span>Super prompt centrado primero en el resultado (reemplaza el enfoque en el proceso)</span></li>
+<li class="flex items-start"><span class="text-amber-400 mr-2">✓</span><span>Personalidad vs. estilo de colaboración</span></li>
+<li class="flex items-start"><span class="text-amber-400 mr-2">✓</span><span>Presupuesto de recuperación y condiciones de parada</span></li>
+<li class="flex items-start"><span class="text-amber-400 mr-2">✓</span><span>Reasoning effort (minimal/low/medium/high)</span></li>
+<li class="flex items-start"><span class="text-amber-400 mr-2">✓</span><span>Guion de migración 5.1 → 5.5</span></li>
+</ul>
+<div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3 mb-4">
+<div class="text-xs text-amber-400">
+<strong>Publicado el 23/04/2026</strong> • Basado en la documentación oficial de OpenAI
+                        </div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="block w-full text-center px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white text-sm font-semibold rounded-lg transition-colors" href="https://developers.openai.com/api/docs/guides/prompt-guidance" target="_blank">
+                            Acceder a la guía oficial de OpenAI →
+                        </a>
+<div class="grid grid-cols-3 gap-2">
+<a class="text-center px-2 py-2 border border-amber-500/30 text-amber-400 text-xs font-semibold rounded-lg hover:bg-amber-500/10" href="../gpt55/superprompt.txt">
+                                📋 Super Prompt
+                            </a>
+<a class="text-center px-2 py-2 border border-amber-500/30 text-amber-400 text-xs font-semibold rounded-lg hover:bg-amber-500/10" href="../gpt55/5prompts.txt">
+                                🎯 5 plantillas
+                            </a>
+<a class="text-center px-2 py-2 border border-amber-500/30 text-amber-400 text-xs font-semibold rounded-lg hover:bg-amber-500/10" href="../gpt55/guidebook.txt">
+                                📚 Guía
+                            </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Guia GPT-5.1 (Legacy) -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden hover:border-pink-500/30 transition-colors md:col-span-2" id="gpt51">
+<div class="bg-gradient-to-br from-pink-900/20 via-dark-800 to-dark-800 p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-3">
+<span class="inline-block px-3 py-1 bg-pink-500/20 text-pink-400 text-xs font-semibold rounded-full">REFERENCIA HISTÓRICA</span>
+<span class="text-xs text-neutral-500">Modelo anterior • Nov/2025</span>
+</div>
+<div class="flex items-start gap-4">
+<div class="text-4xl">🎓</div>
+<div>
+<h2 class="text-xl font-bold mb-1">Guía de prompting de GPT-5.1</h2>
+<p class="text-neutral-400 text-sm">Se mantiene como referencia. El paradigma «process-heavy» de 5.1 fue sustituido por el «outcome-first» de 5.5; consulta la tarjeta de arriba para ver la versión actual.</p>
+</div>
+</div>
+</div>
+<div class="p-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<h3 class="font-semibold text-neutral-100 mb-3 text-sm">Contenido de la guía 5.1:</h3>
+<ul class="space-y-2 text-sm text-neutral-300">
+<li class="flex items-start"><span class="text-pink-400 mr-2">•</span><span>Solution Persistence Prompting</span></li>
+<li class="flex items-start"><span class="text-pink-400 mr-2">•</span><span>Metaprompting para depuración</span></li>
+<li class="flex items-start"><span class="text-pink-400 mr-2">•</span><span>Jerarquías de uso de herramientas</span></li>
+<li class="flex items-start"><span class="text-pink-400 mr-2">•</span><span>Ciclos de retroalimentación y autocorrección</span></li>
+</ul>
+</div>
+<div class="flex flex-col gap-2 justify-center">
+<a class="block w-full text-center px-4 py-2 bg-dark-700 hover:bg-dark-600 text-pink-400 text-sm font-semibold rounded-lg transition-colors" href="https://cookbook.openai.com/examples/gpt-5/gpt-5-1_prompting_guide" target="_blank">
+                                Cookbook OpenAI 5.1 →
+                            </a>
+<div class="grid grid-cols-2 gap-2">
+<a class="text-center px-3 py-2 border border-pink-500/30 text-pink-400 text-xs font-semibold rounded-lg hover:bg-pink-500/10" href="../gpt51/superprompt.txt">
+                                    Super Prompt
+                                </a>
+<a class="text-center px-3 py-2 border border-pink-500/30 text-pink-400 text-xs font-semibold rounded-lg hover:bg-pink-500/10" href="../gpt51/5prompts.txt">
+                                    5 plantillas
+                                </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Categories Overview -->
+<section class="bg-dark-800 rounded-xl border border-dark-600 p-8 mb-12">
+<h2 class="text-2xl font-bold mb-6 text-center">📊 Categorías de los 100 Prompts</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+<div class="bg-blue-500/10 rounded-lg p-4 border border-blue-500/30">
+<div class="text-2xl mb-2">🎯</div>
+<div class="font-bold text-blue-400">Fundamentales</div>
+<div class="text-xs text-neutral-400">Prompts 1-15</div>
+</div>
+<div class="bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/30">
+<div class="text-2xl mb-2">✍️</div>
+<div class="font-bold text-emerald-400">Creación de contenido</div>
+<div class="text-xs text-neutral-400">Prompts 16-30</div>
+</div>
+<div class="bg-purple-500/10 rounded-lg p-4 border border-purple-500/30">
+<div class="text-2xl mb-2">📈</div>
+<div class="font-bold text-purple-400">Marketing y Ventas</div>
+<div class="text-xs text-neutral-400">Prompts 31-45</div>
+</div>
+<div class="bg-amber-500/10 rounded-lg p-4 border border-amber-500/30">
+<div class="text-2xl mb-2">🔍</div>
+<div class="font-bold text-amber-400">Análisis e investigación</div>
+<div class="text-xs text-neutral-400">Prompts 46-55</div>
+</div>
+<div class="bg-pink-500/10 rounded-lg p-4 border border-pink-500/30">
+<div class="text-2xl mb-2">💬</div>
+<div class="font-bold text-pink-400">Comunicación</div>
+<div class="text-xs text-neutral-400">Prompts 56-65</div>
+</div>
+<div class="bg-yellow-500/10 rounded-lg p-4 border border-yellow-500/30">
+<div class="text-2xl mb-2">🎓</div>
+<div class="font-bold text-yellow-400">Educación</div>
+<div class="text-xs text-neutral-400">Prompts 66-75</div>
+</div>
+<div class="bg-red-500/10 rounded-lg p-4 border border-red-500/30">
+<div class="text-2xl mb-2">💡</div>
+<div class="font-bold text-red-400">Creatividad</div>
+<div class="text-xs text-neutral-400">Prompts 76-85</div>
+</div>
+<div class="bg-indigo-500/10 rounded-lg p-4 border border-indigo-500/30">
+<div class="text-2xl mb-2">🚀</div>
+<div class="font-bold text-indigo-400">Avanzadas</div>
+<div class="text-xs text-neutral-400">Prompts 86-100</div>
+</div>
+</div>
+</section>
+<!-- CTA Trilhas -->
+<section class="bg-gradient-to-br from-dark-800 via-dark-800 to-dark-700 rounded-xl border border-dark-600 p-8 text-center">
+<h3 class="text-2xl font-bold mb-3">¿Quieres aprender más?</h3>
+<p class="text-neutral-400 mb-6">Explora las 4 rutas completas de Ingeniería de Prompts</p>
+<div class="flex flex-wrap gap-3 justify-start sm:justify-center">
+<a class="inline-block px-5 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/30 text-emerald-400 font-semibold rounded-lg transition-colors text-sm" href="nivel-iniciante.html">
+                    🌟 Principiante
+                </a>
+<a class="inline-block px-5 py-2 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/30 text-blue-400 font-semibold rounded-lg transition-colors text-sm" href="nivel-tecnico.html">
+                    ⚡ Técnico
+                </a>
+<a class="inline-block px-5 py-2 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30 text-purple-400 font-semibold rounded-lg transition-colors text-sm" href="nivel-avancado.html">
+                    🎯 Avanzado
+                </a>
+<a class="inline-block px-5 py-2 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/30 text-amber-400 font-semibold rounded-lg transition-colors text-sm" href="nivel-masterclass.html">
+                    👑 Masterclass
+                </a>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>FEP - Ingeniería de Prompts © 2026</p>
+<p class="mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</p>
+</div>
+</footer>
+<script>
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (!themeToggle) return;
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            const html = document.documentElement;
+
+            if (html.classList.contains('dark')) {
+                lightIcon && lightIcon.classList.remove('hidden');
+            } else {
+                darkIcon && darkIcon.classList.remove('hidden');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                const isDark = html.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                darkIcon && darkIcon.classList.toggle('hidden');
+                lightIcon && lightIcon.classList.toggle('hidden');
+            });
+        })();
+    </script>
+<script src="../assets/v2.js"></script>
+<script src="assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="fep" name="inema-course"/>
+<script data-inema-antifouc="">
+    (function(){try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('inema.prefs')||'{}'),t=p.theme||(localStorage.getItem('theme')==='light'?'claro':'inema-dark'),m={'inema-dark':[1,null,'dark'],claro:[0,null,'light'],sepia:[0,'sepia','light'],foco:[null,'foco',null],contraste:[1,'contraste','dark']}[t]||[1,null,'dark'];if(m[0]===1)d.classList.add('dark');if(m[0]===0)d.classList.remove('dark');if(m[1])d.setAttribute('data-theme',m[1]);else d.removeAttribute('data-theme');d.style.colorScheme=m[2]||(d.classList.contains('dark')?'dark':'light');d.setAttribute('data-font',p.font||'inter');d.setAttribute('data-accent',p.accent||'emerald');var s=d.style;s.fontSize=(p.fontScale||100)+'%';s.setProperty('--measure',(p.lineWidth||68)+'ch');s.setProperty('--lh-body',p.leading||1.7);}catch(e){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();
+    </script>
+<script data-inema-manifest="" type="application/json">
+{
+  "course": "fep",
+  "tracks": [
+    {
+      "n": "1",
+      "title": "Iniciante",
+      "modules": [
+        {
+          "id": "1-1",
+          "title": "Módulo 1-1: Fundamentos de IA e LLMs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo1-completo.html"
+        },
+        {
+          "id": "1-2",
+          "title": "Módulo 1-2: Técnicas Fundamentais",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo2-completo.html"
+        },
+        {
+          "id": "1-3",
+          "title": "Módulo 1-3: Aplicações Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo3-completo.html"
+        },
+        {
+          "id": "1-4",
+          "title": "Módulo 1-4: Formatação de Outputs",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo4-completo.html"
+        },
+        {
+          "id": "1-5",
+          "title": "Módulo 1-5: Melhores Práticas",
+          "topics": 6,
+          "href": "conteudo/iniciante/modulo5-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "Técnico",
+      "modules": [
+        {
+          "id": "2-1",
+          "title": "Módulo 2-1: Arquitetura de Prompts",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo1-completo.html"
+        },
+        {
+          "id": "2-2",
+          "title": "Módulo 2-2: Controle de Saída",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo2-completo.html"
+        },
+        {
+          "id": "2-3",
+          "title": "Módulo 2-3: Cadeias e Processos",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo3-completo.html"
+        },
+        {
+          "id": "2-4",
+          "title": "Módulo 2-4: Prompting Multimodal",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo4-completo.html"
+        },
+        {
+          "id": "2-5",
+          "title": "Módulo 2-5: Prompts de Sistema e Agentes",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo5-completo.html"
+        },
+        {
+          "id": "2-6",
+          "title": "Módulo 2-6: Contexto, RAG e Produção",
+          "topics": 7,
+          "href": "conteudo/tecnico/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Avançado",
+      "modules": [
+        {
+          "id": "3-1",
+          "title": "Módulo 3-1: Engenharia de Contexto",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo1-completo.html"
+        },
+        {
+          "id": "3-2",
+          "title": "Módulo 3-2: Gestão de Long Context",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo2-completo.html"
+        },
+        {
+          "id": "3-3",
+          "title": "Módulo 3-3: Engenharia de Skill",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo3-completo.html"
+        },
+        {
+          "id": "3-4",
+          "title": "Módulo 3-4: Orquestração de Contexto e Skills",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo4-completo.html"
+        },
+        {
+          "id": "3-5",
+          "title": "Módulo 3-5: RAG Moderno e Contexto Híbrido",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo5-completo.html"
+        },
+        {
+          "id": "3-6",
+          "title": "Módulo 3-6: Preparação para a Masterclass",
+          "topics": 6,
+          "href": "conteudo/avancado/modulo6-completo.html"
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Masterclass",
+      "modules": [
+        {
+          "id": "4-1",
+          "title": "Módulo 4-1: Arquitetura de Sistemas Baseados em Prompt",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo1-completo.html"
+        },
+        {
+          "id": "4-2",
+          "title": "Módulo 4-2: Contexto em Escala",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo2-completo.html"
+        },
+        {
+          "id": "4-3",
+          "title": "Módulo 4-3: Design e Governança de Skills",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo3-completo.html"
+        },
+        {
+          "id": "4-4",
+          "title": "Módulo 4-4: Arquiteturas Multiagente",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo4-completo.html"
+        },
+        {
+          "id": "4-5",
+          "title": "Módulo 4-5: Avaliação, Segurança e Observabilidade",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo5-completo.html"
+        },
+        {
+          "id": "4-6",
+          "title": "Módulo 4-6: Padrões de Engenharia e Projeto Final",
+          "topics": 6,
+          "href": "conteudo/masterclass/modulo6-completo.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+<script>
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 4: Context and Skills Orchestration - Advanced Level | FEP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FACC15',
+              dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+            },
+            fontFamily: {
+              'inter': ['Inter', 'system-ui', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        html.dark body { background-color: #0a0a0a; }
+        html.dark .dark\:bg-neutral-900 { background-color: #171717; }
+        html.dark .dark\:bg-neutral-800 { background-color: #262626; }
+        html.dark .dark\:bg-neutral-700 { background-color: #404040; }
+
+        /* INEMA Light Mode Overrides - Base */
+        html:not(.dark) body { background-color: #f8fafc; }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #59616c; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+        /* INEMA Light Mode - Trilha purple accent */
+        html:not(.dark) .text-purple-400 { color: #7c3aed; }
+        html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+        html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+        html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+        html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+
+        /* INEMA Light Mode - Remove gradients */
+        html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+        /* INEMA Light Mode - Special colors */
+        html:not(.dark) .text-primary { color: #a16207; }
+        html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+        html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+        html:not(.dark) .text-sky-400 { color: #0369a1; }
+        html:not(.dark) .text-yellow-400 { color: #a16207; }
+        html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+        html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+        /* INEMA Light Mode - Nav */
+        html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    </style>
+<link href="../../../assets/learn.css" rel="stylesheet"/>
+<link href="../../../assets/v2.css" rel="stylesheet"/>
+<link href="https://inematds.github.io/FEP/conteudo/avancado/modulo4-completo.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/FEP/en/conteudo/avancado/modulo4-completo.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/FEP/es/conteudo/avancado/modulo4-completo.html" hreflang="es" rel="alternate"/></head>
+<body class="font-sans bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 antialiased" data-inema-v2="2"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../conteudo/avancado/modulo4-completo.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="modulo4-completo.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/conteudo/avancado/modulo4-completo.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<a class="inema-skip" href="#conteudo">Skip to content</a>
+<nav aria-label="Main navigation" class="inema-v2-nav">
+<div class="inema-v2-nav__inner">
+<div class="inema-v2-brand">
+<a class="inema-v2-brand__home" href="../../index.html">🎓 FEP</a>
+<span aria-hidden="true" class="inema-v2-brand__sep">|</span>
+<a class="inema-v2-brand__club" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+</div>
+<div aria-label="Paths" class="inema-v2-links"><a class="inema-v2-link" href="../../nivel-iniciante.html"><span class="short">T1</span><span class="full"> · Beginner</span></a><a class="inema-v2-link" href="../../nivel-tecnico.html"><span class="short">T2</span><span class="full"> · Technical</span></a><a aria-current="page" class="inema-v2-link" href="../../nivel-avancado.html"><span class="short">T3</span><span class="full"> · Advanced</span></a><a class="inema-v2-link" href="../../nivel-masterclass.html"><span class="short">T4</span><span class="full"> · Masterclass</span></a></div>
+<div class="inema-v2-actions">
+<button class="inema-v2-action" data-inema-journey-open="" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><span class="label">My journey</span><span class="inema-v2-badge" data-count="0" data-inema-journey-badge=""></span></button>
+<button aria-expanded="false" class="inema-v2-action" data-inema-appearance-toggle="[data-inema-appearance]" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 4a8 8 0 0 0 0 16z"></path></svg><span class="label">Appearance</span></button>
+<button aria-label="Toggle theme" class="inema-v2-action" data-inema-cycle="theme" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20 15.5A8 8 0 0 1 8.5 4 8 8 0 1 0 20 15.5z"></path></svg><span class="label">Theme</span></button>
+</div>
+</div>
+<div aria-label="Appearance Preferences" class="inema-appearance-pop inema-v2-appearance" data-inema-appearance="" data-open="false">
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Theme</span><div class="inema-segment">
+<button data-inema-set-theme="inema-dark" type="button">Dark</button><button data-inema-set-theme="claro" type="button">Clear</button><button data-inema-set-theme="sepia" type="button">Sepia</button><button data-inema-set-theme="foco" type="button">Focus</button><button data-inema-set-theme="contraste" type="button">Contrast</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Source and size</span><div class="inema-segment">
+<button data-inema-set-font="inter" type="button">Inter</button><button data-inema-set-font="system" type="button">System</button><button data-inema-set-font="leitura" type="button">Reading</button><button data-inema-set-fontscale="100" type="button">A</button><button data-inema-set-fontscale="112" type="button">A+</button><button data-inema-set-fontscale="125" type="button">A++</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Reading</span><div class="inema-segment">
+<button data-inema-set-linewidth="60" type="button">Narrow</button><button data-inema-set-linewidth="68" type="button">Medium</button><button data-inema-set-linewidth="75" type="button">Broad</button><button data-inema-set-leading="1.45" type="button">Compact</button><button data-inema-set-leading="1.7" type="button">Comfortable</button>
+</div></div>
+<div class="inema-v2-appearance__group"><span class="inema-v2-appearance__label">Accent</span><div class="inema-accent-grid">
+<button aria-label="Emerald" data-inema-set-accent="emerald" type="button"></button><button aria-label="Blue" data-inema-set-accent="blue" type="button"></button><button aria-label="Purple" data-inema-set-accent="purple" type="button"></button><button aria-label="Amber" data-inema-set-accent="amber" type="button"></button><button aria-label="Teal" data-inema-set-accent="teal" type="button"></button><button aria-label="Pink" data-inema-set-accent="rose" type="button"></button>
+</div></div>
+</div>
+</nav>
+<header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700" data-v2-legacy-nav="">
+<div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<a class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" href="../../nivel-avancado.html">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-sm font-medium">Back to Advanced Level</span>
+</a>
+<span class="text-neutral-600 mx-2">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<button class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700" onclick="toggleTheme()">
+<svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewbox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+<svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+</button>
+</div>
+</header>
+<section class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/30 to-neutral-800 dark:from-indigo-900/20 dark:to-neutral-900"></div>
+<div 0="" 0.539773="" 0c1.91374="" 0z\"="" 1.22676="" 1.22676c0="" 1.22676c2.45351="" 1.91374="" 2.45351="" 2.45351c0.539773="" 30="" 30\"="" class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\" d='\"M1.22676' fill="\&quot;rgba(255,255,255,0.05)\&quot;%3E%3C/path%3E%3C/svg%3E')]" height='\"30\"' opacity-40"="" viewbox='\"0' xmlns='\"http://www.w3.org/2000/svg\"%3E%3Cpath'></div>
+<div class="relative max-w-4xl mx-auto px-4 py-16">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-3 py-1 text-xs font-semibold bg-indigo-500/20 text-indigo-300 rounded-full border border-indigo-500/30">MODULE 4</span>
+<span class="px-3 py-1 text-xs font-semibold bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">INTEGRATION</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Context and Skills Orchestration
+            </h1>
+<p class="text-lg text-neutral-300 max-w-2xl">
+                Where everything connects. Combine multiple contexts, orchestrate skills by task,
+                and build complex context-based systems.
+            </p>
+<div class="grid grid-cols-3 gap-4 mt-8 max-w-lg">
+<div class="text-center"><div class="text-3xl font-bold text-white">6</div><div class="text-sm text-neutral-400">Topics</div></div>
+<div class="text-center"><div class="text-3xl font-bold text-white">100</div><div class="text-sm text-neutral-400">Minutes</div></div>
+<div class="text-center"><div class="text-3xl font-bold text-white">8</div><div class="text-sm text-neutral-400">Exercises</div></div>
+</div>
+</div>
+</section>
+<nav class="sticky top-14 z-40 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 shadow-sm">
+<div class="max-w-4xl mx-auto px-4">
+<div class="flex gap-1 overflow-x-auto py-2">
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-indigo-600 whitespace-nowrap rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20" href="#multiplos-contextos">Multiple Contexts</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-indigo-600 whitespace-nowrap rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20" href="#orquestracao-skills">Orchestration</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-indigo-600 whitespace-nowrap rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20" href="#fluxos-contexto">Flows</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-indigo-600 whitespace-nowrap rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20" href="#conflitos">Conflicts</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-indigo-600 whitespace-nowrap rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20" href="#cadeias">Chains</a>
+<a class="px-3 py-1.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-indigo-600 whitespace-nowrap rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20" href="#casos-reais">Real-World Cases</a>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-8" data-inema-module="3-4" data-inema-track="3" id="conteudo">
+<aside aria-label="This page's progress" class="inema-v2-page-tools">
+<div><div class="inema-v2-page-tools__eyebrow">Path 3 · Module 4</div><div class="inema-v2-page-tools__title">Context and Skills Orchestration</div><div class="inema-v2-page-tools__counter" data-inema-section-counter=""></div></div>
+<div aria-label="Progress: Context and Skills Orchestration" aria-valuemax="100" aria-valuemin="0" class="inema-v2-meter" data-inema-meter="modulo:3-4" role="progressbar">
+<div class="inema-v2-meter__row"><span data-inema-meter-frac="">0 of 0</span><strong data-inema-meter-pct="">0%</strong></div>
+<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+</div>
+</aside>
+<nav aria-label="Module Index" class="sr-only" data-inema-toc=""><a href="#topico-1">Topic 1</a><a href="#topico-2">Topic 2</a><a href="#topico-3">Topic 3</a><a href="#topico-4">Topic 4</a><a href="#topico-5">Topic 5</a><a href="#topico-6">Topic 6</a></nav>
+<!-- Seção 1 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="multiplos-contextos"></span><section class="scroll-mt-32" data-inema-topic="modulo-3-4#topico-1" id="topico-1"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-indigo-50 to-transparent dark:from-indigo-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center">
+<span class="text-indigo-600 dark:text-indigo-400 font-bold">1</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Combining Multiple Contexts</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-4-t1-p1">Integrating diverse sources</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl p-5">
+<h3 class="font-semibold text-indigo-900 dark:text-indigo-300 mb-4">Context Sources</h3>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+<h3 class="font-medium text-neutral-900 dark:text-white mb-2">📄 Documents</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-4-t1-p2">Manuals, policies, specifications</p>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+<h3 class="font-medium text-neutral-900 dark:text-white mb-2">💬 History</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-4-t1-p3">Previous Conversations, Preferences</p>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+<h3 class="font-medium text-neutral-900 dark:text-white mb-2">🔧 Tools Output</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-300" data-inema-block="m3-4-t1-p4">API and database results</p>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+<h3 class="font-medium text-neutral-900 dark:text-white mb-2">👤 User Profile</h3>
+<p class="text-sm text-neutral-600 dark:text-neutral-300">User data, permissions</p>
+</div>
+</div>
+</div>
+<div class="bg-neutral-50 dark:bg-neutral-700/50 rounded-xl p-5">
+<h3 class="font-semibold text-neutral-900 dark:text-white mb-3">Pattern: Context Merging</h3>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4 font-mono text-xs">
+<p class="text-indigo-600">=== MERGED CONTEXT ===</p>
+<p class="text-neutral-500 mt-2">[SOURCE: system_prompt] Priority: 1</p>
+<p class="text-neutral-600 dark:text-neutral-400">You are a support assistant...</p>
+<p class="text-neutral-500 mt-2">[SOURCE: knowledge_base] Priority: 2</p>
+<p class="text-neutral-600 dark:text-neutral-400">Refund policy: up to 30 days...</p>
+<p class="text-neutral-500 mt-2">[SOURCE: user_profile] Priority: 3</p>
+<p class="text-neutral-600 dark:text-neutral-400">Customer: Premium | History: 5 purchases...</p>
+<p class="text-neutral-500 mt-2">[SOURCE: conversation] Priority: 4</p>
+<p class="text-neutral-600 dark:text-neutral-400">Last message: "I want to return..."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 2 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="orquestracao-skills"></span><section class="scroll-mt-32" data-inema-topic="modulo-3-4#topico-2" id="topico-2"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-violet-50 to-transparent dark:from-violet-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/50 flex items-center justify-center">
+<span class="text-violet-600 dark:text-violet-400 font-bold">2</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Task-Based Skills Orchestration</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-4-t2-p1">Smart selection and combination</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800 rounded-xl p-5">
+<h3 class="font-semibold text-violet-900 dark:text-violet-300 mb-4">Skill Router Pattern</h3>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-4">
+<div class="flex flex-col items-center space-y-3">
+<div class="px-4 py-2 bg-violet-100 dark:bg-violet-900/50 rounded-lg text-sm font-medium">User Input</div>
+<svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg text-sm font-medium">Intent Classifier</div>
+<svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="flex gap-4">
+<div class="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 rounded text-xs">Skill A</div>
+<div class="px-3 py-1 bg-green-100 dark:bg-green-900/50 rounded text-xs">Skill B</div>
+<div class="px-3 py-1 bg-orange-100 dark:bg-orange-900/50 rounded text-xs">Skill C</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 3 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="fluxos-contexto"></span><section class="scroll-mt-32" data-inema-topic="modulo-3-4#topico-3" id="topico-3"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-purple-50 to-transparent dark:from-purple-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
+<span class="text-purple-600 dark:text-purple-400 font-bold">3</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Context-Based, Not Code-Based Flows</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-4-t3-p1">Declarative vs. imperative</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
+<h3 class="font-medium text-red-900 dark:text-red-300 mb-2">❌ Imperative (Code)</h3>
+<div class="text-xs font-mono text-red-800 dark:text-red-200">
+                                if intent == "refund":<br/>
+                                  check_policy()<br/>
+                                  validate_user()<br/>
+                                  process_refund()
+                            </div>
+</div>
+<div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
+<h3 class="font-medium text-green-900 dark:text-green-300 mb-2">✅ Declarative (Context)</h3>
+<div class="text-xs font-mono text-green-800 dark:text-green-200">
+                                [CONTEXT: refund_flow]<br/>
+                                Skills: policy_checker, validator<br/>
+                                Rules: premium_gets_priority<br/>
+                                Output: decision + reasoning
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 4 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="conflitos"></span><section class="scroll-mt-32" data-inema-topic="modulo-3-4#topico-4" id="topico-4"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-red-50 to-transparent dark:from-red-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/50 flex items-center justify-center">
+<span class="text-red-600 dark:text-red-400 font-bold">4</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Instruction Conflicts and Resolution</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-4-t4-p1">When skills disagree</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-5">
+<h3 class="font-semibold text-red-900 dark:text-red-300 mb-4">Resolution Strategies</h3>
+<div class="space-y-3">
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+<span class="font-medium text-neutral-900 dark:text-white">Priority Chain</span>
+<p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-4-t4-p2">The highest-priority skill wins</p>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+<span class="font-medium text-neutral-900 dark:text-white">Specificity Wins</span>
+<p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-4-t4-p3">More specific instruction takes precedence</p>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-lg p-3">
+<span class="font-medium text-neutral-900 dark:text-white">Explicit Override</span>
+<p class="text-sm text-neutral-600 dark:text-neutral-400" data-inema-block="m3-4-t4-p4">Explicit marking: [OVERRIDE: skill_x]</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 5 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="cadeias"></span><section class="scroll-mt-32" data-inema-topic="modulo-3-4#topico-5" id="topico-5"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-cyan-50 to-transparent dark:from-cyan-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-900/50 flex items-center justify-center">
+<span class="text-cyan-600 dark:text-cyan-400 font-bold">5</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Context-Based Chains</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-4-t5-p1">No-code pipelines</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-800 rounded-xl p-5">
+<h3 class="font-semibold text-cyan-900 dark:text-cyan-300 mb-4">Context Chain Pattern</h3>
+<div class="flex items-center justify-center gap-2 flex-wrap">
+<span class="px-3 py-2 bg-white dark:bg-neutral-800 rounded-lg text-sm font-medium">Input</span>
+<span class="text-cyan-500">→</span>
+<span class="px-3 py-2 bg-blue-100 dark:bg-blue-900/50 rounded-lg text-sm">Analyzer</span>
+<span class="text-cyan-500">→</span>
+<span class="px-3 py-2 bg-purple-100 dark:bg-purple-900/50 rounded-lg text-sm">Transformer</span>
+<span class="text-cyan-500">→</span>
+<span class="px-3 py-2 bg-green-100 dark:bg-green-900/50 rounded-lg text-sm">Validator</span>
+<span class="text-cyan-500">→</span>
+<span class="px-3 py-2 bg-white dark:bg-neutral-800 rounded-lg text-sm font-medium">Output</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Seção 6 -->
+<span aria-hidden="true" class="inema-anchor-alias" id="casos-reais"></span><section class="scroll-mt-32" data-inema-topic="modulo-3-4#topico-6" id="topico-6"><div class="inema-v2-topic-controls">
+<button aria-pressed="false" data-inema-read-toggle="" type="button"><span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span><span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span></button>
+<button aria-pressed="false" data-inema-doubt-toggle="" type="button"><span aria-hidden="true">?</span><span>I have a question</span></button>
+</div>
+<div class="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-700 overflow-hidden">
+<div class="p-6 border-b border-neutral-200 dark:border-neutral-700 bg-gradient-to-r from-emerald-50 to-transparent dark:from-emerald-900/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
+<span class="text-emerald-600 dark:text-emerald-400 font-bold">6</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-neutral-900 dark:text-white">Real-World Technical Cases</h2>
+<p class="text-sm text-neutral-500 dark:text-neutral-400" data-inema-block="m3-4-t6-p1">Production implementations</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
+<h3 class="font-medium text-emerald-900 dark:text-emerald-300 mb-2">🛒 E-commerce Bot</h3>
+<p class="text-sm text-emerald-800 dark:text-emerald-200" data-inema-block="m3-4-t6-p2">
+                                Skills: product_search, order_tracker, refund_processor, upseller
+                            </p>
+</div>
+<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+<h3 class="font-medium text-blue-900 dark:text-blue-300 mb-2">💻 Code Assistant</h3>
+<p class="text-sm text-blue-800 dark:text-blue-200" data-inema-block="m3-4-t6-p3">
+                                Skills: code_generator, reviewer, debugger, documenter, test_writer
+                            </p>
+</div>
+<div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-xl p-4">
+<h3 class="font-medium text-purple-900 dark:text-purple-300 mb-2">📚 Research Agent</h3>
+<p class="text-sm text-purple-800 dark:text-purple-200" data-inema-block="m3-4-t6-p4">
+                                Skills: web_searcher, summarizer, fact_checker, citation_generator
+                            </p>
+</div>
+<div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
+<h3 class="font-medium text-amber-900 dark:text-amber-300 mb-2">📊 Data Analyst</h3>
+<p class="text-sm text-amber-800 dark:text-amber-200">
+                                Skills: sql_generator, visualizer, insight_extractor, report_builder
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Download Section -->
+<div class="bg-gradient-to-r from-indigo-900/20 to-purple-900/20 border border-indigo-500/30 rounded-2xl p-6 mb-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center">
+<svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-white">Download this module</h3>
+<p class="text-sm text-neutral-400">Save for offline study</p>
+</div>
+</div>
+<div class="flex gap-3">
+<a class="flex items-center gap-2 px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../../docs/pdf/Curso_Completo_de_Engenharia_de_Prompt.pdf">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                        PDF
+                    </a>
+<a class="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white font-semibold rounded-lg transition-colors" download="" href="../../../docs/md/Curso Completo de Engenharia de Prompt.md">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                        MD
+                    </a>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-8 border-t border-neutral-200 dark:border-neutral-700">
+<a class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-indigo-600 transition-colors" href="modulo3-completo.html">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Module 3: Skill Engineering</span>
+</a>
+<a class="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-indigo-600 transition-colors" href="modulo5-completo.html">
+<span>Module 5: Modern RAG</span>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</main>
+<footer class="bg-neutral-100 dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 mt-16">
+<div class="max-w-4xl mx-auto px-4 py-8 text-center">
+<span class="text-xl font-bold text-indigo-600 dark:text-indigo-400">FEP</span>
+<span class="text-neutral-600 dark:text-neutral-400 ml-2">Prompt Engineering Fundamentals</span>
+</div>
+</footer>
+<script>
+        function toggleTheme() { document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); }
+        if (localStorage.getItem('theme') === 'light') { document.documentElement.classList.remove('dark'); }
+    </script>
+<script src="../../../assets/v2.js"></script>
+<script src="../../assets/learn.js"></script>
+<script>if(window.INEMA&&typeof window.INEMA.init==='function'){window.INEMA.init();}</script>
+</body>
+</html>
